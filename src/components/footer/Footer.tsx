@@ -39,8 +39,8 @@ const Footer = () => {
   return (
     <footer className="bg-body-bg pt-20 pb-5 lg:pb-7.5">
       <div className="container">
-        <div className="grid grid-cols-1 justify-between gap-7.5 md:grid-cols-4 md:gap-12.5 lg:gap-32">
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-2 justify-between gap-7.5 md:grid-cols-4 md:gap-12.5 lg:gap-32">
+          <div className="col-span-2 md:col-span-1 lg:col-span-2">
             <Link href="/" className="mb-10 inline-block">
               <Image src={logo} alt="BeStronger Logo" height={44} className="h-11" />
             </Link>
