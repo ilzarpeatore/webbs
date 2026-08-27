@@ -50,8 +50,8 @@ const Footer = () => {
               <p className="text-default-500 mb-5 text-lg">Sin spam. Consejos reales sobre entrenamiento, nutrición y constancia.</p>
 
               <form className="flex flex-col items-start gap-4 lg:flex-row lg:items-center">
-                <input type="email" placeholder="Tu email" required className="border-default-200 bg-default-200 text-default-900 placeholder:text-default-400 rounded-full border px-5 py-3 text-base transition-all focus:outline-none lg:w-lg!" />
-                <button type="submit" className="bg-default-900 w-full rounded-full px-8 py-3.5 font-medium whitespace-nowrap text-white transition-all hover:scale-95 md:w-auto">
+                <input type="email" placeholder="Tu email" required className="border-default-200 bg-default-200 text-default-900 placeholder:text-default-400 w-full rounded-full border px-5 py-3 text-base transition-all focus:outline-none lg:w-lg!" />
+                <button type="submit" className="bg-default-900 w-full rounded-full px-8 py-3.5 font-medium whitespace-nowrap text-white transition-all hover:scale-95 lg:w-auto">
                   Suscribirme
                 </button>
               </form>
