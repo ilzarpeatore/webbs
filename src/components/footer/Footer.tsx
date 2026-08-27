@@ -26,6 +26,7 @@ const otherLinks: FooterLink[] = [
   { label: 'La app', link: '/download', className: ' :text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
   { label: 'Preguntas frecuentes', link: '/faqs', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
   { label: 'Política de privacidad', link: '/privacy-policy', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
+  { label: 'Términos y condiciones', link: '/terms-and-conditions', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
 ]
 
 const socialLinks: SocialLink[] = [
