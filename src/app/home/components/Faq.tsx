@@ -55,11 +55,11 @@ const Faq = () => {
               <h2 className="text-default-950 text-2xl leading-normal font-medium tracking-normal md:text-4xl lg:text-5xl">Resolvemos tus dudas</h2>
             </div>
 
-            <div className="flex flex-col items-center space-y-6 rounded-2xl bg-white p-5 text-center shadow-xl shadow-zinc-200/50 md:items-start md:p-7.5 md:text-start">
+            <div className="flex flex-col items-center space-y-6 rounded-2xl bg-white p-5 text-center shadow-xl shadow-zinc-200/50 md:p-7.5">
               <div className="bg-primary-1 flex size-12.5 items-center justify-center rounded-full shadow-lg">
                 <Icon icon="lucide:headset" className="size-6 text-white" />
               </div>
-              <div className="flex flex-col items-center space-y-6 md:items-start">
+              <div className="flex flex-col items-center space-y-6">
                 <h3 className="text-default-950 mb-3.5 text-xl font-medium md:text-2xl">¿No encuentras tu respuesta?</h3>
                 <Link href="/contact" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-8.5 text-nowrap text-white shadow-xl transition-all duration-300 hover:scale-95">
                   <span className="relative inline-flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-full">
