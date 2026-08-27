@@ -23,14 +23,14 @@ const SmartAssist = () => {
               sin que tengas que contárselo
             </h3>
             <p className="text-default-500 mb-6 max-w-lg text-base leading-normal md:text-lg md:leading-relaxed">No hay chat en vivo dentro de la app: la comunicación es a través de notas en cada ejercicio, reportes de dolor, feedback tras cada sesión y check-ins configurables por tu coach.</p>
-            <div>
-              <Link href="/faqs" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-8.5 text-white shadow-xl transition-all duration-300 hover:scale-95">
+            <div className="flex justify-center md:justify-start">
+              <Link href="/faqs" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-5 text-white shadow-xl transition-all duration-300 hover:scale-95 md:px-8.5">
                 <span className="relative inline-flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-full">
-                  <span className="flex h-14 items-center gap-3">
-                    <span className="font-medium">Ver cómo se comunica tu coach</span>
+                  <span className="flex h-12 items-center gap-3 md:h-14">
+                    <span className="text-sm font-medium md:text-base">Ver cómo se comunica tu coach</span>
                   </span>
-                  <span className="absolute top-full flex h-14 items-center gap-3">
-                    <span className="font-medium">Ver cómo se comunica tu coach</span>
+                  <span className="absolute top-full flex h-12 items-center gap-3 md:h-14">
+                    <span className="text-sm font-medium md:text-base">Ver cómo se comunica tu coach</span>
                   </span>
                 </span>
               </Link>
