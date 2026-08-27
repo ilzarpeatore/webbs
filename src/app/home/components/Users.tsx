@@ -17,8 +17,8 @@ const Users = () => {
         <div className="mb-8 flex flex-col items-end justify-between gap-4 md:mb-12.5 md:flex-row md:gap-8">
           <h2 className="text-default-900 text-3xl leading-tight font-medium tracking-tight md:w-lg md:text-4xl lg:text-5xl">Lo que puedes conseguir con un coach real detrás</h2>
 
-          <div className="flex flex-col items-start justify-start space-y-2.5 text-start md:items-end md:justify-end">
-            <div className="flex items-center justify-start md:justify-end">
+          <div className="flex w-full flex-col items-center justify-center space-y-2.5 text-center md:w-auto md:items-end md:justify-end md:text-start">
+            <div className="flex items-center justify-center md:justify-end">
               <div className="flex -space-x-4">
                 <Image className="border-default-800 h-10 w-10 rounded-full border-2 object-cover" src={avatar01} alt="Cliente" />
                 <Image className="border-default-800 h-10 w-10 rounded-full border-2 object-cover" src={avatar02} alt="Cliente" />
