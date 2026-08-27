@@ -220,11 +220,11 @@ const Features = () => {
                         {habit.timeSuffix}
                       </div>
                     </div>
-                    <div className={`grow ${habit.cardBgClass} flex items-center justify-between rounded-xl p-3.5 transition-transform`}>
-                      <div className="flex items-center gap-2">
+                    <div className={`grow ${habit.cardBgClass} flex items-center justify-between gap-3 rounded-xl p-3.5 transition-transform`}>
+                      <div className="flex min-w-0 items-center gap-2">
                         {habit.isChecked ? (
                           <>
-                            <div>
+                            <div className="shrink-0">
                               <Icon icon="lucide:circle-check" className="text-primary-2 size-3.5" />
                             </div>
                             <span className="text-sm font-medium md:text-base">{habit.label}</span>
@@ -233,7 +233,7 @@ const Features = () => {
                           <span className="ms-2 text-sm font-medium md:text-base">{habit.label}</span>
                         )}
                       </div>
-                      <span className={`text-xs md:text-sm ${habit.rightTextClass}`}>{habit.rightText}</span>
+                      <span className={`shrink-0 text-end text-xs whitespace-nowrap md:text-sm ${habit.rightTextClass}`}>{habit.rightText}</span>
                     </div>
                   </div>
                 ))}
