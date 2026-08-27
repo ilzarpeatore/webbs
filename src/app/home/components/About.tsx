@@ -179,7 +179,7 @@ const About = () => {
             </p>
           </div>
 
-          <p className="text-default-700 mb-2.5 w-xs text-base leading-normal md:w-xl md:text-lg">Tu coach diseña tu plan de entrenamiento y nutrición, y la app registra lo que haces de verdad cada día — sin depender de que se lo cuentes por WhatsApp.</p>
+          <p className="text-default-700 mb-2.5 max-w-xs text-base leading-normal md:max-w-xl md:text-lg">Tu coach diseña tu plan de entrenamiento y nutrición, y la app registra lo que haces de verdad cada día — sin depender de que se lo cuentes por WhatsApp.</p>
 
           <div className="flex w-full flex-col justify-center gap-5 md:flex-row">
             <Link href="#" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-8.5 text-white shadow-xl! transition-all duration-300 hover:scale-95">

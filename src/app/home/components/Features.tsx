@@ -316,7 +316,7 @@ const Features = () => {
             <div className="relative z-10">
               <div className="max-w-xl">
                 <h3 className="mb-2.5 text-xl leading-tight font-semibold text-white md:text-2xl">Notificaciones que importan</h3>
-                <p className="text-default-300 w-sm text-lg leading-relaxed">Te avisamos cuando tu coach ajusta tu plan, te asigna una comida nueva o responde a algo que reportaste.</p>
+                <p className="text-default-300 max-w-sm text-lg leading-relaxed">Te avisamos cuando tu coach ajusta tu plan, te asigna una comida nueva o responde a algo que reportaste.</p>
               </div>
 
               <div className="relative mt-6 flex justify-center lg:mt-14">
