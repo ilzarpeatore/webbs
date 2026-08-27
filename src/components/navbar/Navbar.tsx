@@ -15,21 +15,21 @@ export type NavItem = {
 }
 
 const navItems: NavItem[] = [
-  { label: 'Features', href: '/home#features' },
-  { label: 'Usecase', href: '/home#usecase' },
-  { label: 'Metrics', href: '/home#metrics' },
-  { label: 'Smart Assist', href: '/home#smart-assist' },
+  { label: 'Entrenamiento', href: '/home#features' },
+  { label: 'Cómo funciona', href: '/home#usecase' },
+  { label: 'Progreso', href: '/home#metrics' },
+  { label: 'Tu coach', href: '/home#smart-assist' },
 ]
 
 const dropdownItems: NavItem[] = [
-  { label: 'Home', href: '/home' },
-  { label: 'About', href: '/about' },
-  { label: 'Pricing', href: '/pricing' },
-  { label: 'Contact', href: '/contact' },
-  { label: 'Waitlist', href: '/waitlist' },
-  { label: 'Download', href: '/download' },
-  { label: 'FAQs', href: '/faqs' },
-  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Inicio', href: '/home' },
+  { label: 'Sobre nosotros', href: '/about' },
+  { label: 'Planes', href: '/pricing' },
+  { label: 'Contacto', href: '/contact' },
+  { label: 'Lista de espera', href: '/waitlist' },
+  { label: 'La app', href: '/download' },
+  { label: 'Preguntas frecuentes', href: '/faqs' },
+  { label: 'Política de privacidad', href: '/privacy-policy' },
 ]
 
 const Navbar = () => {
@@ -172,7 +172,7 @@ const Navbar = () => {
                       aria-expanded="false"
                       aria-label="Dropdown"
                     >
-                      Pages
+                      Más páginas
                       <Icon icon="lucide:chevron-down" className="size-4" />
                     </button>
 
@@ -209,19 +209,14 @@ const Navbar = () => {
             <div className="hidden h-2.5 w-full transition-all duration-500 ease-in-out in-[.nav-sticky-on]:w-2.5 lg:flex"></div>
 
             <div className="flex items-center gap-1.25 rounded-[20px] bg-white p-1.5 shadow-lg lg:shadow-lg">
-              <a href="https://www.apple.com/in/app-store/" target="_blank" aria-label="App Store" className="bg-default-200 group relative flex size-8.75 items-center justify-center overflow-hidden rounded-lg transition-all duration-300 md:h-12.5 md:w-12.5 md:rounded-2xl">
+              <a href="#" aria-label="App Store (próximamente)" className="bg-default-200 group relative flex size-8.75 items-center justify-center overflow-hidden rounded-lg transition-all duration-300 md:h-12.5 md:w-12.5 md:rounded-2xl">
                 <div className="relative flex items-center justify-center overflow-hidden">
                   <Image src={appStoreIcon} alt="Icon" className="size-4.5 transition-transform duration-300 group-hover:-translate-y-6 md:size-6" />
                   <Image src={appStoreIcon} alt="Icon" className="absolute size-4.5 translate-y-6 transition-transform duration-300 group-hover:translate-y-0 md:size-6" />
                 </div>
               </a>
 
-              <a
-                href="https://play.google.com/store/games?device=windows"
-                target="_blank"
-                aria-label="App Store"
-                className="bg-default-200 group relative flex size-8.75 items-center justify-center overflow-hidden rounded-lg transition-all duration-300 md:h-12.5 md:w-12.5 md:rounded-2xl"
-              >
+              <a href="#" aria-label="Google Play (próximamente)" className="bg-default-200 group relative flex size-8.75 items-center justify-center overflow-hidden rounded-lg transition-all duration-300 md:h-12.5 md:w-12.5 md:rounded-2xl">
                 <div className="relative flex items-center justify-center overflow-hidden">
                   <Image src={playStoreIcon} alt="Icon" className="size-4.5 transition-transform duration-300 group-hover:-translate-y-6 md:size-6" />
                   <Image src={playStoreIcon} alt="Icon" className="absolute size-4.5 translate-y-6 transition-transform duration-300 group-hover:translate-y-0 md:size-6" />
@@ -270,7 +265,7 @@ const Navbar = () => {
 
           <div className="hs-accordion">
             <button type="button" className="hs-accordion-toggle group text-default-600 hover:text-primary flex items-center p-1.5 text-base font-medium transition-all" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-              Pages
+              Más páginas
               <Icon icon="tabler:chevron-down" className="ms-4" />
             </button>
 

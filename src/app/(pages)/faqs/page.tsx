@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Faq from './components/Faq'
 
 export const metadata: Metadata = {
-  title: 'Faqs',
+  title: 'Preguntas frecuentes',
 }
 
 const Page = () => {

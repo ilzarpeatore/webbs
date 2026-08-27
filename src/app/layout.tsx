@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     default: DEFAULT_PAGE_TITLE,
   },
   icons: { icon: favicon.src },
-  description: 'Habitline is a modern and fully responsive mobile app and SaaS landing page template built with Tailwind CSS 4. Perfect for AI startups, productivity apps, software products, digital platforms, and modern web applications.',
-  keywords: ['mobile app template', 'saas landing page', 'tailwind css template', 'ai startup website', 'app landing page', 'productivity app template', 'software website template', 'startup landing page', 'web app template', 'saas html template'],
-  authors: [{ name: 'Unifato' }],
+  description: 'BeStronger es un servicio de entrenamiento y nutrición online con un coach real detrás: registra cada serie, cada comida y cada hábito, y tu coach ajusta tu plan con datos objetivos.',
+  keywords: ['entrenamiento online', 'nutrición online', 'entrenador personal online', 'coach de fitness', 'app de entrenamiento', 'plan de nutrición personalizado', 'seguimiento de hábitos', 'BeStronger'],
+  authors: [{ name: 'BeStronger' }],
   robots: 'index, follow',
 }
 
@@ -38,7 +38,7 @@ type RootLayoutProps = {
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={`bg-body-bg ${googleSansFlex.variable} ${stackSansHeadline.variable}`} suppressHydrationWarning>
         <AppProvidersWrapper>{children}</AppProvidersWrapper>
       </body>

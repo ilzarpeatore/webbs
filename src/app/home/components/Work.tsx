@@ -24,51 +24,51 @@ const usecaseTabsData: UsecaseTabType[] = [
   {
     id: 'tabs-item-1',
     targetId: '#tabs-1',
-    label: 'Professionals',
-    icon: 'lucide:briefcase-business',
+    label: 'Regístrate',
+    icon: 'lucide:user-plus',
     image: stepImage01,
-    alt: 'Professionals',
-    description: 'For people balancing classes, projects, and long study sessions.',
-    statValue: '14',
-    statLabel: 'Study sessions logged each week',
+    alt: 'Registro',
+    description: 'Nombre, email y contraseña. Si tienes un código de invitación de tu coach, quedas marcado como cliente 1:1 automáticamente.',
+    statValue: '1',
+    statLabel: 'Minuto para crear tu cuenta',
     isActive: true,
   },
   {
     id: 'tabs-item-2',
     targetId: '#tabs-2',
-    label: 'Students',
-    icon: 'lucide:graduation-cap',
+    label: 'Cuestionario inicial',
+    icon: 'lucide:clipboard-list',
     image: stepImage02,
-    alt: 'Students',
-    description: 'For people juggling work, family routines, and personal goals.',
-    statValue: '12',
-    statLabel: 'Routines completed weekly',
+    alt: 'Cuestionario',
+    description: 'Respondes tus datos personales, y calculamos tu metabolismo basal y un primer plan de calorías y macros al momento.',
+    statValue: '37',
+    statLabel: 'Preguntas para conocerte',
   },
   {
     id: 'tabs-item-3',
     targetId: '#tabs-3',
-    label: 'Remote Workers',
-    icon: 'lucide:briefcase-business',
+    label: 'Tu coach diseña tu plan',
+    icon: 'lucide:dumbbell',
     image: stepImage03,
-    alt: 'Remote Workers',
-    description: 'Focus blocks, breaks, and shutdown routines help keep momentum.',
-    statValue: '40',
-    statLabel: 'Sessions completed monthly',
+    alt: 'Plan asignado',
+    description: 'Si eres cliente 1:1, tu coach te asigna tu entrenamiento y tus comidas día a día, no un catálogo genérico.',
+    statValue: '100%',
+    statLabel: 'Plan diseñado por tu coach',
   },
   {
     id: 'tabs-item-4',
     targetId: '#tabs-4',
-    label: 'Busy Parents',
-    icon: 'lucide:users',
+    label: 'Entrena y registra',
+    icon: 'lucide:line-chart',
     image: stepImage04,
-    alt: 'Professionals',
-    description: 'For anyone handling long workdays, shifting priorities, and tight deadlines.',
-    statValue: '87%',
-    statLabel: 'Weekly consistency',
+    alt: 'Seguimiento diario',
+    description: 'Cada serie, cada comida y cada hábito se registran al momento, y tu coach ve tu progreso sin que tengas que contárselo.',
+    statValue: '6',
+    statLabel: 'Informes de progreso automáticos',
   },
 ]
 
-const hashtagsData: string[] = ['#fitness enthusiasts', '#creatives', '#entrepreneurs', '#freelancers', '#new habit builders', '#deep-work lovers']
+const hashtagsData: string[] = ['#clientes 1:1', '#recomposición corporal', '#fuerza', '#pérdida de grasa', '#principiantes', '#vuelta al gimnasio']
 
 const Work = () => {
   return (
@@ -82,12 +82,12 @@ const Work = () => {
       ></div>
 
       <div className="relative z-10 container rounded-2xl bg-white object-cover p-8.5 text-center lg:mx-auto lg:p-25" style={{ backgroundImage: `url(${vector10.src})` }}>
-        <span className="border-default-200 text-default-800 mb-3.5 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Fits every lifestyle</span>
+        <span className="border-default-200 text-default-800 mb-3.5 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Así funciona por dentro</span>
 
         <h2 className="text-default-900 mb-8 text-2xl leading-[1.1] font-medium tracking-normal md:mb-12.5 md:text-4xl lg:text-5xl">
-          Adapted for the way
+          De registrarte a tener
           <br className="hidden md:block" />
-          you live and work
+          tu plan del día
         </h2>
 
         <nav className="mb-7.5 flex flex-wrap justify-center gap-2.5 md:gap-5" aria-label="Tabs" role="tablist">
@@ -126,7 +126,7 @@ const Work = () => {
         </div>
 
         <div className="mt-6 md:mt-12.5">
-          <p className="text-default-800 mb-2.5 text-sm font-medium">And for every kind of daily rhythm</p>
+          <p className="text-default-800 mb-2.5 text-sm font-medium">Pensado para cada objetivo</p>
           <div className="flex flex-wrap justify-center gap-2.5 md:gap-6.5">
             {hashtagsData.map((tag, idx) => (
               <span key={idx} className="text-default-900 text-sm font-medium transition-colors">

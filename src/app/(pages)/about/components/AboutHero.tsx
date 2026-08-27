@@ -1,4 +1,3 @@
-import { Icon } from '@iconify/react'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 
@@ -11,16 +10,7 @@ import avatar01 from '@/assets/images/team/avatar-01.webp'
 import avatar02 from '@/assets/images/team/avatar-02.webp'
 import avatar03 from '@/assets/images/team/avatar-03.webp'
 
-import client01 from '@/assets/images/client/client-01.svg'
-import client02 from '@/assets/images/client/client-02.svg'
-import client03 from '@/assets/images/client/client-03.svg'
-import client04 from '@/assets/images/client/client-04.svg'
-import client05 from '@/assets/images/client/client-05.svg'
-import client06 from '@/assets/images/client/client-06.svg'
-
 const avatarImagesData: StaticImageData[] = [avatar01, avatar02, avatar03]
-
-const clientLogosData: StaticImageData[] = [client01, client02, client03, client04, client05, client06]
 
 const AboutHero = () => {
   return (
@@ -33,18 +23,18 @@ const AboutHero = () => {
 
       <div className="relative z-10 container mx-auto mb-15 lg:mb-32">
         <div className="mb-8 max-w-md lg:mb-20 lg:max-w-xl">
-          <span className="border-default-200 text-default-800 mb-2 inline-block rounded-full border bg-white px-5 py-1 text-sm font-medium md:py-1.5 lg:mb-0">About the App</span>
+          <span className="border-default-200 text-default-800 mb-2 inline-block rounded-full border bg-white px-5 py-1 text-sm font-medium md:py-1.5 lg:mb-0">Sobre BeStronger</span>
 
-          <h1 className="text-default-900 text-4xl font-medium tracking-tight md:text-[50px] lg:text-[90px]">A simpler way to build habits</h1>
+          <h1 className="text-default-900 text-4xl font-medium tracking-tight md:text-[50px] lg:text-[90px]">Un coach real detrás de cada plan</h1>
 
           <div className="mt-2.5 flex flex-col items-start gap-5 md:mt-5 lg:mt-12 lg:flex-row lg:items-center lg:gap-7.5">
-            <Link href="" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-3.5 text-white shadow-xl! transition-all duration-300 hover:scale-95 lg:px-8.5">
+            <Link href="/contact" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-3.5 text-white shadow-xl! transition-all duration-300 hover:scale-95 lg:px-8.5">
               <div className="relative inline-flex flex-col items-center text-nowrap transition-transform duration-300 group-hover:-translate-y-full">
                 <div className="flex h-10.5 items-center gap-3 lg:h-14">
-                  <span className="text-sm font-medium lg:text-base">Download the app</span>
+                  <span className="text-sm font-medium lg:text-base">Empieza tu plan</span>
                 </div>
                 <div className="absolute top-full flex h-10.5 items-center gap-3 lg:h-14">
-                  <span className="text-sm font-medium lg:text-base">Download the app</span>
+                  <span className="text-sm font-medium lg:text-base">Empieza tu plan</span>
                 </div>
               </div>
             </Link>
@@ -54,18 +44,11 @@ const AboutHero = () => {
                 {avatarImagesData.map((avatar, idx) => (
                   <Image key={idx} className="border-default-800 size-10 rounded-full border-2  shadow-sm" src={avatar} alt="" />
                 ))}
-                <div className="border-default-800 bg-default-50 text-default-800 inline-flex size-10 items-center justify-center rounded-full border-2 text-[8px] font-bold shadow-sm">You?</div>
+                <div className="border-default-800 bg-default-50 text-default-800 inline-flex size-10 items-center justify-center rounded-full border-2 text-[8px] font-bold shadow-sm">¿Tú?</div>
               </div>
 
               <div className="flex flex-col">
-                <div className="flex gap-1.5">
-                  <Icon icon="tabler:star-filled" className="text-primary-1 size-4" />
-                  <Icon icon="tabler:star-filled" className="text-primary-1 size-4" />
-                  <Icon icon="tabler:star-filled" className="text-primary-1 size-4" />
-                  <Icon icon="tabler:star-filled" className="text-primary-1 size-4" />
-                  <Icon icon="tabler:star-filled" className="text-primary-1 size-4" />
-                </div>
-                <p className="text-default-600 text-lg font-medium text-nowrap">Trusted by worldwide</p>
+                <p className="text-default-600 text-lg font-medium text-nowrap">Sé de los primeros clientes</p>
               </div>
             </div>
           </div>
@@ -92,31 +75,6 @@ const AboutHero = () => {
         </div>
       </div>
 
-      <div className="container">
-        <div className="text-center">
-          <span className="text-default-800 mb-5 block text-base lg:mb-7.5 lg:text-xl">Trusted worldwide</span>
-        </div>
-
-        <div className="relative overflow-hidden">
-          <div className="from-body-bg pointer-events-none absolute top-0 left-0 z-10 h-full w-32 bg-gradient-to-r to-transparent"></div>
-
-          <div className="from-body-bg pointer-events-none absolute top-0 right-0 z-10 h-full w-32 bg-gradient-to-l to-transparent"></div>
-
-          <div className="animate-marquee flex gap-12.5 lg:gap-16">
-            <div className="flex items-center gap-12.5 lg:gap-16">
-              {clientLogosData.map((logo, idx) => (
-                <Image key={idx} src={logo} alt="Client Logo" className="h-6 w-auto object-contain" />
-              ))}
-            </div>
-
-            <div className="flex items-center gap-12.5 lg:gap-16">
-              {clientLogosData.map((logo, idx) => (
-                <Image key={idx} src={logo} alt="Client Logo" className="h-6 w-auto object-contain" />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
   )
 }

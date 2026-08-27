@@ -1,6 +1,4 @@
-import { Icon } from '@iconify/react'
 import Image, { StaticImageData } from 'next/image'
-import Link from 'next/link'
 
 import avatar01 from '@/assets/images/team/avatar-01.webp'
 import avatar02 from '@/assets/images/team/avatar-02.webp'
@@ -15,69 +13,59 @@ import avatar09 from '@/assets/images/team/avatar-09.webp'
 export type FeedbackItemType = {
   quote: string
   avatar: StaticImageData
-  name: string
   role: string
 }
 
 const feedbacksColumnsData: FeedbackItemType[][] = [
   [
     {
-      quote: 'Habitline made my mornings feel manageable again.',
+      quote: 'Cada serie que haces queda registrada al momento — tu coach ve tu progreso real, no lo que recuerdas contarle.',
       avatar: avatar04,
-      name: 'Maya Zong',
-      role: 'Student',
+      role: 'Entrenamiento',
     },
     {
-      quote: 'The weekly insights are what sold me. They show exactly where I fall off and help me adjust without feeling guilty or overwhelmed.',
+      quote: 'El peso y las repeticiones que te tocan hoy se ajustan solos según cómo entrenaste la última vez, con aprobación de tu coach.',
       avatar: avatar05,
-      name: 'Aaron Chope',
-      role: 'Product Designer',
+      role: 'Auto-regulación',
     },
     {
-      quote: 'I actually stick to my routines now. Small steps finally add up',
+      quote: 'Si te duele algo entrenando, repórtalo ahí mismo — tu coach se entera al momento, sin esperar a la próxima sesión.',
       avatar: avatar06,
-      name: 'Hannah Kang',
-      role: 'Nurse',
+      role: 'Reporte de dolor',
     },
   ],
   [
     {
-      quote: 'I used to ignore reminders from other apps, but these feel calm and well-timed. It’s like the app knows when I’m actually able to do something.',
+      quote: 'Tu coach te prepara opciones de comida reales para cada franja del día, y la app te dice al momento si tu combinación encaja con tu objetivo.',
       avatar: avatar07,
-      name: 'Daniel',
-      role: 'Remote Engineer',
+      role: 'Nutrición',
     },
     {
-      quote: 'Focus blocks changed the way I work. I get more done in two hours now than what used to take half a day.',
+      quote: 'No solo entrenamiento: construye las rutinas diarias que hacen que el resto funcione, con seguimiento real de tu racha.',
       avatar: avatar08,
-      name: 'Maya Zong',
-      role: 'Student',
+      role: 'Hábitos',
     },
     {
-      quote: 'The gentle reminders help me stay consistent without feeling pressured.',
+      quote: 'Tu progreso, con datos, no con sensaciones: 6 informes de estadísticas calculados automáticamente desde lo que registras.',
       avatar: avatar02,
-      name: 'Riya Patel',
-      role: 'Marketing Associate',
+      role: 'Progreso',
     },
   ],
   [
     {
-      quote: 'It’s the first habit app that doesn’t overwhelm me.',
+      quote: 'Si no puedes entrenar un día, reorganiza tu semana arrastrando el entrenamiento a otro día — se aplica al instante.',
       avatar: avatar09,
-      name: 'Sofia',
-      role: 'Fitness Enthusiast',
+      role: 'Calendario',
     },
     {
-      quote: 'Habitline keeps me grounded. Even on hectic days.',
+      quote: 'Notas del coach en cada ejercicio, check-ins configurables y feedback tras cada sesión — sin chat en vivo, pero sin dejarte solo.',
       avatar: avatar01,
-      name: 'Arjun Mehta',
-      role: 'Software Developer',
+      role: 'Acompañamiento',
     },
     {
-      quote: 'I’ve finally stopped procrastinating. Habitline helped me break my goals into steps I can manage. I complete tasks in half the time I used to.',
+      quote: 'Comparte tu entrenamiento con una tarjeta diseñada para redes, con tus kilos totales y tu mapa de músculos trabajados.',
       avatar: avatar03,
-      name: 'Meera Shah',
-      role: 'Content Writer',
+      role: 'Comunidad',
     },
   ],
 ]
@@ -95,18 +83,11 @@ const Feedback = () => {
                     <p className="text-default-800 mb-3.5 text-sm leading-snug font-medium md:mb-7.5 md:text-lg">{item.quote}</p>
                     <div className="flex items-center justify-between">
                       <div className="items-center gap-2.5 md:flex">
-                        <Image src={item.avatar} className="size-7.5 rounded-full object-cover md:size-12" alt={item.name} />
+                        <Image src={item.avatar} className="size-7.5 rounded-full object-cover md:size-12" alt="" />
                         <div className="mt-1.25 md:mt-0">
-                          <h3 className="text-default-900 text-sm leading-none font-medium md:text-lg">{item.name}</h3>
                           <p className="text-default-500 mt-1 text-xs md:text-sm">{item.role}</p>
                         </div>
                       </div>
-                      <Link href="" target="_blank" className="group inline-flex size-5.5 items-center justify-center overflow-hidden rounded-full bg-white md:size-10">
-                        <span className="relative size-4 overflow-hidden">
-                          <Icon icon="tabler:brand-x-filled" className="text-default-800 absolute inset-0 size-4 h-full w-full transition-transform duration-300 group-hover:-translate-y-[200%]" />
-                          <Icon icon="tabler:brand-x-filled" className="text-default-800 absolute inset-0 size-4 h-full w-full translate-y-[200%] transition-transform duration-300 group-hover:translate-y-0" />
-                        </span>
-                      </Link>
                     </div>
                   </div>
                 ))}

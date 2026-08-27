@@ -43,43 +43,42 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4" ref={videoRef}>
         <div className="flex flex-col items-center text-center">
           <div className="mb-4.5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 p-1.5 pe-2 backdrop-blur-md lg:w-70">
-            <span className="rounded-full bg-black px-2 py-px text-base font-medium text-white">New</span>
-            <span className="text-sm text-white">A calmer way to build habits</span>
+            <span className="rounded-full bg-black px-2 py-px text-base font-medium text-white">Nuevo</span>
+            <span className="text-sm text-white">Entrenamiento y nutrición con coach real</span>
           </div>
 
           <h1 className="mb-5 text-4xl leading-tight font-medium tracking-tight text-white md:text-5xl lg:mb-7.5 lg:text-[90px]">
-            Build habits that&nbsp;
+            Entrena y come con&nbsp;
             <br className="hidden lg:block" />
-            actually stick
+            seguimiento de verdad
           </h1>
 
-          <p className="mb-6 max-w-sm text-lg leading-normal text-white md:text-xl lg:mb-10">You see the right habits at the right time, so your day never feels crowded.</p>
+          <p className="mb-6 max-w-sm text-lg leading-normal text-white md:text-xl lg:mb-10">Cada serie, cada comida y cada hábito quedan registrados al momento, para que tu coach vea tu progreso real.</p>
 
           <div className="flex items-center justify-center gap-2 md:gap-5">
             <Link href="/contact" className="group relative overflow-hidden rounded-full bg-white px-3.5 py-3 text-sm font-medium text-black transition-all duration-300 hover:scale-95 md:px-8.5 md:py-4 md:text-lg">
               <span className="relative block overflow-hidden">
-                <span className="block transition-transform duration-300 group-hover:-translate-y-full">Start Tracking Free</span>
-                <span className="absolute top-full left-0 block transition-transform duration-300 group-hover:-translate-y-full">Start Tracking Free</span>
+                <span className="block transition-transform duration-300 group-hover:-translate-y-full">Empieza tu plan</span>
+                <span className="absolute top-full left-0 block transition-transform duration-300 group-hover:-translate-y-full">Empieza tu plan</span>
               </span>
             </Link>
 
-            <a
-              href="https://www.youtube.com/embed/elgqxmdVms8?si=yYfzbunShGP15tde"
-              data-toggle="video"
+            <Link
+              href="/home#usecase"
               className="group relative overflow-hidden rounded-full border border-white/20 bg-white/5 px-3.5 py-3 text-sm text-white backdrop-blur-md transition-all duration-300 hover:scale-95 hover:bg-white/10 md:px-8.5 md:py-4 md:text-lg"
             >
               <div className="relative flex items-center gap-3 overflow-hidden">
                 <div className="flex items-center gap-3 transition-transform duration-300 group-hover:-translate-y-full">
                   <Icon icon="tabler:player-play-filled" className="size-4 text-white md:size-6" />
-                  <span className="font-medium">Watch Demo</span>
+                  <span className="font-medium">Ver cómo funciona</span>
                 </div>
 
                 <div className="absolute top-full left-0 flex items-center gap-3 transition-transform duration-300 group-hover:-translate-y-full">
                   <Icon icon="tabler:player-play-filled" className="size-4 text-white md:size-6" />
-                  <span className="font-medium">Watch Demo</span>
+                  <span className="font-medium">Ver cómo funciona</span>
                 </div>
               </div>
-            </a>
+            </Link>
           </div>
 
           <div className="relative mt-6 flex w-full max-w-5xl items-start justify-center gap-8 md:mt-16 md:gap-5 lg:mt-20 lg:gap-10">

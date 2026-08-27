@@ -4,10 +4,9 @@ import Download from './components/Download'
 import Mission from './components/Mission'
 import Purpose from './components/Purpose'
 import Stats from './components/Stats'
-import Team from './components/Team'
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'Sobre nosotros',
 }
 
 const Page = () => {
@@ -17,7 +16,6 @@ const Page = () => {
       <Mission />
       <Purpose />
       <Stats />
-      <Team />
       <Download />
     </>
   )

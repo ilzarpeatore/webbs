@@ -53,17 +53,17 @@ const aboutImages: AboutImage[] = [
   { image: about04, animationClass: 'animate-imageSwap4' },
 ]
 
-const hashtags: string[] = ['#Founders', '#Students', '#BusyParents', '#RemoteTeams']
+const hashtags: string[] = ['#EntrenamientoPersonalizado', '#NutriciónReal', '#CoachHumano', '#DatosObjetivos']
 
 const marqueeItems: MarqueeItem[] = [
-  { bgColorClass: 'bg-primary-8', icon: icon11, iconInvert: false, label: 'Phone off by 10:30', image: marquee01 },
-  { bgColorClass: 'bg-primary-1', icon: icon12, iconInvert: true, label: 'Morning walk', image: marquee02 },
-  { bgColorClass: 'bg-primary-2', icon: icon13, iconInvert: true, label: 'Focus session', image: marquee03 },
-  { bgColorClass: 'bg-primary-3', icon: icon14, iconInvert: true, label: 'Stretch for 5 minutes', image: marquee04 },
-  { bgColorClass: 'bg-primary-7', icon: icon15, iconInvert: true, label: 'Clean workspace', image: marquee05 },
-  { bgColorClass: 'bg-primary-6', icon: icon16, iconInvert: true, label: 'Meditate', image: marquee06 },
-  { bgColorClass: 'bg-primary-5', icon: icon17, iconInvert: true, label: 'Track water', image: marquee07 },
-  { bgColorClass: 'bg-primary-4', icon: icon18, iconInvert: true, label: 'Write journal', image: marquee08 },
+  { bgColorClass: 'bg-primary-8', icon: icon11, iconInvert: false, label: 'Entrena 4 días/semana', image: marquee01 },
+  { bgColorClass: 'bg-primary-1', icon: icon12, iconInvert: true, label: 'Registra cada serie', image: marquee02 },
+  { bgColorClass: 'bg-primary-2', icon: icon13, iconInvert: true, label: 'Chequeo diario', image: marquee03 },
+  { bgColorClass: 'bg-primary-3', icon: icon14, iconInvert: true, label: 'Comidas asignadas', image: marquee04 },
+  { bgColorClass: 'bg-primary-7', icon: icon15, iconInvert: true, label: 'Bebe agua', image: marquee05 },
+  { bgColorClass: 'bg-primary-6', icon: icon16, iconInvert: true, label: 'Duerme mejor', image: marquee06 },
+  { bgColorClass: 'bg-primary-5', icon: icon17, iconInvert: true, label: 'Mantén tu racha', image: marquee07 },
+  { bgColorClass: 'bg-primary-4', icon: icon18, iconInvert: true, label: 'Reporta tu dolor', image: marquee08 },
 ]
 
 const About = () => {
@@ -72,22 +72,22 @@ const About = () => {
       <div className="container">
         <div className="md:mb-15">
           <h2 className="mx-auto mb-10 max-w-5xl text-center text-3xl leading-tight font-medium tracking-tight text-black md:text-5xl">
-            Build steady daily{' '}
+            Entrenar sin{' '}
             <span className="relative inline-flex h-6.5 w-12.5 overflow-hidden rounded-full align-middle md:h-11 md:w-22.5">
               {aboutImages.map((img, idx) => (
                 <Image key={idx} src={img.image} className={`absolute inset-0 h-full w-full object-cover ${img.animationClass}`} alt="" />
               ))}
             </span>{' '}
-            habits with a layout
+            seguimiento real
             <br className="hidden lg:block" />
-            that keeps your mornings, evenings,&nbsp;
+            es entrenar a ciegas. Por eso hay un&nbsp;
             <span className="mx-1 inline-flex align-middle">
               <Image src={icon19} alt="Icon" className="size-7.5 md:size-15" />
             </span>{' '}
-            and focus hours simple to follow.
+            coach real detrás de cada plan.
           </h2>
 
-          <p className="text-default-500 mb-3.5 text-base font-medium md:text-xl lg:text-2xl">Used by people to improve their routines.</p>
+          <p className="text-default-500 mb-3.5 text-base font-medium md:text-xl lg:text-2xl">Una app que registra tu esfuerzo, no una tabla que rellenas sola.</p>
 
           <div className="flex flex-wrap justify-center gap-3.5">
             {hashtags.map((tag, idx) => (
@@ -173,37 +173,37 @@ const About = () => {
 
         <div className="mx-auto mt-4 flex flex-col items-center gap-y-5 px-6 md:mt-12">
           <div className="border-default-200 flex items-center gap-2 rounded-full border bg-white px-2.5 py-2 md:px-5">
-            <Icon icon="tabler:star-filled" className="text-primary-1 size-3.5" />
+            <Icon icon="tabler:shield-check" className="text-primary-1 size-3.5" />
             <p className="text-default-500 text-sm font-medium">
-              <span className="font-medium text-black">4.7 rating</span> (based on 125 reviews)
+              <span className="font-medium text-black">Un coach real</span> revisa tus datos, no un algoritmo sin supervisión
             </p>
           </div>
 
-          <p className="text-default-700 mb-2.5 w-xs text-base leading-normal md:w-xl md:text-lg">Stay consistent with a system that fits into real life. Simple cards, clear routines, and gentle nudges help you build progress that lasts.</p>
+          <p className="text-default-700 mb-2.5 w-xs text-base leading-normal md:w-xl md:text-lg">Tu coach diseña tu plan de entrenamiento y nutrición, y la app registra lo que haces de verdad cada día — sin depender de que se lo cuentes por WhatsApp.</p>
 
           <div className="flex w-full flex-col justify-center gap-5 md:flex-row">
-            <Link href="" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-8.5 text-white shadow-xl! transition-all duration-300 hover:scale-95">
+            <Link href="#" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-8.5 text-white shadow-xl! transition-all duration-300 hover:scale-95">
               <div className="relative inline-flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-full">
                 <div className="flex h-14 items-center gap-3">
                   <Image src={appStoreLightIcon} className="h-5 w-5" alt="" />
-                  <span className="font-normal">Download for iPhone</span>
+                  <span className="font-normal">Próximamente en iPhone</span>
                 </div>
                 <div className="absolute top-full flex h-14 items-center gap-3">
                   <Image src={appStoreLightIcon} className="h-5 w-5" alt="" />
-                  <span className="font-normal">Download for iPhone</span>
+                  <span className="font-normal">Próximamente en iPhone</span>
                 </div>
               </div>
             </Link>
 
-            <Link href="" className="group bg-default-200 relative inline-flex items-center justify-center overflow-hidden rounded-full px-8.5 text-black transition-all duration-300 hover:scale-95">
+            <Link href="#" className="group bg-default-200 relative inline-flex items-center justify-center overflow-hidden rounded-full px-8.5 text-black transition-all duration-300 hover:scale-95">
               <div className="relative flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-full">
                 <div className="flex h-14 items-center gap-2.5">
                   <Image src={playStoreIcon} className="h-5 w-5" alt="" />
-                  <span className="font-normal">Get it on Android</span>
+                  <span className="font-normal">Próximamente en Android</span>
                 </div>
                 <div className="absolute top-full flex h-14 items-center gap-2.5">
                   <Image src={playStoreIcon} className="h-5 w-5" alt="" />
-                  <span className="font-normal">Get it on Android</span>
+                  <span className="font-normal">Próximamente en Android</span>
                 </div>
               </div>
             </Link>

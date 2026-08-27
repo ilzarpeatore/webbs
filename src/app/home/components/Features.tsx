@@ -55,13 +55,13 @@ export type ReflectionStat = {
 }
 
 const streakRules: StreakRule[] = [
-  { bgColorClass: 'bg-primary-1', icon: icon42, label: 'Travel Mode Active' },
-  { bgColorClass: 'bg-primary-6', icon: icon43, label: 'Sick Day Allowance' },
-  { bgColorClass: 'bg-primary-8', icon: icon44, label: 'Weekend Flexibility' },
-  { bgColorClass: 'bg-primary-2', icon: icon12, label: 'Morning walk' },
-  { bgColorClass: 'bg-primary-3', icon: icon13, label: 'Focus session' },
-  { bgColorClass: 'bg-primary-4', icon: icon16, label: 'Meditate' },
-  { bgColorClass: 'bg-primary-7', icon: icon17, label: 'Track water' },
+  { bgColorClass: 'bg-primary-1', icon: icon42, label: 'Beber 2L de agua' },
+  { bgColorClass: 'bg-primary-6', icon: icon43, label: 'Dormir 7-8 horas' },
+  { bgColorClass: 'bg-primary-8', icon: icon44, label: '10.000 pasos' },
+  { bgColorClass: 'bg-primary-2', icon: icon12, label: 'Proteína en cada comida' },
+  { bgColorClass: 'bg-primary-3', icon: icon13, label: 'Movilidad diaria' },
+  { bgColorClass: 'bg-primary-4', icon: icon16, label: 'Pesarte en ayunas' },
+  { bgColorClass: 'bg-primary-7', icon: icon17, label: 'Estirar 5 minutos' },
 ]
 
 const plannedHabits: PlannedHabit[] = [
@@ -70,8 +70,8 @@ const plannedHabits: PlannedHabit[] = [
     timeSuffix: 'AM',
     cardBgClass: 'bg-primary-2/30 border border-primary-2/20',
     isChecked: true,
-    label: 'Morning walk',
-    rightText: '15 minutes',
+    label: 'Chequeo de preparación',
+    rightText: 'Hecho',
     rightTextClass: 'text-default-200',
   },
   {
@@ -79,18 +79,18 @@ const plannedHabits: PlannedHabit[] = [
     timeSuffix: 'AM',
     cardBgClass: 'bg-primary-2/30 border border-primary-2/20',
     isChecked: true,
-    label: 'Drink 3 glasses of water',
-    rightText: 'Before 11:00 AM',
+    label: 'Desayuno asignado por tu coach',
+    rightText: '320 kcal',
     rightTextClass: 'text-default-200',
   },
   {
-    time: '08:15',
+    time: '06:00',
     timeSuffix: 'PM',
     timeTextClass: 'text-white',
     cardBgClass: 'bg-default-900 border border-default-700',
     isChecked: false,
-    label: 'Read 10 pages',
-    rightText: 'Evening focus block',
+    label: 'Sesión de piernas',
+    rightText: 'Pendiente hoy',
     rightTextClass: 'text-white',
   },
   {
@@ -99,8 +99,8 @@ const plannedHabits: PlannedHabit[] = [
     timeTextClass: 'text-white',
     cardBgClass: 'bg-default-900 border border-default-700',
     isChecked: false,
-    label: 'Stretch routine',
-    rightText: '5 minutes',
+    label: 'Hábito: 10.000 pasos',
+    rightText: '6.200 / 10.000',
     rightTextClass: 'text-white',
   },
 ]
@@ -108,27 +108,27 @@ const plannedHabits: PlannedHabit[] = [
 const reflectionMetrics: ReflectionMetric[] = [
   {
     icon: icon46,
-    alt: 'Workout',
+    alt: 'Series completadas',
     imgClass: 'size-20',
     value: '86',
     percentClass: 'text-lg',
-    label: 'Workout',
+    label: 'Series completadas',
   },
   {
     icon: icon47,
-    alt: 'Meditation',
+    alt: 'Cumplimiento del plan',
     imgClass: 'md:size-30 size-20',
     value: '100',
     percentClass: 'text-xl',
-    label: 'Meditation',
+    label: 'Cumplimiento del plan',
   },
   {
     icon: icon48,
-    alt: 'Reading',
+    alt: 'Objetivo nutricional',
     imgClass: 'size-20',
     value: '71',
     percentClass: 'text-lg',
-    label: 'Reading',
+    label: 'Objetivo nutricional',
   },
 ]
 
@@ -136,18 +136,18 @@ const reflectionStats: ReflectionStat[] = [
   {
     title: (
       <>
-        Streaks
+        Récords
         <br />
-        Completed
+        personales
       </>
     ),
-    value: '12',
-    footer: '3 streaks improved',
+    value: '3',
+    footer: 'Nuevas mejores marcas este mes',
   },
   {
-    title: 'focused sessions',
-    value: '7',
-    footer: 'Total time: 4h 20m',
+    title: 'sesiones completadas',
+    value: '12',
+    footer: 'Volumen total: 12.400 kg',
   },
 ]
 
@@ -158,20 +158,20 @@ const Features = () => {
         <div className="mb-12.5 grid grid-cols-1 items-center gap-3.5 md:grid-cols-2 lg:gap-8">
           <div>
             <div className="mb-3.5 inline-flex">
-              <span className="border-default-200 text-default-800 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Habits with structure</span>
+              <span className="border-default-200 text-default-800 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Entrenamiento con estructura real</span>
             </div>
-            <h2 className="text-3xl leading-tight font-medium md:text-4xl lg:w-lg lg:text-5xl">A layout that keeps your day clear.</h2>
+            <h2 className="text-3xl leading-tight font-medium md:text-4xl lg:w-lg lg:text-5xl">Cada serie que haces queda registrada al momento.</h2>
           </div>
           <div>
-            <p className="text-default-600 float-end text-lg leading-normal lg:w-md">Habitline brings clarity to your routines with clean cards, realistic progress tracking, and guidance that adapts to your day.</p>
+            <p className="text-default-600 float-end text-lg leading-normal lg:w-md">Tu coach ve tu progreso real, no lo que recuerdas contarle: series, cargas, RIR/RPE y hábitos, todo en un solo lugar.</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 gap-7.5 lg:grid-cols-2">
           <div className="bg-default-200 overflow-hidden rounded-3xl">
             <div className="px-3.5 py-3.5 md:px-5 md:py-5 lg:px-10 lg:pt-10 lg:pb-12.5">
-              <h3 className="text-default-800 mb-2.5 text-xl font-semibold md:text-2xl">Flexible Streak Rules</h3>
-              <p className="text-default-600 max-w-md text-lg">Traditional habit trackers are too rigid. Miss one day and your 50-day streak is gone forever.</p>
+              <h3 className="text-default-800 mb-2.5 text-xl font-semibold md:text-2xl">Hábitos con objetivo numérico</h3>
+              <p className="text-default-600 max-w-md text-lg">No es solo hecho o no hecho: si tu objetivo es beber 2L de agua, el círculo semanal se rellena según el % real que consigues cada día.</p>
             </div>
 
             <div className="relative mb-7.5 overflow-hidden">
@@ -194,19 +194,19 @@ const Features = () => {
 
           <div className="flex flex-col gap-y-5 rounded-3xl p-3.5 md:p-5 lg:gap-y-12.5 lg:p-10" style={{ backgroundImage: `url(${featureBg1.src})` }}>
             <div>
-              <h3 className="mb-2.5 text-xl font-semibold text-white md:text-2xl">Smart Daily Planner</h3>
-              <p className="text-lg text-gray-400 lg:w-md">A simple view that shows only the habits that match your current time of day.</p>
+              <h3 className="mb-2.5 text-xl font-semibold text-white md:text-2xl">Tu plan de hoy, en un vistazo</h3>
+              <p className="text-lg text-gray-400 lg:w-md">Entrenamiento, comidas asignadas por tu coach y hábitos, resumidos en una sola pantalla.</p>
             </div>
 
             <div className="w-full rounded-3xl border border-white/30 bg-transparent text-white backdrop-blur-xl lg:max-w-xl">
               <div className="mb-7.5 flex items-start justify-between border-b border-white/30 p-5">
                 <div>
-                  <h2 className="text-lg font-medium tracking-normal text-white">Good Morning!</h2>
-                  <p className="text-default-400 text-sm">Tuesday, 25 Nov</p>
+                  <h2 className="text-lg font-medium tracking-normal text-white">¡Buenos días!</h2>
+                  <p className="text-default-400 text-sm">Martes, 25 nov</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="border-default-800 rounded-full border bg-black/60 px-3 py-1 text-sm font-bold">15%</span>
-                  <span className="text-default-300 text-sm font-medium">Completion</span>
+                  <span className="text-default-300 text-sm font-medium">Completado</span>
                 </div>
               </div>
 
@@ -247,16 +247,16 @@ const Features = () => {
               <div className="relative z-10 grid grid-cols-1 items-center md:gap-10 gap-6 md:grid-cols-2">
                 <div className="flex h-full flex-col justify-between">
                   <div className="lg:max-w-md">
-                    <h3 className="md:text-2xl text-xl font-semibold leading-tight text-white mb-2.5">Routine Stacks</h3>
-                    <p className="md:text-lg text-base leading-relaxed text-default-400 md:mb-7.5 mb-5">Group habits into simple blocks so your day feels organized instead of scattered.</p>
+                    <h3 className="md:text-2xl text-xl font-semibold leading-tight text-white mb-2.5">Auto-regulación de carga</h3>
+                    <p className="md:text-lg text-base leading-relaxed text-default-400 md:mb-7.5 mb-5">El peso y las repeticiones que te tocan hoy se ajustan solos según cómo entrenaste la última vez.</p>
                     <Link href="/contact" className="group inline-flex relative overflow-hidden rounded-full bg-white md:px-8.5 px-3.5 py-3 md:py-3 md:text-lg text-sm font-medium text-black transition-all duration-300 hover:scale-95">
                       <span className="relative block overflow-hidden">
-                        <span className="block transition-transform duration-300 group-hover:-translate-y-full">Start your routine now</span>
-                        <span className="absolute left-0 top-full block transition-transform duration-300 group-hover:-translate-y-full">Start your routine now</span>
+                        <span className="block transition-transform duration-300 group-hover:-translate-y-full">Empieza tu plan</span>
+                        <span className="absolute left-0 top-full block transition-transform duration-300 group-hover:-translate-y-full">Empieza tu plan</span>
                       </span>
                     </Link>
                   </div>
-                  <p className="md:mt-14 mt-5 text-sm text-default-500">*Simple blocks help you stay on track without thinking.</p>
+                  <p className="md:mt-14 mt-5 text-sm text-default-500">*Las sugerencias siempre quedan pendientes de aprobación de tu coach antes de convertirse en tu objetivo real.</p>
                 </div>
 
                 <div className="relative flex items-end justify-center lg:justify-end">
@@ -272,12 +272,12 @@ const Features = () => {
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/80"></div>
             <div className="relative z-10">
               <div className="mb-6 max-w-2xl md:mb-12.5">
-                <h3 className="md:text-2xl text-xl font-semibold leading-tight text-white mb-2.5">Weekly Reflection</h3>
-                <p className="md:text-lg text-base leading-relaxed text-default-300 md:w-sm">A clear div of your week that highlights what improved and what needs adjusting.</p>
+                <h3 className="md:text-2xl text-xl font-semibold leading-tight text-white mb-2.5">Resumen mensual</h3>
+                <p className="md:text-lg text-base leading-relaxed text-default-300 md:w-sm">KPIs del mes frente al anterior: volumen, récords batidos y cambios por grupo muscular.</p>
               </div>
 
               <div className="mx-auto max-w-5xl rounded-3xl bg-black/85 p-7.5 backdrop-blur-xl">
-                <h4 className="text-center md:text-lg text-base font-semibold text-white">Your Week At A Glance</h4>
+                <h4 className="text-center md:text-lg text-base font-semibold text-white">Tu mes de un vistazo</h4>
 
                 <div className="mt-7.5 grid grid-cols-2 gap-7.5 text-center md:grid-cols-3">
                   {reflectionMetrics.map((metric, idx) => (
@@ -315,8 +315,8 @@ const Features = () => {
             <div className="bg-primary/10 absolute top-1/2 left-1/2 size-125 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"></div>
             <div className="relative z-10">
               <div className="max-w-xl">
-                <h3 className="mb-2.5 text-xl leading-tight font-semibold text-white md:text-2xl">Gentle Reminders</h3>
-                <p className="text-default-300 w-sm text-lg leading-relaxed">Short, calm nudges that help you stay consistent without pushing too hard.</p>
+                <h3 className="mb-2.5 text-xl leading-tight font-semibold text-white md:text-2xl">Notificaciones que importan</h3>
+                <p className="text-default-300 w-sm text-lg leading-relaxed">Te avisamos cuando tu coach ajusta tu plan, te asigna una comida nueva o responde a algo que reportaste.</p>
               </div>
 
               <div className="relative mt-6 flex justify-center lg:mt-14">

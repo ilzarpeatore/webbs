@@ -11,14 +11,14 @@ const reachUsData: ReachUsCardType[] = [
   {
     icon: 'lucide:headset',
     iconBgClass: 'bg-primary-3',
-    title: 'Support Email',
-    email: 'support@habitline.app',
+    title: 'Soporte',
+    email: 'contacto@bestronger.es',
   },
   {
     icon: 'lucide:handshake',
     iconBgClass: 'bg-primary-8',
-    title: 'Business / Partnerships',
-    email: 'hello@habitline.app',
+    title: 'Negocio / colaboraciones',
+    email: 'contacto@bestronger.es',
   },
 ]
 
@@ -27,7 +27,7 @@ const ReachUs = () => {
     <section className="py-20 md:py-25 lg:py-50">
       <div className="container">
         <div className="mb-8 text-center md:mb-12.5">
-          <h3 className="text-4xl font-medium lg:text-5xl">Reach us directly</h3>
+          <h3 className="text-4xl font-medium lg:text-5xl">Escríbenos directamente</h3>
         </div>
 
         <div className="mx-auto grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-7.5 lg:w-3xl">

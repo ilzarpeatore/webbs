@@ -10,24 +10,24 @@ type ContactFaqType = {
 
 const contactFaqData: ContactFaqType[] = [
   {
-    question: 'How many habits can I track?',
-    answer: 'You can track unlimited habits, giving you complete freedom to create and organize.',
+    question: '¿Cómo funciona el servicio?',
+    answer: 'Te registras, respondes un cuestionario inicial, y accedes a tu plan de entrenamiento y nutrición dentro de la app, donde registras tu progreso día a día.',
   },
   {
-    question: 'Do reminders work across all devices?',
-    answer: 'Yes. Your reminders sync automatically and trigger on any device where Habitline is installed.',
+    question: '¿Puedo hablar con mi coach en cualquier momento?',
+    answer: 'No hay chat en vivo dentro de la app. La comunicación funciona a través de notas en cada ejercicio, reportes de dolor, feedback tras cada entrenamiento y check-ins configurables por tu coach.',
   },
   {
-    question: 'What happens if I miss a day?',
-    answer: 'If you miss a day, nothing drastic happens your progress is still saved, and you can pick up right where you left off.',
+    question: '¿Qué pasa si tengo dolor entrenando?',
+    answer: 'Puedes reportarlo al momento desde la propia sesión, indicando tipo, zona e intensidad; según la gravedad, tu coach recibe una notificación automática.',
   },
   {
-    question: 'Can I create routines for different times of day?',
-    answer: 'Yes, you can create routines for different times of the day. Organize your habits into morning.',
+    question: '¿La app funciona con mi reloj o pulsera?',
+    answer: 'En Android, parcialmente sí (a través de Health Connect). En iOS todavía no está disponible.',
   },
   {
-    question: 'Is Habitline free to use?',
-    answer: 'Habitline is free to use with essential features available at no cost. You can track habits, create routines.',
+    question: '¿Cómo se paga el servicio?',
+    answer: 'El pago se realiza en la web, no dentro de la app. Una vez confirmado, tu acceso se activa automáticamente.',
   },
 ]
 
@@ -42,9 +42,9 @@ const ContactFaq = () => {
     <section className="md:pb-25 lg:pb-50">
       <div className="container">
         <div className="mb-8 space-y-3.5 text-center md:mb-12.5">
-          <span className="border-default-200 text-default-800 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Common Questions</span>
+          <span className="border-default-200 text-default-800 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Preguntas frecuentes</span>
 
-          <h3 className="text-2xl font-medium md:text-4xl lg:text-5xl">Frequently Asked Questions</h3>
+          <h3 className="text-2xl font-medium md:text-4xl lg:text-5xl">Preguntas frecuentes</h3>
         </div>
 
         <div className="hs-accordion-group mx-auto space-y-2.5 lg:w-3xl">

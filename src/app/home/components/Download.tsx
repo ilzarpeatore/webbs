@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import appStoreLight from '@/assets/images/icons/app-store-light.svg'
-import icon39 from '@/assets/images/icons/icon-39.svg'
 import playStore from '@/assets/images/icons/play-store.svg'
 import cloud01 from '@/assets/images/locations/cloud-01.webp'
 import cloud04 from '@/assets/images/locations/cloud-04.webp'
@@ -14,33 +13,33 @@ const Download = () => {
       <div className="relative z-10 container">
         <div className="grid grid-cols-1 items-center gap-7.5 md:grid-cols-3 md:gap-0">
           <div className="order-1 flex flex-col items-center text-center md:me-10 md:text-left lg:items-start">
-            <h3 className="text-default-900 text-2xl font-medium tracking-tight lg:text-4xl">Build better habits with less effort</h3>
+            <h3 className="text-default-900 text-2xl font-medium tracking-tight lg:text-4xl">Empieza tu plan hoy mismo</h3>
 
-            <p className="text-default-600 mt-2.5 text-lg lg:mt-5">Track what matters, stay organized, and improve at your own pace.</p>
+            <p className="text-default-600 mt-2.5 text-lg lg:mt-5">Regístrate en bestronger.es y tu coach empieza a diseñar tu plan. La app llegará muy pronto a iOS y Android.</p>
 
             <div className="relative z-40 mt-3.5 flex flex-col gap-4 lg:mt-8">
-              <Link href="" className="group relative inline-flex overflow-hidden rounded-full bg-black px-3.5 text-white shadow-xl transition-all duration-300 hover:scale-95 lg:px-8.5">
+              <Link href="#" className="group relative inline-flex overflow-hidden rounded-full bg-black px-3.5 text-white shadow-xl transition-all duration-300 hover:scale-95 lg:px-8.5">
                 <span className="relative flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-full">
                   <span className="flex h-14 items-center gap-3">
                     <Image src={appStoreLight} className="size-5" alt="" />
-                    <span className="text-sm lg:text-base">Download for iPhone</span>
+                    <span className="text-sm lg:text-base">Próximamente en iPhone</span>
                   </span>
                   <span className="absolute top-full flex h-14 items-center gap-3">
                     <Image src={appStoreLight} className="size-5" alt="" />
-                    <span className="text-sm lg:text-base">Download for iPhone</span>
+                    <span className="text-sm lg:text-base">Próximamente en iPhone</span>
                   </span>
                 </span>
               </Link>
 
-              <Link href="" className="group bg-default-200 relative inline-flex overflow-hidden rounded-full px-3.5 text-black transition-all duration-300 hover:scale-95 lg:px-8.5">
+              <Link href="#" className="group bg-default-200 relative inline-flex overflow-hidden rounded-full px-3.5 text-black transition-all duration-300 hover:scale-95 lg:px-8.5">
                 <span className="relative flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-full">
                   <span className="flex h-14 items-center gap-2.5">
                     <Image src={playStore} className="size-5" alt="" />
-                    <span className="text-sm lg:text-base">Get it on Android</span>
+                    <span className="text-sm lg:text-base">Próximamente en Android</span>
                   </span>
                   <span className="absolute top-full flex h-14 items-center gap-2.5">
                     <Image src={playStore} className="size-5" alt="" />
-                    <span className="text-sm lg:text-base">Get it on Android</span>
+                    <span className="text-sm lg:text-base">Próximamente en Android</span>
                   </span>
                 </span>
               </Link>
@@ -48,18 +47,19 @@ const Download = () => {
           </div>
 
           <div className="order-3 flex justify-center md:order-2">
-            <Image src={mobileImage} alt="App Dashboard" className="relative z-10 w-full md:h-80 md:max-w-56 lg:h-156 lg:max-w-114" />
+            <Image src={mobileImage} alt="App BeStronger" className="relative z-10 w-full md:h-80 md:max-w-56 lg:h-156 lg:max-w-114" />
           </div>
 
           <div className="order-2 flex flex-col items-center md:order-3 md:ms-10 lg:items-end">
             <div className="text-center md:text-start lg:max-w-xl">
-              <h3 className="text-default-900 mb-5 text-2xl font-medium tracking-tight lg:text-4xl">Scan the QR code to download the app</h3>
+              <h3 className="text-default-900 mb-5 text-2xl font-medium tracking-tight lg:text-4xl">Únete a la lista de espera de la app</h3>
 
-              <div className="relative z-30 inline-block rounded-2xl bg-white p-2 shadow-2xl">
-                <div className="bg-default-200 flex items-center justify-center rounded-2xl p-2">
-                  <Image src={icon39} alt="QR Code" className="size-36 lg:size-46" />
-                </div>
-              </div>
+              <Link href="/waitlist" className="group relative inline-flex overflow-hidden rounded-full bg-default-200 px-8.5 text-black transition-all duration-300 hover:scale-95">
+                <span className="relative flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-full">
+                  <span className="flex h-14 items-center gap-3 font-medium">Avísame cuando esté lista</span>
+                  <span className="absolute top-full flex h-14 items-center gap-3 font-medium">Avísame cuando esté lista</span>
+                </span>
+              </Link>
             </div>
           </div>
         </div>

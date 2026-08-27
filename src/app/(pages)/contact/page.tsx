@@ -4,7 +4,7 @@ import ContactForm from './components/ContactForm'
 import ReachUs from './components/ReachUs'
 
 export const metadata: Metadata = {
-  title: 'Contact',
+  title: 'Contacto',
 }
 
 const Page = () => {

@@ -10,24 +10,24 @@ type FaqItemType = {
 
 const pricingFaqData: FaqItemType[] = [
   {
-    question: 'Is there a free plan?',
-    answer: 'Yes, Habitline offers a free plan with essential features so you can start building habits without any cost.',
+    question: '¿Qué diferencia hay entre los planes?',
+    answer: 'Ninguna en funcionalidad: los 4 planes incluyen el mismo servicio de entrenamiento y nutrición con tu coach. La única diferencia es la duración del compromiso y el precio equivalente por mes.',
   },
   {
-    question: 'What’s included in the Pro plan?',
-    answer: 'The Pro plan includes advanced insights, focus tools, custom reminders, and detailed progress reports.',
+    question: '¿Cómo se paga el servicio?',
+    answer: 'El pago se realiza en la web (bestronger.es), no dentro de la app, por políticas de Apple y Google. Una vez confirmado, tu acceso se activa automáticamente.',
   },
   {
-    question: 'How does yearly billing work?',
-    answer: 'Yearly billing offers the same features as monthly plans at a discounted price, helping you save more over time.',
+    question: '¿Puedo cambiar de plan más adelante?',
+    answer: 'Contacta con nosotros y lo revisamos juntos — no hay un flujo automático en la app para cambiar de plan hoy.',
   },
   {
-    question: 'Is my payment information secure?',
-    answer: 'Absolutely. All payments are processed through secure, encrypted payment gateways.',
+    question: '¿Puedo cancelar cuando quiera?',
+    answer: 'Depende de las condiciones de cada plan. Escríbenos a contacto@bestronger.es y te lo confirmamos según tu caso.',
   },
   {
-    question: 'Is Habitline free to use?',
-    answer: 'Habitline is free to use with essential features available at no cost. You can track habits, create routines..',
+    question: '¿El precio incluye la app?',
+    answer: 'Sí, el acceso a la app forma parte del servicio. La app para iOS y Android estará disponible muy pronto.',
   },
 ]
 
@@ -42,9 +42,9 @@ const PricingFaq = () => {
     <section className="md:pb-25 lg:pb-50">
       <div className="container">
         <div className="mb-8 space-y-3.5 text-center md:mb-12.5">
-          <span className="border-default-200 text-default-800 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Common Questions</span>
+          <span className="border-default-200 text-default-800 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Preguntas frecuentes</span>
 
-          <h3 className="text-2xl font-medium md:text-4xl lg:text-5xl">Frequently Asked Questions</h3>
+          <h3 className="text-2xl font-medium md:text-4xl lg:text-5xl">Sobre los planes y el pago</h3>
         </div>
 
         <div className="hs-accordion-group mx-auto space-y-2.5 lg:w-3xl">

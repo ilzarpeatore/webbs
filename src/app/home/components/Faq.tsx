@@ -13,28 +13,28 @@ type AccordionItemType = {
 const faqItemsData: AccordionItemType[] = [
   {
     id: 'hs-collapse-one',
-    question: 'How many habits can I track?',
-    answer: 'You can track unlimited habits, giving you complete freedom to create and organize.',
+    question: '¿Puedo hablar con mi coach en cualquier momento?',
+    answer: 'No hay chat en vivo dentro de la app. La comunicación funciona a través de notas en cada ejercicio, reportes de dolor, feedback tras cada entrenamiento y check-ins configurables por tu coach.',
   },
   {
     id: 'hs-collapse-two',
-    question: 'Do reminders work across all devices?',
-    answer: 'Yes. Your reminders sync automatically and trigger on any device where Habitline is installed.',
+    question: '¿El entrenamiento se ajusta automáticamente?',
+    answer: 'El sistema calcula sugerencias de carga y repeticiones según tu rendimiento pasado, pero siempre quedan pendientes de que tu coach las apruebe — no cambia tu plan sin supervisión.',
   },
   {
     id: 'hs-collapse-three',
-    question: 'What happens if I miss a day?',
-    answer: 'If you miss a day, nothing drastic happens your progress is still saved, and you can pick up right where you left off.',
+    question: '¿Qué pasa si tengo dolor entrenando?',
+    answer: 'Puedes reportarlo al momento desde la propia sesión, indicando tipo, zona e intensidad; según la gravedad, tu coach recibe una notificación automática.',
   },
   {
     id: 'hs-collapse-four',
-    question: 'Can I create routines for different times of day?',
-    answer: 'Yes, you can create routines for different times of the day. Organize your habits into morning, afternoon, or evening blocks.',
+    question: '¿Y si no puedo entrenar un día concreto?',
+    answer: 'Puedes reorganizar tu semana arrastrando el entrenamiento a otro día (se aplica al instante), o marcar el día como no disponible para que tu coach lo revise.',
   },
   {
     id: 'hs-collapse-five',
-    question: 'Is Habitline free to use?',
-    answer: 'Habitline is free to use with essential features available at no cost. You can track habits, create routines, and set basic reminders.',
+    question: '¿Cómo se paga el servicio?',
+    answer: 'El pago se realiza en la web, no dentro de la app. Una vez confirmado, tu acceso se activa automáticamente.',
   },
 ]
 
@@ -51,8 +51,8 @@ const Faq = () => {
         <div className="grid grid-cols-1 items-start gap-7.5 md:grid-cols-3 lg:grid-cols-12 lg:gap-25">
           <div className="col-span-1 space-y-10 lg:col-span-5 lg:space-y-20">
             <div className="space-y-4">
-              <span className="border-default-200 text-default-800 mb-2.5 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Common Questions</span>
-              <h2 className="text-default-950 text-2xl leading-normal font-medium tracking-normal md:text-4xl lg:text-5xl">Frequently asked questions</h2>
+              <span className="border-default-200 text-default-800 mb-2.5 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Preguntas frecuentes</span>
+              <h2 className="text-default-950 text-2xl leading-normal font-medium tracking-normal md:text-4xl lg:text-5xl">Resolvemos tus dudas</h2>
             </div>
 
             <div className="space-y-6 rounded-2xl bg-white p-5 shadow-xl shadow-zinc-200/50 md:p-7.5">
@@ -60,14 +60,14 @@ const Faq = () => {
                 <Icon icon="lucide:headset" className="size-6 text-white" />
               </div>
               <div className="space-y-6">
-                <h3 className="text-default-950 mb-3.5 text-xl font-medium md:text-2xl">Can't find your answer?</h3>
-                <Link href="" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-8.5 text-nowrap text-white shadow-xl transition-all duration-300 hover:scale-95">
+                <h3 className="text-default-950 mb-3.5 text-xl font-medium md:text-2xl">¿No encuentras tu respuesta?</h3>
+                <Link href="/contact" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-8.5 text-nowrap text-white shadow-xl transition-all duration-300 hover:scale-95">
                   <span className="relative inline-flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-full">
                     <span className="flex h-14 items-center gap-3">
-                      <span className="font-medium">Contact us</span>
+                      <span className="font-medium">Contáctanos</span>
                     </span>
                     <span className="absolute top-full flex h-14 items-center gap-3">
-                      <span className="font-medium">Contact us</span>
+                      <span className="font-medium">Contáctanos</span>
                     </span>
                   </span>
                 </Link>

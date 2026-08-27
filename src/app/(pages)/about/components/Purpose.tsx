@@ -9,7 +9,7 @@ import dashboard04 from '@/assets/images/workspace/dashboard-04.svg'
 import dashboard05 from '@/assets/images/workspace/dashboard-05.svg'
 import dashboard06 from '@/assets/images/workspace/dashboard-06.svg'
 
-const purposePointsData: string[] = ['Real life is unpredictable', 'Progress shouldn’t feel overwhelming', 'Motivation isn’t enough']
+const purposePointsData: string[] = ['Una tabla en PDF no se adapta a cómo te sientes hoy', 'Sin datos objetivos, el coach depende de que se lo cuentes', 'La motivación no sustituye al seguimiento real']
 
 const Purpose = () => {
   return (
@@ -33,11 +33,11 @@ const Purpose = () => {
           </div>
 
           <div className="space-y-3.5 lg:space-y-5">
-            <span className="border-default-200 text-default-800 inline-block rounded-full border bg-white px-5 py-1 text-sm font-medium md:py-1.5">Why Habitline Exists</span>
+            <span className="border-default-200 text-default-800 inline-block rounded-full border bg-white px-5 py-1 text-sm font-medium md:py-1.5">Por qué existe BeStronger</span>
 
-            <h2 className="text-default-900 mb-3.5 text-2xl leading-tight font-medium tracking-tight md:text-4xl lg:text-[50px]">Building habits shouldn’t feel overwhelming</h2>
+            <h2 className="text-default-900 mb-3.5 text-2xl leading-tight font-medium tracking-tight md:text-4xl lg:text-[50px]">El seguimiento no debería depender de tu memoria</h2>
 
-            <p className="text-default-600 mb-3.75 leading-tight md:mb-6 lg:w-md lg:text-lg">Most tools expect perfect streaks, fixed schedules, and unlimited motivation. But real life isn’t that consistent. Days get busy. Plans shift. People forget.</p>
+            <p className="text-default-600 mb-3.75 leading-tight md:mb-6 lg:w-md lg:text-lg">Cada serie, cada síntoma de dolor, cada check-in diario y cada hábito cumplido queda registrado con fecha y hora, visible para tu coach sin depender de que se lo cuentes por WhatsApp.</p>
 
             <div className="mb-5 space-y-2 lg:mb-12.5">
               {purposePointsData.map((point, idx) => (
@@ -51,13 +51,13 @@ const Purpose = () => {
               ))}
             </div>
 
-            <Link href="" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-3.5 text-white shadow-xl! transition-all duration-300 hover:scale-95 md:px-8.5">
+            <Link href="/home#features" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-3.5 text-white shadow-xl! transition-all duration-300 hover:scale-95 md:px-8.5">
               <div className="relative inline-flex flex-col items-center text-nowrap transition-transform duration-300 group-hover:-translate-y-full">
                 <div className="flex h-10.5 items-center gap-3 md:h-14">
-                  <span className="text-sm font-medium md:text-base">Open the features</span>
+                  <span className="text-sm font-medium md:text-base">Ver las funciones</span>
                 </div>
                 <div className="absolute top-full flex h-10.5 items-center gap-3 md:h-14">
-                  <span className="text-sm font-medium md:text-base">Open the features</span>
+                  <span className="text-sm font-medium md:text-base">Ver las funciones</span>
                 </div>
               </div>
             </Link>

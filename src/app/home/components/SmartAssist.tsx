@@ -16,21 +16,21 @@ const SmartAssist = () => {
       <div className="container">
         <div className="mb-20 grid grid-cols-1 items-center gap-7.5 md:grid-cols-2">
           <div>
-            <span className="border-default-200 text-default-800 mb-2.5 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Smarter habits, less thinking</span>
+            <span className="border-default-200 text-default-800 mb-2.5 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Acompañamiento real, sin chat en vivo</span>
             <h3 className="text-default-900 mb-2.5 text-3xl leading-tight font-medium tracking-tight md:text-4xl lg:text-5xl">
-              AI suggestions that
+              Tu coach ve tu esfuerzo
               <br className="hidden md:block" />
-              adjust to your day
+              sin que tengas que contárselo
             </h3>
-            <p className="text-default-500 mb-6 max-w-lg text-base leading-normal md:text-lg md:leading-relaxed">Habitline learns your patterns and offers small, useful suggestions that help you stay consistent without guessing what to do next.</p>
+            <p className="text-default-500 mb-6 max-w-lg text-base leading-normal md:text-lg md:leading-relaxed">No hay chat en vivo dentro de la app: la comunicación es a través de notas en cada ejercicio, reportes de dolor, feedback tras cada sesión y check-ins configurables por tu coach.</p>
             <div>
-              <Link href="" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-8.5 text-white shadow-xl transition-all duration-300 hover:scale-95">
+              <Link href="/faqs" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-8.5 text-white shadow-xl transition-all duration-300 hover:scale-95">
                 <span className="relative inline-flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-full">
                   <span className="flex h-14 items-center gap-3">
-                    <span className="font-medium">See how suggestions work</span>
+                    <span className="font-medium">Ver cómo se comunica tu coach</span>
                   </span>
                   <span className="absolute top-full flex h-14 items-center gap-3">
-                    <span className="font-medium">See how suggestions work</span>
+                    <span className="font-medium">Ver cómo se comunica tu coach</span>
                   </span>
                 </span>
               </Link>
@@ -56,7 +56,7 @@ const SmartAssist = () => {
 
             <div className="animate-pulse-slow absolute bottom-20 left-40 z-30 hidden lg:block">
               <div>
-                <Image src={icon30} alt="AI Icon" className="size-18 rounded-2xl shadow-inner" />
+                <Image src={icon30} alt="Icono de coach" className="size-18 rounded-2xl shadow-inner" />
               </div>
             </div>
 
@@ -70,8 +70,8 @@ const SmartAssist = () => {
               <Icon icon="lucide:bell-dot" className="text-xl text-white" />
             </div>
             <div>
-              <h4 className="text-default-900 mb-2.5 text-xl font-medium md:text-2xl">Reminder Timing</h4>
-              <p className="text-default-700 text-sm leading-normal md:text-lg">Suggests the best time to remind you.</p>
+              <h4 className="text-default-900 mb-2.5 text-xl font-medium md:text-2xl">Notas en cada ejercicio</h4>
+              <p className="text-default-700 text-sm leading-normal md:text-lg">Tu coach deja indicaciones directamente donde las vas a ver, justo antes de entrenar.</p>
             </div>
           </div>
 
@@ -80,8 +80,8 @@ const SmartAssist = () => {
               <Image src={icon32} alt="" />
             </div>
             <div>
-              <h4 className="text-default-900 mb-2.5 text-xl font-medium md:text-2xl">Habit Priorities</h4>
-              <p className="text-default-700 text-sm leading-normal md:text-lg">Reorders habits on busy days.</p>
+              <h4 className="text-default-900 mb-2.5 text-xl font-medium md:text-2xl">Reporte de dolor</h4>
+              <p className="text-default-700 text-sm leading-normal md:text-lg">Según la gravedad, tu coach recibe una notificación automática al momento.</p>
             </div>
           </div>
 
@@ -90,8 +90,8 @@ const SmartAssist = () => {
               <Icon icon="lucide:eye" className="text-xl text-white" />
             </div>
             <div>
-              <h4 className="text-default-900 mb-2.5 text-xl font-medium md:text-2xl">Routine Insights</h4>
-              <p className="text-default-700 text-sm leading-normal md:text-lg">Highlights what’s working and what’s slipping.</p>
+              <h4 className="text-default-900 mb-2.5 text-xl font-medium md:text-2xl">Check-ins configurables</h4>
+              <p className="text-default-700 text-sm leading-normal md:text-lg">Tu coach configura revisiones periódicas para entender cómo vas de verdad.</p>
             </div>
           </div>
 
@@ -100,8 +100,8 @@ const SmartAssist = () => {
               <Icon icon="lucide:lightbulb" className="text-xl text-white" />
             </div>
             <div>
-              <h4 className="text-default-900 mb-2.5 text-xl font-medium md:text-[21px]">Recovery suggestion</h4>
-              <p className="text-default-700 text-sm leading-normal md:text-lg">Helps you recover when you miss a day.</p>
+              <h4 className="text-default-900 mb-2.5 text-xl font-medium md:text-[21px]">Chequeo diario</h4>
+              <p className="text-default-700 text-sm leading-normal md:text-lg">Sueño, energía, estrés y agujetas, para que tu coach ajuste tu entrenamiento a cómo llegas de verdad.</p>
             </div>
           </div>
         </div>

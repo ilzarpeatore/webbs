@@ -12,22 +12,22 @@ const Stats = () => {
     <section className="relative overflow-hidden pb-20 md:pb-25 lg:pb-46">
       <div className="container">
         <div className="mb-2 text-center">
-          <span className="border-default-200 text-default-800 mb-3.5 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Real habits, real numbers</span>
+          <span className="border-default-200 text-default-800 mb-3.5 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Datos objetivos, no sensaciones</span>
           <h2 className="text-default-900 text-3xl font-medium md:text-4xl lg:text-5xl">
-            How people stay
+            Tu progreso, medido
             <br />
-            consistent over time
+            de verdad
           </h2>
         </div>
 
         <div className="relative z-20 mb-7.5 flex flex-col items-center justify-center">
           <div className="relative items-center md:inline-flex">
             <h3 className="text-primary-1 ms-8 text-4xl leading-none font-black tracking-normal md:ms-0 md:text-[100px] lg:text-[120px]">
-              62,000 <span className="ms-1">+</span>
+              6 <span className="ms-1">informes</span>
             </h3>
 
             <div className="-inset-e-12 mt-1 rounded-2xl bg-white px-2 py-2 whitespace-nowrap shadow-xl md:absolute md:top-20 md:-right-20 md:rotate-8 md:px-5">
-              <p className="text-default-800 text-xs font-bold md:text-sm">Check-ins logged last month</p>
+              <p className="text-default-800 text-xs font-bold md:text-sm">de estadísticas de entrenamiento</p>
             </div>
           </div>
         </div>
@@ -49,23 +49,22 @@ const Stats = () => {
           <div className="z-40 mx-auto -mt-50 grid grid-cols-2 items-start gap-6 text-center md:-mt-60 md:w-3xl md:grid-cols-3 lg:-mt-0 lg:gap-17.5">
             <div className="flex flex-col items-center">
               <div className="flex items-baseline gap-1">
-                <h3 className="text-default-900 text-3xl font-medium tracking-normal md:text-5xl lg:text-7xl">87</h3>
+                <h3 className="text-default-900 text-3xl font-medium tracking-normal md:text-5xl lg:text-7xl">100</h3>
                 <span className="text-primary-6 text-3xl font-medium md:text-5xl lg:text-6xl">%</span>
               </div>
-              <p className="text-default-800 mt-2 text-sm leading-tight font-semibold md:text-lg">Faster AI execution</p>
+              <p className="text-default-800 mt-2 text-sm leading-tight font-semibold md:text-lg">de tus series se guarda al momento, no al final</p>
             </div>
 
             <div className="flex flex-col items-center">
-              <h3 className="text-default-900 text-3xl font-medium tracking-normal md:text-5xl lg:text-7xl">46</h3>
-              <p className="text-default-800 mt-2 text-sm leading-tight font-semibold md:text-lg">Sessions completed on average</p>
+              <h3 className="text-default-900 text-3xl font-medium tracking-normal md:text-5xl lg:text-7xl">37</h3>
+              <p className="text-default-800 mt-2 text-sm leading-tight font-semibold md:text-lg">Preguntas en tu cuestionario inicial</p>
             </div>
 
             <div className="col-span-2 flex flex-col items-center md:col-span-1">
               <div className="flex items-baseline gap-1">
-                <h3 className="text-default-900 text-3xl font-medium tracking-normal md:text-5xl lg:text-7xl">32</h3>
-                <span className="text-primary-3 text-3xl font-medium md:text-5xl lg:text-6xl">+</span>
+                <h3 className="text-default-900 text-3xl font-medium tracking-normal md:text-5xl lg:text-7xl">0</h3>
               </div>
-              <p className="text-default-800 mt-2 text-sm leading-tight font-semibold md:text-lg">Countries with active Habitline users</p>
+              <p className="text-default-800 mt-2 text-sm leading-tight font-semibold md:text-lg">Chat en vivo — todo el seguimiento es asíncrono y queda registrado</p>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
+  title: 'Política de privacidad',
 }
 
 const Page = () => {
@@ -10,59 +10,70 @@ const Page = () => {
       <section className="pt-34 md:pt-42 md:pb-10 lg:pt-50">
         <div className="container">
           <div className="space-y-5 text-center">
-            <h3 className="text-4xl font-medium md:text-5xl lg:text-[90px]">Privacy Policy</h3>
-            <div className="text-sm md:text-lg">Last updated: 10 Jan 2026</div>
+            <h3 className="text-4xl font-medium md:text-5xl lg:text-[90px]">Política de privacidad</h3>
+            <div className="text-sm md:text-lg">Última actualización: 27 ago 2026</div>
           </div>
 
           <div className="py-12 md:py-18 lg:py-25">
             <div className="mx-auto max-w-4xl">
               <div className="text-default-800 space-y-5 md:space-y-10">
                 <div>
-                  <h2 className="text-default-900 mb-2.5 text-xl font-medium md:text-2xl lg:text-4xl">Collecting Personal Information</h2>
+                  <h2 className="text-default-900 mb-2.5 text-xl font-medium md:text-2xl lg:text-4xl">Qué información recogemos</h2>
 
                   <p className="text-default-600 text-base leading-normal md:text-lg md:leading-relaxed">
-                    Habitline collects limited personal information to provide a smooth, personalized habit-tracking experience. This includes details you share when creating an account and data generated while using the app. We collect only what is necessary to improve
-                    functionality, insights, and overall usability.
+                    BeStronger recoge la información necesaria para ofrecerte un servicio de entrenamiento y nutrición personalizado, con seguimiento por parte de tu coach. Esto incluye los datos que nos das al registrarte y los datos que se generan al usar la app.
                   </p>
                 </div>
 
                 <ul className="text-default-600 marker:text-default-600 list-disc space-y-2.5 ps-6 lg:space-y-4">
-                  <li>Account details such as name and email address</li>
+                  <li>Datos de cuenta: nombre, email y contraseña</li>
 
-                  <li>Habits, routines, streaks, and completion activity</li>
+                  <li>Datos personales y de salud del cuestionario inicial: sexo, edad, altura, peso, y respuestas relacionadas con tu condición física</li>
 
-                  <li>App usage data to improve performance and features</li>
+                  <li>Actividad de entrenamiento: series, cargas, repeticiones, RIR/RPE, dolor reportado y feedback</li>
 
-                  <li>Device and technical information for stability and security</li>
+                  <li>Actividad de nutrición: comidas registradas, calorías y macros</li>
+
+                  <li>Hábitos, rachas y chequeos diarios de preparación</li>
+
+                  <li>Datos técnicos y de uso de la app para su correcto funcionamiento</li>
                 </ul>
 
-                <p className="text-default-600 text-base leading-normal md:text-lg md:leading-relaxed">We use this information solely to operate and enhance Habitline. Your data is never collected for unnecessary or unrelated purposes.</p>
+                <p className="text-default-600 text-base leading-normal md:text-lg md:leading-relaxed">
+                  Usamos esta información para que tu coach pueda diseñar y ajustar tu plan, y para que la app funcione correctamente. No recogemos datos para fines ajenos al servicio.
+                </p>
 
                 <div>
-                  <h3 className="text-default-900 mb-2.5 text-xl font-semibold md:text-2xl lg:text-4xl">Sharing Personal Information</h3>
+                  <h3 className="text-default-900 mb-2.5 text-xl font-semibold md:text-2xl lg:text-4xl">Con quién compartimos tu información</h3>
 
                   <p className="text-default-600 text-base leading-relaxed md:text-lg">
-                    Data is shared strictly when necessary to operate the platform responsibly and securely—such as with trusted service providers who help with hosting, analytics, or customer support. These partners are required to follow strict confidentiality and security
-                    standards. We may also disclose information when required by law or to protect the safety, rights, and integrity of our users and the Habitline platform. Outside of these limited and essential situations, your personal data remains private and fully under your
-                    control.
+                    Tu coach accede a tus datos de entrenamiento, nutrición y salud para diseñar y ajustar tu plan — es parte esencial del servicio. Compartimos datos con proveedores de confianza que nos ayudan con el alojamiento y la infraestructura técnica, siempre bajo
+                    acuerdos de confidencialidad. También podemos compartir información cuando la ley lo exija, o para proteger la seguridad de nuestros usuarios y de la plataforma.
                   </p>
                 </div>
 
-                <p className="text-default-600 text-base leading-normal md:text-lg md:leading-relaxed">Habitline respects your privacy and does not sell or misuse your personal data. Information is shared only when required to operate the service responsibly and securely.</p>
+                <p className="text-default-600 text-base leading-normal md:text-lg md:leading-relaxed">No vendemos tu información personal a terceros bajo ninguna circunstancia.</p>
 
                 <ol className="text-default-600 marker:text-default-600 list-decimal space-y-4 ps-6 marker:font-semibold">
-                  <li>With trusted service providers for hosting, analytics, and customer support</li>
+                  <li>Con tu coach, para diseñar y ajustar tu plan</li>
 
-                  <li>To comply with legal requirements or lawful requests</li>
+                  <li>Con proveedores de alojamiento e infraestructura técnica</li>
 
-                  <li>To protect the rights, safety, or security of users and the platform</li>
+                  <li>Para cumplir con obligaciones legales</li>
 
-                  <li>During business operations such as service improvements or maintenance</li>
+                  <li>Para proteger la seguridad de los usuarios y de la plataforma</li>
                 </ol>
 
-                <p className="text-default-600 text-base leading-normal md:text-lg md:leading-relaxed">
-                  All shared data is handled securely and only for purposes aligned with Habitline’s core services. We continuously review our practices to ensure your information remains protected and confidential.
-                </p>
+                <div>
+                  <h3 className="text-default-900 mb-2.5 text-xl font-semibold md:text-2xl lg:text-4xl">Tus derechos</h3>
+                  <p className="text-default-600 text-base leading-relaxed md:text-lg">
+                    Puedes solicitar acceder, rectificar o eliminar tus datos personales escribiendo a{' '}
+                    <a href="mailto:contacto@bestronger.es" className="text-default-900 underline underline-offset-4">
+                      contacto@bestronger.es
+                    </a>
+                    .
+                  </p>
+                </div>
               </div>
             </div>
           </div>

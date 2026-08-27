@@ -14,26 +14,26 @@ type MissionItemType = {
 
 const missionData: MissionItemType[] = [
   {
-    title: 'Keep it simple',
-    description: 'A clear list, helpful reminders, and easy tracking.',
+    title: 'Datos, no sensaciones',
+    description: 'Cada serie, cada comida y cada hábito quedan registrados al momento.',
     bgClass: 'bg-primary-3',
     image: icon50,
   },
   {
-    title: 'Adapt to real life',
-    description: 'Adapts to your changing day so routines stay realistic.',
+    title: 'Un humano decide',
+    description: 'El sistema propone ajustes de carga, pero siempre los aprueba tu coach.',
     bgClass: 'bg-primary-7',
     image: icon51,
   },
   {
-    title: 'Focus on small wins',
-    description: 'Focuses on small, doable actions that build real habits.',
+    title: 'Sin sobreprometer',
+    description: 'Solo comunicamos lo que la app hace de verdad hoy, no lo que hará algún día.',
     bgClass: 'bg-primary-6',
     icon: 'lucide:eye',
   },
   {
-    title: 'Support, not pressure',
-    description: 'Encourages consistency with gentle, supportive nudges.',
+    title: 'Acompañamiento real',
+    description: 'Notas, reportes de dolor y check-ins — sin chat en vivo, pero sin dejarte solo.',
     bgClass: 'bg-primary-2',
     icon: 'lucide:lightbulb',
   },
@@ -44,9 +44,9 @@ const Mission = () => {
     <section>
       <div className="container">
         <div className="lg:max-w-4xl">
-          <h2 className="text-default-900 mb-3.75 text-2xl leading-tight font-medium tracking-tight lg:mb-5 lg:text-4xl">Most habit tools focus on streaks, pressure, and unrealistic expectations. Our mission is to create a system that works with real human behavior.</h2>
+          <h2 className="text-default-900 mb-3.75 text-2xl leading-tight font-medium tracking-tight lg:mb-5 lg:text-4xl">Entrenar sin seguimiento real es entrenar a ciegas. Nuestra misión es que cada plan tenga un coach real revisando datos objetivos, no una tabla genérica.</h2>
           <p className="text-default-800 max-w-2xl leading-relaxed lg:text-lg">
-            Your habits shift as your day shifts, and the app supports those changes instead of punishing them. We focus on small wins, gentle nudges, and simple structure so people can stay consistent even when life gets messy.
+            Sustituimos la combinación habitual de PDF de rutina, grupo de WhatsApp y hoja de cálculo de comidas por una única app donde registras lo que haces en tiempo real, y tu coach ve tu histórico completo sin tener que preguntarte.
           </p>
         </div>
 

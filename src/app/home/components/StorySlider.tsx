@@ -25,7 +25,6 @@ export type StorySlideType = {
   avatar: StaticImageData
   name: string
   role: string
-  youtubeUrl: string
 }
 
 const storySlidesData: StorySlideType[] = [
@@ -34,45 +33,40 @@ const storySlidesData: StorySlideType[] = [
     poster: poster01,
     bgGradientClass: 'absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40',
     avatar: avatar09,
-    name: 'Marcus Reed',
-    role: 'Fitness Instructor',
-    youtubeUrl: 'https://www.youtube.com/embed/elgqxmdVms8?si=yYfzbunShGP15tde',
+    name: 'Sesión de entrenamiento',
+    role: 'Series, cargas y RIR/RPE en vivo',
   },
   {
     videoSrc: '/assets/videos/story-slider-02.mp4',
     poster: poster02,
     bgGradientClass: 'absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent',
     avatar: avatar08,
-    name: 'Aisha Khan',
-    role: 'Digital Marketer',
-    youtubeUrl: 'https://www.youtube.com/embed/elgqxmdVms8?si=yYfzbunShGP15tde',
+    name: 'Plan de nutrición',
+    role: 'Comidas asignadas por tu coach',
   },
   {
     videoSrc: '/assets/videos/story-slider-03.mp4',
     poster: poster03,
     bgGradientClass: 'absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent',
     avatar: avatar07,
-    name: 'Daniel',
-    role: 'Remote Engineer',
-    youtubeUrl: 'https://www.youtube.com/embed/elgqxmdVms8?si=yYfzbunShGP15tde',
+    name: 'Hábitos y rachas',
+    role: 'Objetivos numéricos reales',
   },
   {
     videoSrc: '/assets/videos/story-slider-04.mp4',
     poster: poster01,
     bgGradientClass: 'absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent',
     avatar: avatar04,
-    name: 'Olivia Park',
-    role: 'Project Manager',
-    youtubeUrl: 'https://www.youtube.com/embed/elgqxmdVms8?si=yYfzbunShGP15tde',
+    name: 'Progreso y estadísticas',
+    role: '6 informes de entrenamiento',
   },
   {
     videoSrc: '/assets/videos/story-slider-05.mp4',
     poster: poster02,
     bgGradientClass: 'absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent',
     avatar: avatar05,
-    name: 'Ryan Cooper',
-    role: 'Software Developer',
-    youtubeUrl: 'https://www.youtube.com/embed/elgqxmdVms8?si=yYfzbunShGP15tde',
+    name: 'Chequeo diario',
+    role: 'Sueño, energía y estrés',
   },
 ]
 
@@ -104,27 +98,13 @@ const StorySlider = () => {
     <section className="relative overflow-hidden pb-25 text-white">
       <div className="container" ref={lgRef}>
         <div className="mx-auto mb-8 text-center md:mb-12.5">
-          <span className="inline-block px-5 py-1.5 text-sm font-medium bg-white border border-default-200 text-default-800 rounded-full mb-2.5">A closer look</span>
+          <span className="inline-block px-5 py-1.5 text-sm font-medium bg-white border border-default-200 text-default-800 rounded-full mb-2.5">Así se ve por dentro</span>
 
           <h2 className="lg:text-5xl md:text-4xl text-2xl font-semibold tracking-normal mb-2.5">
-            How people use
+            Cómo se ve BeStronger
             <br />
-            Habitline every day
+            en el día a día
           </h2>
-
-          <div className="mt-5 inline-flex flex-wrap items-center justify-center gap-2 rounded-full text-sm md:gap-2.5">
-            <span className="text-lg font-semibold text-default-800">4.5/5.0</span>
-
-            <div className="flex items-center gap-2">
-              <Icon icon="tabler:star-filled" className="size-4 text-primary-1" />
-              <Icon icon="tabler:star-filled" className="size-4 text-primary-1" />
-              <Icon icon="tabler:star-filled" className="size-4 text-primary-1" />
-              <Icon icon="tabler:star-filled" className="size-4 text-primary-1" />
-              <Icon icon="tabler:star-filled" className="size-4 text-primary-1" />
-            </div>
-
-            <span className="md:text-lg text-base text-default-600">(Trusted by 1582+ users)</span>
-          </div>
         </div>
 
         <div className="relative">
@@ -166,14 +146,6 @@ const StorySlider = () => {
                       </div>
                     </div>
 
-                    <div className="absolute right-5 bottom-5 z-20">
-                      <a href={slide.youtubeUrl} data-toggle="video" className="flex items-center gap-2 rounded-sm bg-white/20 px-2 py-1 text-default-950 backdrop-blur-md transition duration-300 hover:bg-white/30">
-                        <span className="flex items-center justify-center">
-                          <Icon icon="tabler:player-play-filled" className="size-3.5" />
-                        </span>
-                        <span className="text-sm font-medium">Play</span>
-                      </a>
-                    </div>
                   </div>
                 </SwiperSlide>
               ))}

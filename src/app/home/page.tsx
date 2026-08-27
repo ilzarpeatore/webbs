@@ -12,7 +12,7 @@ import Users from './components/Users'
 import Work from './components/Work'
 
 export const metadata: Metadata = {
-  title: 'Home',
+  title: 'Inicio',
 }
 
 const Page = () => {
