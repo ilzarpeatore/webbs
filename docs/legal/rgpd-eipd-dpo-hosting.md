@@ -1,7 +1,7 @@
 # Informe: Cumplimiento RGPD/LOPDGDD para BeStronger
 
-**Fecha de consulta de fuentes:** 27/08/2026
-**Alcance:** EIPD, DPO y Vercel como encargado de tratamiento, para una app de coaching de fitness/nutrición con coach humano que trata datos de salud (PAR-Q, peso/altura, dolor referido) y sincroniza opcionalmente Apple HealthKit / Health Connect, desplegada en Vercel.
+**Fecha de consulta de fuentes:** 27/08/2026 (Tema 3 actualizado el mismo día tras confirmarse el cambio de proveedor de hosting de Vercel a IONOS).
+**Alcance:** EIPD, DPO e IONOS como encargado de tratamiento, para una app de coaching de fitness/nutrición con coach humano que trata datos de salud (PAR-Q, peso/altura, dolor referido) y sincroniza opcionalmente Apple HealthKit / Health Connect.
 
 ---
 
@@ -43,26 +43,31 @@ DPO también es obligatorio cuando la **actividad principal** consiste en tratam
 
 ---
 
-## Tema 3 — Vercel como encargado de tratamiento
+## Tema 3 — IONOS como encargado de tratamiento
 
-### DPA estándar
-Vercel Inc. ofrece un **Data Processing Addendum (DPA)** público en vercel.com/legal/dpa (HTML) y PDF en assets.vercel.com. Para clientes Hobby/Pro se incorpora automáticamente por referencia a los Términos de Servicio (modelo clickwrap, sin firma manual). Enterprise permite countersign formal. **BeStronger debe conservar evidencia de aceptación** (captura de la página legal vigente al contratar) como parte de su registro de actividades.
+*(Sustituye al análisis inicial de Vercel: BeStronger ha confirmado que su hosting definitivo será IONOS, no Vercel.)*
 
-### Transferencias internacionales
-Vercel Inc. es EE.UU. Usa **Cláusulas Contractuales Tipo (SCCs, Decisión UE 2021/914)** + **UK Addendum**, y está **certificado bajo el EU-US Data Privacy Framework (DPF)**.
+### Quién es IONOS y por qué mejora la posición de partida
 
-### Residencia de datos UE — matices importantes
-- Selección de región de ejecución (Frankfurt `fra1`, París `cdg1`, Dublín `dub1`, Londres `lhr1`) **solo disponible en planes Pro/Enterprise**, no en Hobby (que por defecto ejecuta en EE.UU.).
-- Aunque se fije región EU para las funciones, el **control plane (panel, builds, datos de soporte) permanece en EE.UU.**
-- La **red Edge/CDN es global** por diseño — las peticiones HTTP transitan por infraestructura de Vercel independientemente de la región elegida.
-- Vercel Analytics/Speed Insights no ofrece residencia UE.
+IONOS es un grupo europeo (IONOS Group SE, matriz alemana) con **entidad legal propia en España**: **1&1 IONOS ESPAÑA, S.L.U.**, CIF B-85049435, domicilio en Avenida de la Vega nº1, Edificio Veganova 3, Alcobendas, 28108 Madrid. A diferencia de Vercel (entidad estadounidense), contratar con la filial española de IONOS evita de partida el problema de transferencia internacional de datos a un tercer país que sí existía con Vercel.
 
-### Implicación práctica
-**Con configuración por defecto (sin fijar región EU en plan Pro/Enterprise) hay transferencia de datos de salud a EE.UU.**, cubierta por SCCs + DPF, pero a documentar en la EIPD (destino geográfico como factor de riesgo). Recomendaciones:
-1. Verificar el plan de Vercel actual de BeStronger y si tiene fijada región EU (Project Settings → Functions → Region).
-2. Documentar en el registro de actividades que el control plane y soporte siguen en EE.UU. pese a fijar función en la UE.
-3. Aceptar/archivar formalmente el DPA de Vercel como parte del expediente de encargados.
-4. Revisar si la base de datos u otros servicios conectados (no analizados aquí) también están en la UE — fijar solo la función en Frankfurt no sirve de mucho si la base de datos está en EE.UU.
+### Centros de datos y residencia en la UE
+
+IONOS opera varios centros de datos propios en Europa (incluido uno de nueva generación en Fráncfort, Alemania), certificados **ISO 27001**, y su documentación pública declara explícitamente que no monetiza ni revende los datos de sus clientes. Para los productos de IONOS Cloud, el propio proveedor confirma que **los datos se almacenan y procesan dentro de la UE**.
+
+### Contrato de encargo de tratamiento (AVV / DPA)
+
+- IONOS ofrece un **"Acuerdo de encargo de tratamiento de datos personales"** específico en español, publicado en ionos.es/terms-gtc/acuerdo-de-encargo-de-tratamiento-de-datos-personales/, sin coste adicional.
+- Desde julio de 2022, este acuerdo **forma parte de las condiciones generales (GTC)** de IONOS por defecto para contratos nuevos — no hace falta firmarlo aparte salvo que se quiera un documento formal independiente (disponible para descargar/completar desde su centro de ayuda).
+- Aplica a los productos relevantes: Cloud Gestionado (PaaS), Servidores Virtuales (VPS), Servidores Cloud, Servidores Dedicados, entre otros.
+
+### Pendiente de confirmar por BeStronger
+
+1. **Qué producto concreto de IONOS se va a usar** para desplegar la app Next.js (p. ej. "Deploy Now", un VPS/Servidor Cloud gestionado manualmente, o alojamiento web estándar) — el AVV y las garantías de residencia UE descritas aplican a los productos Cloud/VPS/Dedicado; conviene confirmar que el producto elegido esté cubierto igual.
+2. **Si la base de datos y cualquier otro servicio conectado** (email transaccional, backups, CDN si se añade alguno externo) también están alojados en la UE — de nada sirve tener el hosting principal en Fráncfort si otro componente de la infraestructura se contrata con un proveedor fuera de la UE.
+3. **Guardar constancia** de la aceptación del AVV/GTC de IONOS vigente en el momento de la contratación, como parte del registro de actividades de tratamiento (art. 30 RGPD) y del expediente de encargados (art. 28 RGPD).
+
+**Conclusión**: el cambio a IONOS simplifica notablemente este punto del cumplimiento respecto a Vercel — hay entidad española, AVV en español ya incluido en el contrato, y centros de datos en la UE — pero sigue habiendo que confirmar el producto exacto contratado y el resto de piezas de infraestructura antes de darlo por cerrado.
 
 ---
 
@@ -75,10 +80,11 @@ Vercel Inc. es EE.UU. Usa **Cláusulas Contractuales Tipo (SCCs, Decisión UE 20
 - AEPD — FAQ "actividad principal, observación sistemática, gran escala": aepd.es (FAQ-0403)
 - AEPD — FAQ "¿Cuándo se debe nombrar un DPO?": aepd.es (FAQ-0402)
 - LOPDGDD art. 34 — vía Iberley (BOE-A-2018-16673 no accesible directamente por el proxy de salida del entorno de investigación)
-- Vercel — DPA: vercel.com/legal/dpa
-- Vercel — Security & Compliance: vercel.com/docs/security/compliance
-- Vercel — Changelog certificación DPF: vercel.com/changelog
-- Vercel — Docs regiones de funciones: vercel.com/docs/functions/configuring-functions/region
+- IONOS — Acuerdo de encargo de tratamiento de datos personales (ES): ionos.es/terms-gtc/acuerdo-de-encargo-de-tratamiento-de-datos-personales/
+- IONOS — Contrato de tratamiento de datos (ayuda, ES): ionos.es/ayuda/proteccion-de-datos/informacion-general-sobre-el-rgpd/contrato-de-tratamiento-de-datos/
+- IONOS Group — nuevo centro de datos cloud en Fráncfort: ionos-group.com/investor-relations/newsroom
+- IONOS Cloud — Data Protection and Cloud Security: cloud.ionos.com/protection
+- IONOS Cloud — EU GDPR requirements (Storage as a Service): cloud.ionos.com/solutions/eu-gdpr-requirements
 
 **Nota metodológica**: el proxy de salida del entorno bloqueó el acceso directo a aepd.es/boe.es/iberley.es en algunos casos; parte de la lectura se hizo vía resultados de búsqueda que citan el contenido, no siempre el documento primario. Se recomienda verificación puntual del texto literal antes de decisiones formales.
 
@@ -89,6 +95,6 @@ Vercel Inc. es EE.UU. Usa **Cláusulas Contractuales Tipo (SCCs, Decisión UE 20
 1. Lectura directa del art. 34 LOPDGDD en el BOE y del listado íntegro de la AEPD.
 2. Calificación jurídica exacta de BeStronger como "centro sanitario" o no, según evolucione el modelo (coaches sanitarios colegiados, historia clínica).
 3. Umbral real de "gran escala" aplicado al volumen/perfil de usuarios concreto (juicio experto caso por caso).
-4. Revisión contractual del DPA de Vercel vigente y del plan contratado (región EU disponible o no).
+4. Revisión contractual del AVV de IONOS vigente y del producto/plan exacto contratado (confirmar que ese producto concreto queda cubierto por el acuerdo y por la residencia de datos en la UE).
 5. Revisión del resto de encargados de tratamiento conectados (base de datos, email, analítica, pasarela de pago) — no cubiertos en este informe.
 6. Base jurídica y consentimiento específico para HealthKit/Health Connect y PAR-Q, en conjunto con la EIPD.
