@@ -78,7 +78,7 @@ const About = () => {
                 <Image key={idx} src={img.image} className={`absolute inset-0 h-full w-full object-cover ${img.animationClass}`} alt="" />
               ))}
             </span>{' '}
-            seguimiento real
+            seguimiento real{' '}
             <br className="hidden lg:block" />
             es entrenar a ciegas. Por eso hay un&nbsp;
             <span className="mx-1 inline-flex align-middle">

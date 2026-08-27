@@ -18,7 +18,7 @@ const SmartAssist = () => {
           <div>
             <span className="border-default-200 text-default-800 mb-2.5 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Acompañamiento real, sin chat en vivo</span>
             <h3 className="text-default-900 mb-2.5 text-3xl leading-tight font-medium tracking-tight md:text-4xl lg:text-5xl">
-              Tu coach ve tu esfuerzo
+              Tu coach ve tu esfuerzo{' '}
               <br className="hidden md:block" />
               sin que tengas que contárselo
             </h3>

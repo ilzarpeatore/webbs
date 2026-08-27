@@ -85,7 +85,7 @@ const Work = () => {
         <span className="border-default-200 text-default-800 mb-3.5 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Así funciona por dentro</span>
 
         <h2 className="text-default-900 mb-8 text-2xl leading-[1.1] font-medium tracking-normal md:mb-12.5 md:text-4xl lg:text-5xl">
-          De registrarte a tener
+          De registrarte a tener{' '}
           <br className="hidden md:block" />
           tu plan del día
         </h2>

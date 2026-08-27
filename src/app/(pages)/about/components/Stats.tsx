@@ -45,7 +45,7 @@ const Stats = () => {
             <div className="space-y-4">
               <span className="border-default-200 text-default-800 inline-block rounded-full border bg-white px-5 py-1 text-sm font-medium md:py-1.5">BeStronger en cifras</span>
               <h2 className="text-default-900 text-3xl leading-tight font-medium tracking-tight md:text-4xl lg:text-[50px]">
-                Seguimiento real,
+                Seguimiento real,{' '}
                 <br className="hidden lg:block" />
                 no promesas
               </h2>
