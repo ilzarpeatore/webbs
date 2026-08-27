@@ -31,6 +31,7 @@ const dropdownItems: NavItem[] = [
   { label: 'Preguntas frecuentes', href: '/faqs' },
   { label: 'Política de privacidad', href: '/privacy-policy' },
   { label: 'Términos y condiciones', href: '/terms-and-conditions' },
+  { label: 'Aviso legal', href: '/legal-notice' },
 ]
 
 const Navbar = () => {
