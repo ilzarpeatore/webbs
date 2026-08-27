@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { useEffect, useRef } from 'react'
 
 import cloud01 from '@/assets/images/locations/cloud-01.webp'
 import cloud06 from '@/assets/images/locations/cloud-06.webp'
@@ -8,16 +9,23 @@ import glob from '@/assets/images/workspace/glob-image.png'
 import heroGlobJpg from '@/assets/images/workspace/hero-glob.jpg'
 
 const Stats = () => {
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    videoRef.current?.play().catch(() => {})
+  }, [])
+
   return (
     <section className="relative overflow-hidden pb-20 md:pb-25 lg:pb-46">
       <div className="container">
         <div className="mb-2 text-center">
-          <span className="border-default-200 text-default-800 mb-3.5 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Datos objetivos, no sensaciones</span>
+          <span className="border-default-200 text-default-800 mb-3.5 inline-block rounded-full border bg-white px-5 py-1.5 text-sm font-medium">Tu plan, vayas donde vayas</span>
           <h2 className="text-default-900 text-3xl font-medium md:text-4xl lg:text-5xl">
-            Tu progreso, medido
+            Entrenamiento y nutrición,
             <br />
-            de verdad
+            en tu bolsillo
           </h2>
+          <p className="text-default-600 mx-auto mt-3.5 max-w-xl text-base md:text-lg">Accede a tu plan estés en el gimnasio, en casa o de viaje: tu entrenamiento y tus comidas asignadas van contigo.</p>
         </div>
 
         <div className="relative z-20 mb-7.5 flex flex-col items-center justify-center">
@@ -37,7 +45,7 @@ const Stats = () => {
 
           <div className="bg-body-bg h-full w-full overflow-hidden">
             <div className="mix-blinset-e-darken bg-body-bg relative z-20 h-75 overflow-hidden md:h-125 lg:h-200">
-              <video autoPlay loop muted playsInline className="absolute -inset-300 z-[-100] m-auto size-full bg-cover bg-center object-cover" style={{ backgroundImage: `url(${heroGlobJpg.src})` }}>
+              <video ref={videoRef} autoPlay loop muted playsInline preload="auto" poster={heroGlobJpg.src} className="absolute inset-0 h-full w-full object-cover">
                 <source src="/assets/videos/hero-glob.mp4" type="video/mp4" />
               </video>
             </div>
