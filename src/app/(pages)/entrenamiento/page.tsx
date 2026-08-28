@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import CtaBanner from '@/components/shared/CtaBanner'
+import ObjetivosLinks from '@/components/shared/ObjetivosLinks'
 import AutoRegulacion from './components/AutoRegulacion'
 import Faq from './components/Faq'
 import Hero from './components/Hero'
@@ -18,6 +19,7 @@ const Page = () => {
       <Session />
       <AutoRegulacion />
       <Faq />
+      <ObjetivosLinks />
       <CtaBanner title="Entrena con un plan que se ajusta a ti, no al revés" description="Regístrate y accede a tu entrenamiento diseñado por un coach real." href="/contact" ctaLabel="Empieza tu plan" />
     </>
   )
