@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Política de privacidad',
+  description: 'Cómo trata BeStronger tus datos personales, incluidos los de Apple Health y Health Connect: qué recogemos, para qué, con quién los compartimos y tus derechos.',
+  alternates: { canonical: '/privacy-policy' },
 }
 
 const Page = () => {

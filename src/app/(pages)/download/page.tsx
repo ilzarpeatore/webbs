@@ -13,6 +13,8 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'La app',
+  description: 'La app de BeStronger para iOS y Android: la herramienta con la que sigues tu entrenamiento, tu nutrición y tus hábitos día a día junto a tu coach.',
+  alternates: { canonical: '/download' },
 }
 
 const Page = () => {

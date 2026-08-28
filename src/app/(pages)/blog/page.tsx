@@ -8,6 +8,7 @@ import BlogPagination from './components/BlogPagination'
 export const metadata: Metadata = {
   title: 'Blog',
   description: 'Artículos de tu coach sobre entrenamiento, nutrición y hábitos -- el mismo blog que ves en la app BeStronger.',
+  alternates: { canonical: '/blog' },
 }
 
 type BlogPageProps = {

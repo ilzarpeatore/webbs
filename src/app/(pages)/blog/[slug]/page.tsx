@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import RichText from '@/components/blog/RichText'
+import { SITE_URL } from '@/config/constants'
 import { getPostBySlug } from '@/utils/blogApi'
 
 type BlogPostPageProps = {
@@ -19,7 +20,14 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   return {
     title: post.title,
     description: post.description,
-    openGraph: post.post_image ? { images: [{ url: post.post_image }] } : undefined,
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: {
+      type: 'article',
+      title: post.title,
+      description: post.description,
+      publishedTime: post.datetime,
+      images: post.post_image ? [{ url: post.post_image }] : undefined,
+    },
   }
 }
 
@@ -28,8 +36,22 @@ const Page = async ({ params }: BlogPostPageProps) => {
   const post = await getPostBySlug(slug)
   if (!post) notFound()
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.description,
+    image: post.post_image || undefined,
+    datePublished: post.datetime,
+    dateModified: post.updated_at || post.datetime,
+    author: { '@type': 'Organization', name: 'BeStronger' },
+    publisher: { '@type': 'Organization', name: 'BeStronger' },
+    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+  }
+
   return (
     <article className="pt-32.5 pb-15 md:pt-36 md:pb-25 lg:pt-50 lg:pb-32.5">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <div className="container">
         <div className="mx-auto max-w-3xl">
           <Link href="/blog" className="text-default-600 hover:text-default-900 mb-7.5 inline-flex items-center gap-1.5 text-sm font-medium">

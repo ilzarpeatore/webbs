@@ -7,6 +7,7 @@ import Metricas from './components/Metricas'
 export const metadata: Metadata = {
   title: 'Seguimiento y progreso',
   description: 'Progreso y estadísticas calculados automáticamente desde tu entrenamiento y tus métricas corporales: 6 informes detallados, sin rellenar nada aparte.',
+  alternates: { canonical: '/progreso' },
 }
 
 const Page = () => {

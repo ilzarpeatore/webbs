@@ -8,6 +8,7 @@ import Session from './components/Session'
 export const metadata: Metadata = {
   title: 'Entrenamiento online',
   description: 'Entrenamiento online con coach real: tu plan lo diseña tu coach, cada serie se registra al momento, y la carga se ajusta con auto-regulación aprobada por un humano.',
+  alternates: { canonical: '/entrenamiento' },
 }
 
 const Page = () => {

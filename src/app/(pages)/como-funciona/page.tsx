@@ -9,6 +9,7 @@ import Pasos from './components/Pasos'
 export const metadata: Metadata = {
   title: 'Cómo funciona',
   description: 'Cómo funciona BeStronger paso a paso: registro, cuestionario inicial, plan diseñado por tu coach, auto-regulación de carga y acompañamiento asíncrono real.',
+  alternates: { canonical: '/como-funciona' },
 }
 
 const Page = () => {

@@ -7,6 +7,7 @@ import PlanDiario from './components/PlanDiario'
 export const metadata: Metadata = {
   title: 'Nutrición online',
   description: 'Nutrición online con coach real: comidas asignadas para cada franja del día y ajuste en vivo de tu objetivo calórico, en lugar de una dieta estática en PDF.',
+  alternates: { canonical: '/nutricion' },
 }
 
 const Page = () => {

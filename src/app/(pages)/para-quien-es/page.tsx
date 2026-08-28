@@ -8,6 +8,7 @@ import Niveles from './components/Niveles'
 export const metadata: Metadata = {
   title: 'Para quién es',
   description: 'Para quién es BeStronger y para quién no, con honestidad: qué ofrece hoy el servicio y qué limitaciones reales tiene todavía.',
+  alternates: { canonical: '/para-quien-es' },
 }
 
 const Page = () => {

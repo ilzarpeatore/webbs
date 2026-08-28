@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Términos y condiciones',
+  description: 'Términos y condiciones del servicio de BeStronger: registro, planes, desistimiento, conducta en la comunidad y protección de datos.',
+  alternates: { canonical: '/terms-and-conditions' },
 }
 
 const Page = () => {

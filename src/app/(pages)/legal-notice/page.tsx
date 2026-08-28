@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Aviso legal',
+  description: 'Aviso legal de BeStronger: identificación del titular, propiedad intelectual, exclusión de responsabilidad y legislación aplicable.',
+  alternates: { canonical: '/legal-notice' },
 }
 
 const Page = () => {

@@ -5,6 +5,8 @@ import ReachUs from './components/ReachUs'
 
 export const metadata: Metadata = {
   title: 'Contacto',
+  description: 'Contacta con BeStronger para resolver dudas sobre el servicio, los planes o cómo empezar con un coach real.',
+  alternates: { canonical: '/contact' },
 }
 
 const Page = () => {

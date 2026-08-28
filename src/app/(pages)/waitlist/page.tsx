@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Lista de espera',
+  description: 'Apúntate a la lista de espera de BeStronger y sé de los primeros en acceder al servicio de entrenamiento y nutrición online con coach real.',
+  alternates: { canonical: '/waitlist' },
 }
 
 const Page = () => {

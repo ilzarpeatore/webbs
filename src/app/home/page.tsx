@@ -13,6 +13,8 @@ import Work from './components/Work'
 
 export const metadata: Metadata = {
   title: 'Inicio',
+  description: 'BeStronger: entrenamiento y nutrición online con un coach real detrás. Cada serie, cada comida y cada hábito quedan registrados al momento, para que tu coach vea tu progreso real.',
+  alternates: { canonical: '/home' },
 }
 
 const Page = () => {

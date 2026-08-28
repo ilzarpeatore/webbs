@@ -7,6 +7,7 @@ import Origenes from './components/Origenes'
 export const metadata: Metadata = {
   title: 'Hábitos',
   description: 'Sistema de hábitos con rachas calculadas en servidor y objetivos numéricos reales: la pieza que conecta tu entrenamiento y tu nutrición con el resto del día.',
+  alternates: { canonical: '/habitos' },
 }
 
 const Page = () => {

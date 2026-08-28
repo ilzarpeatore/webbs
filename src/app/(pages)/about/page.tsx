@@ -7,6 +7,8 @@ import Stats from './components/Stats'
 
 export const metadata: Metadata = {
   title: 'Sobre nosotros',
+  description: 'Un coach real detrás de cada plan de BeStronger: por qué existe el servicio y qué lo diferencia de entrenar por tu cuenta o con una app genérica.',
+  alternates: { canonical: '/about' },
 }
 
 const Page = () => {
