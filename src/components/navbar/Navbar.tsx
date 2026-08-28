@@ -67,6 +67,7 @@ const Navbar = () => {
   const pathname = usePathname()
   const [currentHash, setCurrentHash] = useState('')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [openGroupIndex, setOpenGroupIndex] = useState<number | null>(null)
 
   useEffect(() => {
     setCurrentHash(window.location.hash)
@@ -79,6 +80,7 @@ const Navbar = () => {
 
   const closeMenu = () => {
     setIsMobileMenuOpen(false)
+    setOpenGroupIndex(null)
   }
 
   useEffect(() => {
@@ -330,25 +332,43 @@ const Navbar = () => {
             </Link>
           ))}
 
-          {dropdownGroups.map((group, gIdx) => (
-            <div key={gIdx} className="border-default-100 mt-2 border-t pt-2">
-              <p className="text-default-400 px-1.5 pt-1 pb-1 text-xs font-semibold tracking-wide uppercase">{group.heading}</p>
-              {group.items.map((item, index) => (
-                <Link
-                  key={index}
-                  href={item.href}
-                  onClick={() => {
-                    const hash = item.href.split('#')[1]
-                    setCurrentHash(hash ? `#${hash}` : '')
-                    closeMenu()
-                  }}
-                  className="text-default-600 hover:bg-default-200 hover:text-default-800 flex items-center gap-x-3.5 rounded-lg p-1.5 text-base focus:outline-hidden"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          ))}
+          <div className="border-default-100 mt-2 border-t pt-2">
+            {dropdownGroups.map((group, gIdx) => {
+              const isOpen = openGroupIndex === gIdx
+              return (
+                <div key={gIdx}>
+                  <button
+                    type="button"
+                    onClick={() => setOpenGroupIndex(isOpen ? null : gIdx)}
+                    className="text-default-700 hover:bg-default-200 flex w-full items-center justify-between rounded-lg p-1.5 text-base font-medium transition-all"
+                    aria-expanded={isOpen}
+                  >
+                    {group.heading}
+                    <Icon icon="tabler:chevron-down" className={`size-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  <div className={`overflow-hidden transition-[max-height] duration-300 ${isOpen ? 'max-h-96' : 'max-h-0'}`}>
+                    <div className="pb-1.5">
+                      {group.items.map((item, index) => (
+                        <Link
+                          key={index}
+                          href={item.href}
+                          onClick={() => {
+                            const hash = item.href.split('#')[1]
+                            setCurrentHash(hash ? `#${hash}` : '')
+                            closeMenu()
+                          }}
+                          className="text-default-600 hover:bg-default-200 hover:text-default-800 flex items-center gap-x-3.5 rounded-lg py-1.5 ps-4 text-base focus:outline-hidden"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </header>
