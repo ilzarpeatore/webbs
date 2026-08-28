@@ -26,6 +26,7 @@ const dropdownItems: NavItem[] = [
   { label: 'Sobre nosotros', href: '/about' },
   { label: 'Progreso', href: '/progreso' },
   { label: 'Para quién es', href: '/para-quien-es' },
+  { label: 'Coach real vs. IA', href: '/comparativa' },
   { label: 'Blog', href: '/blog' },
   { label: 'Planes', href: '/pricing' },
   { label: 'Contacto', href: '/contact' },

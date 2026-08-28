@@ -12,6 +12,7 @@ const staticRoutes: { path: string; priority: number; changeFrequency: MetadataR
   { path: '/progreso', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/como-funciona', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/para-quien-es', priority: 0.7, changeFrequency: 'monthly' },
+  { path: '/comparativa', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/pricing', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/about', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/contact', priority: 0.6, changeFrequency: 'monthly' },
