@@ -21,11 +21,16 @@ const pageLinks: FooterLink[] = [
   { label: 'Hábitos', link: '/habitos', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
   { label: 'Progreso', link: '/progreso', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
   { label: 'Cómo funciona', link: '/como-funciona', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
+  { label: 'Perder grasa', link: '/perder-grasa', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
+  { label: 'Ganar músculo', link: '/ganar-musculo', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
+  { label: 'Recomposición corporal', link: '/recomposicion', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
+  { label: 'Mantenimiento', link: '/mantenimiento', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
 ]
 
 const otherLinks: FooterLink[] = [
   { label: 'Sobre nosotros', link: '/about', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
   { label: 'Para quién es', link: '/para-quien-es', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
+  { label: 'Coach real vs. IA', link: '/comparativa', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
   { label: 'Planes', link: '/pricing', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
   { label: 'Contacto', link: '/contact', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
   { label: 'Lista de espera', link: '/waitlist', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
