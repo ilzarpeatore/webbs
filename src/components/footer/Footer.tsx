@@ -21,10 +21,6 @@ const pageLinks: FooterLink[] = [
   { label: 'Hábitos', link: '/habitos', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
   { label: 'Progreso', link: '/progreso', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
   { label: 'Cómo funciona', link: '/como-funciona', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
-  { label: 'Perder grasa', link: '/perder-grasa', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
-  { label: 'Ganar músculo', link: '/ganar-musculo', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
-  { label: 'Recomposición corporal', link: '/recomposicion', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
-  { label: 'Mantenimiento', link: '/mantenimiento', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
 ]
 
 const otherLinks: FooterLink[] = [
