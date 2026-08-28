@@ -86,7 +86,17 @@ export async function getPostBySlug(slug: string): Promise<BlogDetailItem | null
   const url = new URL(`${API_BASE_URL}/post-detail`)
   url.searchParams.set('slug', slug)
 
-  const res = await fetch(url, { method: 'POST', next: { revalidate: REVALIDATE_SECONDS } })
+  // El slug se manda tanto en la query string como en el body: post-detail
+  // es un POST, y si el backend lee el payload con $request->post()/input()
+  // sobre el body (en vez de la query string), mandarlo solo en la URL
+  // hace que nunca encuentre el post -- devuelve "no encontrado" para
+  // cualquier slug (bug real observado: 404 en todos los artículos).
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ slug }),
+    next: { revalidate: REVALIDATE_SECONDS },
+  })
   if (!res.ok) {
     throw new Error(`post-detail respondió ${res.status}`)
   }
