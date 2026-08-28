@@ -6,9 +6,12 @@ Informes detallados con fuentes citadas: [`docs/legal/verifactu-forma-juridica.m
 
 ## 🔴 Bloqueantes antes de publicar la web
 
-- [ ] **Datos identificativos del titular**: razón social o nombre y apellidos, NIF/CIF, domicilio social (y datos registrales si aplica). Marcados como "pendiente" en `/privacy-policy`, `/terms-and-conditions` y `/legal-notice` — hay que rellenarlos antes de que esas páginas sean legalmente válidas (art. 10 LSSI-CE).
+- [x] **Datos identificativos del titular** — **rellenados** en `/privacy-policy`, `/terms-and-conditions` y `/legal-notice` (28 ago 2026): Titular Hamza Elouafa Lafjare, NIF 17575419S, domicilio Plaza de Paris 1, 2C. **A revisar**: el domicilio facilitado no incluye municipio/provincia/código postal — para que el art. 10 LSSI-CE quede completo conviene añadir la dirección postal completa cuando se tenga.
 - [x] ~~Página de Aviso Legal~~ — construida en `/legal-notice`, enlazada desde navbar y footer (27 ago 2026).
 - [ ] **Consentimiento explícito y separado para datos de salud** en el flujo real de la app: un checkbox propio para el cuestionario PAR-Q (no basta con "acepto los Términos" genérico), dado que son datos de categoría especial (art. 9 RGPD).
+- [x] **Requisitos de Apple/Google que pueden causar el rechazo de la app en las tiendas** — investigado (28 ago 2026) y reflejado en `/privacy-policy`:
+  - Apple (HealthKit) y Google (Health Connect) prohíben expresamente usar datos de salud para publicidad, marketing o venta a brokers de datos — añadida una cláusula explícita en ese sentido.
+  - Ambas tiendas exigen que, si la app permite crear cuenta, también permita **eliminar la cuenta y los datos desde dentro de la app** (no solo por email) — añadida una sección "Cómo eliminar tu cuenta y tus datos" que describe esa opción en los ajustes de la app. **Confirmar que esa función existe y funciona de verdad en la app antes de enviarla a revisión** — Apple la comprueba activamente durante el review.
 
 ## 🟠 Antes de cobrar el primer pago
 
@@ -35,4 +38,4 @@ Informes detallados con fuentes citadas: [`docs/legal/verifactu-forma-juridica.m
 
 ---
 
-*Generado a partir de una revisión inicial orientativa (no jurídica) del negocio, ampliada con 5 informes de investigación dedicados (Aviso Legal, Veri\*Factu/forma jurídica, RGPD/hosting, seguro de RC, EIPD). Última actualización: 27 ago 2026.*
+*Generado a partir de una revisión inicial orientativa (no jurídica) del negocio, ampliada con 5 informes de investigación dedicados (Aviso Legal, Veri\*Factu/forma jurídica, RGPD/hosting, seguro de RC, EIPD). Última actualización: 28 ago 2026.*

@@ -13,24 +13,19 @@ const Page = () => {
         <div className="container">
           <div className="space-y-5 text-center">
             <h3 className="text-4xl font-medium md:text-5xl lg:text-[90px]">Términos y condiciones</h3>
-            <div className="text-sm md:text-lg">Última actualización: 27 ago 2026</div>
+            <div className="text-sm md:text-lg">Última actualización: 28 ago 2026</div>
           </div>
 
           <div className="py-12 md:py-18 lg:py-25">
             <div className="mx-auto max-w-4xl">
               <div className="text-default-800 space-y-5 md:space-y-10">
-                <div className="border-default-200 bg-default-100 rounded-2xl border p-5 text-sm leading-relaxed md:text-base">
-                  <strong>Aviso antes de publicar:</strong> faltan por completar los datos identificativos del titular del negocio (razón social o nombre y apellidos, NIF/CIF, domicilio y datos registrales si aplica), exigidos por el artículo 10 de la LSSI-CE. No debe
-                  publicarse esta página en producción sin rellenarlos.
-                </div>
-
                 <div>
                   <h2 className="text-default-900 mb-2.5 text-xl font-medium md:text-2xl lg:text-4xl">1. Identificación del prestador</h2>
                   <ul className="text-default-600 marker:text-default-600 list-disc space-y-1.5 ps-6">
                     <li>Denominación comercial: BeStronger</li>
-                    <li>Titular (razón social / nombre y apellidos): pendiente de completar</li>
-                    <li>NIF/CIF: pendiente de completar</li>
-                    <li>Domicilio social: pendiente de completar</li>
+                    <li>Titular: Hamza Elouafa Lafjare</li>
+                    <li>NIF: 17575419S</li>
+                    <li>Domicilio social: Plaza de Paris 1, 2C</li>
                     <li>Dominio: bestronger.es — Contacto: contacto@bestronger.es</li>
                   </ul>
                   <p className="text-default-600 mt-3.5 text-base leading-normal md:text-lg md:leading-relaxed">
