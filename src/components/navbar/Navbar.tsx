@@ -41,6 +41,7 @@ const dropdownItems: NavItem[] = [
 const Navbar = () => {
   const pathname = usePathname()
   const [currentHash, setCurrentHash] = useState('')
+  const [isMoreOpen, setIsMoreOpen] = useState(false)
 
   useEffect(() => {
     setCurrentHash(window.location.hash)
@@ -56,6 +57,7 @@ const Navbar = () => {
     if (overlay && (window as any).HSOverlay) {
       ;(window as any).HSOverlay.close(overlay)
     }
+    setIsMoreOpen(false)
   }
 
   useEffect(() => {
@@ -248,12 +250,12 @@ const Navbar = () => {
 
       <div
         id="mobile-menu"
-        className="hs-overlay hs-overlay-open:translate-y-0 md:hs-overlay-open:top-24 hs-overlay-open:top-18 hs-overlay-open:opacity-100 fixed inset-x-0 top-0 z-110 mx-4 hidden h-50 -translate-y-full transform overflow-hidden rounded-lg bg-white opacity-0 shadow-xl transition-all duration-300 [--body-scroll:true] md:mx-5"
+        className="hs-overlay hs-overlay-open:translate-y-0 md:hs-overlay-open:top-24 hs-overlay-open:top-18 hs-overlay-open:opacity-100 fixed inset-x-0 top-0 z-110 mx-4 hidden max-h-[75vh] -translate-y-full transform overflow-hidden rounded-lg bg-white opacity-0 shadow-xl transition-all duration-300 [--body-scroll:true] md:mx-5"
         role="dialog"
         tabIndex={-1}
         aria-labelledby="mobile-menu-label"
       >
-        <div className="flex max-h-50 flex-col overflow-y-auto p-3">
+        <div className="flex max-h-[75vh] flex-col overflow-y-auto p-3">
           {navItems.map((item, index) => (
             <Link
               key={index}
@@ -269,27 +271,36 @@ const Navbar = () => {
             </Link>
           ))}
 
-          <div className="hs-accordion">
-            <button type="button" className="hs-accordion-toggle group text-default-600 hover:text-primary flex items-center p-1.5 text-base font-medium transition-all" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+          <div>
+            <button
+              type="button"
+              onClick={() => setIsMoreOpen((prev) => !prev)}
+              className="group text-default-600 hover:text-primary flex w-full items-center p-1.5 text-base font-medium transition-all"
+              aria-haspopup="menu"
+              aria-expanded={isMoreOpen}
+              aria-label="Dropdown"
+            >
               Más páginas
-              <Icon icon="tabler:chevron-down" className="ms-4" />
+              <Icon icon="tabler:chevron-down" className={`ms-4 transition-transform duration-300 ${isMoreOpen ? 'rotate-180' : ''}`} />
             </button>
 
-            <div className="hs-accordion-content hidden w-full overflow-hidden ps-5 pb-4 transition-[height]">
-              {dropdownItems.map((item, index) => (
-                <Link
-                  key={index}
-                  href={item.href}
-                  onClick={() => {
-                    const hash = item.href.split('#')[1]
-                    setCurrentHash(hash ? `#${hash}` : '')
-                    closeMenu()
-                  }}
-                  className="text-default-600 hover:text-default-800 hover:bg-default-200 flex items-center gap-x-3.5 rounded-lg px-2.5 py-1.5 text-base focus:outline-hidden"
-                >
-                  {item.label}
-                </Link>
-              ))}
+            <div className={`w-full overflow-hidden transition-[max-height] duration-300 ${isMoreOpen ? 'max-h-125' : 'max-h-0'}`}>
+              <div className="ps-5 pb-4">
+                {dropdownItems.map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    onClick={() => {
+                      const hash = item.href.split('#')[1]
+                      setCurrentHash(hash ? `#${hash}` : '')
+                      closeMenu()
+                    }}
+                    className="text-default-600 hover:text-default-800 hover:bg-default-200 flex items-center gap-x-3.5 rounded-lg px-2.5 py-1.5 text-base focus:outline-hidden"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
