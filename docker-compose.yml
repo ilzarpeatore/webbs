@@ -1,0 +1,15 @@
+services:
+  web:
+    # Los ARG por defecto del Dockerfile ya apuntan a bestronger.es /
+    # testapp.bestronger.es. Si algún día hace falta otro valor en build time,
+    # se sobreescribe con `docker compose build --build-arg SITE_URL=...`.
+    build:
+      context: .
+    image: webbs:latest
+    restart: unless-stopped
+    env_file:
+      - .env.production
+    # Solo escucha en localhost: Nginx en el host hace de reverse proxy y
+    # gestiona TLS. El contenedor nunca queda expuesto directamente a Internet.
+    ports:
+      - "127.0.0.1:3000:3000"
