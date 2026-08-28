@@ -15,15 +15,17 @@ export type NavItem = {
 }
 
 const navItems: NavItem[] = [
-  { label: 'Entrenamiento', href: '/home#features' },
-  { label: 'Cómo funciona', href: '/home#usecase' },
-  { label: 'Progreso', href: '/home#metrics' },
-  { label: 'Tu coach', href: '/home#smart-assist' },
+  { label: 'Entrenamiento', href: '/entrenamiento' },
+  { label: 'Nutrición', href: '/nutricion' },
+  { label: 'Hábitos', href: '/habitos' },
+  { label: 'Cómo funciona', href: '/como-funciona' },
 ]
 
 const dropdownItems: NavItem[] = [
   { label: 'Inicio', href: '/home' },
   { label: 'Sobre nosotros', href: '/about' },
+  { label: 'Progreso', href: '/progreso' },
+  { label: 'Para quién es', href: '/para-quien-es' },
   { label: 'Planes', href: '/pricing' },
   { label: 'Contacto', href: '/contact' },
   { label: 'Lista de espera', href: '/waitlist' },
