@@ -15,15 +15,17 @@ export type NavItem = {
 }
 
 const navItems: NavItem[] = [
-  { label: 'Entrenamiento', href: '/home#features' },
-  { label: 'Cómo funciona', href: '/home#usecase' },
-  { label: 'Progreso', href: '/home#metrics' },
-  { label: 'Tu coach', href: '/home#smart-assist' },
+  { label: 'Entrenamiento', href: '/entrenamiento' },
+  { label: 'Nutrición', href: '/nutricion' },
+  { label: 'Hábitos', href: '/habitos' },
+  { label: 'Cómo funciona', href: '/como-funciona' },
 ]
 
 const dropdownItems: NavItem[] = [
   { label: 'Inicio', href: '/home' },
   { label: 'Sobre nosotros', href: '/about' },
+  { label: 'Progreso', href: '/progreso' },
+  { label: 'Para quién es', href: '/para-quien-es' },
   { label: 'Blog', href: '/blog' },
   { label: 'Planes', href: '/pricing' },
   { label: 'Contacto', href: '/contact' },
@@ -31,6 +33,8 @@ const dropdownItems: NavItem[] = [
   { label: 'La app', href: '/download' },
   { label: 'Preguntas frecuentes', href: '/faqs' },
   { label: 'Política de privacidad', href: '/privacy-policy' },
+  { label: 'Términos y condiciones', href: '/terms-and-conditions' },
+  { label: 'Aviso legal', href: '/legal-notice' },
 ]
 
 const Navbar = () => {
