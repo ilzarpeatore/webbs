@@ -21,27 +21,52 @@ const navItems: NavItem[] = [
   { label: 'Cómo funciona', href: '/como-funciona' },
 ]
 
-const dropdownItems: NavItem[] = [
-  { label: 'Inicio', href: '/home' },
-  { label: 'Sobre nosotros', href: '/about' },
-  { label: 'Progreso', href: '/progreso' },
-  { label: 'Para quién es', href: '/para-quien-es' },
-  { label: 'Coach real vs. IA', href: '/comparativa' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Planes', href: '/pricing' },
-  { label: 'Contacto', href: '/contact' },
-  { label: 'Lista de espera', href: '/waitlist' },
-  { label: 'La app', href: '/download' },
-  { label: 'Preguntas frecuentes', href: '/faqs' },
-  { label: 'Política de privacidad', href: '/privacy-policy' },
-  { label: 'Términos y condiciones', href: '/terms-and-conditions' },
-  { label: 'Aviso legal', href: '/legal-notice' },
+type NavGroup = {
+  heading: string
+  items: NavItem[]
+}
+
+const dropdownGroups: NavGroup[] = [
+  {
+    heading: 'General',
+    items: [
+      { label: 'Inicio', href: '/home' },
+      { label: 'Sobre nosotros', href: '/about' },
+      { label: 'Progreso', href: '/progreso' },
+      { label: 'Para quién es', href: '/para-quien-es' },
+      { label: 'Coach real vs. IA', href: '/comparativa' },
+    ],
+  },
+  {
+    heading: 'Recursos',
+    items: [
+      { label: 'Blog', href: '/blog' },
+      { label: 'Planes', href: '/pricing' },
+      { label: 'La app', href: '/download' },
+      { label: 'Preguntas frecuentes', href: '/faqs' },
+    ],
+  },
+  {
+    heading: 'Contacto',
+    items: [
+      { label: 'Contacto', href: '/contact' },
+      { label: 'Lista de espera', href: '/waitlist' },
+    ],
+  },
+  {
+    heading: 'Legal',
+    items: [
+      { label: 'Política de privacidad', href: '/privacy-policy' },
+      { label: 'Términos y condiciones', href: '/terms-and-conditions' },
+      { label: 'Aviso legal', href: '/legal-notice' },
+    ],
+  },
 ]
 
 const Navbar = () => {
   const pathname = usePathname()
   const [currentHash, setCurrentHash] = useState('')
-  const [isMoreOpen, setIsMoreOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     setCurrentHash(window.location.hash)
@@ -53,12 +78,22 @@ const Navbar = () => {
   }, [])
 
   const closeMenu = () => {
-    const overlay = document.getElementById('mobile-menu')
-    if (overlay && (window as any).HSOverlay) {
-      ;(window as any).HSOverlay.close(overlay)
-    }
-    setIsMoreOpen(false)
+    setIsMobileMenuOpen(false)
   }
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsMobileMenuOpen(false)
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = ''
+    }
+  }, [isMobileMenuOpen])
 
   useEffect(() => {
     if (!window.location.hash) {
@@ -185,28 +220,35 @@ const Navbar = () => {
                     </button>
 
                     <div
-                      className="hs-dropdown-menu duration hs-dropdown-open:opacity-100 mt-2 hidden min-w-44 rounded-xl bg-white opacity-0 transition-[opacity,margin] before:absolute before:inset-s-0 before:-top-4 before:h-4 before:w-full after:absolute after:inset-s-0 after:-bottom-4 after:h-4 after:w-full"
+                      className="hs-dropdown-menu duration hs-dropdown-open:opacity-100 mt-2 hidden min-w-56 rounded-xl bg-white opacity-0 transition-[opacity,margin] before:absolute before:inset-s-0 before:-top-4 before:h-4 before:w-full after:absolute after:inset-s-0 after:-bottom-4 after:h-4 after:w-full"
                       role="menu"
                       aria-orientation="vertical"
                       aria-labelledby="hs-dropdown-hover-event"
                     >
-                      <div className="space-y-0.5 p-2.5">
-                        {dropdownItems.map((item, index) => {
-                          const isActive = checkActive(item.href)
-                          return (
-                            <Link
-                              key={index}
-                              href={item.href}
-                              onClick={() => {
-                                const hash = item.href.split('#')[1]
-                                setCurrentHash(hash ? `#${hash}` : '')
-                              }}
-                              className={`flex items-center gap-x-3.5 rounded-lg px-2.5 py-1.5 text-sm transition-all ${isActive ? 'bg-default-200 text-default-800 font-medium' : 'text-default-600 hover:text-default-800 hover:bg-default-200'}`}
-                            >
-                              {item.label}
-                            </Link>
-                          )
-                        })}
+                      <div className="max-h-[70vh] overflow-y-auto p-2.5">
+                        {dropdownGroups.map((group, gIdx) => (
+                          <div key={gIdx} className={gIdx > 0 ? 'border-default-100 mt-2 border-t pt-2' : ''}>
+                            <p className="text-default-400 px-2.5 pt-1 pb-1 text-xs font-semibold tracking-wide uppercase">{group.heading}</p>
+                            <div className="space-y-0.5">
+                              {group.items.map((item, index) => {
+                                const isActive = checkActive(item.href)
+                                return (
+                                  <Link
+                                    key={index}
+                                    href={item.href}
+                                    onClick={() => {
+                                      const hash = item.href.split('#')[1]
+                                      setCurrentHash(hash ? `#${hash}` : '')
+                                    }}
+                                    className={`flex items-center gap-x-3.5 rounded-lg px-2.5 py-1.5 text-sm transition-all ${isActive ? 'bg-default-200 text-default-800 font-medium' : 'text-default-600 hover:text-default-800 hover:bg-default-200'}`}
+                                  >
+                                    {item.label}
+                                  </Link>
+                                )
+                              })}
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </li>
@@ -235,9 +277,9 @@ const Navbar = () => {
                 <button
                   type="button"
                   aria-haspopup="dialog"
-                  aria-expanded="false"
+                  aria-expanded={isMobileMenuOpen}
                   aria-controls="mobile-menu"
-                  data-hs-overlay="#mobile-menu"
+                  onClick={() => setIsMobileMenuOpen(true)}
                   className="bg-default-200 flex size-8.75 items-center justify-center overflow-hidden rounded-lg transition-all duration-300 md:h-12.5 md:w-12.5 md:rounded-2xl"
                 >
                   <Icon icon="tabler:align-right" className="size-6" />
@@ -249,13 +291,30 @@ const Navbar = () => {
       </div>
 
       <div
+        className={`fixed inset-0 z-100 bg-black/50 transition-opacity duration-300 lg:hidden ${isMobileMenuOpen ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
+        onClick={closeMenu}
+        aria-hidden="true"
+      ></div>
+
+      <div
         id="mobile-menu"
-        className="hs-overlay hs-overlay-open:translate-y-0 md:hs-overlay-open:top-24 hs-overlay-open:top-18 hs-overlay-open:opacity-100 fixed inset-x-0 top-0 z-110 mx-4 hidden max-h-[75vh] -translate-y-full transform overflow-hidden rounded-lg bg-white opacity-0 shadow-xl transition-all duration-300 [--body-scroll:true] md:mx-5"
+        className={`fixed inset-x-0 top-18 z-110 mx-4 max-h-[75vh] transform overflow-hidden rounded-lg bg-white shadow-xl transition-all duration-300 md:top-24 md:mx-5 lg:hidden ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-4 opacity-0'}`}
         role="dialog"
         tabIndex={-1}
+        aria-modal="true"
         aria-labelledby="mobile-menu-label"
       >
-        <div className="flex max-h-[75vh] flex-col overflow-y-auto p-3">
+        <div className="border-default-100 flex items-center justify-between border-b p-3.5">
+          <span id="mobile-menu-label" className="text-default-900 text-sm font-medium">
+            Menú
+          </span>
+          <button type="button" onClick={closeMenu} aria-label="Cerrar menú" className="bg-default-200 text-default-700 flex size-8 items-center justify-center rounded-lg">
+            <Icon icon="tabler:x" className="size-4.5" />
+          </button>
+        </div>
+
+        <div className="flex max-h-[calc(75vh-56px)] flex-col overflow-y-auto p-3">
+          <p className="text-default-400 px-1.5 pt-1 pb-1 text-xs font-semibold tracking-wide uppercase">Servicio</p>
           {navItems.map((item, index) => (
             <Link
               key={index}
@@ -265,44 +324,31 @@ const Navbar = () => {
                 setCurrentHash(hash ? `#${hash}` : '')
                 closeMenu()
               }}
-              className="group text-default-600 hover:text-primary flex items-center p-1.5 text-base font-medium transition-all"
+              className="group text-default-700 hover:bg-default-200 flex items-center rounded-lg p-1.5 text-base font-medium transition-all"
             >
               {item.label}
             </Link>
           ))}
 
-          <div>
-            <button
-              type="button"
-              onClick={() => setIsMoreOpen((prev) => !prev)}
-              className="group text-default-600 hover:text-primary flex w-full items-center p-1.5 text-base font-medium transition-all"
-              aria-haspopup="menu"
-              aria-expanded={isMoreOpen}
-              aria-label="Dropdown"
-            >
-              Más páginas
-              <Icon icon="tabler:chevron-down" className={`ms-4 transition-transform duration-300 ${isMoreOpen ? 'rotate-180' : ''}`} />
-            </button>
-
-            <div className={`w-full overflow-hidden transition-[max-height] duration-300 ${isMoreOpen ? 'max-h-125' : 'max-h-0'}`}>
-              <div className="ps-5 pb-4">
-                {dropdownItems.map((item, index) => (
-                  <Link
-                    key={index}
-                    href={item.href}
-                    onClick={() => {
-                      const hash = item.href.split('#')[1]
-                      setCurrentHash(hash ? `#${hash}` : '')
-                      closeMenu()
-                    }}
-                    className="text-default-600 hover:text-default-800 hover:bg-default-200 flex items-center gap-x-3.5 rounded-lg px-2.5 py-1.5 text-base focus:outline-hidden"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
+          {dropdownGroups.map((group, gIdx) => (
+            <div key={gIdx} className="border-default-100 mt-2 border-t pt-2">
+              <p className="text-default-400 px-1.5 pt-1 pb-1 text-xs font-semibold tracking-wide uppercase">{group.heading}</p>
+              {group.items.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.href}
+                  onClick={() => {
+                    const hash = item.href.split('#')[1]
+                    setCurrentHash(hash ? `#${hash}` : '')
+                    closeMenu()
+                  }}
+                  className="text-default-600 hover:bg-default-200 hover:text-default-800 flex items-center gap-x-3.5 rounded-lg p-1.5 text-base focus:outline-hidden"
+                >
+                  {item.label}
+                </Link>
+              ))}
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </header>
