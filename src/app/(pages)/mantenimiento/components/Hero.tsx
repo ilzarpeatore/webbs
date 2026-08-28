@@ -1,9 +1,9 @@
-import { Icon } from '@iconify/react'
 import Image from 'next/image'
 
 import aboutImage01 from '@/assets/images/about/about-image-01.webp'
 import cloud04 from '@/assets/images/locations/cloud-04.webp'
 import CtaButton from '@/components/shared/CtaButton'
+import GlassStatCard from '@/components/shared/GlassStatCard'
 import SectionBadge from '@/components/shared/SectionBadge'
 
 const Hero = () => {
@@ -34,12 +34,7 @@ const Hero = () => {
               <Image src={aboutImage01} alt="Entrenamiento de mantenimiento y forma física" className="h-80 w-full object-cover md:h-105" />
               <div className="absolute inset-0 bg-black/10"></div>
             </div>
-            <div className="bg-default-900/70 absolute right-3 bottom-3 flex items-center gap-3 rounded-2xl border border-white/10 p-3.5 backdrop-blur-md md:right-5 md:bottom-5 md:p-5">
-              <div className="bg-primary-2 flex size-9 shrink-0 items-center justify-center rounded-full md:size-11">
-                <Icon icon="lucide:calendar-range" className="text-lg text-white" />
-              </div>
-              <p className="text-sm font-medium text-white md:text-base">Tu semana, reorganizada al instante</p>
-            </div>
+            <GlassStatCard icon="lucide:calendar-range" iconBgClass="bg-primary-2" label="Tu semana, reorganizada al instante" />
           </div>
         </div>
       </div>

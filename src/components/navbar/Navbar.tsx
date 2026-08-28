@@ -139,8 +139,8 @@ const Navbar = () => {
     <header>
       <div className="nav-sticky navbar fixed inset-x-0 top-0 z-120 w-full">
         <div className="container py-3.5 md:py-5 lg:py-7.5">
-          <div className="flex w-full items-center justify-between rounded-lg bg-white md:rounded-2xl lg:justify-center lg:bg-transparent">
-            <div className="flex min-w-[175px] rounded-[20px] bg-white px-3 py-1.5 md:py-4 lg:p-4 lg:shadow-lg">
+          <div className="border-default-200/0 in-[.nav-sticky-on]:border-default-200/60 in-[.nav-sticky-on]:bg-white/70 in-[.nav-sticky-on]:backdrop-blur-md flex w-full items-center justify-between rounded-lg border bg-white transition-all duration-500 md:rounded-2xl lg:justify-center lg:border-transparent lg:bg-transparent">
+            <div className="border-default-200/0 in-[.nav-sticky-on]:border-white/40 in-[.nav-sticky-on]:bg-white/70 in-[.nav-sticky-on]:backdrop-blur-md flex min-w-[175px] rounded-[20px] border bg-white px-3 py-1.5 transition-all duration-500 md:py-4 lg:p-4 lg:shadow-lg">
               <Link href="/" onClick={() => setCurrentHash('')}>
                 <Image src={logo} alt="" className="h-7.5 md:h-8" />
               </Link>
@@ -149,7 +149,7 @@ const Navbar = () => {
             <div className="hidden h-2.5 w-full transition-all duration-500 ease-in-out in-[.nav-sticky-on]:w-2.5 lg:flex"></div>
 
             <div className="flex items-center justify-between">
-              <div className="hidden rounded-[20px] bg-white p-1.5 whitespace-nowrap lg:block lg:shadow-lg">
+              <div className="border-default-200/0 in-[.nav-sticky-on]:border-white/40 in-[.nav-sticky-on]:bg-white/70 in-[.nav-sticky-on]:backdrop-blur-md hidden rounded-[20px] border bg-white p-1.5 whitespace-nowrap transition-all duration-500 lg:block lg:shadow-lg">
                 <ul id="navbar" className="flex items-center">
                   {navItems.map((item, index) => {
                     const isActive = checkActive(item.href)
@@ -214,7 +214,7 @@ const Navbar = () => {
 
             <div className="hidden h-2.5 w-full transition-all duration-500 ease-in-out in-[.nav-sticky-on]:w-2.5 lg:flex"></div>
 
-            <div className="flex items-center gap-1.25 rounded-[20px] bg-white p-1.5 shadow-lg lg:shadow-lg">
+            <div className="border-default-200/0 in-[.nav-sticky-on]:border-white/40 in-[.nav-sticky-on]:bg-white/70 in-[.nav-sticky-on]:backdrop-blur-md flex items-center gap-1.25 rounded-[20px] border bg-white p-1.5 shadow-lg transition-all duration-500 lg:shadow-lg">
               <a href="#" aria-label="App Store (próximamente)" className="bg-default-200 group relative flex size-8.75 items-center justify-center overflow-hidden rounded-lg transition-all duration-300 md:h-12.5 md:w-12.5 md:rounded-2xl">
                 <div className="relative flex items-center justify-center overflow-hidden">
                   <Image src={appStoreIcon} alt="Icon" className="size-4.5 transition-transform duration-300 group-hover:-translate-y-6 md:size-6" />

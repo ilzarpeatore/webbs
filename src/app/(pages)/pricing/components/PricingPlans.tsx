@@ -13,6 +13,7 @@ type PricingPlanType = {
   buttonText: string
   buttonLink: string
   colSpanClass?: string
+  featured?: boolean
 }
 
 const pricingPlansData: PricingPlanType[] = [
@@ -48,6 +49,7 @@ const pricingPlansData: PricingPlanType[] = [
     features: ['Todo lo del plan mensual', 'El ahorro más recomendado si ya sabes que quieres continuidad', 'Seguimiento continuo sin interrupciones'],
     buttonText: 'Empezar',
     buttonLink: '/contact',
+    featured: true,
   },
   {
     badge: 'Anual',
@@ -75,44 +77,51 @@ const PricingPlans = () => {
 
         <div className="grid grid-cols-1 gap-7.5 md:grid-cols-2 lg:grid-cols-4">
           {pricingPlansData.map((plan, idx) => (
-            <div key={idx} className={`flex flex-col rounded-2xl bg-white p-3.5 shadow-xl md:p-5 lg:p-7.5 ${plan.colSpanClass || ''}`}>
-              <div className={`mb-5 self-start rounded-lg px-3.75 py-1 text-sm font-medium text-white lg:py-2 ${plan.badgeBgClass} ${plan.badgeShadowClass || ''}`}>{plan.badge}</div>
+            <div
+              key={idx}
+              className={`relative flex flex-col overflow-hidden rounded-2xl p-3.5 shadow-xl md:p-5 lg:p-7.5 ${plan.colSpanClass || ''} ${plan.featured ? 'bg-default-900 lg:scale-105' : 'bg-white'}`}
+            >
+              {plan.featured && <div className="bg-primary-1/20 pointer-events-none absolute top-0 right-0 size-60 -translate-y-1/3 translate-x-1/3 rounded-full blur-3xl"></div>}
 
-              <div className="mb-1 flex items-baseline gap-2">
-                <p className="text-default-900 text-2xl font-semibold md:text-3xl lg:text-4xl">
-                  {plan.price} <span>€</span>
-                </p>
-                <div className="text-lg">{plan.pricePeriod}</div>
-              </div>
+              <div className={plan.featured ? 'relative z-10 flex flex-1 flex-col rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-xl md:p-5' : 'flex flex-1 flex-col'}>
+                <div className={`mb-5 self-start rounded-lg px-3.75 py-1 text-sm font-medium text-white lg:py-2 ${plan.badgeBgClass} ${plan.badgeShadowClass || ''}`}>{plan.badge}</div>
 
-              {plan.monthlyEquivalent && <p className="text-default-500 mb-2.5 text-sm font-medium lg:mb-5">{plan.monthlyEquivalent}</p>}
+                <div className="mb-1 flex items-baseline gap-2">
+                  <p className={`text-2xl font-semibold md:text-3xl lg:text-4xl ${plan.featured ? 'text-white' : 'text-default-900'}`}>
+                    {plan.price} <span>€</span>
+                  </p>
+                  <div className={`text-lg ${plan.featured ? 'text-default-300' : ''}`}>{plan.pricePeriod}</div>
+                </div>
 
-              <div>
-                <p className="text-default-700 text-base leading-relaxed md:text-lg">{plan.description}</p>
-              </div>
+                {plan.monthlyEquivalent && <p className={`mb-2.5 text-sm font-medium lg:mb-5 ${plan.featured ? 'text-default-400' : 'text-default-500'}`}>{plan.monthlyEquivalent}</p>}
 
-              <div className="bg-default-200 my-6 h-px"></div>
+                <div>
+                  <p className={`text-base leading-relaxed md:text-lg ${plan.featured ? 'text-default-300' : 'text-default-700'}`}>{plan.description}</p>
+                </div>
 
-              <ul className="mb-5 space-y-2.5 md:mb-7.5">
-                {plan.features.map((feature, fIdx) => (
-                  <li key={fIdx} className="text-default-600 flex items-center gap-2 text-base">
-                    <Icon icon="lucide:circle-check" className="text-primary-2 size-4" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+                <div className={`my-6 h-px ${plan.featured ? 'bg-white/10' : 'bg-default-200'}`}></div>
 
-              <div>
-                <Link href={plan.buttonLink} className="group bg-default-900 relative inline-flex items-center justify-center overflow-hidden rounded-full px-5 text-white shadow-xl! transition-all duration-300 hover:scale-95">
-                  <div className="relative inline-flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-full">
-                    <div className="flex h-14 items-center gap-3">
-                      <span className="font-medium">{plan.buttonText}</span>
+                <ul className="mb-5 space-y-2.5 md:mb-7.5">
+                  {plan.features.map((feature, fIdx) => (
+                    <li key={fIdx} className={`flex items-center gap-2 text-base ${plan.featured ? 'text-default-300' : 'text-default-600'}`}>
+                      <Icon icon="lucide:circle-check" className="text-primary-2 size-4" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-auto">
+                  <Link href={plan.buttonLink} className={`group relative inline-flex items-center justify-center overflow-hidden rounded-full px-5 shadow-xl! transition-all duration-300 hover:scale-95 ${plan.featured ? 'bg-white text-black' : 'bg-default-900 text-white'}`}>
+                    <div className="relative inline-flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-full">
+                      <div className="flex h-14 items-center gap-3">
+                        <span className="font-medium">{plan.buttonText}</span>
+                      </div>
+                      <div className="absolute top-full flex h-14 items-center gap-3">
+                        <span className="font-medium">{plan.buttonText}</span>
+                      </div>
                     </div>
-                    <div className="absolute top-full flex h-14 items-center gap-3">
-                      <span className="font-medium">{plan.buttonText}</span>
-                    </div>
-                  </div>
-                </Link>
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

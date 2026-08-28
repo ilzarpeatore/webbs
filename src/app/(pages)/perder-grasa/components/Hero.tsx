@@ -1,9 +1,9 @@
-import { Icon } from '@iconify/react'
 import Image from 'next/image'
 
 import about04 from '@/assets/images/about/about-04.webp'
 import cloud05 from '@/assets/images/locations/cloud-05.webp'
 import CtaButton from '@/components/shared/CtaButton'
+import GlassStatCard from '@/components/shared/GlassStatCard'
 import SectionBadge from '@/components/shared/SectionBadge'
 
 const Hero = () => {
@@ -34,12 +34,7 @@ const Hero = () => {
               <Image src={about04} alt="Seguimiento de pérdida de grasa" className="h-80 w-full object-cover md:h-105" />
               <div className="absolute inset-0 bg-black/10"></div>
             </div>
-            <div className="bg-default-900/70 absolute right-3 bottom-3 flex items-center gap-3 rounded-2xl border border-white/10 p-3.5 backdrop-blur-md md:right-5 md:bottom-5 md:p-5">
-              <div className="bg-primary-1 flex size-9 shrink-0 items-center justify-center rounded-full md:size-11">
-                <Icon icon="lucide:flame" className="text-lg text-white" />
-              </div>
-              <p className="text-sm font-medium text-white md:text-base">Objetivo calórico calculado para ti</p>
-            </div>
+            <GlassStatCard icon="lucide:flame" iconBgClass="bg-primary-1" label="Objetivo calórico calculado para ti" />
           </div>
         </div>
       </div>
