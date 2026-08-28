@@ -24,6 +24,7 @@ const navItems: NavItem[] = [
 const dropdownItems: NavItem[] = [
   { label: 'Inicio', href: '/home' },
   { label: 'Sobre nosotros', href: '/about' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Planes', href: '/pricing' },
   { label: 'Contacto', href: '/contact' },
   { label: 'Lista de espera', href: '/waitlist' },
