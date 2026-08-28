@@ -6,7 +6,7 @@ Informes detallados con fuentes citadas: [`docs/legal/verifactu-forma-juridica.m
 
 ## 🔴 Bloqueantes antes de publicar la web
 
-- [x] **Datos identificativos del titular** — **rellenados** en `/privacy-policy`, `/terms-and-conditions` y `/legal-notice` (28 ago 2026): Titular Hamza Elouafa Lafjare, NIF 17575419S, domicilio Plaza de Paris 1, 2C. **A revisar**: el domicilio facilitado no incluye municipio/provincia/código postal — para que el art. 10 LSSI-CE quede completo conviene añadir la dirección postal completa cuando se tenga.
+- [x] **Datos identificativos del titular** — **rellenados y completos** en `/privacy-policy`, `/terms-and-conditions` y `/legal-notice` (28 ago 2026): Titular Hamza Elouafa Lafjare, NIF 17575419S, domicilio Plaza de Paris 1, 2C, 28943 Fuenlabrada, Madrid, España.
 - [x] ~~Página de Aviso Legal~~ — construida en `/legal-notice`, enlazada desde navbar y footer (27 ago 2026).
 - [ ] **Consentimiento explícito y separado para datos de salud** en el flujo real de la app: un checkbox propio para el cuestionario PAR-Q (no basta con "acepto los Términos" genérico), dado que son datos de categoría especial (art. 9 RGPD).
 - [x] **Requisitos de Apple/Google que pueden causar el rechazo de la app en las tiendas** — investigado (28 ago 2026) y reflejado en `/privacy-policy`:

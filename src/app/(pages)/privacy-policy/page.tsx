@@ -25,7 +25,7 @@ const Page = () => {
                     <li>Denominación comercial: BeStronger</li>
                     <li>Titular: Hamza Elouafa Lafjare</li>
                     <li>NIF: 17575419S</li>
-                    <li>Domicilio: Plaza de Paris 1, 2C</li>
+                    <li>Domicilio: Plaza de Paris 1, 2C, 28943 Fuenlabrada, Madrid, España</li>
                     <li>Correo de contacto para asuntos de privacidad: contacto@bestronger.es</li>
                   </ul>
                   <p className="text-default-600 mt-3.5 text-base leading-normal md:text-lg md:leading-relaxed">
