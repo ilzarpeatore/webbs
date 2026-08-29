@@ -30,7 +30,7 @@ const Stats = () => {
 
         <div className="relative z-20 mb-7.5 flex flex-col items-center justify-center">
           <div className="relative items-center md:inline-flex">
-            <h3 className="text-primary-1 ms-8 text-4xl leading-none font-black tracking-normal md:ms-0 md:text-[100px] lg:text-[120px]">
+            <h3 className="text-primary-9 ms-8 text-4xl leading-none font-black tracking-normal md:ms-0 md:text-[100px] lg:text-[120px]">
               6 <span className="ms-1">informes</span>
             </h3>
 
@@ -58,7 +58,7 @@ const Stats = () => {
             <div className="flex flex-col items-center">
               <div className="flex items-baseline gap-1">
                 <h3 className="text-default-900 text-3xl font-medium tracking-normal md:text-5xl lg:text-7xl">100</h3>
-                <span className="text-primary-6 text-3xl font-medium md:text-5xl lg:text-6xl">%</span>
+                <span className="text-primary-9 text-3xl font-medium md:text-5xl lg:text-6xl">%</span>
               </div>
               <p className="text-default-800 mt-2 text-sm leading-tight font-semibold md:text-lg">de tus series se guarda al momento, no al final</p>
             </div>

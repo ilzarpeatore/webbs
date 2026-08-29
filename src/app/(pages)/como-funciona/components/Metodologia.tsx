@@ -5,13 +5,13 @@ const items: FeatureCardProps[] = [
   {
     title: 'Auto-regulación basada en rendimiento real',
     description: 'En lugar de una tabla fija de progresión, la carga y las repeticiones que te tocan se calculan según cómo entrenaste realmente la última vez.',
-    bgClass: 'bg-primary-3',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:activity',
   },
   {
     title: 'RIR/RPE como medida de esfuerzo',
     description: 'Repeticiones en reserva o esfuerzo percibido, intercambiables según lo que te resulte más natural, en vez de depender solo de porcentajes fijos.',
-    bgClass: 'bg-primary-6',
+    bgClass: 'bg-default-900',
     icon: 'lucide:gauge',
   },
 ]

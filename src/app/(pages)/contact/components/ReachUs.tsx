@@ -10,7 +10,7 @@ type ReachUsCardType = {
 const reachUsData: ReachUsCardType[] = [
   {
     icon: 'lucide:headset',
-    iconBgClass: 'bg-primary-3',
+    iconBgClass: 'bg-default-900',
     title: 'Soporte',
     email: 'contacto@bestronger.es',
   },

@@ -5,25 +5,25 @@ const beneficios: FeatureCardProps[] = [
   {
     title: 'Más allá del peso',
     description: 'Medidas y % de grasa, además del peso, con tarjeta de último valor, diferencia respecto al anterior y gráfico de línea — el catálogo lo configura tu coach para ti.',
-    bgClass: 'bg-primary-3',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:ruler',
   },
   {
     title: 'Rendimiento como señal objetiva',
     description: 'Auto-regulación de carga: la app sugiere peso y repeticiones según tu rendimiento real pasado, pendientes de aprobación de tu coach. Mantener o mejorar tu fuerza cuenta, aunque la báscula apenas se mueva.',
-    bgClass: 'bg-primary-6',
+    bgClass: 'bg-default-900',
     icon: 'lucide:trending-up',
   },
   {
     title: 'Constancia medida de verdad',
     description: 'Porcentaje real de sesiones completadas frente a las programadas, mapa de calor de 21 días y rachas de hábitos calculadas en servidor, con racha combinada de todos tus hábitos activos.',
-    bgClass: 'bg-primary-2',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:calendar-check',
   },
   {
     title: 'Calorías ajustadas, no adivinadas',
     description: 'Comidas asignadas por tu coach para cada franja del día, con ajuste en vivo de si la combinación encaja con tu objetivo calórico — clave cuando ni te conviene mucho déficit ni mucho superávit.',
-    bgClass: 'bg-primary-1',
+    bgClass: 'bg-default-900',
     icon: 'lucide:utensils',
   },
 ]

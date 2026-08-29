@@ -34,7 +34,7 @@ const Hero = () => {
               <Image src={about01} alt="Sesión de entrenamiento" className="h-80 w-full object-cover md:h-105" />
               <div className="absolute inset-0 bg-black/10"></div>
             </div>
-            <GlassStatCard icon="lucide:check-check" iconBgClass="bg-primary-3" label="Serie registrada al momento" />
+            <GlassStatCard icon="lucide:check-check" iconBgClass="bg-primary-8" label="Serie registrada al momento" />
           </div>
         </div>
       </div>

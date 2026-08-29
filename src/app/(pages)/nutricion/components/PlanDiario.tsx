@@ -5,25 +5,25 @@ const planFeatures: FeatureCardProps[] = [
   {
     title: 'Objetivo diario de calorías y macros',
     description: 'Proteína, carbohidratos y grasas con progreso en tiempo real, repartidos en desayuno, comida, cena y snacks.',
-    bgClass: 'bg-primary-3',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:flame',
   },
   {
     title: 'Comidas asignadas por tu coach',
     description: 'Para cada franja del día, con una insignia que marca que las preparó específicamente para ti.',
-    bgClass: 'bg-primary-2',
+    bgClass: 'bg-default-900',
     icon: 'lucide:chef-hat',
   },
   {
     title: 'Ajuste en vivo al combinar opciones',
     description: 'La app te dice al momento si tu combinación encaja con tu objetivo, te faltan calorías o te pasas — antes de guardarla.',
-    bgClass: 'bg-primary-6',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:scale',
   },
   {
     title: 'Recetario con buscador',
     description: 'Catálogo general de recetas con filtros por tipo de comida, favoritos y rango de calorías, para completar lo que te apetezca.',
-    bgClass: 'bg-primary-1',
+    bgClass: 'bg-default-900',
     icon: 'lucide:search',
   },
 ]

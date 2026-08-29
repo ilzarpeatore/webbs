@@ -54,7 +54,7 @@ const Page = () => {
                   </p>
                 </div>
 
-                <div className="border-primary-1/30 bg-primary-1/5 rounded-2xl border p-5 md:p-7.5">
+                <div className="border-default-800/30 bg-default-800/5 rounded-2xl border p-5 md:p-7.5">
                   <h2 className="text-default-900 mb-2.5 text-xl font-medium md:text-2xl">4. Naturaleza del servicio: advertencia sanitaria</h2>
                   <p className="text-default-600 text-base leading-normal md:text-lg md:leading-relaxed">
                     <strong>BeStronger no es un servicio médico ni de diagnóstico</strong>, y tu coach no es un profesional médico salvo que se indique lo contrario. No sustituye la valoración de un profesional sanitario colegiado.
@@ -136,7 +136,7 @@ const Page = () => {
                   <h2 className="text-default-900 mb-2.5 text-xl font-medium md:text-2xl lg:text-4xl">11. Protección de datos</h2>
                   <p className="text-default-600 text-base leading-normal md:text-lg md:leading-relaxed">
                     El tratamiento de tus datos personales, incluidos los de salud, se rige por nuestra{' '}
-                    <a href="/privacy-policy" className="text-default-900 underline underline-offset-4">
+                    <a href="/privacy-policy" className="text-primary-9 underline underline-offset-4">
                       Política de Privacidad
                     </a>
                     , que forma parte de estos Términos.
@@ -155,7 +155,7 @@ const Page = () => {
                   <h2 className="text-default-900 mb-2.5 text-xl font-medium md:text-2xl lg:text-4xl">13. Legislación aplicable</h2>
                   <p className="text-default-600 text-base leading-normal md:text-lg md:leading-relaxed">
                     Estos Términos se rigen por la legislación española. Como consumidor, cualquier controversia se somete a los Juzgados y Tribunales de tu domicilio, sin perjuicio de tu derecho a acudir a la plataforma europea de resolución de litigios en línea en{' '}
-                    <a href="https://ec.europa.eu/consumers/odr" target="_blank" className="text-default-900 underline underline-offset-4">
+                    <a href="https://ec.europa.eu/consumers/odr" target="_blank" className="text-primary-9 underline underline-offset-4">
                       ec.europa.eu/consumers/odr
                     </a>
                     .
@@ -166,7 +166,7 @@ const Page = () => {
                   <h2 className="text-default-900 mb-2.5 text-xl font-medium md:text-2xl lg:text-4xl">14. Contacto</h2>
                   <p className="text-default-600 text-base leading-normal md:text-lg md:leading-relaxed">
                     BeStronger —{' '}
-                    <a href="mailto:contacto@bestronger.es" className="text-default-900 underline underline-offset-4">
+                    <a href="mailto:contacto@bestronger.es" className="text-primary-9 underline underline-offset-4">
                       contacto@bestronger.es
                     </a>{' '}
                     — bestronger.es

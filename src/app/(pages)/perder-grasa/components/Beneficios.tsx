@@ -5,25 +5,25 @@ const beneficios: FeatureCardProps[] = [
   {
     title: 'Tu punto de partida, calculado',
     description: 'Tras tus datos personales, la app calcula tu metabolismo basal (BMR) y tu gasto calórico total (TDEE) y te propone un primer plan de calorías y macros antes de confirmar tu plan.',
-    bgClass: 'bg-primary-3',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:calculator',
   },
   {
     title: 'Sabes si encaja, antes de añadirla',
     description: 'Al combinar las opciones de comida que te prepara tu coach para cada franja del día, la app calcula al momento si esa combinación se ajusta a tu objetivo calórico, te faltan kcal o te pasas.',
-    bgClass: 'bg-primary-1',
+    bgClass: 'bg-default-900',
     icon: 'lucide:utensils',
   },
   {
     title: 'Que perder grasa no sea perder fuerza',
     description: 'La auto-regulación sugiere el peso y las repeticiones de hoy según tu rendimiento real pasado, pendiente de aprobación de tu coach — para vigilar tu fuerza con datos mientras estás en déficit.',
-    bgClass: 'bg-primary-6',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:dumbbell',
   },
   {
     title: 'Progreso medido, no solo la báscula del día',
     description: 'Peso y medidas corporales configurados por tu coach, con el último valor, el cambio respecto al anterior y un gráfico de línea para ver la evolución real de tu proceso.',
-    bgClass: 'bg-primary-2',
+    bgClass: 'bg-default-900',
     icon: 'lucide:line-chart',
   },
 ]

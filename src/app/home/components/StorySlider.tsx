@@ -152,11 +152,11 @@ const StorySlider = () => {
             </Swiper>
           </div>
 
-          <button className="story-prev absolute left-1/2 -translate-x-12 md:left-80 md:translate-x-0 lg:left-140 -bottom-18 z-20 flex size-10 items-center justify-center rounded-full bg-default-200 hover:bg-primary-2">
+          <button className="story-prev absolute left-1/2 -translate-x-12 md:left-80 md:translate-x-0 lg:left-140 -bottom-18 z-20 flex size-10 items-center justify-center rounded-full bg-default-200 hover:bg-primary-8">
             <Icon icon="lucide:chevron-left" className="text-default-800 size-6" />
           </button>
 
-          <button className="story-next absolute left-1/2 translate-x-2 md:left-auto md:right-80 md:translate-x-0 lg:right-138 -bottom-18 z-20 flex size-10 items-center justify-center rounded-full bg-default-200 hover:bg-primary-2">
+          <button className="story-next absolute left-1/2 translate-x-2 md:left-auto md:right-80 md:translate-x-0 lg:right-138 -bottom-18 z-20 flex size-10 items-center justify-center rounded-full bg-default-200 hover:bg-primary-8">
             <Icon icon="lucide:chevron-right" className="text-default-800 size-6" />
           </button>
 

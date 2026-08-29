@@ -5,25 +5,25 @@ const sessionFeatures: FeatureCardProps[] = [
   {
     title: 'Series, carga y RIR/RPE',
     description: 'Cada serie tiene su objetivo marcado por tu coach. Al completarla se guarda al momento en el servidor, no al terminar el entrenamiento.',
-    bgClass: 'bg-primary-3',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:check-check',
   },
   {
     title: 'Descansos con cuenta atrás',
     description: 'Con opción de saltar. En iPhone, además se ve en la pantalla de bloqueo con el objetivo de la siguiente serie (Live Activity).',
-    bgClass: 'bg-primary-6',
+    bgClass: 'bg-default-900',
     icon: 'lucide:timer',
   },
   {
     title: 'Reporte de dolor por ejercicio',
     description: 'Indicas tipo, zona e intensidad desde la propia sesión. Según la gravedad, tu coach recibe una notificación automática.',
-    bgClass: 'bg-primary-1',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:heart-pulse',
   },
   {
     title: 'Minimiza sin perder la sesión',
     description: 'Puedes salir a hacer otra cosa en la app: una barra flotante te devuelve exactamente a donde lo dejaste.',
-    bgClass: 'bg-primary-2',
+    bgClass: 'bg-default-900',
     icon: 'lucide:minimize-2',
   },
 ]

@@ -57,7 +57,7 @@ const FaqAccordion = ({ items, title, eyebrow = 'Preguntas frecuentes', variant 
               </div>
 
               <div className="flex flex-col items-center space-y-6 rounded-2xl bg-white p-5 text-center shadow-xl shadow-zinc-200/50 md:p-7.5">
-                <div className="bg-primary-1 flex size-12.5 items-center justify-center rounded-full shadow-lg">
+                <div className="bg-primary-8 flex size-12.5 items-center justify-center rounded-full shadow-lg">
                   <Icon icon="lucide:headset" className="size-6 text-white" />
                 </div>
                 <div className="flex flex-col items-center space-y-6">

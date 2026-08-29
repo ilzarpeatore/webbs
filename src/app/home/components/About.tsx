@@ -173,7 +173,7 @@ const About = () => {
 
         <div className="mx-auto mt-4 flex flex-col items-center gap-y-5 px-6 md:mt-12">
           <div className="border-default-200 flex items-center gap-2 rounded-full border bg-white px-2.5 py-2 md:px-5">
-            <Icon icon="tabler:shield-check" className="text-primary-1 size-3.5" />
+            <Icon icon="tabler:shield-check" className="text-primary-9 size-3.5" />
             <p className="text-default-500 text-sm font-medium">
               <span className="font-medium text-black">Un coach real</span> revisa tus datos, no un algoritmo sin supervisión
             </p>

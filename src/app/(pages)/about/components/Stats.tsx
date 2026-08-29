@@ -19,19 +19,19 @@ const statsData: StatItemType[] = [
     suffix: '%',
     title: 'De tus series se guarda al momento',
     description: 'No al final del entrenamiento, sino serie a serie.',
-    colorClass: 'text-primary-8',
+    colorClass: 'text-primary-9',
   },
   {
     value: '6',
     title: 'Informes de estadísticas de entrenamiento',
     description: 'Series por músculo, balance, mejores marcas y más.',
-    colorClass: 'text-primary-1',
+    colorClass: 'text-primary-9',
   },
   {
     value: '37',
     title: 'Preguntas en tu cuestionario inicial',
     description: 'Para calcular tu plan de calorías y macros de partida.',
-    colorClass: 'text-primary text-nowrap',
+    colorClass: 'text-primary-9 text-nowrap',
     colSpanClass: 'md:col-span-1 col-span-2',
   },
 ]
@@ -70,7 +70,7 @@ const Stats = () => {
 
           <div className="bg-default-200 relative flex flex-col items-center justify-between overflow-hidden rounded-2xl md:min-h-125 lg:min-h-150">
             <div className="z-10 pt-12.5 pb-12.5 text-center lg:pb-8">
-              <h3 className="text-primary-1 mb-3.75 text-4xl font-bold drop-shadow-[0_10px_15px_rgba(249,115,22,0.3)] md:text-5xl lg:text-[90px]">0</h3>
+              <h3 className="text-primary-9 mb-3.75 text-4xl font-bold drop-shadow-[0_10px_15px_rgba(73,197,182,0.3)] md:text-5xl lg:text-[90px]">0</h3>
               <span className="border-default-200 text-default-800 inline-block rounded-full border bg-white px-5 py-1 text-sm font-medium md:py-1.5">chat en vivo — todo queda registrado</span>
             </div>
 
