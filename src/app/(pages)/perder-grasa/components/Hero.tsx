@@ -34,7 +34,7 @@ const Hero = () => {
               <Image src={about04} alt="Seguimiento de pérdida de grasa" className="h-80 w-full object-cover md:h-105" />
               <div className="absolute inset-0 bg-black/10"></div>
             </div>
-            <GlassStatCard icon="lucide:flame" iconBgClass="bg-primary-1" label="Objetivo calórico calculado para ti" />
+            <GlassStatCard icon="lucide:flame" iconBgClass="bg-primary-8" label="Objetivo calórico calculado para ti" />
           </div>
         </div>
       </div>

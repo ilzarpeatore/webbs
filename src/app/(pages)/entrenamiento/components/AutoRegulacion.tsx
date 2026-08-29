@@ -34,11 +34,11 @@ const AutoRegulacion = () => {
                   <span className="text-lg font-semibold text-white">80 kg × 8</span>
                 </div>
                 <div className="mt-4 flex items-center justify-between">
-                  <span className="text-primary-1 flex items-center gap-1.5 text-sm">
+                  <span className="text-primary-9 flex items-center gap-1.5 text-sm">
                     <Icon icon="lucide:trending-up" className="size-4" />
                     Sugerido
                   </span>
-                  <span className="text-primary-1 text-lg font-semibold">85 kg × 8</span>
+                  <span className="text-primary-9 text-lg font-semibold">85 kg × 8</span>
                 </div>
                 <div className="mt-5 flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2">
                   <Icon icon="lucide:clock" className="text-default-400 size-3.5" />

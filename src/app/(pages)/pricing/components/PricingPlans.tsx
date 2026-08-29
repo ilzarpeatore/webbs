@@ -29,7 +29,7 @@ const pricingPlansData: PricingPlanType[] = [
   },
   {
     badge: 'Trimestral',
-    badgeBgClass: 'bg-primary-2',
+    badgeBgClass: 'bg-default-700',
     description: '240 € cada 3 meses — equivale a 80 €/mes.',
     price: 240,
     pricePeriod: '/3 meses',
@@ -40,8 +40,8 @@ const pricingPlansData: PricingPlanType[] = [
   },
   {
     badge: 'Semestral',
-    badgeBgClass: 'bg-primary-1',
-    badgeShadowClass: 'shadow-[0_0_20px_rgba(249,115,22,0.35)]',
+    badgeBgClass: 'bg-default-950',
+    badgeShadowClass: 'shadow-[0_0_20px_rgba(2,131,167,0.35)]',
     description: '450 € cada 6 meses — equivale a 75 €/mes.',
     price: 450,
     pricePeriod: '/6 meses',
@@ -81,7 +81,7 @@ const PricingPlans = () => {
               key={idx}
               className={`relative flex flex-col overflow-hidden rounded-2xl p-3.5 shadow-xl md:p-5 lg:p-7.5 ${plan.colSpanClass || ''} ${plan.featured ? 'bg-default-900 lg:scale-105' : 'bg-white'}`}
             >
-              {plan.featured && <div className="bg-primary-1/20 pointer-events-none absolute top-0 right-0 size-60 -translate-y-1/3 translate-x-1/3 rounded-full blur-3xl"></div>}
+              {plan.featured && <div className="bg-primary-8/20 pointer-events-none absolute top-0 right-0 size-60 -translate-y-1/3 translate-x-1/3 rounded-full blur-3xl"></div>}
 
               <div className={plan.featured ? 'relative z-10 flex flex-1 flex-col rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-xl md:p-5' : 'flex flex-1 flex-col'}>
                 <div className={`mb-5 self-start rounded-lg px-3.75 py-1 text-sm font-medium text-white lg:py-2 ${plan.badgeBgClass} ${plan.badgeShadowClass || ''}`}>{plan.badge}</div>

@@ -5,25 +5,25 @@ const beneficios: FeatureCardProps[] = [
   {
     title: 'Progresión de carga con aprobación de tu coach',
     description: 'El peso y las repeticiones sugeridas para tu próxima sesión se calculan según tus series completadas y el RIR/RPE registrado la última vez. Queda pendiente hasta que tu coach lo aprueba.',
-    bgClass: 'bg-primary-3',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:trending-up',
   },
   {
     title: 'Balance muscular y series por grupo',
     description: 'Series totales por grupo muscular comparadas con el periodo anterior, radar de balance muscular compartible y mapa de calor corporal navegable semana a semana.',
-    bgClass: 'bg-primary-6',
+    bgClass: 'bg-default-900',
     icon: 'lucide:bar-chart-3',
   },
   {
     title: 'Mejores marcas y 1RM estimado',
     description: 'Cada sesión queda en tu historial con peso, reps y RIR/RPE, y se marca automáticamente cuando bates un récord personal, con 1RM estimado por ejercicio.',
-    bgClass: 'bg-primary-1',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:trophy',
   },
   {
     title: 'Comidas para sostener tu superávit',
     description: 'Tu coach te prepara las comidas de cada franja del día, con ajuste en vivo de si la combinación encaja con tu objetivo calórico, sin tener que calcular tú los números.',
-    bgClass: 'bg-primary-2',
+    bgClass: 'bg-default-900',
     icon: 'lucide:utensils',
   },
 ]

@@ -34,7 +34,7 @@ const Hero = () => {
               <Image src={aboutImage01} alt="Entrenamiento de mantenimiento y forma física" className="h-80 w-full object-cover md:h-105" />
               <div className="absolute inset-0 bg-black/10"></div>
             </div>
-            <GlassStatCard icon="lucide:calendar-range" iconBgClass="bg-primary-2" label="Tu semana, reorganizada al instante" />
+            <GlassStatCard icon="lucide:calendar-range" iconBgClass="bg-primary-8" label="Tu semana, reorganizada al instante" />
           </div>
         </div>
       </div>

@@ -30,7 +30,7 @@
 select,
 input,
 textarea {
-    @apply transition-all duration-200 focus:border-primary focus:ring-0 focus:outline-0;
+    @apply transition-all duration-200 focus:border-primary-9 focus:ring-0 focus:outline-0;
 }
 
 

@@ -34,7 +34,7 @@ const Hero = () => {
               <Image src={about03} alt="Entrenamiento de fuerza para ganar músculo" className="h-80 w-full object-cover md:h-105" />
               <div className="absolute inset-0 bg-black/10"></div>
             </div>
-            <GlassStatCard icon="lucide:trending-up" iconBgClass="bg-primary-3" label="Sugerido: 85 kg × 8, +5 kg vs. la semana pasada" />
+            <GlassStatCard icon="lucide:trending-up" iconBgClass="bg-primary-8" label="Sugerido: 85 kg × 8, +5 kg vs. la semana pasada" />
           </div>
         </div>
       </div>

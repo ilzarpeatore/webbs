@@ -5,19 +5,19 @@ const origenes: FeatureCardProps[] = [
   {
     title: 'Asignado por tu coach',
     description: 'Tu coach te asigna un hábito directamente cuando lo considera parte de tu plan.',
-    bgClass: 'bg-primary-3',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:user-check',
   },
   {
     title: 'De la biblioteca',
     description: 'Un catálogo curado por tu coach del que puedes adoptar hábitos libremente.',
-    bgClass: 'bg-primary-2',
+    bgClass: 'bg-default-900',
     icon: 'lucide:library',
   },
   {
     title: 'Personal',
     description: 'Creado por ti, con icono, nombre, objetivo numérico opcional y frecuencia diaria o semanal.',
-    bgClass: 'bg-primary-6',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:user',
   },
 ]
@@ -26,13 +26,13 @@ const objetivoFeatures: FeatureCardProps[] = [
   {
     title: 'Objetivo numérico real',
     description: 'Si tu objetivo es "10.000 pasos" o "leer 4 libros", el círculo semanal se rellena según el % que consigues cada día, no solo hecho o no hecho.',
-    bgClass: 'bg-primary-1',
+    bgClass: 'bg-default-900',
     icon: 'lucide:target',
   },
   {
     title: 'Racha calculada en servidor',
     description: 'Tu racha no depende de tu dispositivo: se calcula en el servidor, igual que tu racha combinada de todos tus hábitos activos.',
-    bgClass: 'bg-primary-7',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:flame',
   },
 ]

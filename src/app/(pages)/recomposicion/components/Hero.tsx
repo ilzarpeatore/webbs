@@ -24,7 +24,7 @@ const Hero = () => {
               <Image src={about02} alt="Recomposición corporal" className="h-80 w-full object-cover md:h-105" />
               <div className="absolute inset-0 bg-black/10"></div>
             </div>
-            <GlassStatCard icon="lucide:ruler" iconBgClass="bg-primary-6" label="Medidas y % de grasa, no solo el peso" />
+            <GlassStatCard icon="lucide:ruler" iconBgClass="bg-primary-8" label="Medidas y % de grasa, no solo el peso" />
           </div>
         </div>
       </div>

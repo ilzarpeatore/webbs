@@ -20,7 +20,7 @@ const Acompanamiento = () => {
             <ul className="space-y-3.5">
               {canales.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3 rounded-2xl bg-white/5 p-4 text-white">
-                  <span className="bg-primary-2 mt-1 size-2 shrink-0 rounded-full"></span>
+                  <span className="bg-primary-8 mt-1 size-2 shrink-0 rounded-full"></span>
                   <span className="text-base leading-normal md:text-lg">{item}</span>
                 </li>
               ))}

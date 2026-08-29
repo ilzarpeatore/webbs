@@ -59,7 +59,7 @@ const Page = () => {
                   </p>
                 </div>
 
-                <div className="border-primary-2/30 bg-primary-2/5 rounded-2xl border p-5 md:p-7.5">
+                <div className="border-default-800/30 bg-default-800/5 rounded-2xl border p-5 md:p-7.5">
                   <h2 className="text-default-900 mb-2.5 text-xl font-medium md:text-2xl">Datos de Apple Health/HealthKit y Health Connect</h2>
                   <p className="text-default-600 text-base leading-normal md:text-lg md:leading-relaxed">
                     Si lo autorizas, la app lee de Apple Health/HealthKit (iOS) o Health Connect (Android) exclusivamente <strong>pasos, frecuencia cardiaca y sueño</strong>, con la única finalidad de dar contexto adicional a tu coach a la hora de ajustar tu plan — nunca con
@@ -114,7 +114,7 @@ const Page = () => {
                   </p>
                   <p className="text-default-600 mt-3.5 text-base leading-normal md:text-lg md:leading-relaxed">
                     Si prefieres solicitarlo por otra vía, o tienes cualquier problema para hacerlo desde la app, también puedes pedirnos la eliminación de tu cuenta escribiendo a{' '}
-                    <a href="mailto:contacto@bestronger.es" className="text-default-900 underline underline-offset-4">
+                    <a href="mailto:contacto@bestronger.es" className="text-primary-9 underline underline-offset-4">
                       contacto@bestronger.es
                     </a>
                     .
@@ -126,7 +126,7 @@ const Page = () => {
                   <p className="text-default-600 text-base leading-relaxed md:text-lg">Puedes ejercer en cualquier momento, de forma gratuita, tus derechos de acceso, rectificación, supresión, limitación, portabilidad y oposición, y retirar tu consentimiento (incluido el del cuestionario de salud y la sincronización con Apple Health/Health Connect) sin que afecte a la licitud del tratamiento previo.</p>
                   <p className="text-default-600 mt-3.5 text-base leading-relaxed md:text-lg">
                     Escríbenos a{' '}
-                    <a href="mailto:contacto@bestronger.es" className="text-default-900 underline underline-offset-4">
+                    <a href="mailto:contacto@bestronger.es" className="text-primary-9 underline underline-offset-4">
                       contacto@bestronger.es
                     </a>{' '}
                     indicando el derecho que quieres ejercer. También puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es) si consideras que no hemos tratado tus datos correctamente.
@@ -158,7 +158,7 @@ const Page = () => {
                   <h2 className="text-default-900 mb-2.5 text-xl font-medium md:text-2xl lg:text-4xl">Contacto</h2>
                   <p className="text-default-600 text-base leading-normal md:text-lg md:leading-relaxed">
                     BeStronger — {' '}
-                    <a href="mailto:contacto@bestronger.es" className="text-default-900 underline underline-offset-4">
+                    <a href="mailto:contacto@bestronger.es" className="text-primary-9 underline underline-offset-4">
                       contacto@bestronger.es
                     </a>{' '}
                     — bestronger.es

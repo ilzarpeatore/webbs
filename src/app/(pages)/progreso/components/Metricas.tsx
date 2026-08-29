@@ -5,25 +5,25 @@ const metricas: FeatureCardProps[] = [
   {
     title: 'Métricas corporales',
     description: 'Peso y medidas que tu coach configura para ti, con último valor, diferencia respecto al anterior y gráfico de línea.',
-    bgClass: 'bg-primary-3',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:ruler',
   },
   {
     title: 'Rendimiento por ejercicio',
     description: 'Automático, desde las series que registras entrenando: evolución de carga y mejores marcas (1RM estimado).',
-    bgClass: 'bg-primary-6',
+    bgClass: 'bg-default-900',
     icon: 'lucide:trending-up',
   },
   {
     title: 'Constancia',
     description: 'Porcentaje real de sesiones completadas frente a las programadas, con un mapa de 21 días.',
-    bgClass: 'bg-primary-2',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:calendar-check',
   },
   {
     title: '6 informes de estadísticas',
     description: 'Series por grupo muscular, balance muscular, mapa de calor corporal, ejercicios más frecuentes, mejores marcas y resumen mensual.',
-    bgClass: 'bg-primary-1',
+    bgClass: 'bg-default-900',
     icon: 'lucide:bar-chart-3',
   },
 ]

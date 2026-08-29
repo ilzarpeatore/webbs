@@ -68,7 +68,7 @@ const plannedHabits: PlannedHabit[] = [
   {
     time: '07:30',
     timeSuffix: 'AM',
-    cardBgClass: 'bg-primary-2/30 border border-primary-2/20',
+    cardBgClass: 'bg-primary-8/15 border border-primary-8/20',
     isChecked: true,
     label: 'Chequeo de preparación',
     rightText: 'Hecho',
@@ -77,7 +77,7 @@ const plannedHabits: PlannedHabit[] = [
   {
     time: '09:00',
     timeSuffix: 'AM',
-    cardBgClass: 'bg-primary-2/30 border border-primary-2/20',
+    cardBgClass: 'bg-primary-8/15 border border-primary-8/20',
     isChecked: true,
     label: 'Desayuno asignado por tu coach',
     rightText: '320 kcal',
@@ -312,7 +312,7 @@ const Features = () => {
           </div>
 
           <div className="bg-default-900 relative overflow-hidden rounded-3xl p-5 lg:p-10">
-            <div className="bg-primary/10 absolute top-1/2 left-1/2 size-125 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"></div>
+            <div className="bg-primary-8/10 absolute top-1/2 left-1/2 size-125 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"></div>
             <div className="relative z-10">
               <div className="max-w-xl">
                 <h3 className="mb-2.5 text-xl leading-tight font-semibold text-white md:text-2xl">Notificaciones que importan</h3>
@@ -324,7 +324,7 @@ const Features = () => {
                   <div className="absolute -top-20 left-0 rotate-[-20deg] md:-top-22 md:left-4">
                     <div className="relative">
                       <Image src={bellImage} alt="Bell" className="size-10 object-contain md:size-18" />
-                      <div className="bg-primary-7 absolute top-2 right-2 hidden size-7 items-center justify-center rounded-full text-xs font-bold text-white md:flex">7</div>
+                      <div className="bg-primary-8 absolute top-2 right-2 hidden size-7 items-center justify-center rounded-full text-xs font-bold text-white md:flex">7</div>
                     </div>
                   </div>
                 </div>

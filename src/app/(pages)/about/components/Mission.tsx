@@ -16,25 +16,25 @@ const missionData: MissionItemType[] = [
   {
     title: 'Datos, no sensaciones',
     description: 'Cada serie, cada comida y cada hábito quedan registrados al momento.',
-    bgClass: 'bg-primary-3',
+    bgClass: 'bg-primary-8',
     image: icon50,
   },
   {
     title: 'Un humano decide',
     description: 'El sistema propone ajustes de carga, pero siempre los aprueba tu coach.',
-    bgClass: 'bg-primary-7',
+    bgClass: 'bg-default-900',
     image: icon51,
   },
   {
     title: 'Sin sobreprometer',
     description: 'Solo comunicamos lo que la app hace de verdad hoy, no lo que hará algún día.',
-    bgClass: 'bg-primary-6',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:eye',
   },
   {
     title: 'Acompañamiento real',
     description: 'Notas, reportes de dolor y check-ins — sin chat en vivo, pero sin dejarte solo.',
-    bgClass: 'bg-primary-2',
+    bgClass: 'bg-default-900',
     icon: 'lucide:lightbulb',
   },
 ]

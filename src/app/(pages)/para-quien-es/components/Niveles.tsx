@@ -5,19 +5,19 @@ const niveles: FeatureCardProps[] = [
   {
     title: 'Cliente 1:1',
     description: 'Tu coach te diseña y ajusta tu plan de entrenamiento día a día. Ves "Mi plan de hoy" personalizado, no un catálogo genérico.',
-    bgClass: 'bg-primary-3',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:user-round-check',
   },
   {
     title: 'Cliente con paquete',
     description: 'Accedes a contenido según lo que incluya tu plan contratado, con la misma app y el mismo sistema de registro.',
-    bgClass: 'bg-primary-6',
+    bgClass: 'bg-default-900',
     icon: 'lucide:package',
   },
   {
     title: 'Acceso general',
     description: 'Nivel de entrada: catálogo de entrenamientos y recetas de calidad, con el mismo sistema de seguimiento de hábitos y progreso.',
-    bgClass: 'bg-primary-2',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:layout-grid',
   },
 ]

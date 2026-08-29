@@ -66,7 +66,7 @@ const SmartAssist = () => {
 
         <div className="mt-24 grid grid-cols-2 gap-2.5 md:gap-7.5 lg:grid-cols-4">
           <div className="group flex flex-col justify-end gap-y-6.5 rounded-2xl bg-white p-3.5 md:gap-y-10 md:p-5 lg:gap-y-17.5 lg:p-7.5">
-            <div className="bg-primary-3 flex size-12.5 items-center justify-center rounded-full">
+            <div className="bg-primary-8 flex size-12.5 items-center justify-center rounded-full">
               <Icon icon="lucide:bell-dot" className="text-xl text-white" />
             </div>
             <div>
@@ -76,7 +76,7 @@ const SmartAssist = () => {
           </div>
 
           <div className="group flex flex-col justify-end gap-y-6.5 rounded-2xl bg-white p-3.5 md:gap-y-10 md:p-5 lg:gap-y-17.5 lg:p-7.5">
-            <div className="bg-primary-7 flex size-12.5 items-center justify-center rounded-full">
+            <div className="bg-default-900 flex size-12.5 items-center justify-center rounded-full">
               <Image src={icon32} alt="" />
             </div>
             <div>
@@ -86,7 +86,7 @@ const SmartAssist = () => {
           </div>
 
           <div className="group flex flex-col justify-end gap-y-6.5 rounded-2xl bg-white p-3.5 md:gap-y-10 md:p-5 lg:gap-y-17.5 lg:p-7.5">
-            <div className="bg-primary-6 flex size-12.5 items-center justify-center rounded-full">
+            <div className="bg-primary-8 flex size-12.5 items-center justify-center rounded-full">
               <Icon icon="lucide:eye" className="text-xl text-white" />
             </div>
             <div>
@@ -96,7 +96,7 @@ const SmartAssist = () => {
           </div>
 
           <div className="group flex flex-col justify-end gap-y-6.5 rounded-2xl bg-white p-3.5 md:gap-y-10 md:p-5 lg:gap-y-17.5 lg:p-7.5">
-            <div className="bg-primary-2 flex size-12.5 items-center justify-center rounded-full">
+            <div className="bg-default-900 flex size-12.5 items-center justify-center rounded-full">
               <Icon icon="lucide:lightbulb" className="text-xl text-white" />
             </div>
             <div>

@@ -5,25 +5,25 @@ const beneficios: FeatureCardProps[] = [
   {
     title: 'Tu semana manda, no la rutina',
     description: 'Reorganiza tu entrenamiento arrastrándolo a otro día y se aplica al instante, o marca el día como no disponible para que tu coach lo revise. Pensado para tu vida real, no al revés.',
-    bgClass: 'bg-primary-2',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:calendar-range',
   },
   {
     title: 'No desviarte poco a poco, sin darte cuenta',
     description: 'Tu objetivo de calorías y macros se calcula desde el primer momento, con las comidas que asigna tu coach y un ajuste en vivo de si esa combinación encaja con tu objetivo de mantenimiento.',
-    bgClass: 'bg-primary-3',
+    bgClass: 'bg-default-900',
     icon: 'lucide:scale',
   },
   {
     title: 'Entrenar hoy sin pagarlo mañana',
     description: 'Si algo te duele entrenando, lo reportas al momento indicando tipo, zona e intensidad, y según la gravedad tu coach recibe una notificación automática — para sostener el entrenamiento a largo plazo.',
-    bgClass: 'bg-primary-1',
+    bgClass: 'bg-primary-8',
     icon: 'lucide:heart-pulse',
   },
   {
     title: 'La constancia como métrica, no el récord',
     description: 'Tu historial mide el porcentaje de sesiones completadas frente a las programadas. Para mantenimiento, sostener la constancia importa más que superarte cada semana.',
-    bgClass: 'bg-primary-6',
+    bgClass: 'bg-default-900',
     icon: 'lucide:line-chart',
   },
 ]
