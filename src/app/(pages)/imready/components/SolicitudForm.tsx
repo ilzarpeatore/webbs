@@ -1,7 +1,7 @@
 'use client'
 
 import Script from 'next/script'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 
 /* EmailJS: sustituye estas tres constantes por tus credenciales reales de https://www.emailjs.com */
 const EJS_PUBLIC_KEY = 'TU_PUBLIC_KEY'
@@ -54,10 +54,6 @@ const SolicitudForm = () => {
 
   const isLast = active === steps.length - 1
 
-  useEffect(() => {
-    stepRefs.current[active]?.focus()
-  }, [active])
-
   const setValue = (key: FieldKey, value: string) => {
     setValues((p) => ({ ...p, [key]: value }))
     setError(false)
@@ -68,18 +64,29 @@ const SolicitudForm = () => {
     return step.optional || values[step.key].trim().length > 0
   }
 
+  // Every step's field already exists in the DOM (all slides are always
+  // mounted, just translated off-screen), so we can focus the target
+  // input synchronously, inside the same user gesture that triggered the
+  // navigation. Doing this from a useEffect instead — after React commits
+  // the new `active` — arrives too late for iOS Safari to honor the
+  // focus() call, leaving the keyboard attached to the previous, now
+  // hidden field.
   const goNext = () => {
     if (!currentIsValid()) {
       setError(true)
       return
     }
     setError(false)
-    setActive((a) => Math.min(steps.length - 1, a + 1))
+    const nextIndex = Math.min(steps.length - 1, active + 1)
+    setActive(nextIndex)
+    stepRefs.current[nextIndex]?.focus()
   }
 
   const goPrev = () => {
     setError(false)
-    setActive((a) => Math.max(0, a - 1))
+    const prevIndex = Math.max(0, active - 1)
+    setActive(prevIndex)
+    stepRefs.current[prevIndex]?.focus()
   }
 
   const onTouchStart = (e: React.TouchEvent) => {
