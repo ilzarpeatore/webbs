@@ -109,12 +109,18 @@ const resources = [
   { day: 'Día 2', title: 'Autogestión durante el entrenamiento', body: 'Cómo ajustar cargas y descansos durante la puesta en marcha. Aprenderás a leer tu propio cuerpo y tomar decisiones inteligentes dentro de la sesión.' },
   { day: 'Día 7', title: 'Guía de hábitos', body: 'El entrenamiento no lo es todo. Un plan detallado para tu mejor versión: sueño, estrés, rutinas y hábitos que potencian cada sesión.' },
   { day: 'Día 15', title: 'Guía de descanso activo y deload', body: 'Cuándo y cómo reducir la carga para que tu cuerpo asimile el trabajo y llegues más fuerte a cada nueva fase.' },
+  { day: 'Día 21', title: 'Protocolo de recuperación y movilidad', body: 'Rutinas específicas de movilidad articular y técnicas de recuperación activa para mantener el rendimiento entre sesiones y reducir el riesgo de lesión.' },
+  { day: 'Día 30', title: 'Revisión de progreso y ajuste de objetivos', body: 'Análisis detallado de los primeros 30 días: qué ha funcionado, qué ajustamos y cómo reorientamos el plan hacia la siguiente fase de tu proceso.' },
+  { day: 'Día 45', title: 'Guía de nutrición aplicada a tu objetivo', body: 'Pautas nutricionales adaptadas a tu perfil, tu objetivo y tu estilo de vida. Sin dietas genéricas, sin restricciones innecesarias.' },
+  { day: 'Día 60', title: 'Plan de periodización avanzada', body: 'Estructura de bloques de entrenamiento a medio y largo plazo para garantizar una progresión sostenida y evitar el estancamiento.' },
 ]
 
+const RESOURCES_VISIBLE = 4
+
 const ResourcesStep = () => (
-  <div className="relative flex flex-col gap-0 overflow-hidden rounded-2xl bg-white shadow-xl">
-    {resources.map((item) => (
-      <div key={item.day} className="border-default-200 flex gap-5 border-b p-6 last:border-b-0">
+  <div className="relative flex flex-col gap-0 overflow-hidden rounded-2xl bg-white pb-45 shadow-xl">
+    {resources.map((item, idx) => (
+      <div key={item.day} className={`border-default-200 flex gap-5 border-b p-6 last:border-b-0 ${idx >= RESOURCES_VISIBLE ? 'select-none' : ''}`}>
         <div className="w-[72px] shrink-0 pt-[3px]">
           <span className="border-primary-9/25 text-primary-9 rounded-full border px-2 py-1 text-[9px] font-semibold tracking-[0.14em] uppercase whitespace-nowrap">{item.day}</span>
         </div>
@@ -124,7 +130,7 @@ const ResourcesStep = () => (
         </div>
       </div>
     ))}
-    <div className="from-body-bg pointer-events-none absolute inset-x-0 bottom-0 flex h-32 flex-col items-center justify-end bg-gradient-to-t to-transparent pb-5">
+    <div className="from-body-bg pointer-events-none absolute inset-x-0 bottom-0 flex h-45 flex-col items-center justify-end bg-gradient-to-t to-transparent pb-5">
       <p className="text-default-600 max-w-[38ch] px-4 text-center text-[11px] leading-relaxed">A medida que avance tu asesoría irás recibiendo más recursos adaptados a tus necesidades específicas y al momento de tu proceso.</p>
     </div>
   </div>
