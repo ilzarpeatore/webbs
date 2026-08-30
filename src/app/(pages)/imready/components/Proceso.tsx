@@ -16,7 +16,7 @@ const TimelineStep = ({ num, label, children, id }: TimelineStepProps) => (
       <div className="border-primary-9/45 text-primary-9 z-[2] flex size-7 shrink-0 items-center justify-center rounded-full border bg-white text-[10px] font-semibold">{num}</div>
       {num < TOTAL_STEPS && <div className="from-primary-9/25 mt-2 w-px flex-1 bg-gradient-to-b to-transparent" />}
     </div>
-    <div className="flex flex-col gap-5 pt-1 pb-16">
+    <div className="flex min-w-0 flex-col gap-5 pt-1 pb-16">
       <span className="text-primary-9 text-[0.64rem] font-semibold tracking-[0.28em] uppercase">{label}</span>
       {children}
     </div>
