@@ -1,6 +1,5 @@
 import { Icon } from '@iconify/react'
 import CtaButton from '@/components/shared/CtaButton'
-import SectionBadge from '@/components/shared/SectionBadge'
 
 const priceTiers = [
   { name: 'Mensual', price: '95€', cond: '/mes' },
@@ -49,7 +48,10 @@ const Hero = () => {
       <div className="relative z-10 container">
         <div className="grid grid-cols-1 items-center gap-7.5 lg:grid-cols-2 lg:gap-15">
           <div>
-            <SectionBadge className="mb-3.5">Coaching 1:1 · Powerlifting</SectionBadge>
+            <span className="text-primary-9 mb-3.5 flex items-center gap-3 text-[0.68rem] font-semibold tracking-[0.28em] uppercase">
+              <span className="bg-primary-9 block h-px w-7" />
+              Coaching 1:1 · Powerlifting
+            </span>
             <h1 className="text-default-900 mb-3.5 text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-[64px]">
               Entrena mejor. <br className="hidden lg:block" />
               Muévete sin límites.
