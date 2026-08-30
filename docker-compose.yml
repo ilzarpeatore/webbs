@@ -9,7 +9,9 @@ services:
     restart: unless-stopped
     env_file:
       - .env.production
-    # Solo escucha en localhost: Nginx en el host hace de reverse proxy y
+    # Solo escucha en localhost: Caddy en el host hace de reverse proxy y
     # gestiona TLS. El contenedor nunca queda expuesto directamente a Internet.
+    # Puerto de host 3001 (no 3000) porque esta VPS ya tiene otro servicio
+    # ("sure") publicado en 127.0.0.1:3000 / 0.0.0.0:3000.
     ports:
-      - "127.0.0.1:3000:3000"
+      - "127.0.0.1:3001:3000"
