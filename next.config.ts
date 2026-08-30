@@ -17,12 +17,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  redirects: async () => {
+  // Sirve el contenido de /home en la raíz sin cambiar la URL del navegador
+  // (a diferencia de un redirect, que sí la cambiaría a /home).
+  rewrites: async () => {
     return [
       {
         source: "/",
         destination: "/home",
-        permanent: true,
       },
     ];
   },
