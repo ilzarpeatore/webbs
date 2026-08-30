@@ -140,7 +140,7 @@ const SolicitudForm = () => {
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl bg-white p-6 shadow-xl lg:p-10">
+    <div className="min-w-0 overflow-hidden rounded-2xl bg-white p-6 shadow-xl lg:p-10">
       <Script src="https://cdn.emailjs.com/dist/email.min.js" strategy="afterInteractive" />
 
       {/* Progreso */}
@@ -155,7 +155,7 @@ const SolicitudForm = () => {
 
       <form onSubmit={handleSubmit} noValidate>
         {/* Track deslizante */}
-        <div className="overflow-hidden" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+        <div className="min-w-0 overflow-hidden" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
           <div className="flex transition-transform duration-400 ease-[cubic-bezier(0.4,0,0.2,1)]" style={{ transform: `translateX(-${active * 100}%)` }}>
             {steps.map((step, idx) => (
               <div key={step.key} className="flex min-h-[190px] w-full shrink-0 flex-col justify-center gap-4 px-0.5">
