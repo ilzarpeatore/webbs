@@ -3,9 +3,9 @@
 # bloque al final). Caddy emite y renueva el certificado TLS de Let's Encrypt
 # automáticamente en el primer reload, sin pasos manuales de Certbot.
 #
-# webbs corre en el contenedor Docker publicado en 127.0.0.1:3001 (ver
+# webbs corre en el contenedor Docker publicado en 127.0.0.1:3002 (ver
 # docker-compose.yml) -- puerto distinto del resto de servicios de esta VPS.
 
 bestronger.es, www.bestronger.es {
-    reverse_proxy 127.0.0.1:3001
+    reverse_proxy 127.0.0.1:3002
 }

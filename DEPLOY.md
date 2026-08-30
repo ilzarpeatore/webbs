@@ -14,7 +14,7 @@ Archivos relevantes ya presentes en el repo:
 
 - `Dockerfile` — build multi-stage de Next.js en modo `standalone`.
 - `docker-compose.yml` — levanta el contenedor `web`, escuchando solo en
-  `127.0.0.1:3001` (puerto de host propio; ajusta el número si en tu VPS ya
+  `127.0.0.1:3002` (puerto de host propio; ajusta el número si en tu VPS ya
   está ocupado — revisa con `docker ps -a` y `ss -tlnp` qué puertos están
   libres antes de fijarlo).
 - `.github/workflows/deploy.yml` — hace `git pull` + `docker compose up -d`
@@ -115,7 +115,7 @@ automatizar):
 cd /srv/webbs
 docker compose build
 docker compose up -d
-curl -I http://127.0.0.1:3001
+curl -I http://127.0.0.1:3002
 ```
 
 Deberías ver `HTTP/1.1 200 OK` (o un redirect a `/home`, ver
@@ -200,7 +200,7 @@ Una vez confirmado que el VPS sirve correctamente `bestronger.es` con SSL:
 ## Notas
 
 - El contenedor **no** se expone directamente a Internet — solo escucha en
-  `127.0.0.1:3001`; Caddy en el host es el único punto de entrada público
+  `127.0.0.1:3002`; Caddy en el host es el único punto de entrada público
   (puertos 80/443), compartido con el resto de dominios que ya sirve esta
   VPS.
 - El backend (`bckbs`, en `testapp.bestronger.es`) es un servicio aparte y no
