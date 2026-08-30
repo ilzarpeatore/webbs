@@ -6,7 +6,4 @@ export const DEFAULT_PAGE_TITLE = 'BeStronger - Entrenamiento y nutrición onlin
 export const API_BASE_URL = process.env.API_BASE_URL || 'https://testapp.bestronger.es/api'
 
 // Dominio canónico del sitio, usado por metadataBase, el sitemap y robots.txt.
-// Provisional: hoy es el subdominio de Vercel. Cuando se migre a
-// bestronger.es, basta con fijar SITE_URL en las variables de entorno del
-// hosting -- no hace falta tocar código en ningún sitio.
-export const SITE_URL = (process.env.SITE_URL || 'https://webbs-fdeg.vercel.app').replace(/\/$/, '')
+export const SITE_URL = (process.env.SITE_URL || 'https://bestronger.es').replace(/\/$/, '')

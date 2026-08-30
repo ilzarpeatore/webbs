@@ -1,0 +1,18 @@
+services:
+  web:
+    # Los ARG por defecto del Dockerfile ya apuntan a bestronger.es /
+    # testapp.bestronger.es. Si algún día hace falta otro valor en build time,
+    # se sobreescribe con `docker compose build --build-arg SITE_URL=...`.
+    build:
+      context: .
+    image: webbs:latest
+    restart: unless-stopped
+    env_file:
+      - .env.production
+    # Solo escucha en localhost: Caddy en el host hace de reverse proxy y
+    # gestiona TLS. El contenedor nunca queda expuesto directamente a Internet.
+    # Puerto de host 3002: en esta VPS 3000 lo usa "sure" (Docker) y 3001 lo
+    # usa otro proceso Next.js nativo ya corriendo -- confirmar puertos libres
+    # con `ss -tlnp` antes de cambiar este valor.
+    ports:
+      - "127.0.0.1:3002:3000"
