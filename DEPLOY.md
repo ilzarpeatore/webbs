@@ -171,9 +171,11 @@ a `main` hace `git reset --hard origin/main` + `docker compose build` +
    ```
 2. Añade la **pública** (`gha_deploy_key.pub`) a `~/.ssh/authorized_keys`
    del usuario que uses en el VPS (`root` en este caso).
-3. En GitHub: repo → *Settings* → *Environments* → crea el entorno
-   `production` (coincide con `environment: production` del workflow) →
-   *Environment secrets* → añade:
+3. En GitHub: repo → *Settings* → *Secrets and variables* → *Actions* →
+   pestaña *Secrets* → *New repository secret* → añade estos 5 (uno por
+   uno). Son secrets de repositorio normales, no de un "Environment" — esta
+   VPS ya tiene varios *Environments* creados automáticamente por la
+   integración de Vercel (`Production`, `Preview`, etc.), no los reutilices:
 
    | Secret            | Valor                                    |
    | ----------------- | ----------------------------------------- |
