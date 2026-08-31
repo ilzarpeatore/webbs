@@ -79,14 +79,20 @@ const SolicitudForm = () => {
     setError(false)
     const nextIndex = Math.min(steps.length - 1, active + 1)
     setActive(nextIndex)
-    stepRefs.current[nextIndex]?.focus()
+    // preventScroll: sin esto, el foco dispara el scroll-into-view nativo
+    // del navegador mientras el teclado sigue abierto, que compite con la
+    // transición CSS del carrusel (translateX) y lo deja a medio camino
+    // entre dos preguntas -- sobre todo tras pulsar "Continuar" con el
+    // teclado táctil todavía activo (al deslizar con el dedo no pasa,
+    // porque el campo anterior ya se ha desenfocado antes de soltar).
+    stepRefs.current[nextIndex]?.focus({ preventScroll: true })
   }
 
   const goPrev = () => {
     setError(false)
     const prevIndex = Math.max(0, active - 1)
     setActive(prevIndex)
-    stepRefs.current[prevIndex]?.focus()
+    stepRefs.current[prevIndex]?.focus({ preventScroll: true })
   }
 
   const onTouchStart = (e: React.TouchEvent) => {
