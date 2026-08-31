@@ -1,4 +1,4 @@
-import logo from '@/assets/images/logo.svg'
+import logoIcon from '@/assets/images/logo-icon.png'
 import { Icon } from '@iconify/react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -50,8 +50,9 @@ const Footer = () => {
       <div className="container">
         <div className="grid grid-cols-2 justify-between gap-7.5 md:grid-cols-4 md:gap-12.5 lg:gap-32">
           <div className="col-span-2 md:col-span-1 lg:col-span-2">
-            <Link href="/" className="mb-10 inline-block">
-              <Image src={logo} alt="BeStronger Logo" height={44} className="h-11" />
+            <Link href="/" className="mb-10 inline-flex items-center gap-2.5">
+              <Image src={logoIcon} alt="" height={44} width={44} className="h-11 w-11 rounded-full" />
+              <span className="font-heading text-2xl font-bold text-default-900">BeStronger</span>
             </Link>
 
             <div className="lg:max-w-md">

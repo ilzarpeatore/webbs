@@ -1,6 +1,6 @@
 import '@/assets/css/style.css'
-import favicon from '@/assets/images/favicon.ico'
-import logo from '@/assets/images/logo.svg'
+import favicon from '@/assets/images/favicon.png'
+import logoIcon from '@/assets/images/logo-icon.png'
 import AppProvidersWrapper from '@/components/wrappers/AppProvidersWrapper'
 import { DEFAULT_PAGE_TITLE, SITE_URL } from '@/config/constants'
 import type { Metadata } from 'next'
@@ -14,7 +14,7 @@ const organizationJsonLd = {
   '@type': 'Organization',
   name: 'BeStronger',
   url: SITE_URL,
-  logo: `${SITE_URL}${logo.src}`,
+  logo: `${SITE_URL}${logoIcon.src}`,
 }
 
 const DEFAULT_DESCRIPTION = 'BeStronger es un servicio de entrenamiento y nutrición online con un coach real detrás: registra cada serie, cada comida y cada hábito, y tu coach ajusta tu plan con datos objetivos.'
