@@ -125,7 +125,7 @@ const RESOURCES_VISIBLE = 4
 // tarjeta no quede oculta debajo de ella al pegarse.
 const STACK_TOP_OFFSET = 96
 const STACK_TOP_STEP = 20
-const STACK_SPACER_HEIGHT = 1000
+const STACK_SPACER_HEIGHT = 620
 
 const ResourcesStep = () => (
   <div className="flex flex-col">
