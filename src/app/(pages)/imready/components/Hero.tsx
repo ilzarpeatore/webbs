@@ -59,9 +59,12 @@ const Hero = () => {
             <p className="text-default-600 mb-7.5 text-base leading-normal md:text-lg md:leading-relaxed lg:max-w-lg">Entrenamiento personalizado para mejorar tu rendimiento, recuperarte de una lesión o simplemente sentirte mejor con tu cuerpo. Sin atajos, con criterio.</p>
             <div className="flex flex-wrap items-center gap-5">
               <CtaButton href="#form">Solicitar plaza</CtaButton>
-              <span className="border-primary-9/25 bg-primary-9/10 text-primary-9 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-[11px] font-semibold tracking-[0.14em] uppercase">
-                <span className="bg-primary-9 size-[7px] shrink-0 animate-pulse rounded-full" />
-                Plazas limitadas cada mes
+              <span className="bg-primary-1 shadow-primary-1/40 inline-flex items-center gap-2 rounded-full px-4 py-2 text-[11px] font-bold tracking-[0.14em] text-white uppercase shadow-lg">
+                <span className="relative flex size-2 shrink-0">
+                  <span className="bg-primary-1/60 absolute inline-flex h-full w-full animate-ping rounded-full" />
+                  <span className="relative inline-flex size-2 rounded-full bg-white" />
+                </span>
+                Solo quedan 4 plazas disponibles para septiembre
               </span>
             </div>
           </div>
