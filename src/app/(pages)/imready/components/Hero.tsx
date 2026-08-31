@@ -64,7 +64,7 @@ const Hero = () => {
                   <span className="bg-primary-1/60 absolute inline-flex h-full w-full animate-ping rounded-full" />
                   <span className="relative inline-flex size-2 rounded-full bg-white" />
                 </span>
-                Solo quedan 4 plazas disponibles para septiembre
+                Solo 4 plazas para septiembre
               </span>
             </div>
           </div>
