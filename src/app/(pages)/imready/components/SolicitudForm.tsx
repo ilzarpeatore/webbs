@@ -13,7 +13,7 @@ declare const emailjs: {
   send: (serviceId: string, templateId: string, data: Record<string, string>) => Promise<unknown>
 }
 
-type FieldKey = 'nombre' | 'email' | 'telefono' | 'redes' | 'experiencia' | 'categoria' | 'nacimiento' | 'marcas' | 'objetivo' | 'porque'
+type FieldKey = 'nombre' | 'email' | 'telefono' | 'redes' | 'experiencia' | 'nacimiento' | 'objetivo' | 'porque'
 
 type StepDef = {
   key: FieldKey
@@ -32,9 +32,7 @@ const steps: StepDef[] = [
   { key: 'telefono', question: '¿Y tu teléfono?', subtitle: 'Por si necesitamos hablar más rápido.', type: 'tel', placeholder: '+34 600 000 000' },
   { key: 'redes', question: '¿Tienes Instagram u otra red?', subtitle: 'Así puedo conocer un poco más tu contexto.', type: 'text', placeholder: '@tu_usuario', optional: true },
   { key: 'experiencia', question: '¿Cuánto tiempo llevas entrenando?', subtitle: 'Así ajusto el punto de partida de tu plan.', type: 'select', options: ['Menos de 1 año', '1–2 años', '2–4 años', '+4 años'] },
-  { key: 'categoria', question: '¿Cuál es tu categoría de peso corporal?', subtitle: 'Una referencia de tu peso de competición.', type: 'text', placeholder: 'Ej: -83 kg, -93 kg...' },
   { key: 'nacimiento', question: '¿En qué año naciste?', subtitle: 'Solo para ajustar el plan a tu edad.', type: 'number', placeholder: 'Ej: 1998' },
-  { key: 'marcas', question: '¿Cuáles son tus mejores marcas?', subtitle: 'Sentadilla, press banca y peso muerto — en competición o en entreno.', type: 'textarea', placeholder: 'Sentadilla / Press banca / Peso muerto...', rows: 3 },
   { key: 'objetivo', question: '¿Cuál es tu objetivo principal?', subtitle: 'Cuéntamelo con tus propias palabras.', type: 'textarea', placeholder: 'Descríbeme qué quieres conseguir en powerlifting...', rows: 4 },
   { key: 'porque', question: '¿Por qué has decidido trabajar conmigo?', subtitle: 'Ayúdame a entender qué buscas en este proceso.', type: 'textarea', placeholder: '¿Qué te ha llevado a solicitar una plaza?', rows: 4 },
 ]
