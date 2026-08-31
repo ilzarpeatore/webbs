@@ -31,7 +31,7 @@ const steps: StepDef[] = [
   { key: 'email', question: '¿Cuál es tu email?', subtitle: 'Para enviarte la confirmación y mantenernos en contacto.', type: 'email', placeholder: 'tu@email.com' },
   { key: 'telefono', question: '¿Y tu teléfono?', subtitle: 'Por si necesitamos hablar más rápido.', type: 'tel', placeholder: '+34 600 000 000' },
   { key: 'redes', question: '¿Tienes Instagram u otra red?', subtitle: 'Así puedo conocer un poco más tu contexto.', type: 'text', placeholder: '@tu_usuario', optional: true },
-  { key: 'experiencia', question: '¿Cuánto llevas entrenando powerlifting?', subtitle: 'Así ajusto el punto de partida de tu plan.', type: 'select', options: ['Menos de 1 año', '1–2 años', '2–4 años', '+4 años'] },
+  { key: 'experiencia', question: '¿Cuánto tiempo llevas entrenando?', subtitle: 'Así ajusto el punto de partida de tu plan.', type: 'select', options: ['Menos de 1 año', '1–2 años', '2–4 años', '+4 años'] },
   { key: 'competicion', question: '¿Compites o has competido?', subtitle: 'Me ayuda a calibrar el nivel de exigencia.', type: 'select', options: ['No todavía', 'Sí, a nivel regional', 'Sí, a nivel nacional', 'Sí, a nivel internacional'] },
   { key: 'categoria', question: '¿Cuál es tu categoría de peso corporal?', subtitle: 'Una referencia de tu peso de competición.', type: 'text', placeholder: 'Ej: -83 kg, -93 kg...' },
   { key: 'nacimiento', question: '¿En qué año naciste?', subtitle: 'Solo para ajustar el plan a tu edad.', type: 'number', placeholder: 'Ej: 1998' },
