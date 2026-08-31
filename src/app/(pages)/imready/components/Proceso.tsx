@@ -117,22 +117,28 @@ const resources = [
 
 const RESOURCES_VISIBLE = 4
 
+// Efecto "cartas apiladas": cada tarjeta es sticky con un top ligeramente
+// mayor que la anterior (y un z-index mayor), envuelta en un contenedor
+// más alto que ella misma -- ese espacio extra es el recorrido de scroll
+// durante el cual la tarjeta se queda fija antes de que la siguiente la
+// tape. offsetTop tiene en cuenta la navbar fija (~90px) para que la
+// tarjeta no quede oculta debajo de ella al pegarse.
+const STACK_TOP_OFFSET = 96
+const STACK_TOP_STEP = 20
+const STACK_SPACER_HEIGHT = 1000
+
 const ResourcesStep = () => (
-  <div className="relative flex flex-col gap-0 overflow-hidden rounded-2xl bg-white pb-45 shadow-xl">
-    {resources.map((item, idx) => (
-      <div key={item.day} className={`border-default-200 flex gap-5 border-b p-6 last:border-b-0 ${idx >= RESOURCES_VISIBLE ? 'select-none' : ''}`}>
-        <div className="w-[72px] shrink-0 pt-[3px]">
-          <span className="border-primary-9/25 text-primary-9 rounded-full border px-2 py-1 text-[9px] font-semibold tracking-[0.14em] uppercase whitespace-nowrap">{item.day}</span>
-        </div>
-        <div className="flex flex-col gap-1">
-          <h4 className="text-default-900 text-lg font-medium">{item.title}</h4>
+  <div className="flex flex-col">
+    {resources.slice(0, RESOURCES_VISIBLE).map((item, idx) => (
+      <div key={item.day} className="relative" style={{ minHeight: idx < RESOURCES_VISIBLE - 1 ? STACK_SPACER_HEIGHT : undefined }}>
+        <div className="sticky flex flex-col gap-3 rounded-2xl bg-white p-7.5 shadow-xl" style={{ top: STACK_TOP_OFFSET + idx * STACK_TOP_STEP, zIndex: idx + 1 }}>
+          <span className="border-primary-9/25 text-primary-9 self-start rounded-full border px-3 py-1 text-[9px] font-semibold tracking-[0.14em] uppercase">{item.day}</span>
+          <h4 className="text-default-900 text-lg font-medium md:text-xl">{item.title}</h4>
           <p className="text-default-600 max-w-[60ch] text-[13px] leading-relaxed">{item.body}</p>
         </div>
       </div>
     ))}
-    <div className="from-body-bg pointer-events-none absolute inset-x-0 bottom-0 flex h-45 flex-col items-center justify-end bg-gradient-to-t to-transparent pb-5">
-      <p className="text-default-600 max-w-[38ch] px-4 text-center text-[11px] leading-relaxed">A medida que avance tu asesoría irás recibiendo más recursos adaptados a tus necesidades específicas y al momento de tu proceso.</p>
-    </div>
+    <p className="text-default-600 mx-auto max-w-[38ch] px-4 pt-10 text-center text-[11px] leading-relaxed">A medida que avance tu asesoría irás recibiendo más recursos adaptados a tus necesidades específicas y al momento de tu proceso.</p>
   </div>
 )
 
