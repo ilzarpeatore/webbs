@@ -182,7 +182,7 @@ const Navbar = () => {
             <div className="border-default-200/0 in-[.nav-sticky-on]:border-white/40 in-[.nav-sticky-on]:bg-white/70 in-[.nav-sticky-on]:backdrop-blur-md flex min-w-[175px] rounded-[20px] border bg-white px-3 py-1.5 transition-all duration-500 md:py-4 lg:p-4 lg:shadow-lg">
               <Link href="/" onClick={() => setCurrentHash('')} className="flex items-center gap-2">
                 <Image src={logoIcon} alt="" className="h-7.5 w-7.5 rounded-full md:h-8 md:w-8" />
-                <span className="font-heading text-lg font-bold text-default-900 md:text-xl">BeStronger</span>
+                <span className="font-heading text-primary-9 text-lg font-bold md:text-xl">BeStronger</span>
               </Link>
             </div>
 

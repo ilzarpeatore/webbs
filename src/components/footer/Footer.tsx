@@ -52,7 +52,7 @@ const Footer = () => {
           <div className="col-span-2 md:col-span-1 lg:col-span-2">
             <Link href="/" className="mb-10 inline-flex items-center gap-2.5">
               <Image src={logoIcon} alt="" height={44} width={44} className="h-11 w-11 rounded-full" />
-              <span className="font-heading text-2xl font-bold text-default-900">BeStronger</span>
+              <span className="font-heading text-primary-9 text-2xl font-bold">BeStronger</span>
             </Link>
 
             <div className="lg:max-w-md">
