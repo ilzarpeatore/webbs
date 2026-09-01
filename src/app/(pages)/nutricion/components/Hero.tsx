@@ -21,7 +21,7 @@ const Hero = () => {
               Tu coach prepara opciones de comida reales para cada franja del día. Al combinarlas, la app calcula en vivo si se ajustan a tu objetivo calórico — antes de que las añadas a tu plan.
             </p>
             <div className="flex flex-wrap gap-5">
-              <CtaButton href="/contact">Empieza tu plan</CtaButton>
+              <CtaButton href="/contacto">Empieza tu plan</CtaButton>
               <CtaButton href="/pricing" variant="light" className="border-default-200 border">
                 Ver planes
               </CtaButton>

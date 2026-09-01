@@ -49,7 +49,7 @@ const dropdownGroups: NavGroup[] = [
   {
     heading: 'Contacto',
     items: [
-      { label: 'Contacto', href: '/contact' },
+      { label: 'Contacto', href: '/contacto' },
       { label: 'Lista de espera', href: '/waitlist' },
     ],
   },

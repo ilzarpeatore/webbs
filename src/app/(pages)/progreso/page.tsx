@@ -16,7 +16,7 @@ const Page = () => {
       <Hero />
       <Metricas />
       <Faq />
-      <CtaBanner title="Deja de adivinar si estás progresando" description="Regístrate y accede a tu panel de progreso desde el primer entrenamiento." href="/contact" ctaLabel="Empieza tu plan" />
+      <CtaBanner title="Deja de adivinar si estás progresando" description="Regístrate y accede a tu panel de progreso desde el primer entrenamiento." href="/contacto" ctaLabel="Empieza tu plan" />
     </>
   )
 }

@@ -35,7 +35,7 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-wrap gap-5">
-              <CtaButton href="/contact">Empieza tu plan</CtaButton>
+              <CtaButton href="/contacto">Empieza tu plan</CtaButton>
             </div>
           </div>
 

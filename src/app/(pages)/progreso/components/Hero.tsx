@@ -14,7 +14,7 @@ const Hero = () => {
             <h1 className="text-default-900 mb-3.5 text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-[64px]">Tu progreso, con datos, no con sensaciones</h1>
             <p className="text-default-600 mb-7.5 text-base leading-normal md:text-lg md:leading-relaxed lg:max-w-lg">Peso, medidas, rendimiento por ejercicio, constancia y récords personales, calculados automáticamente a partir de lo que ya registras entrenando — sin rellenar un informe aparte.</p>
             <div className="flex flex-wrap gap-5">
-              <CtaButton href="/contact">Empieza tu plan</CtaButton>
+              <CtaButton href="/contacto">Empieza tu plan</CtaButton>
             </div>
           </div>
 

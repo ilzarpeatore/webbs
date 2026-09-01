@@ -22,7 +22,7 @@ const Hero = () => {
               Desde el cuestionario inicial puedes marcar &ldquo;mantener&rdquo; como tu tipo de objetivo. Tu coach te da un plan de calorías, macros y entrenamiento pensado para durar, con una app que se reorganiza según tu semana real, no al revés.
             </p>
             <div className="flex flex-wrap gap-5">
-              <CtaButton href="/contact">Empieza tu plan</CtaButton>
+              <CtaButton href="/contacto">Empieza tu plan</CtaButton>
               <CtaButton href="/como-funciona" variant="light" className="border-default-200 border">
                 Ver cómo funciona
               </CtaButton>

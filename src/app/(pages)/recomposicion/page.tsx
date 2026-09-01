@@ -16,7 +16,7 @@ const Page = () => {
       <Hero />
       <Beneficios />
       <Faq />
-      <CtaBanner title="Mide tu recomposición con algo más que la báscula" description="Regístrate y sigue tu rendimiento, tus medidas y tu constancia desde el primer día." href="/contact" ctaLabel="Empieza tu plan" />
+      <CtaBanner title="Mide tu recomposición con algo más que la báscula" description="Regístrate y sigue tu rendimiento, tus medidas y tu constancia desde el primer día." href="/contacto" ctaLabel="Empieza tu plan" />
     </>
   )
 }

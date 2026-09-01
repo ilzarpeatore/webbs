@@ -22,7 +22,7 @@ const Hero = () => {
               En el onboarding calculamos tu metabolismo basal y tu gasto calórico total para darte un plan de calorías y macros de partida. Después, cada comida y cada serie te dicen si vas por el camino correcto — el déficit sostenible se controla con seguimiento objetivo, no solo contando calorías quemadas.
             </p>
             <div className="flex flex-wrap gap-5">
-              <CtaButton href="/contact">Empieza tu plan</CtaButton>
+              <CtaButton href="/contacto">Empieza tu plan</CtaButton>
               <CtaButton href="/como-funciona" variant="light" className="border-default-200 border">
                 Ver cómo funciona
               </CtaButton>

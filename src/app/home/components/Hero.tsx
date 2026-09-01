@@ -56,7 +56,7 @@ const Hero = () => {
           <p className="mb-6 max-w-sm text-lg leading-normal text-white md:text-xl lg:mb-10">Cada serie, cada comida y cada hábito quedan registrados al momento, para que tu coach vea tu progreso real.</p>
 
           <div className="flex items-center justify-center gap-2 md:gap-5">
-            <Link href="/contact" className="group relative overflow-hidden rounded-full bg-white px-3.5 py-3 text-sm font-medium text-black transition-all duration-300 hover:scale-95 md:px-8.5 md:py-4 md:text-lg">
+            <Link href="/contacto" className="group relative overflow-hidden rounded-full bg-white px-3.5 py-3 text-sm font-medium text-black transition-all duration-300 hover:scale-95 md:px-8.5 md:py-4 md:text-lg">
               <span className="relative block overflow-hidden">
                 <span className="block transition-transform duration-300 group-hover:-translate-y-full">Empieza tu plan</span>
                 <span className="absolute top-full left-0 block transition-transform duration-300 group-hover:-translate-y-full">Empieza tu plan</span>

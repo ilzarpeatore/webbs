@@ -20,7 +20,7 @@ const Page = () => {
       <AutoRegulacion />
       <Faq />
       <ObjetivosLinks />
-      <CtaBanner title="Entrena con un plan que se ajusta a ti, no al revés" description="Regístrate y accede a tu entrenamiento diseñado por un coach real." href="/contact" ctaLabel="Empieza tu plan" />
+      <CtaBanner title="Entrena con un plan que se ajusta a ti, no al revés" description="Regístrate y accede a tu entrenamiento diseñado por un coach real." href="/contacto" ctaLabel="Empieza tu plan" />
     </>
   )
 }

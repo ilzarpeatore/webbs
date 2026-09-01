@@ -16,7 +16,7 @@ const Page = () => {
       <Hero />
       <Tabla />
       <Faq />
-      <CtaBanner title="Entrena con alguien que revisa tu progreso de verdad" description="Regístrate y deja que un coach real, no un algoritmo, diseñe tu plan." href="/contact" ctaLabel="Empieza tu plan" />
+      <CtaBanner title="Entrena con alguien que revisa tu progreso de verdad" description="Regístrate y deja que un coach real, no un algoritmo, diseñe tu plan." href="/contacto" ctaLabel="Empieza tu plan" />
     </>
   )
 }

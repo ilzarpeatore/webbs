@@ -249,7 +249,7 @@ const Features = () => {
                   <div className="lg:max-w-md">
                     <h3 className="md:text-2xl text-xl font-semibold leading-tight text-white mb-2.5">Auto-regulación de carga</h3>
                     <p className="md:text-lg text-base leading-relaxed text-default-400 md:mb-7.5 mb-5">El peso y las repeticiones que te tocan hoy se ajustan solos según cómo entrenaste la última vez.</p>
-                    <Link href="/contact" className="group inline-flex relative overflow-hidden rounded-full bg-white md:px-8.5 px-3.5 py-3 md:py-3 md:text-lg text-sm font-medium text-black transition-all duration-300 hover:scale-95">
+                    <Link href="/contacto" className="group inline-flex relative overflow-hidden rounded-full bg-white md:px-8.5 px-3.5 py-3 md:py-3 md:text-lg text-sm font-medium text-black transition-all duration-300 hover:scale-95">
                       <span className="relative block overflow-hidden">
                         <span className="block transition-transform duration-300 group-hover:-translate-y-full">Empieza tu plan</span>
                         <span className="absolute left-0 top-full block transition-transform duration-300 group-hover:-translate-y-full">Empieza tu plan</span>

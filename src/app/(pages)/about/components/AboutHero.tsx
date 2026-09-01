@@ -28,7 +28,7 @@ const AboutHero = () => {
           <h1 className="text-default-900 text-4xl font-medium tracking-tight md:text-[50px] lg:text-[90px]">Un coach real detrás de cada plan</h1>
 
           <div className="mt-2.5 flex flex-col items-start gap-5 md:mt-5 lg:mt-12 lg:flex-row lg:items-center lg:gap-7.5">
-            <Link href="/contact" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-3.5 text-white shadow-xl! transition-all duration-300 hover:scale-95 lg:px-8.5">
+            <Link href="/contacto" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-3.5 text-white shadow-xl! transition-all duration-300 hover:scale-95 lg:px-8.5">
               <div className="relative inline-flex flex-col items-center text-nowrap transition-transform duration-300 group-hover:-translate-y-full">
                 <div className="flex h-10.5 items-center gap-3 lg:h-14">
                   <span className="text-sm font-medium lg:text-base">Empieza tu plan</span>

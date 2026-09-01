@@ -16,7 +16,7 @@ const Page = () => {
       <Hero />
       <Beneficios />
       <Faq />
-      <CtaBanner title="Sube de carga y de volumen, con datos que lo confirman" description="Regístrate y accede a tu plan de ganancia muscular diseñado por un coach real." href="/contact" ctaLabel="Empieza tu plan" />
+      <CtaBanner title="Sube de carga y de volumen, con datos que lo confirman" description="Regístrate y accede a tu plan de ganancia muscular diseñado por un coach real." href="/contacto" ctaLabel="Empieza tu plan" />
     </>
   )
 }

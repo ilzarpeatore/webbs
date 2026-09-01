@@ -16,7 +16,7 @@ const Page = () => {
       <Hero />
       <Origenes />
       <Faq />
-      <CtaBanner title="Construye la constancia que sostiene tu plan" description="Regístrate y empieza a medir tus hábitos con datos reales, no con sensaciones." href="/contact" ctaLabel="Empieza tu plan" />
+      <CtaBanner title="Construye la constancia que sostiene tu plan" description="Regístrate y empieza a medir tus hábitos con datos reales, no con sensaciones." href="/contacto" ctaLabel="Empieza tu plan" />
     </>
   )
 }

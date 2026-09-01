@@ -16,7 +16,7 @@ const Page = () => {
       <Hero />
       <Beneficios />
       <Faq />
-      <CtaBanner title="Pierde grasa con un déficit que se puede medir" description="Regístrate y accede a un plan de calorías y entrenamiento diseñado por un coach real." href="/contact" ctaLabel="Empieza tu plan" />
+      <CtaBanner title="Pierde grasa con un déficit que se puede medir" description="Regístrate y accede a un plan de calorías y entrenamiento diseñado por un coach real." href="/contacto" ctaLabel="Empieza tu plan" />
     </>
   )
 }
