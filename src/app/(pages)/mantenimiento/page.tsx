@@ -16,7 +16,7 @@ const Page = () => {
       <Hero />
       <Beneficios />
       <Faq />
-      <CtaBanner title="Mantén tu forma con un sistema que se adapta a tu semana" description="Regístrate y accede a un plan de entrenamiento y nutrición pensado para durar." href="/contact" ctaLabel="Empieza tu plan" />
+      <CtaBanner title="Mantén tu forma con un sistema que se adapta a tu semana" description="Regístrate y accede a un plan de entrenamiento y nutrición pensado para durar." href="/contacto" ctaLabel="Empieza tu plan" />
     </>
   )
 }

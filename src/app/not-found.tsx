@@ -13,7 +13,7 @@ const helpfulLinks = [
   { label: 'Cómo funciona', href: '/como-funciona' },
   { label: 'Blog', href: '/blog' },
   { label: 'Preguntas frecuentes', href: '/faqs' },
-  { label: 'Contacto', href: '/contact' },
+  { label: 'Contacto', href: '/contacto' },
 ]
 
 const NotFound = () => {

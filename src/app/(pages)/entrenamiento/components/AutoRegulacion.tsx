@@ -16,7 +16,7 @@ const AutoRegulacion = () => {
                 <p className="text-default-400 mb-5 text-base leading-relaxed md:mb-7.5 md:text-lg">
                   El peso y las repeticiones sugeridas para hoy se calculan según cómo entrenaste la última vez. No es una tabla fija de progresión, y tampoco es automático sin supervisión: la sugerencia queda pendiente hasta que tu coach la aprueba.
                 </p>
-                <Link href="/contact" className="group relative inline-flex overflow-hidden rounded-full bg-white px-3.5 py-3 text-sm font-medium text-black transition-all duration-300 hover:scale-95 md:px-8.5 md:py-3 md:text-lg">
+                <Link href="/contacto" className="group relative inline-flex overflow-hidden rounded-full bg-white px-3.5 py-3 text-sm font-medium text-black transition-all duration-300 hover:scale-95 md:px-8.5 md:py-3 md:text-lg">
                   <span className="relative block overflow-hidden">
                     <span className="block transition-transform duration-300 group-hover:-translate-y-full">Empieza tu plan</span>
                     <span className="absolute top-full left-0 block transition-transform duration-300 group-hover:-translate-y-full">Empieza tu plan</span>

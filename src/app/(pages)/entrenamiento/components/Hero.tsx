@@ -22,7 +22,7 @@ const Hero = () => {
               Tu coach diseña tu plan y lo ajusta con lo que de verdad haces: series, cargas, RIR/RPE y feedback. No una tabla fija — un plan que se revisa con tus datos reales, no con lo que recuerdes contarle.
             </p>
             <div className="flex flex-wrap gap-5">
-              <CtaButton href="/contact">Empieza tu plan</CtaButton>
+              <CtaButton href="/contacto">Empieza tu plan</CtaButton>
               <CtaButton href="/como-funciona" variant="light" className="border-default-200 border">
                 Ver cómo funciona
               </CtaButton>

@@ -18,7 +18,7 @@ const Page = () => {
       <PlanDiario />
       <Faq />
       <ObjetivosLinks />
-      <CtaBanner title="Come según un plan que se adapta a ti" description="Regístrate y tu coach te prepara tus primeras opciones de comida." href="/contact" ctaLabel="Empieza tu plan" />
+      <CtaBanner title="Come según un plan que se adapta a ti" description="Regístrate y tu coach te prepara tus primeras opciones de comida." href="/contacto" ctaLabel="Empieza tu plan" />
     </>
   )
 }

@@ -28,7 +28,7 @@ const otherLinks: FooterLink[] = [
   { label: 'Para quién es', link: '/para-quien-es', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
   { label: 'Coach real vs. IA', link: '/comparativa', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
   { label: 'Planes', link: '/pricing', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
-  { label: 'Contacto', link: '/contact', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
+  { label: 'Contacto', link: '/contacto', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
   { label: 'Lista de espera', link: '/waitlist', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
   { label: 'La app', link: '/download', className: ' :text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },
   { label: 'Preguntas frecuentes', link: '/faqs', className: 'md:text-lg text-base text-default-600 hover:text-default-900 hover:underline underline-offset-4 decoration-2 transition-colors' },

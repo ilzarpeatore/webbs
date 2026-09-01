@@ -22,7 +22,7 @@ const Hero = () => {
               El peso y las repeticiones que te tocan hoy se ajustan según cómo entrenaste la última vez, con aprobación de tu coach. Balance muscular, series por grupo y mejores marcas: sabes objetivamente si estás progresando, no solo si &ldquo;te sientes más fuerte&rdquo;.
             </p>
             <div className="flex flex-wrap gap-5">
-              <CtaButton href="/contact">Empieza tu plan</CtaButton>
+              <CtaButton href="/contacto">Empieza tu plan</CtaButton>
               <CtaButton href="/como-funciona" variant="light" className="border-default-200 border">
                 Ver cómo funciona
               </CtaButton>

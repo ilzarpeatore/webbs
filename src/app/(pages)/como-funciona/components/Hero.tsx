@@ -17,7 +17,7 @@ const Hero = () => {
         <h1 className="text-default-900 mb-3.5 text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-[64px]">De registrarte a tener un coach real revisando tus datos</h1>
         <p className="text-default-600 mb-7.5 text-base leading-normal md:text-lg md:leading-relaxed">Sin pasos ocultos ni promesas de más: así es el proceso completo, incluidas las partes que todavía no automatizamos.</p>
         <div className="flex justify-center">
-          <CtaButton href="/contact">Empieza tu plan</CtaButton>
+          <CtaButton href="/contacto">Empieza tu plan</CtaButton>
         </div>
       </div>
     </section>

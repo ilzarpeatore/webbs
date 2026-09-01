@@ -18,7 +18,7 @@ const Page = () => {
       <Comparativa />
       <Niveles />
       <Faq />
-      <CtaBanner title="¿Encajas en el perfil? Empecemos" description="Regístrate o escríbenos si te queda alguna duda antes de dar el paso." href="/contact" ctaLabel="Habla con nosotros" />
+      <CtaBanner title="¿Encajas en el perfil? Empecemos" description="Regístrate o escríbenos si te queda alguna duda antes de dar el paso." href="/contacto" ctaLabel="Habla con nosotros" />
     </>
   )
 }

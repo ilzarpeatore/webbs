@@ -62,7 +62,7 @@ const FaqAccordion = ({ items, title, eyebrow = 'Preguntas frecuentes', variant 
                 </div>
                 <div className="flex flex-col items-center space-y-6">
                   <h3 className="text-default-950 mb-3.5 text-xl font-medium md:text-2xl">¿No encuentras tu respuesta?</h3>
-                  <Link href="/contact" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-8.5 text-nowrap text-white shadow-xl transition-all duration-300 hover:scale-95">
+                  <Link href="/contacto" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-8.5 text-nowrap text-white shadow-xl transition-all duration-300 hover:scale-95">
                     <span className="relative inline-flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-full">
                       <span className="flex h-14 items-center gap-3">
                         <span className="font-medium">Contáctanos</span>

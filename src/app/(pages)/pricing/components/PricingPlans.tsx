@@ -25,7 +25,7 @@ const pricingPlansData: PricingPlanType[] = [
     pricePeriod: '/mes',
     features: ['Entrenamiento diseñado por tu coach', 'Comidas asignadas con ajuste en vivo', 'Seguimiento de hábitos y progreso', 'Chequeo diario y reporte de dolor'],
     buttonText: 'Empezar',
-    buttonLink: '/contact',
+    buttonLink: '/contacto',
   },
   {
     badge: 'Trimestral',
@@ -36,7 +36,7 @@ const pricingPlansData: PricingPlanType[] = [
     monthlyEquivalent: '≈ 80 €/mes',
     features: ['Todo lo del plan mensual', 'Mismo coach durante todo el trimestre', 'Ahorra frente al pago mensual'],
     buttonText: 'Empezar',
-    buttonLink: '/contact',
+    buttonLink: '/contacto',
   },
   {
     badge: 'Semestral',
@@ -48,7 +48,7 @@ const pricingPlansData: PricingPlanType[] = [
     monthlyEquivalent: '≈ 75 €/mes',
     features: ['Todo lo del plan mensual', 'El ahorro más recomendado si ya sabes que quieres continuidad', 'Seguimiento continuo sin interrupciones'],
     buttonText: 'Empezar',
-    buttonLink: '/contact',
+    buttonLink: '/contacto',
     featured: true,
   },
   {
@@ -60,7 +60,7 @@ const pricingPlansData: PricingPlanType[] = [
     monthlyEquivalent: '≈ 66,67 €/mes',
     features: ['Todo lo del plan mensual', 'El precio mensual más bajo', 'Un año completo de seguimiento con tu coach'],
     buttonText: 'Empezar',
-    buttonLink: '/contact',
+    buttonLink: '/contacto',
     colSpanClass: 'lg:col-span-1 md:col-span-2',
   },
 ]

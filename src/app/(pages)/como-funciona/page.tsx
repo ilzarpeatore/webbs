@@ -20,7 +20,7 @@ const Page = () => {
       <Metodologia />
       <Acompanamiento />
       <Faq />
-      <CtaBanner title="Ahora que sabes cómo funciona, empieza" description="Regístrate y da el primer paso hacia tu plan de entrenamiento y nutrición." href="/contact" ctaLabel="Empieza tu plan" />
+      <CtaBanner title="Ahora que sabes cómo funciona, empieza" description="Regístrate y da el primer paso hacia tu plan de entrenamiento y nutrición." href="/contacto" ctaLabel="Empieza tu plan" />
     </>
   )
 }

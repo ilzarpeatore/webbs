@@ -15,7 +15,7 @@ const Hero = () => {
             <h1 className="text-default-900 mb-3.5 text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-[64px]">Perder grasa y ganar músculo no siempre se ve en la báscula</h1>
             <p className="text-default-600 mb-7.5 text-base leading-normal md:text-lg md:leading-relaxed lg:max-w-lg">Es un objetivo real dentro de la app, distinto de perder grasa o ganar músculo por separado: más lento y más difícil de notar a simple vista. Por eso medimos más que tu peso — rendimiento, medidas y constancia — para que sepas si avanzas aunque el espejo aún no lo muestre.</p>
             <div className="flex flex-wrap gap-5">
-              <CtaButton href="/contact">Empieza tu plan</CtaButton>
+              <CtaButton href="/contacto">Empieza tu plan</CtaButton>
             </div>
           </div>
 

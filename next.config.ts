@@ -27,6 +27,15 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  redirects: async () => {
+    return [
+      {
+        source: "/contact",
+        destination: "/contacto",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
