@@ -14,7 +14,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recetario - Alberto Marín Girón</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Stack+Sans+Headline:wght@200..700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -23,18 +25,21 @@
         }
 
         :root {
-            --primary: #c47878;
-            --bg-dark: #2e1f1f;
-            --bg-card: rgba(200, 191, 181, 0.04);
-            --text-primary: #ede8e2;
-            --text-secondary: #c8bfb5;
-            --border: rgba(200, 191, 181, 0.10);
+            --accent: #49c5b6;
+            --bg-page: #f7f7f7;
+            --bg-card: #ffffff;
+            --ink: #18181b;
+            --ink-soft: #52525b;
+            --ink-faint: #71717a;
+            --line: #e4e4e7;
+            --line-soft: #f4f4f5;
+            --shadow: 0 1px 2px rgba(24, 24, 27, 0.04), 0 10px 24px -12px rgba(24, 24, 27, 0.10);
         }
 
         body {
-            background: var(--bg-dark);
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
+            background: var(--bg-page);
+            color: var(--ink-soft);
+            font-family: 'Google Sans Flex', sans-serif;
             line-height: 1.6;
         }
 
@@ -46,8 +51,8 @@
         }
 
         .header {
-            background: linear-gradient(135deg, rgba(196, 120, 120, 0.1) 0%, transparent 100%);
-            border-bottom: 1px solid var(--border);
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--line);
             padding: 40px 20px;
             text-align: center;
             position: relative;
@@ -59,41 +64,42 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
         }
 
         .logo {
-            font-family: 'DM Serif Display', serif;
+            font-family: 'Stack Sans Headline', sans-serif;
+            font-weight: 700;
             font-size: 32px;
-            font-style: italic;
+            color: var(--ink);
             margin-bottom: 8px;
-            letter-spacing: -1px;
+            letter-spacing: -0.02em;
         }
 
         .logo span {
-            color: var(--primary);
+            color: var(--accent);
         }
 
         .tagline {
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: var(--text-secondary);
+            color: var(--ink-faint);
             margin-bottom: 16px;
         }
 
         .client-name {
             font-size: 20px;
             font-weight: 600;
-            color: var(--primary);
+            color: var(--accent);
         }
 
         .nav-top {
             display: flex;
             justify-content: center;
             padding: 20px;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid var(--line);
         }
 
         .nav-button {
@@ -101,17 +107,17 @@
             align-items: center;
             gap: 8px;
             padding: 10px 16px;
-            background: rgba(196, 120, 120, 0.15);
-            color: var(--primary);
+            background: var(--line-soft);
+            color: var(--ink);
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 999px;
             font-size: 12px;
             font-weight: 600;
             transition: all 0.3s ease;
         }
 
         .nav-button:hover {
-            background: rgba(196, 120, 120, 0.25);
+            background: var(--line);
             transform: translateY(-2px);
         }
 
@@ -130,13 +136,13 @@
         }
 
         .section-title {
-            font-family: 'DM Serif Display', serif;
+            font-family: 'Stack Sans Headline', sans-serif;
+            font-weight: 700;
             font-size: 24px;
-            font-style: italic;
-            color: var(--primary);
+            color: var(--ink);
             margin-bottom: 20px;
             padding-bottom: 12px;
-            border-bottom: 2px solid var(--primary);
+            border-bottom: 2px solid var(--accent);
         }
 
         .recipe-grid {
@@ -148,50 +154,54 @@
 
         .recipe-card {
             background: var(--bg-card);
-            border: 1px solid var(--border);
+            border: 1px solid var(--line);
             border-radius: 12px;
             padding: 20px;
+            box-shadow: var(--shadow);
         }
 
         .recipe-title {
             font-weight: 600;
-            color: var(--primary);
+            color: var(--ink);
             margin-bottom: 8px;
             font-size: 16px;
         }
 
         .recipe-macros {
             font-size: 12px;
-            color: var(--text-secondary);
+            color: var(--accent);
+            font-weight: 600;
             margin-bottom: 12px;
             padding-bottom: 12px;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid var(--line);
         }
 
         .recipe-ingredients {
             font-size: 13px;
-            color: var(--text-secondary);
+            color: var(--ink-soft);
             line-height: 1.6;
             margin-bottom: 12px;
         }
 
         .recipe-instructions {
             font-size: 13px;
-            color: var(--text-secondary);
+            color: var(--ink-soft);
             line-height: 1.6;
         }
 
         .alert-box {
-            background: rgba(196, 120, 120, 0.08);
-            border: 1px solid rgba(196, 120, 120, 0.15);
+            background: var(--bg-card);
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--accent);
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 20px;
+            box-shadow: var(--shadow);
         }
 
         .alert-title {
             font-weight: 600;
-            color: var(--primary);
+            color: var(--ink);
             margin-bottom: 8px;
             font-size: 14px;
             text-transform: uppercase;
@@ -200,13 +210,13 @@
 
         .alert-text {
             font-size: 14px;
-            color: var(--text-secondary);
+            color: var(--ink-soft);
             line-height: 1.7;
         }
 
         .footer {
             padding: 40px 20px;
-            border-top: 1px solid var(--border);
+            border-top: 1px solid var(--line);
             text-align: center;
         }
 
@@ -215,17 +225,17 @@
             align-items: center;
             gap: 8px;
             padding: 12px 20px;
-            background: rgba(196, 120, 120, 0.15);
-            color: var(--primary);
+            background: var(--line-soft);
+            color: var(--ink);
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 999px;
             font-size: 12px;
             font-weight: 600;
             transition: all 0.3s ease;
         }
 
         .nav-button-footer:hover {
-            background: rgba(196, 120, 120, 0.25);
+            background: var(--line);
             transform: translateY(-2px);
         }
 
