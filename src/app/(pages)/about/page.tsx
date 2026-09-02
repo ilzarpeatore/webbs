@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { COACH_NAME, SITE_URL } from '@/config/constants'
 import AboutHero from './components/AboutHero'
 import Download from './components/Download'
 import Mission from './components/Mission'
@@ -11,9 +12,23 @@ export const metadata: Metadata = {
   alternates: { canonical: '/about' },
 }
 
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: COACH_NAME,
+  jobTitle: 'Coach',
+  url: `${SITE_URL}/about`,
+  worksFor: {
+    '@type': 'Organization',
+    name: 'BeStronger',
+    url: SITE_URL,
+  },
+}
+
 const Page = () => {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
       <AboutHero />
       <Mission />
       <Purpose />
