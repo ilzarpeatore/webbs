@@ -51,6 +51,24 @@ const faqData: FaqItemType[] = [
   },
 ]
 
-const Faq = () => <FaqAccordion items={faqData} title="Preguntas frecuentes" eyebrow="" titleSize="lg" sectionClassName="pt-34 md:pt-42 lg:pt-50" defaultOpenIndex={0} />
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqData.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+}
+
+const Faq = () => (
+  <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+    <FaqAccordion items={faqData} title="Preguntas frecuentes" eyebrow="" titleSize="lg" sectionClassName="pt-34 md:pt-42 lg:pt-50" defaultOpenIndex={0} />
+  </>
+)
 
 export default Faq

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import RichText from '@/components/blog/RichText'
-import { SITE_URL } from '@/config/constants'
+import { COACH_NAME, SITE_URL } from '@/config/constants'
 import { getPostBySlug } from '@/utils/blogApi'
 
 type BlogPostPageProps = {
@@ -44,7 +44,7 @@ const Page = async ({ params }: BlogPostPageProps) => {
     image: post.post_image || undefined,
     datePublished: post.datetime,
     dateModified: post.updated_at || post.datetime,
-    author: { '@type': 'Organization', name: 'BeStronger' },
+    author: { '@type': 'Person', name: COACH_NAME, url: `${SITE_URL}/about` },
     publisher: { '@type': 'Organization', name: 'BeStronger' },
     mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
   }
