@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Be Stronger — Media Maratón</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ===== Be Stronger design tokens ===== */
+  :root{
+    --teal:#49C5B6; --teal-dark:#14766A; --on-teal:#12312C;
+    --bg:#F4F4F7; --surface:#FFFFFF; --border:#E5E5EA;
+    --text:#262729; --text2:#8B8C8E; --text3:#8E8E93;
+    --success:#34C759; --warning:#FF9500; --destructive:#FF3B30; --blue:#007AFF;
+    --success10:rgba(52,199,89,.12); --warning10:rgba(255,149,0,.12);
+    --destructive10:rgba(255,59,48,.10); --teal10:rgba(73,197,182,.12);
+    --radius-md:20px; --radius-sm:12px; --radius-xs:8px; --radius-pill:9999px;
+    --shadow-card:0 2px 8px rgba(0,0,0,.04);
+    --shadow-cta:0 4px 10px rgba(0,0,0,.12);
+    --sp-xs:4px; --sp-sm:8px; --sp-md:12px; --sp-lg:16px; --sp-xl:20px; --sp-xxl:24px;
+  }
+  [data-theme="dark"]{
+    --bg:#242529; --surface:#2E3037; --surface-light:#363840; --border:#3A3A3C;
+    --text:#FAFAFA; --text2:#818287; --text3:#818287;
+    --warning:#FF9F0A; --destructive:#FF453A; --blue:#0A84FF;
+    --shadow-card:0 2px 8px rgba(0,0,0,.24);
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:'Gilroy','Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-size:15px; line-height:1.45;
+    padding-bottom:96px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{margin:0; font-weight:700;}
+  p{margin:0;}
+  button{font-family:inherit; border:none; background:none; cursor:pointer;}
+
+  /* ===== Header ===== */
+  .topbar{
+    position:sticky; top:0; z-index:20;
+    background:var(--bg);
+    padding:var(--sp-lg) var(--sp-xl) var(--sp-sm);
+  }
+  .brand{display:flex; align-items:center; justify-content:space-between; margin-bottom:var(--sp-md);}
+  .brand-name{font-size:22px; font-weight:800; letter-spacing:-0.02em;}
+  .brand-name span{
+    background:linear-gradient(135deg,var(--teal),var(--teal-dark));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .meso-tag{
+    font-size:13px; font-weight:500; color:var(--text2);
+  }
+  .theme-toggle{
+    width:34px; height:34px; border-radius:var(--radius-pill);
+    background:var(--surface); box-shadow:var(--shadow-card);
+    display:flex; align-items:center; justify-content:center; font-size:16px;
+  }
+
+  /* ===== Day pills ===== */
+  .day-row{
+    display:flex; gap:var(--sp-sm); overflow-x:auto; padding-bottom:var(--sp-sm);
+    scrollbar-width:none;
+  }
+  .day-row::-webkit-scrollbar{display:none;}
+  .day-pill{
+    flex:0 0 auto;
+    padding:10px 16px;
+    border-radius:var(--radius-pill);
+    background:var(--surface);
+    box-shadow:var(--shadow-card);
+    text-align:left;
+    min-width:84px;
+  }
+  .day-pill .d-label{font-size:13px; font-weight:700; display:block; color:var(--text);}
+  .day-pill .d-sub{font-size:11px; color:var(--text2); display:block; margin-top:1px;}
+  .day-pill.active{
+    background:var(--teal);
+  }
+  .day-pill.active .d-label, .day-pill.active .d-sub{color:var(--on-teal);}
+
+  /* ===== Week pills ===== */
+  .week-row{
+    display:flex; gap:var(--sp-xs); overflow-x:auto; margin-top:var(--sp-sm); padding-bottom:2px;
+    scrollbar-width:none;
+  }
+  .week-row::-webkit-scrollbar{display:none;}
+  .week-pill{
+    flex:0 0 auto;
+    padding:7px 14px;
+    border-radius:var(--radius-pill);
+    border:1.5px solid var(--border);
+    font-size:13px; font-weight:600; color:var(--text2);
+  }
+  .week-pill.active{
+    background:var(--on-teal); border-color:var(--on-teal); color:#FAFAFA;
+  }
+  .week-pill.deload.active{
+    background:var(--blue); border-color:var(--blue);
+  }
+
+  /* ===== Week info banner ===== */
+  .week-banner{
+    margin:var(--sp-md) var(--sp-xl) 0;
+    background:var(--teal10);
+    border-radius:var(--radius-sm);
+    padding:var(--sp-md) var(--sp-lg);
+    display:flex; align-items:center; gap:var(--sp-md);
+  }
+  .week-banner.deload{background:rgba(0,122,255,.10);}
+  .week-banner .rpe-badge{
+    font-size:13px; font-weight:700; color:var(--teal-dark);
+    background:var(--surface); padding:4px 10px; border-radius:var(--radius-pill);
+    white-space:nowrap;
+  }
+  .week-banner.deload .rpe-badge{color:var(--blue);}
+  .week-banner .wb-text{font-size:13px; color:var(--text); font-weight:500;}
+
+  /* ===== Session progress ===== */
+  .progress-wrap{margin:var(--sp-lg) var(--sp-xl) 0;}
+  .progress-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;}
+  .progress-head .ph-title{font-size:17px; font-weight:700;}
+  .progress-head .ph-count{font-size:13px; font-weight:600; color:var(--teal-dark);}
+  .progress-track{height:6px; background:var(--border); border-radius:var(--radius-pill); overflow:hidden;}
+  .progress-fill{height:100%; background:linear-gradient(90deg,var(--teal),var(--teal-dark)); border-radius:var(--radius-pill); transition:width .3s ease;}
+
+  /* ===== Exercise cards ===== */
+  .ex-list{padding:var(--sp-lg) var(--sp-xl) var(--sp-xl); display:flex; flex-direction:column; gap:var(--sp-md);}
+  .ex-card{
+    background:var(--surface);
+    border-radius:var(--radius-md);
+    box-shadow:var(--shadow-card);
+    padding:var(--sp-lg);
+  }
+  .ex-card.done{opacity:.55;}
+  .ex-top{display:flex; justify-content:space-between; align-items:flex-start; gap:var(--sp-sm); margin-bottom:10px;}
+  .ex-name{font-size:17px; font-weight:600; line-height:1.3;}
+  .ex-name a{color:var(--text); text-decoration:none; border-bottom:1.5px dotted var(--text2);}
+  .ex-name a:active{color:var(--teal-dark);}
+  .ex-tags{display:flex; gap:6px; margin-top:6px; flex-wrap:wrap;}
+  .tag{font-size:11px; font-weight:700; padding:3px 8px; border-radius:var(--radius-pill);}
+  .tag.safe{background:var(--success10); color:#1e8e3e;}
+  [data-theme="dark"] .tag.safe{color:var(--success);}
+  .tag.fallo{background:var(--destructive10); color:var(--destructive);}
+  .tag.vieA{background:var(--teal10); color:var(--teal-dark);}
+  [data-theme="dark"] .tag.vieA{color:var(--teal);}
+  .tag.vieB{background:var(--warning10); color:#b06a00;}
+  [data-theme="dark"] .tag.vieB{color:var(--warning);}
+  .reps-big{font-size:22px; font-weight:800; white-space:nowrap; color:var(--text);}
+  .reps-unit{font-size:12px; font-weight:500; color:var(--text2);}
+
+  .rir-line{font-size:13px; color:var(--text2); font-weight:500; margin-bottom:4px;}
+  .note-line{font-size:13px; color:var(--text3); margin-bottom:var(--sp-md);}
+
+  .set-row{display:flex; align-items:center; gap:8px; margin-top:4px;}
+  .set-dot{
+    width:34px; height:34px; border-radius:var(--radius-pill);
+    border:2px solid var(--border);
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px; font-weight:700; color:var(--text2);
+    transition:all .15s ease;
+    flex:0 0 auto;
+  }
+  .set-dot.checked{
+    background:var(--teal); border-color:var(--teal); color:var(--on-teal);
+  }
+  .set-dot:active{transform:scale(.92);}
+  .set-label{font-size:12px; color:var(--text3); margin-left:2px;}
+
+  .empty-state{
+    text-align:center; padding:60px var(--sp-xl); color:var(--text2);
+  }
+  .empty-state .es-icon{font-size:32px; margin-bottom:10px;}
+  .empty-state .es-title{font-size:17px; font-weight:700; color:var(--text); margin-bottom:4px;}
+  .empty-state .es-sub{font-size:13px;}
+
+  /* ===== Bottom bar ===== */
+  .bottombar{
+    position:fixed; left:0; right:0; bottom:0; z-index:30;
+    padding:var(--sp-md) var(--sp-xl) calc(var(--sp-md) + env(safe-area-inset-bottom));
+    background:linear-gradient(180deg, rgba(244,244,247,0) 0%, var(--bg) 30%);
+  }
+  [data-theme="dark"] .bottombar{
+    background:linear-gradient(180deg, rgba(36,37,41,0) 0%, var(--bg) 30%);
+  }
+  .bottombar-inner{
+    background:var(--on-teal);
+    border-radius:var(--radius-pill);
+    padding:12px 20px;
+    display:flex; align-items:center; justify-content:space-between;
+    box-shadow:var(--shadow-cta);
+  }
+  .bb-text{color:#FAFAFA; font-size:13px; font-weight:600;}
+  .bb-text b{color:var(--teal);}
+  .bb-reset{color:var(--teal); font-size:13px; font-weight:700;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <div>
+      <div class="brand-name">Be <span>Stronger</span></div>
+      <div class="meso-tag">Bloque Fuerza · Potencia · Pliometría — S1 a S4</div>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button>
+  </div>
+  <div class="day-row" id="dayRow"></div>
+  <div class="week-row" id="weekRow"></div>
+</div>
+
+<div id="weekBanner" class="week-banner"></div>
+
+<div class="progress-wrap">
+  <div class="progress-head">
+    <span class="ph-title" id="sessionTitle">Sesión</span>
+    <span class="ph-count" id="sessionCount">0/0 series</span>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+</div>
+
+<div class="ex-list" id="exList"></div>
+
+<div class="bottombar">
+  <div class="bottombar-inner">
+    <span class="bb-text">Progreso de hoy: <b id="bbCount">0/0</b></span>
+    <button class="bb-reset" id="resetBtn">Reiniciar</button>
+  </div>
+</div>
+
+<script>
+const DATA = {"sessions": {"A": {"label": "Sesión A", "sub": "Fuerza", "unit": "series×reps", "icon": "💪", "rows": [{"name": "sentadilla trasera con barra (ancla)", "anchor": true, "weeks": {"S1": {"sets_reps": "3×6", "rir": "RIR 4 → RIR 3 → RIR 3", "note": "Establece · técnica prioritaria · fija carga base ~70% 1RM"}, "S2": {"sets_reps": "3×5", "rir": "RIR 3 → RIR 2 → RIR 2", "note": "SUBE ~4% · reps bajan de 6 a 5 al subir la carga · tempo controlado"}, "S3": {"sets_reps": "3×4", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "SUBE ~4% · reps bajan de 5 a 4 · controla excéntrico 2-3 seg"}, "S4": {"sets_reps": "3×3", "rir": "RIR 2 → RIR 1 → RIR 1", "note": "SUBE (pico ~82-86% 1RM) · reps mínimas del bloque (3) · si aparece fatiga o dolor, no fuerces el pico"}}}, {"name": "peso muerto rumano con barra (ancla)", "anchor": true, "weeks": {"S1": {"sets_reps": "3×6", "rir": "RIR 4 → RIR 3 → RIR 3", "note": "Establece · espalda neutra · fija carga base"}, "S2": {"sets_reps": "3×5", "rir": "RIR 3 → RIR 2 → RIR 2", "note": "SUBE ~4% · reps bajan de 6 a 5 al subir la carga"}, "S3": {"sets_reps": "3×4", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "SUBE ~4% · reps bajan de 5 a 4 · controla excéntrico"}, "S4": {"sets_reps": "3×3", "rir": "RIR 2 → RIR 1 → RIR 1", "note": "SUBE (pico ~80-85% 1RM) · reps mínimas del bloque (3)"}}}, {"name": "elevación de talón de pie con barra (ancla — prioritaria)", "anchor": true, "weeks": {"S1": {"sets_reps": "3×12", "rir": "RIR 3 → RIR 3 → RIR 2", "note": "Establece · ROM completo + pausa 1-2s arriba · prioritario por debilidad de gemelo"}, "S2": {"sets_reps": "3×11", "rir": "RIR 3 → RIR 2 → RIR 2", "note": "SUBE ~4% si no hay molestia; si molesta, mantén carga y reps de S1"}, "S3": {"sets_reps": "3×10", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "SUBE ~4% si sin molestia; si no, mantén"}, "S4": {"sets_reps": "3×9", "rir": "RIR 2 → RIR 2 → RIR 1", "note": "SUBE si sin molestia; reps bajan progresivamente (12→9) manteniendo rango alto por ser trabajo de tendón, no de fuerza máxima pura"}}}, {"name": "zancada búlgara con mancuernas (accesorio)", "anchor": false, "weeks": {"S1": {"sets_reps": "2×10/pierna", "rir": "RIR 3 → RIR 2", "note": "Establece · tronco vertical"}, "S2": {"sets_reps": "2×9/pierna", "rir": "RIR 2 → RIR 1", "note": "Sube ligero · reps bajan de 10 a 9"}, "S3": {"sets_reps": "2×8/pierna", "rir": "RIR 2 → RIR 1", "note": "Sube ligero · reps bajan de 9 a 8"}, "S4": {"sets_reps": "2×7/pierna", "rir": "RIR 1-2", "note": "Mantén técnica bajo fatiga acumulada · reps mínimas del accesorio (7)"}}}, {"name": "elevación de talón sentado cargada (accesorio)", "anchor": false, "weeks": {"S1": {"sets_reps": "2×15", "rir": "RIR 3 → RIR 2", "note": "Establece · rodilla flexionada, aísla sóleo"}, "S2": {"sets_reps": "2×14", "rir": "RIR 2 → RIR 1", "note": "Sube ligero · reps bajan de 15 a 14"}, "S3": {"sets_reps": "2×13", "rir": "RIR 2 → RIR 1", "note": "Sube ligero · reps bajan de 14 a 13"}, "S4": {"sets_reps": "2×12", "rir": "RIR 1-2", "note": "Mantén · reps bajan a 12, rango bajo sigue siendo alto por tratarse de sóleo/tendón"}}}, {"name": "pallof press con polea (accesorio)", "anchor": false, "weeks": {"S1": {"sets_reps": "1×10/lado", "rir": "RIR 2", "note": "Establece · resistir la rotación de tronco"}, "S2": {"sets_reps": "1×10/lado", "rir": "RIR 1-2", "note": "Mantén técnica · reps fijas: es trabajo de estabilidad/resistencia de core, no de fuerza máxima, por eso no baja reps"}, "S3": {"sets_reps": "1×10/lado", "rir": "RIR 1", "note": "Mantén · reps fijas por el mismo motivo"}, "S4": {"sets_reps": "1×10/lado", "rir": "RIR 1", "note": "Mantén · reps fijas por el mismo motivo"}}}]}, "B": {"label": "Sesión B", "sub": "Potencia", "unit": "series×reps", "icon": "⚡", "rows": [{"name": "[contraste] sentadilla trasera con barra", "anchor": true, "weeks": {"S1": {"sets_reps": "3×3", "rir": "RIR 4", "note": "Establece técnica de contraste · carga ligera ~60% 1RM"}, "S2": {"sets_reps": "3×3", "rir": "RIR 3-4", "note": "SUBE hacia ~65% 1RM · foco en velocidad concéntrica, reps se mantienen en 3"}, "S3": {"sets_reps": "3×2", "rir": "RIR 3", "note": "SUBE hacia ~70% 1RM · reps bajan de 3 a 2 para proteger la velocidad de la barra a mayor carga"}, "S4": {"sets_reps": "3×2", "rir": "RIR 3", "note": "SUBE (pico ~75% 1RM) · reps mínimas (2) para mantener calidad explosiva al pico de carga"}}}, {"name": "[contraste] CMJ sin carga", "anchor": true, "weeks": {"S1": {"sets_reps": "3×3", "rir": "—", "note": "Establece aterrizaje silencioso · volumen fijo por el gemelo (nunca sube de 3×3)"}, "S2": {"sets_reps": "3×3", "rir": "—", "note": "Volumen fijo 3×3 · aterrizaje silencioso"}, "S3": {"sets_reps": "3×3", "rir": "—", "note": "Volumen fijo 3×3"}, "S4": {"sets_reps": "3×3", "rir": "—", "note": "Volumen fijo 3×3, sin excepción por ser semana de pico"}}}, {"name": "sprint en row/skierg", "anchor": false, "weeks": {"S1": {"sets_reps": "5×10 seg", "rir": "—", "note": "Establece ritmo · esfuerzo submáximo ~80%"}, "S2": {"sets_reps": "5×10 seg", "rir": "—", "note": "Sube esfuerzo hacia ~85-90%"}, "S3": {"sets_reps": "5×10 seg", "rir": "—", "note": "Esfuerzo casi máximo ~90%"}, "S4": {"sets_reps": "5×10 seg", "rir": "—", "note": "Esfuerzo máximo de la semana"}}}, {"name": "RDL a una pierna con kettlebell", "anchor": true, "weeks": {"S1": {"sets_reps": "3×5/pierna", "rir": "RIR 3", "note": "Establece técnica · carga ligera, sin componente de salto"}, "S2": {"sets_reps": "3×5/pierna", "rir": "RIR 3", "note": "Sube carga ligero, mantiene velocidad concéntrica"}, "S3": {"sets_reps": "3×4/pierna", "rir": "RIR 2-3", "note": "Sube ligero · reps bajan de 5 a 4 para conservar velocidad de ejecución"}, "S4": {"sets_reps": "3×4/pierna", "rir": "RIR 2-3", "note": "Sube (pico) · reps se mantienen en 4"}}}, {"name": "rotación de tronco explosiva con polea", "anchor": false, "weeks": {"S1": {"sets_reps": "3×6/lado", "rir": "RIR 3", "note": "Establece · carga ligera, máxima velocidad"}, "S2": {"sets_reps": "3×6/lado", "rir": "RIR 3", "note": "Sube carga ligero · reps fijas, es trabajo de velocidad rotacional, no de fuerza máxima"}, "S3": {"sets_reps": "3×6/lado", "rir": "RIR 2-3", "note": "Sube ligero · reps fijas por el mismo motivo"}, "S4": {"sets_reps": "3×6/lado", "rir": "RIR 2-3", "note": "Sube (pico) · reps fijas por el mismo motivo"}}}, {"name": "push press con barra", "anchor": false, "weeks": {"S1": {"sets_reps": "3×5", "rir": "RIR 3", "note": "Establece · ~60% 1RM"}, "S2": {"sets_reps": "3×5", "rir": "RIR 3", "note": "Sube hacia ~65% 1RM · reps se mantienen en 5"}, "S3": {"sets_reps": "3×4", "rir": "RIR 2-3", "note": "Sube hacia ~70% 1RM · reps bajan de 5 a 4"}, "S4": {"sets_reps": "3×3", "rir": "RIR 2-3", "note": "Sube (pico ~72-75% 1RM) · reps bajan a 3 para proteger la velocidad concéntrica al pico"}}}]}, "C": {"label": "Sesión C", "sub": "Pliometría", "unit": "series×contactos", "icon": "🦘", "rows": [{"name": "movilidad dinámica tobillo/cadera", "anchor": false, "weeks": {"S1": {"sets_reps": "1×~3 min", "rir": "—", "note": "No cuenta como pliometría"}, "S2": {"sets_reps": "1×~3 min", "rir": "—", "note": "—"}, "S3": {"sets_reps": "1×~3 min", "rir": "—", "note": "—"}, "S4": {"sets_reps": "1×~3 min", "rir": "—", "note": "—"}}}, {"name": "rebotes de tobillo (pogo hops)", "anchor": false, "weeks": {"S1": {"sets_reps": "2×20", "rir": "Nivel 1", "note": "Confirma tolerancia del gemelo · rodilla casi rígida"}, "S2": {"sets_reps": "2×20", "rir": "Nivel 1", "note": "Mantiene volumen de S1"}, "S3": {"sets_reps": "2×25", "rir": "Nivel 1", "note": "Sube ligero si tolera bien"}, "S4": {"sets_reps": "2×30", "rir": "Nivel 1", "note": "Techo de contactos del mesociclo"}}}, {"name": "skipping lateral bajo", "anchor": false, "weeks": {"S1": {"sets_reps": "2×20 m", "rir": "Nivel 1", "note": "Plano frontal, sin subir intensidad de impacto"}, "S2": {"sets_reps": "2×20 m", "rir": "Nivel 1", "note": "Mantiene"}, "S3": {"sets_reps": "2×25 m", "rir": "Nivel 1", "note": "Sube ligero"}, "S4": {"sets_reps": "2×25 m", "rir": "Nivel 1", "note": "Mantiene techo"}}}, {"name": "marcha rodilla alta + rebote suave", "anchor": false, "weeks": {"S1": {"sets_reps": "2×20 m", "rir": "Nivel 1", "note": "Prepara cadencia sin cargar el gemelo"}, "S2": {"sets_reps": "2×20 m", "rir": "Nivel 1", "note": "Mantiene"}, "S3": {"sets_reps": "2×20 m", "rir": "Nivel 1", "note": "Mantiene"}, "S4": {"sets_reps": "2×20 m", "rir": "Nivel 1", "note": "Mantiene"}}}, {"name": "skipping progresivo hacia ritmo de carrera", "anchor": false, "weeks": {"S1": {"sets_reps": "1×20 m", "rir": "Transición", "note": "Puente directo a la salida a correr"}, "S2": {"sets_reps": "1×20 m", "rir": "Transición", "note": "—"}, "S3": {"sets_reps": "1×20 m", "rir": "Transición", "note": "—"}, "S4": {"sets_reps": "1×20 m", "rir": "Transición", "note": "—"}}}]}}, "weekMeta": {"S1": {"rpe": "6-7", "label": "Calibración/onboarding · establece cargas de referencia", "kind": "normal"}, "S2": {"rpe": "7-7.5", "label": "Sube ~4% sobre S1 · confirma técnica bajo más carga", "kind": "normal"}, "S3": {"rpe": "7.5-8", "label": "Sube ~4% sobre S2 · tercera semana de acumulación", "kind": "normal"}, "S4": {"rpe": "8-8.5", "label": "Pico del mesociclo de acumulación · última semana antes del deload", "kind": "peak"}}};
+
+const state = {
+  session: 'A',
+  week: 'S1',
+};
+
+// Storage seguro: en contexto file:// (abierto desde Files/WhatsApp) Safari bloquea
+// localStorage y lanza una excepción. Si eso pasa, seguimos funcionando con memoria
+// (sin persistencia entre sesiones, pero la app no se rompe).
+const _mem = {};
+const storage = {
+  getItem(k){ try{ return localStorage.getItem(k); }catch(e){ return (k in _mem) ? _mem[k] : null; } },
+  setItem(k,v){ try{ localStorage.setItem(k,v); }catch(e){ _mem[k] = v; } },
+  removeItem(k){ try{ localStorage.removeItem(k); }catch(e){ delete _mem[k]; } },
+};
+
+function isNightNow(){
+  const h = new Date().getHours();
+  return h >= 21 || h < 5;
+}
+
+function applyTheme(){
+  const saved = storage.getItem('bs_theme');
+  const dark = saved ? saved === 'dark' : isNightNow();
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  document.getElementById('themeToggle').textContent = dark ? '☀️' : '🌙';
+}
+
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  storage.setItem('bs_theme', next);
+  document.getElementById('themeToggle').textContent = next === 'dark' ? '☀️' : '🌙';
+});
+
+function googleSearchUrl(name){
+  const clean = name.replace(/\[contraste\]\s*/i, '').replace(/\(ancla[^)]*\)/i, '').trim();
+  const q = clean.trim().split(/\s+/).join('+');
+  return `https://www.google.com/search?q=${q}`;
+}
+
+function storageKey(session, week){ return `bs_hm_${session}_${week}`; }
+
+function getChecked(session, week){
+  try{
+    return JSON.parse(storage.getItem(storageKey(session, week)) || '{}');
+  }catch(e){ return {}; }
+}
+function setChecked(session, week, obj){
+  storage.setItem(storageKey(session, week), JSON.stringify(obj));
+}
+
+function renderSessions(){
+  const row = document.getElementById('dayRow');
+  row.innerHTML = '';
+  Object.keys(DATA.sessions).forEach(code => {
+    const s = DATA.sessions[code];
+    const btn = document.createElement('button');
+    btn.className = 'day-pill' + (code === state.session ? ' active' : '');
+    btn.innerHTML = `<span class="d-label">${s.icon} ${s.label}</span><span class="d-sub">${s.sub}</span>`;
+    btn.addEventListener('click', () => { state.session = code; render(); });
+    row.appendChild(btn);
+  });
+}
+
+function renderWeeks(){
+  const row = document.getElementById('weekRow');
+  row.innerHTML = '';
+  Object.keys(DATA.weekMeta).forEach(w => {
+    const meta = DATA.weekMeta[w];
+    const btn = document.createElement('button');
+    const isPeak = meta.kind === 'peak';
+    btn.className = 'week-pill' + (isPeak ? ' deload' : '') + (w === state.week ? ' active' : '');
+    btn.textContent = w;
+    btn.addEventListener('click', () => { state.week = w; render(); });
+    row.appendChild(btn);
+  });
+}
+
+function renderBanner(){
+  const meta = DATA.weekMeta[state.week];
+  const el = document.getElementById('weekBanner');
+  el.className = 'week-banner' + (meta.kind === 'peak' ? ' deload' : '');
+  el.innerHTML = `<span class="rpe-badge">RPE ${meta.rpe}</span><span class="wb-text">${meta.label}</span>`;
+}
+
+function renderExercises(){
+  const sessionData = DATA.sessions[state.session];
+  const rows = sessionData.rows.filter(r => r.weeks[state.week]);
+  const list = document.getElementById('exList');
+  list.innerHTML = '';
+
+  const checked = getChecked(state.session, state.week);
+  let totalSets = 0, doneSets = 0;
+
+  document.getElementById('sessionTitle').textContent = `${sessionData.label} — ${sessionData.sub}`;
+
+  if(rows.length === 0){
+    list.innerHTML = `<div class="empty-state">
+      <div class="es-icon">🧘</div>
+      <div class="es-title">Sin contenido esta semana</div>
+      <div class="es-sub">No hay ejercicios programados en esta semana para esta sesión.</div>
+    </div>`;
+    document.getElementById('sessionCount').textContent = '0/0 series';
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('bbCount').textContent = '0/0';
+    return;
+  }
+
+  rows.forEach((r, idx) => {
+    const wd = r.weeks[state.week];
+    const m = wd.sets_reps.match(/^(\d+)/);
+    const nSets = m ? parseInt(m[1], 10) : 1;
+    totalSets += nSets;
+    const rowChecked = checked[idx] || [];
+    doneSets += rowChecked.filter(Boolean).length;
+
+    const card = document.createElement('div');
+    const allDone = rowChecked.filter(Boolean).length === nSets;
+    card.className = 'ex-card' + (allDone ? ' done' : '');
+
+    let tags = '';
+    if(r.anchor) tags += `<span class="tag safe">Ancla · fija 12 semanas</span>`;
+    if(/FALLO/i.test(wd.rir)) tags += `<span class="tag fallo">Última al fallo</span>`;
+
+    let dots = '';
+    for(let i=0;i<nSets;i++){
+      const isOn = !!rowChecked[i];
+      dots += `<button class="set-dot${isOn?' checked':''}" data-idx="${idx}" data-set="${i}">${isOn?'✓':(i+1)}</button>`;
+    }
+
+    card.innerHTML = `
+      <div class="ex-top">
+        <div>
+          <div class="ex-name"><a href="${googleSearchUrl(r.name)}" target="_blank" rel="noopener">${r.name}</a></div>
+          <div class="ex-tags">${tags}</div>
+        </div>
+        <div style="text-align:right">
+          <div class="reps-big">${wd.sets_reps}</div>
+          <div class="reps-unit">${sessionData.unit}</div>
+        </div>
+      </div>
+      <div class="rir-line">${wd.rir}</div>
+      <div class="note-line">${wd.note}</div>
+      <div class="set-row">${dots}<span class="set-label">series</span></div>
+    `;
+    list.appendChild(card);
+  });
+
+  list.querySelectorAll('.set-dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = +dot.dataset.idx;
+      const setI = +dot.dataset.set;
+      const ch = getChecked(state.session, state.week);
+      if(!ch[idx]) ch[idx] = [];
+      ch[idx][setI] = !ch[idx][setI];
+      setChecked(state.session, state.week, ch);
+      renderExercises();
+    });
+  });
+
+  document.getElementById('sessionCount').textContent = `${doneSets}/${totalSets} series`;
+  document.getElementById('bbCount').textContent = `${doneSets}/${totalSets}`;
+  const pct = totalSets ? Math.round(doneSets/totalSets*100) : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  if(confirm('¿Reiniciar el progreso de esta sesión?')){
+    storage.removeItem(storageKey(state.session, state.week));
+    renderExercises();
+  }
+});
+
+function render(){
+  renderSessions();
+  renderWeeks();
+  renderBanner();
+  renderExercises();
+}
+
+applyTheme();
+render();
+</script>
+</body>
+</html>
