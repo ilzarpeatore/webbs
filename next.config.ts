@@ -37,6 +37,24 @@ const nextConfig: NextConfig = {
         source: "/nerea-media-m1",
         destination: "/nerea-media-m1.html",
       },
+      // Copias del tracker de Mesociclo 1 (/m1-sep) para clientes concretos,
+      // mismo contenido, cada una en su propia URL sin extensión .html.
+      {
+        source: "/alberto-m1-sep",
+        destination: "/alberto-m1-sep.html",
+      },
+      {
+        source: "/hamza--m1-sep",
+        destination: "/hamza--m1-sep.html",
+      },
+      {
+        source: "/ayoub--m1-sep",
+        destination: "/ayoub--m1-sep.html",
+      },
+      {
+        source: "/mario-m1-sep",
+        destination: "/mario-m1-sep.html",
+      },
     ];
   },
   redirects: async () => {
