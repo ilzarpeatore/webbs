@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Be Stronger — Mesociclo 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ===== Be Stronger design tokens ===== */
+  :root{
+    --teal:#49C5B6; --teal-dark:#14766A; --on-teal:#12312C;
+    --bg:#F4F4F7; --surface:#FFFFFF; --border:#E5E5EA;
+    --text:#262729; --text2:#8B8C8E; --text3:#8E8E93;
+    --success:#34C759; --warning:#FF9500; --destructive:#FF3B30; --blue:#007AFF;
+    --success10:rgba(52,199,89,.12); --warning10:rgba(255,149,0,.12);
+    --destructive10:rgba(255,59,48,.10); --teal10:rgba(73,197,182,.12);
+    --radius-md:20px; --radius-sm:12px; --radius-xs:8px; --radius-pill:9999px;
+    --shadow-card:0 2px 8px rgba(0,0,0,.04);
+    --shadow-cta:0 4px 10px rgba(0,0,0,.12);
+    --sp-xs:4px; --sp-sm:8px; --sp-md:12px; --sp-lg:16px; --sp-xl:20px; --sp-xxl:24px;
+  }
+  [data-theme="dark"]{
+    --bg:#242529; --surface:#2E3037; --surface-light:#363840; --border:#3A3A3C;
+    --text:#FAFAFA; --text2:#818287; --text3:#818287;
+    --warning:#FF9F0A; --destructive:#FF453A; --blue:#0A84FF;
+    --shadow-card:0 2px 8px rgba(0,0,0,.24);
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:'Gilroy','Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-size:15px; line-height:1.45;
+    padding-bottom:96px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{margin:0; font-weight:700;}
+  p{margin:0;}
+  button{font-family:inherit; border:none; background:none; cursor:pointer;}
+
+  /* ===== Header ===== */
+  .topbar{
+    position:sticky; top:0; z-index:20;
+    background:var(--bg);
+    padding:var(--sp-lg) var(--sp-xl) var(--sp-sm);
+  }
+  .brand{display:flex; align-items:center; justify-content:space-between; margin-bottom:var(--sp-md);}
+  .brand-name{font-size:22px; font-weight:800; letter-spacing:-0.02em;}
+  .brand-name span{
+    background:linear-gradient(135deg,var(--teal),var(--teal-dark));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .meso-tag{
+    font-size:13px; font-weight:500; color:var(--text2);
+  }
+  .theme-toggle{
+    width:34px; height:34px; border-radius:var(--radius-pill);
+    background:var(--surface); box-shadow:var(--shadow-card);
+    display:flex; align-items:center; justify-content:center; font-size:16px;
+  }
+
+  /* ===== Day pills ===== */
+  .day-row{
+    display:flex; gap:var(--sp-sm); overflow-x:auto; padding-bottom:var(--sp-sm);
+    scrollbar-width:none;
+  }
+  .day-row::-webkit-scrollbar{display:none;}
+  .day-pill{
+    flex:0 0 auto;
+    padding:10px 16px;
+    border-radius:var(--radius-pill);
+    background:var(--surface);
+    box-shadow:var(--shadow-card);
+    text-align:left;
+    min-width:84px;
+  }
+  .day-pill .d-label{font-size:13px; font-weight:700; display:block; color:var(--text);}
+  .day-pill .d-sub{font-size:11px; color:var(--text2); display:block; margin-top:1px;}
+  .day-pill.active{
+    background:var(--teal);
+  }
+  .day-pill.active .d-label, .day-pill.active .d-sub{color:var(--on-teal);}
+
+  /* ===== Week pills ===== */
+  .week-row{
+    display:flex; gap:var(--sp-xs); overflow-x:auto; margin-top:var(--sp-sm); padding-bottom:2px;
+    scrollbar-width:none;
+  }
+  .week-row::-webkit-scrollbar{display:none;}
+  .week-pill{
+    flex:0 0 auto;
+    padding:7px 14px;
+    border-radius:var(--radius-pill);
+    border:1.5px solid var(--border);
+    font-size:13px; font-weight:600; color:var(--text2);
+  }
+  .week-pill.active{
+    background:var(--on-teal); border-color:var(--on-teal); color:#FAFAFA;
+  }
+  .week-pill.deload.active{
+    background:var(--blue); border-color:var(--blue);
+  }
+
+  /* ===== Week info banner ===== */
+  .week-banner{
+    margin:var(--sp-md) var(--sp-xl) 0;
+    background:var(--teal10);
+    border-radius:var(--radius-sm);
+    padding:var(--sp-md) var(--sp-lg);
+    display:flex; align-items:center; gap:var(--sp-md);
+  }
+  .week-banner.deload{background:rgba(0,122,255,.10);}
+  .week-banner .rpe-badge{
+    font-size:13px; font-weight:700; color:var(--teal-dark);
+    background:var(--surface); padding:4px 10px; border-radius:var(--radius-pill);
+    white-space:nowrap;
+  }
+  .week-banner.deload .rpe-badge{color:var(--blue);}
+  .week-banner .wb-text{font-size:13px; color:var(--text); font-weight:500;}
+
+  /* ===== Session progress ===== */
+  .progress-wrap{margin:var(--sp-lg) var(--sp-xl) 0;}
+  .progress-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;}
+  .progress-head .ph-title{font-size:17px; font-weight:700;}
+  .progress-head .ph-count{font-size:13px; font-weight:600; color:var(--teal-dark);}
+  .progress-track{height:6px; background:var(--border); border-radius:var(--radius-pill); overflow:hidden;}
+  .progress-fill{height:100%; background:linear-gradient(90deg,var(--teal),var(--teal-dark)); border-radius:var(--radius-pill); transition:width .3s ease;}
+
+  /* ===== Exercise cards ===== */
+  .ex-list{padding:var(--sp-lg) var(--sp-xl) var(--sp-xl); display:flex; flex-direction:column; gap:var(--sp-md);}
+  .ex-card{
+    background:var(--surface);
+    border-radius:var(--radius-md);
+    box-shadow:var(--shadow-card);
+    padding:var(--sp-lg);
+  }
+  .ex-card.done{opacity:.55;}
+  .ex-top{display:flex; justify-content:space-between; align-items:flex-start; gap:var(--sp-sm); margin-bottom:10px;}
+  .ex-name{font-size:17px; font-weight:600; line-height:1.3;}
+  .ex-tags{display:flex; gap:6px; margin-top:6px; flex-wrap:wrap;}
+  .tag{font-size:11px; font-weight:700; padding:3px 8px; border-radius:var(--radius-pill);}
+  .tag.safe{background:var(--success10); color:#1e8e3e;}
+  [data-theme="dark"] .tag.safe{color:var(--success);}
+  .tag.fallo{background:var(--destructive10); color:var(--destructive);}
+  .tag.vieA{background:var(--teal10); color:var(--teal-dark);}
+  [data-theme="dark"] .tag.vieA{color:var(--teal);}
+  .tag.vieB{background:var(--warning10); color:#b06a00;}
+  [data-theme="dark"] .tag.vieB{color:var(--warning);}
+  .reps-big{font-size:22px; font-weight:800; white-space:nowrap; color:var(--text);}
+  .reps-unit{font-size:12px; font-weight:500; color:var(--text2);}
+
+  .rir-line{font-size:13px; color:var(--text2); font-weight:500; margin-bottom:4px;}
+  .note-line{font-size:13px; color:var(--text3); margin-bottom:var(--sp-md);}
+
+  .set-row{display:flex; align-items:center; gap:8px; margin-top:4px;}
+  .set-dot{
+    width:34px; height:34px; border-radius:var(--radius-pill);
+    border:2px solid var(--border);
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px; font-weight:700; color:var(--text2);
+    transition:all .15s ease;
+    flex:0 0 auto;
+  }
+  .set-dot.checked{
+    background:var(--teal); border-color:var(--teal); color:var(--on-teal);
+  }
+  .set-dot:active{transform:scale(.92);}
+  .set-label{font-size:12px; color:var(--text3); margin-left:2px;}
+
+  .empty-state{
+    text-align:center; padding:60px var(--sp-xl); color:var(--text2);
+  }
+  .empty-state .es-icon{font-size:32px; margin-bottom:10px;}
+  .empty-state .es-title{font-size:17px; font-weight:700; color:var(--text); margin-bottom:4px;}
+  .empty-state .es-sub{font-size:13px;}
+
+  /* ===== Bottom bar ===== */
+  .bottombar{
+    position:fixed; left:0; right:0; bottom:0; z-index:30;
+    padding:var(--sp-md) var(--sp-xl) calc(var(--sp-md) + env(safe-area-inset-bottom));
+    background:linear-gradient(180deg, rgba(244,244,247,0) 0%, var(--bg) 30%);
+  }
+  [data-theme="dark"] .bottombar{
+    background:linear-gradient(180deg, rgba(36,37,41,0) 0%, var(--bg) 30%);
+  }
+  .bottombar-inner{
+    background:var(--on-teal);
+    border-radius:var(--radius-pill);
+    padding:12px 20px;
+    display:flex; align-items:center; justify-content:space-between;
+    box-shadow:var(--shadow-cta);
+  }
+  .bb-text{color:#FAFAFA; font-size:13px; font-weight:600;}
+  .bb-text b{color:var(--teal);}
+  .bb-reset{color:var(--teal); font-size:13px; font-weight:700;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <div>
+      <div class="brand-name">Be <span>Stronger</span></div>
+      <div class="meso-tag">Macrociclo 2 · Mesociclo 1</div>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button>
+  </div>
+  <div class="day-row" id="dayRow"></div>
+  <div class="week-row" id="weekRow"></div>
+</div>
+
+<div id="weekBanner" class="week-banner"></div>
+
+<div class="progress-wrap">
+  <div class="progress-head">
+    <span class="ph-title" id="sessionTitle">Sesión</span>
+    <span class="ph-count" id="sessionCount">0/0 series</span>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+</div>
+
+<div class="ex-list" id="exList"></div>
+
+<div class="bottombar">
+  <div class="bottombar-inner">
+    <span class="bb-text">Progreso de hoy: <b id="bbCount">0/0</b></span>
+    <button class="bb-reset" id="resetBtn">Reiniciar</button>
+  </div>
+</div>
+
+<script>
+const DATA = {"days": [{"code": "LUN", "label": "Lunes", "sub": "Tracción"}, {"code": "MAR", "label": "Martes", "sub": "Pierna"}, {"code": "MIE", "label": "Miércoles", "sub": "Empuje"}, {"code": "JUE", "label": "Jueves", "sub": "Accesorios"}, {"code": "VIE", "label": "Viernes", "sub": "Full Body"}], "weekMeta": {"S1": {"rpe": "7-7.5", "label": "Establece la carga base", "kind": "normal"}, "S2": {"rpe": "7.5-8", "label": "+5% sobre S1 · confirma técnica", "kind": "normal"}, "S3": {"rpe": "8-8.5", "label": "+5% · aumenta densidad", "kind": "normal"}, "S4": {"rpe": "8.5-9", "label": "PICO de volumen del mesociclo", "kind": "peak"}, "S5": {"rpe": "9", "label": "Intensificación · límite real", "kind": "peak"}, "S6": {"rpe": "5-6", "label": "DELOAD · recuperación activa", "kind": "deload"}}, "sessions": {"LUN": [{"name": "remo en multipower", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 4, "reps": "8-10", "rir": "RIR 3 → RIR 2 → RIR 1 → RIR 1", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": false}, "S2": {"sets": 4, "reps": "6-8", "rir": "RIR 3 → RIR 2 → RIR 1 → RIR 1", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": false}, "S3": {"sets": 3, "reps": "8-10", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": true}, "S4": {"sets": 3, "reps": "6-8", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 2, "reps": "5-6", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "12-15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "iso-lateral row (plate-loaded)", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "10-12", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": false}, "S2": {"sets": 3, "reps": "6-8", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": false}, "S3": {"sets": 3, "reps": "5-6", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "SUBE 5% · Fase concéntrica explosiva · mantén posición", "fallo": false}, "S4": {"sets": 2, "reps": "6-8", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 2, "reps": "5-6", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "12-15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "lat pulldown efecto péndulo (plate-loaded)", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "8-10", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": false}, "S2": {"sets": 3, "reps": "6-8", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": false}, "S3": {"sets": 3, "reps": "4-6", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "SUBE 5% · Fase concéntrica explosiva · mantén posición", "fallo": false}, "S4": {"sets": 2, "reps": "6-8", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 2, "reps": "5-6", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "12-15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "high row (plate-loaded)", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "10-12", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "Establece · RPE 7 · ROM completo · establece carga a RPE 7", "fallo": false}, "S2": {"sets": 3, "reps": "8-10", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": false}, "S3": {"sets": 2, "reps": "8-10", "rir": "RIR 2 → RIR 1", "note": "SUBE 5% · Fase concéntrica explosiva · mantén posición", "fallo": false}, "S4": {"sets": 2, "reps": "6-8", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 2, "reps": "5-6", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "12-15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "face pull con cuerda", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": true}, "S2": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": true}, "S3": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": true}, "S4": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}], "MAR": [{"name": "leg curl sentado — cadera en flexión", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "10-12", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": true}, "S2": {"sets": 3, "reps": "6-8", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": true}, "S3": {"sets": 2, "reps": "8-10", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": true}, "S4": {"sets": 2, "reps": "6-8", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 2, "reps": "5-6", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "12-15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "peso muerto rumano con barra", "vieTag": null, "safe": true, "weeks": {"S1": {"sets": 3, "reps": "8-10", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": false}, "S2": {"sets": 3, "reps": "6-8", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": false}, "S3": {"sets": 2, "reps": "8-10", "rir": "RIR 2 → RIR 1", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": false}, "S4": {"sets": 2, "reps": "6-8", "rir": "RIR 2 → RIR 1", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": false}, "S5": {"sets": 2, "reps": "5-6", "rir": "RIR 2 → RIR 1", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": false}, "S6": {"sets": 2, "reps": "12-15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "sentadilla trasera", "vieTag": null, "safe": true, "weeks": {"S1": {"sets": 4, "reps": "8-10", "rir": "RIR 3 → RIR 2 → RIR 1 → RIR 1", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": false}, "S2": {"sets": 4, "reps": "6-8", "rir": "RIR 3 → RIR 2 → RIR 1 → RIR 1", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": false}, "S3": {"sets": 3, "reps": "8-10", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": false}, "S4": {"sets": 3, "reps": "6-8", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": false}, "S5": {"sets": 2, "reps": "5-6", "rir": "RIR 2 → RIR 1", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": false}, "S6": {"sets": 2, "reps": "12-15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "extensión de cuádriceps (plate-loaded)", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "10-12", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Establece · RPE 7 · ROM completo · establece carga a RPE 7", "fallo": true}, "S2": {"sets": 3, "reps": "8-10", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": true}, "S3": {"sets": 2, "reps": "8-10", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Fase concéntrica explosiva · mantén posición", "fallo": true}, "S4": {"sets": 2, "reps": "6-8", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 2, "reps": "5-6", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "12-15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "leg curl tumbado (selectorizada)", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "10-12", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Establece · RPE 7 · ROM completo · establece carga a RPE 7", "fallo": true}, "S2": {"sets": 2, "reps": "8-10", "rir": "RIR 3 → FALLO", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": true}, "S3": {"sets": 2, "reps": "6-8", "rir": "RIR 3 → FALLO", "note": "SUBE 5% · Fase concéntrica explosiva · mantén posición", "fallo": true}, "S4": {"sets": 2, "reps": "8-10", "rir": "RIR 3 → FALLO", "note": "SUBE 5% · Concentración por serie · pico de intensidad", "fallo": true}, "S5": {"sets": 2, "reps": "6-8", "rir": "RIR 3 → FALLO", "note": "SUBE 5% · Misma carga · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "12-15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}], "MIE": [{"name": "press inclinado 30-45°", "vieTag": null, "safe": true, "weeks": {"S1": {"sets": 4, "reps": "8-10", "rir": "RIR 3 → RIR 2 → RIR 1 → RIR 1", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": false}, "S2": {"sets": 4, "reps": "6-8", "rir": "RIR 3 → RIR 2 → RIR 1 → RIR 1", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": false}, "S3": {"sets": 3, "reps": "8-10", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": false}, "S4": {"sets": 3, "reps": "6-8", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": false}, "S5": {"sets": 2, "reps": "5-6", "rir": "RIR 2 → RIR 1", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": false}, "S6": {"sets": 2, "reps": "12-15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "press de hombros", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 4, "reps": "8-10", "rir": "RIR 3 → RIR 2 → RIR 1 → RIR 1", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": false}, "S2": {"sets": 4, "reps": "6-8", "rir": "RIR 3 → RIR 2 → RIR 1 → RIR 1", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": false}, "S3": {"sets": 3, "reps": "8-10", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": true}, "S4": {"sets": 3, "reps": "6-8", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 2, "reps": "5-6", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "12-15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "fly machine (plate-loaded)", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "10-12", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Establece · RPE 7 · ROM completo · establece carga a RPE 7", "fallo": true}, "S2": {"sets": 3, "reps": "8-10", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": true}, "S3": {"sets": 2, "reps": "8-10", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Fase concéntrica explosiva · mantén posición", "fallo": true}, "S4": {"sets": 2, "reps": "6-8", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 2, "reps": "5-6", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "12-15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "skull crusher inclinado barra ez", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": true}, "S2": {"sets": 3, "reps": "10-12", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": true}, "S3": {"sets": 2, "reps": "8-10", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": true}, "S4": {"sets": 2, "reps": "6-8", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 2, "reps": "5-6", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "12-15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}], "JUE": [{"name": "curl inclinado con mancuerna", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "10-12", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": true}, "S2": {"sets": 3, "reps": "8-10", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": true}, "S3": {"sets": 2, "reps": "8-10", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": true}, "S4": {"sets": 2, "reps": "6-8", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 2, "reps": "5-6", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "12-15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "extensión tríceps overhead con polea", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "10-12", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Establece · RPE 7 · ROM completo · establece carga a RPE 7", "fallo": true}, "S2": {"sets": 3, "reps": "8-10", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": true}, "S3": {"sets": 2, "reps": "8-10", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": true}, "S4": {"sets": 2, "reps": "6-8", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 2, "reps": "5-6", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "12-15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "dip machine (plate-loaded)", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": true}, "S2": {"sets": 3, "reps": "10-12", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": true}, "S3": {"sets": 2, "reps": "8-10", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": true}, "S4": {"sets": 2, "reps": "6-8", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 2, "reps": "5-6", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "12-15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "elevación lateral máquina de palancas (variante 2)", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Establece · RPE 7 · Rango fijo · pausa en contracción máxima", "fallo": true}, "S2": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · +5% · velocidad excéntrica controlada 2seg", "fallo": true}, "S3": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · +5% · potencia concéntrica · técnica precisa", "fallo": true}, "S4": {"sets": 2, "reps": "12-15", "rir": "RIR 3 → RIR 3", "note": "BAJA 30% · +5% · volumen máximo · calidad > velocidad", "fallo": false}, "S5": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "pájaros con mancuerna (banco inclinado)", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": true}, "S2": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": true}, "S3": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": true}, "S4": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "standing calf raise (plate-loaded)", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Establece · RPE 7 · Rango fijo · pausa en contracción máxima", "fallo": true}, "S2": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · +5% · velocidad excéntrica controlada 2seg", "fallo": true}, "S3": {"sets": 3, "reps": "10-12", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · +5% · potencia concéntrica · técnica precisa", "fallo": true}, "S4": {"sets": 2, "reps": "12-15", "rir": "RIR 3 → RIR 3", "note": "BAJA 30% · +5% · volumen máximo · calidad > velocidad", "fallo": false}, "S5": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "calf raise sentado", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": true}, "S2": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": true}, "S3": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": true}, "S4": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "crunch en polea", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "8-10", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Rodillas o PC · Rango fijo · pausa en contracción máxima", "fallo": true}, "S2": {"sets": 3, "reps": "8-10", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Progresa ROM · +5% · velocidad excéntrica controlada 2seg", "fallo": true}, "S3": {"sets": 3, "reps": "8-10", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Máx ROM posible · +5% · potencia concéntrica · técnica precisa", "fallo": true}, "S4": {"sets": 2, "reps": "8-10", "rir": "RIR 2-1 → FALLO", "note": "Rodillas, ligero · +5% · volumen máximo · calidad > velocidad", "fallo": true}, "S5": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "plancha lateral con elevación de cadera", "vieTag": null, "safe": false, "weeks": {"S1": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": true}, "S2": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": true}, "S3": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": true}, "S4": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 2, "reps": "15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}], "VIE": [{"name": "dominada lastre", "vieTag": "A", "safe": true, "weeks": {"S1": {"sets": 4, "reps": "12-15", "rir": "RIR 3 → RIR 2 → RIR 1 → RIR 1", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": false}, "S2": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S3": {"sets": 3, "reps": "8-10", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": false}, "S4": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S5": {"sets": 2, "reps": "5-6", "rir": "RIR 2 → RIR 1", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": false}, "S6": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}}}, {"name": "sentadilla frontal", "vieTag": "A", "safe": true, "weeks": {"S1": {"sets": 4, "reps": "6-8", "rir": "RIR 3 → RIR 2 → RIR 1 → RIR 1", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": false}, "S2": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S3": {"sets": 3, "reps": "10-12", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": false}, "S4": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S5": {"sets": 2, "reps": "12-15", "rir": "RIR 2 → RIR 1", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": false}, "S6": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}}}, {"name": "curl martillo mancuerna", "vieTag": "A", "safe": false, "weeks": {"S1": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": true}, "S2": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S3": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": true}, "S4": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S5": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}}}, {"name": "plancha frontal", "vieTag": "A", "safe": false, "weeks": {"S1": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "Establece · ROM completo · establece carga a RPE 7", "fallo": true}, "S2": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S3": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Aumenta densidad · técnica bajo fatiga", "fallo": true}, "S4": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S5": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "Mantén carga S4 · intensificación · última serie al límite", "fallo": true}, "S6": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}}}, {"name": "press plano", "vieTag": "B", "safe": false, "weeks": {"S1": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S2": {"sets": 4, "reps": "10-12", "rir": "RIR 3 → RIR 2 → RIR 1 → FALLO", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": true}, "S3": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S4": {"sets": 3, "reps": "6-8", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S6": {"sets": 2, "reps": "12-15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "split squat búlgaro", "vieTag": "B", "safe": true, "weeks": {"S1": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S2": {"sets": 4, "reps": "8-10", "rir": "RIR 3 → RIR 2 → RIR 1 → RIR 1", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": false}, "S3": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S4": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2 → RIR 1", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": false}, "S5": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S6": {"sets": 2, "reps": "10-12", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "elevación lateral mancuerna", "vieTag": "B", "safe": false, "weeks": {"S1": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S2": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": true}, "S3": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S4": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S6": {"sets": 2, "reps": "15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}, {"name": "gemelo de pie (plate-loaded)", "vieTag": "B", "safe": false, "weeks": {"S1": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S2": {"sets": 3, "reps": "12-15", "rir": "RIR 3 → RIR 2-1 → FALLO", "note": "SUBE 5% · Confirma técnica · controla excéntrico 2-3seg", "fallo": true}, "S3": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S4": {"sets": 2, "reps": "12-15", "rir": "RIR 2-1 → FALLO", "note": "SUBE 5% · Pico de volumen · concentración máxima por serie", "fallo": true}, "S5": {"sets": 3, "reps": "—", "rir": "—", "note": "—", "fallo": false}, "S6": {"sets": 2, "reps": "15", "rir": "RIR 3 (todas)", "note": "BAJA 30% · RIR 3 todas las series · recuperación activa", "fallo": false}}}]}};
+
+const state = {
+  day: 'LUN',
+  week: 'S1',
+};
+
+function todayDayCode(){
+  const map = {1:'LUN',2:'MAR',3:'MIE',4:'JUE',5:'VIE'};
+  return map[new Date().getDay()] || 'LUN';
+}
+
+function isNightNow(){
+  const h = new Date().getHours();
+  return h >= 21 || h < 5;
+}
+
+function applyTheme(){
+  const saved = localStorage.getItem('bs_theme');
+  const dark = saved ? saved === 'dark' : isNightNow();
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  document.getElementById('themeToggle').textContent = dark ? '☀️' : '🌙';
+}
+
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('bs_theme', next);
+  document.getElementById('themeToggle').textContent = next === 'dark' ? '☀️' : '🌙';
+});
+
+function storageKey(day, week){ return `bs_m1_${day}_${week}`; }
+
+function getChecked(day, week){
+  try{
+    return JSON.parse(localStorage.getItem(storageKey(day, week)) || '{}');
+  }catch(e){ return {}; }
+}
+function setChecked(day, week, obj){
+  localStorage.setItem(storageKey(day, week), JSON.stringify(obj));
+}
+
+function renderDays(){
+  const row = document.getElementById('dayRow');
+  row.innerHTML = '';
+  DATA.days.forEach(d => {
+    const btn = document.createElement('button');
+    btn.className = 'day-pill' + (d.code === state.day ? ' active' : '');
+    btn.innerHTML = `<span class="d-label">${d.label}</span><span class="d-sub">${d.sub}</span>`;
+    btn.addEventListener('click', () => { state.day = d.code; render(); });
+    row.appendChild(btn);
+  });
+}
+
+function renderWeeks(){
+  const row = document.getElementById('weekRow');
+  row.innerHTML = '';
+  Object.keys(DATA.weekMeta).forEach(w => {
+    const meta = DATA.weekMeta[w];
+    const btn = document.createElement('button');
+    const isDeload = meta.kind === 'deload';
+    btn.className = 'week-pill' + (isDeload ? ' deload' : '') + (w === state.week ? ' active' : '');
+    btn.textContent = w;
+    btn.addEventListener('click', () => { state.week = w; render(); });
+    row.appendChild(btn);
+  });
+}
+
+function renderBanner(){
+  const meta = DATA.weekMeta[state.week];
+  const el = document.getElementById('weekBanner');
+  el.className = 'week-banner' + (meta.kind === 'deload' ? ' deload' : '');
+  el.innerHTML = `<span class="rpe-badge">RPE ${meta.rpe}</span><span class="wb-text">${meta.label}</span>`;
+}
+
+function renderExercises(){
+  const rows = (DATA.sessions[state.day] || []).filter(r => r.weeks[state.week]);
+  const list = document.getElementById('exList');
+  list.innerHTML = '';
+
+  const checked = getChecked(state.day, state.week);
+  let totalSets = 0, doneSets = 0;
+
+  const dayMeta = DATA.days.find(d => d.code === state.day);
+  document.getElementById('sessionTitle').textContent = `${dayMeta.label} — ${dayMeta.sub}`;
+
+  if(rows.length === 0){
+    list.innerHTML = `<div class="empty-state">
+      <div class="es-icon">🧘</div>
+      <div class="es-title">Descanso este día</div>
+      <div class="es-sub">No hay ejercicios programados en esta semana para este día.</div>
+    </div>`;
+    document.getElementById('sessionCount').textContent = '0/0 series';
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('bbCount').textContent = '0/0';
+    return;
+  }
+
+  rows.forEach((r, idx) => {
+    const wd = r.weeks[state.week];
+    totalSets += wd.sets;
+    const rowChecked = checked[idx] || [];
+    doneSets += rowChecked.filter(Boolean).length;
+
+    const card = document.createElement('div');
+    const allDone = rowChecked.filter(Boolean).length === wd.sets;
+    card.className = 'ex-card' + (allDone ? ' done' : '');
+
+    let tags = '';
+    if(r.safe) tags += `<span class="tag safe">Sin fallo · tope RIR 1</span>`;
+    if(wd.fallo) tags += `<span class="tag fallo">Última al fallo</span>`;
+    if(r.vieTag === 'A') tags += `<span class="tag vieA">VieA</span>`;
+    if(r.vieTag === 'B') tags += `<span class="tag vieB">VieB</span>`;
+
+    let dots = '';
+    for(let i=0;i<wd.sets;i++){
+      const isOn = !!rowChecked[i];
+      dots += `<button class="set-dot${isOn?' checked':''}" data-idx="${idx}" data-set="${i}">${isOn?'✓':(i+1)}</button>`;
+    }
+
+    card.innerHTML = `
+      <div class="ex-top">
+        <div>
+          <div class="ex-name">${r.name}</div>
+          <div class="ex-tags">${tags}</div>
+        </div>
+        <div style="text-align:right">
+          <div class="reps-big">${wd.sets}×${wd.reps}</div>
+          <div class="reps-unit">series×reps</div>
+        </div>
+      </div>
+      <div class="rir-line">${wd.rir}</div>
+      <div class="note-line">${wd.note}</div>
+      <div class="set-row">${dots}<span class="set-label">series</span></div>
+    `;
+    list.appendChild(card);
+  });
+
+  list.querySelectorAll('.set-dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = +dot.dataset.idx;
+      const setI = +dot.dataset.set;
+      const ch = getChecked(state.day, state.week);
+      if(!ch[idx]) ch[idx] = [];
+      ch[idx][setI] = !ch[idx][setI];
+      setChecked(state.day, state.week, ch);
+      renderExercises();
+    });
+  });
+
+  document.getElementById('sessionCount').textContent = `${doneSets}/${totalSets} series`;
+  document.getElementById('bbCount').textContent = `${doneSets}/${totalSets}`;
+  const pct = totalSets ? Math.round(doneSets/totalSets*100) : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  if(confirm('¿Reiniciar el progreso de esta sesión?')){
+    localStorage.removeItem(storageKey(state.day, state.week));
+    renderExercises();
+  }
+});
+
+function render(){
+  renderDays();
+  renderWeeks();
+  renderBanner();
+  renderExercises();
+}
+
+applyTheme();
+state.day = todayDayCode();
+render();
+</script>
+</body>
+</html>
