@@ -48,8 +48,8 @@ const nextConfig: NextConfig = {
         destination: "/hamza-m1-sep.html",
       },
       {
-        source: "/ayoub--m1-sep",
-        destination: "/ayoub--m1-sep.html",
+        source: "/ayoub-m1-sep",
+        destination: "/ayoub-m1-sep.html",
       },
       {
         source: "/mario-m1-sep",
