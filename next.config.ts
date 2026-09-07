@@ -31,6 +31,12 @@ const nextConfig: NextConfig = {
         source: "/m1-sep",
         destination: "/m1-sep.html",
       },
+      // Sirve el HTML autocontenido del tracker de Media Maratón en
+      // /nerea-media-m1 sin exponer la extensión .html en la URL.
+      {
+        source: "/nerea-media-m1",
+        destination: "/nerea-media-m1.html",
+      },
     ];
   },
   redirects: async () => {
