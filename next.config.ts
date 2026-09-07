@@ -25,6 +25,12 @@ const nextConfig: NextConfig = {
         source: "/",
         destination: "/home",
       },
+      // Sirve el HTML autocontenido del tracker de Mesociclo 1 en /m1-sep
+      // sin exponer la extensión .html en la URL.
+      {
+        source: "/m1-sep",
+        destination: "/m1-sep.html",
+      },
     ];
   },
   redirects: async () => {
