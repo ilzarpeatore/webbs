@@ -44,8 +44,8 @@ const nextConfig: NextConfig = {
         destination: "/alberto-m1-sep.html",
       },
       {
-        source: "/hamza--m1-sep",
-        destination: "/hamza--m1-sep.html",
+        source: "/hamza-m1-sep",
+        destination: "/hamza-m1-sep.html",
       },
       {
         source: "/ayoub--m1-sep",
