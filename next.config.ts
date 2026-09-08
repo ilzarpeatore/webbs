@@ -55,6 +55,10 @@ const nextConfig: NextConfig = {
         source: "/mario-m1-sep",
         destination: "/mario-m1-sep.html",
       },
+      {
+        source: "/osas-m1-sep",
+        destination: "/osas-m1-sep.html",
+      },
     ];
   },
   redirects: async () => {
