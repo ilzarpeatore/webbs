@@ -59,6 +59,13 @@ const nextConfig: NextConfig = {
         source: "/osas-m1-sep",
         destination: "/osas-m1-sep.html",
       },
+      // Sirve el HTML autocontenido del tracker "Vuelta al entrenamiento"
+      // (post-verano, 4 semanas) en /toni-m1-sep sin exponer la extensión
+      // .html en la URL.
+      {
+        source: "/toni-m1-sep",
+        destination: "/toni-m1-sep.html",
+      },
     ];
   },
   redirects: async () => {

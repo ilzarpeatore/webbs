@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Be Stronger — Vuelta al Entrenamiento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ===== Be Stronger design tokens ===== */
+  :root{
+    --teal:#49C5B6; --teal-dark:#14766A; --on-teal:#12312C;
+    --bg:#F4F4F7; --surface:#FFFFFF; --border:#E5E5EA;
+    --text:#262729; --text2:#8B8C8E; --text3:#8E8E93;
+    --success:#34C759; --warning:#FF9500; --destructive:#FF3B30; --blue:#007AFF;
+    --success10:rgba(52,199,89,.12); --warning10:rgba(255,149,0,.12);
+    --destructive10:rgba(255,59,48,.10); --teal10:rgba(73,197,182,.12);
+    --radius-md:20px; --radius-sm:12px; --radius-xs:8px; --radius-pill:9999px;
+    --shadow-card:0 2px 8px rgba(0,0,0,.04);
+    --shadow-cta:0 4px 10px rgba(0,0,0,.12);
+    --sp-xs:4px; --sp-sm:8px; --sp-md:12px; --sp-lg:16px; --sp-xl:20px; --sp-xxl:24px;
+  }
+  [data-theme="dark"]{
+    --bg:#242529; --surface:#2E3037; --surface-light:#363840; --border:#3A3A3C;
+    --text:#FAFAFA; --text2:#818287; --text3:#818287;
+    --warning:#FF9F0A; --destructive:#FF453A; --blue:#0A84FF;
+    --shadow-card:0 2px 8px rgba(0,0,0,.24);
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:'Gilroy','Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-size:15px; line-height:1.45;
+    padding-bottom:96px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{margin:0; font-weight:700;}
+  p{margin:0;}
+  button{font-family:inherit; border:none; background:none; cursor:pointer;}
+
+  /* ===== Header ===== */
+  .topbar{
+    position:sticky; top:0; z-index:20;
+    background:var(--bg);
+    padding:var(--sp-lg) var(--sp-xl) var(--sp-sm);
+  }
+  .brand{display:flex; align-items:center; justify-content:space-between; margin-bottom:var(--sp-md);}
+  .brand-name{font-size:22px; font-weight:800; letter-spacing:-0.02em;}
+  .brand-name span{
+    background:linear-gradient(135deg,var(--teal),var(--teal-dark));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .meso-tag{
+    font-size:13px; font-weight:500; color:var(--text2);
+  }
+  .theme-toggle{
+    width:34px; height:34px; border-radius:var(--radius-pill);
+    background:var(--surface); box-shadow:var(--shadow-card);
+    display:flex; align-items:center; justify-content:center; font-size:16px;
+  }
+
+  /* ===== Day pills ===== */
+  .day-row{
+    display:flex; gap:var(--sp-sm); overflow-x:auto; padding-bottom:var(--sp-sm);
+    scrollbar-width:none;
+  }
+  .day-row::-webkit-scrollbar{display:none;}
+  .day-pill{
+    flex:0 0 auto;
+    padding:10px 16px;
+    border-radius:var(--radius-pill);
+    background:var(--surface);
+    box-shadow:var(--shadow-card);
+    text-align:left;
+    min-width:84px;
+  }
+  .day-pill .d-label{font-size:13px; font-weight:700; display:block; color:var(--text);}
+  .day-pill .d-sub{font-size:11px; color:var(--text2); display:block; margin-top:1px;}
+  .day-pill.active{
+    background:var(--teal);
+  }
+  .day-pill.active .d-label, .day-pill.active .d-sub{color:var(--on-teal);}
+
+  /* ===== Week pills ===== */
+  .week-row{
+    display:flex; gap:var(--sp-xs); overflow-x:auto; margin-top:var(--sp-sm); padding-bottom:2px;
+    scrollbar-width:none;
+  }
+  .week-row::-webkit-scrollbar{display:none;}
+  .week-pill{
+    flex:0 0 auto;
+    padding:7px 14px;
+    border-radius:var(--radius-pill);
+    border:1.5px solid var(--border);
+    font-size:13px; font-weight:600; color:var(--text2);
+  }
+  .week-pill.active{
+    background:var(--on-teal); border-color:var(--on-teal); color:#FAFAFA;
+  }
+  .week-pill.deload.active{
+    background:var(--blue); border-color:var(--blue);
+  }
+
+  /* ===== Week info banner ===== */
+  .week-banner{
+    margin:var(--sp-md) var(--sp-xl) 0;
+    background:var(--teal10);
+    border-radius:var(--radius-sm);
+    padding:var(--sp-md) var(--sp-lg);
+    display:flex; align-items:center; gap:var(--sp-md);
+  }
+  .week-banner.deload{background:rgba(0,122,255,.10);}
+  .week-banner .rpe-badge{
+    font-size:13px; font-weight:700; color:var(--teal-dark);
+    background:var(--surface); padding:4px 10px; border-radius:var(--radius-pill);
+    white-space:nowrap;
+  }
+  .week-banner.deload .rpe-badge{color:var(--blue);}
+  .week-banner .wb-text{font-size:13px; color:var(--text); font-weight:500;}
+
+  /* ===== Session progress ===== */
+  .progress-wrap{margin:var(--sp-lg) var(--sp-xl) 0;}
+  .progress-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;}
+  .progress-head .ph-title{font-size:17px; font-weight:700;}
+  .progress-head .ph-count{font-size:13px; font-weight:600; color:var(--teal-dark);}
+  .progress-track{height:6px; background:var(--border); border-radius:var(--radius-pill); overflow:hidden;}
+  .progress-fill{height:100%; background:linear-gradient(90deg,var(--teal),var(--teal-dark)); border-radius:var(--radius-pill); transition:width .3s ease;}
+
+  /* ===== Exercise cards ===== */
+  .ex-list{padding:var(--sp-lg) var(--sp-xl) var(--sp-xl); display:flex; flex-direction:column; gap:var(--sp-md);}
+  .ex-card{
+    background:var(--surface);
+    border-radius:var(--radius-md);
+    box-shadow:var(--shadow-card);
+    padding:var(--sp-lg);
+  }
+  .ex-card.done{opacity:.55;}
+  .ex-top{display:flex; justify-content:space-between; align-items:flex-start; gap:var(--sp-sm); margin-bottom:10px;}
+  .ex-name{font-size:17px; font-weight:600; line-height:1.3;}
+  .ex-name a{color:var(--text); text-decoration:none; border-bottom:1.5px dotted var(--text2);}
+  .ex-name a:active{color:var(--teal-dark);}
+  .ex-tags{display:flex; gap:6px; margin-top:6px; flex-wrap:wrap;}
+  .tag{font-size:11px; font-weight:700; padding:3px 8px; border-radius:var(--radius-pill);}
+  .tag.safe{background:var(--success10); color:#1e8e3e;}
+  [data-theme="dark"] .tag.safe{color:var(--success);}
+  .tag.fallo{background:var(--destructive10); color:var(--destructive);}
+  .tag.vieA{background:var(--teal10); color:var(--teal-dark);}
+  [data-theme="dark"] .tag.vieA{color:var(--teal);}
+  .tag.vieB{background:var(--warning10); color:#b06a00;}
+  [data-theme="dark"] .tag.vieB{color:var(--warning);}
+  .reps-big{font-size:22px; font-weight:800; white-space:nowrap; color:var(--text);}
+  .reps-unit{font-size:12px; font-weight:500; color:var(--text2);}
+
+  .rir-line{font-size:13px; color:var(--text2); font-weight:500; margin-bottom:4px;}
+  .note-line{font-size:13px; color:var(--text3); margin-bottom:var(--sp-md);}
+
+  .set-row{display:flex; align-items:center; gap:8px; margin-top:4px;}
+  .set-dot{
+    width:34px; height:34px; border-radius:var(--radius-pill);
+    border:2px solid var(--border);
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px; font-weight:700; color:var(--text2);
+    transition:all .15s ease;
+    flex:0 0 auto;
+  }
+  .set-dot.checked{
+    background:var(--teal); border-color:var(--teal); color:var(--on-teal);
+  }
+  .set-dot:active{transform:scale(.92);}
+  .set-label{font-size:12px; color:var(--text3); margin-left:2px;}
+
+  .empty-state{
+    text-align:center; padding:60px var(--sp-xl); color:var(--text2);
+  }
+  .empty-state .es-icon{font-size:32px; margin-bottom:10px;}
+  .empty-state .es-title{font-size:17px; font-weight:700; color:var(--text); margin-bottom:4px;}
+  .empty-state .es-sub{font-size:13px;}
+
+  /* ===== Bottom bar ===== */
+  .bottombar{
+    position:fixed; left:0; right:0; bottom:0; z-index:30;
+    padding:var(--sp-md) var(--sp-xl) calc(var(--sp-md) + env(safe-area-inset-bottom));
+    background:linear-gradient(180deg, rgba(244,244,247,0) 0%, var(--bg) 30%);
+  }
+  [data-theme="dark"] .bottombar{
+    background:linear-gradient(180deg, rgba(36,37,41,0) 0%, var(--bg) 30%);
+  }
+  .bottombar-inner{
+    background:var(--on-teal);
+    border-radius:var(--radius-pill);
+    padding:12px 20px;
+    display:flex; align-items:center; justify-content:space-between;
+    box-shadow:var(--shadow-cta);
+  }
+  .bb-text{color:#FAFAFA; font-size:13px; font-weight:600;}
+  .bb-text b{color:var(--teal);}
+  .bb-reset{color:var(--teal); font-size:13px; font-weight:700;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <div>
+      <div class="brand-name">Be <span>Stronger</span></div>
+      <div class="meso-tag">Post-verano · Semana 1 a 4 · Full Body A-D</div>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button>
+  </div>
+  <div class="day-row" id="dayRow"></div>
+  <div class="week-row" id="weekRow"></div>
+</div>
+
+<div id="weekBanner" class="week-banner"></div>
+
+<div class="progress-wrap">
+  <div class="progress-head">
+    <span class="ph-title" id="sessionTitle">Sesión</span>
+    <span class="ph-count" id="sessionCount">0/0 series</span>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+</div>
+
+<div class="ex-list" id="exList"></div>
+
+<div class="bottombar">
+  <div class="bottombar-inner">
+    <span class="bb-text">Progreso de hoy: <b id="bbCount">0/0</b></span>
+    <button class="bb-reset" id="resetBtn">Reiniciar</button>
+  </div>
+</div>
+
+<script>
+const DATA = {"sessions":{"A":{"label":"Sesión A","sub":"Full Body A","unit":"series×reps","icon":"1️⃣","rows":[{"name":"Rotación externa con goma","warmup":true,"weeks":{"S1":{"sets_reps":"2×15","rir":"—","note":"Carga muy ligera, movimiento lento y controlado"},"S2":{"sets_reps":"2×15","rir":"—","note":"Carga muy ligera, movimiento lento y controlado"},"S3":{"sets_reps":"2×15","rir":"—","note":"Carga muy ligera, movimiento lento y controlado"},"S4":{"sets_reps":"2×15","rir":"—","note":"Carga muy ligera, movimiento lento y controlado"}}},{"name":"Rotación interna con goma","warmup":true,"weeks":{"S1":{"sets_reps":"2×15","rir":"—","note":"Misma goma, sentido contrario"},"S2":{"sets_reps":"2×15","rir":"—","note":"Misma goma, sentido contrario"},"S3":{"sets_reps":"2×15","rir":"—","note":"Misma goma, sentido contrario"},"S4":{"sets_reps":"2×15","rir":"—","note":"Misma goma, sentido contrario"}}},{"name":"Face pull con goma/polea","warmup":true,"weeks":{"S1":{"sets_reps":"2×15","rir":"—","note":"Codos altos, aprieta omóplatos al final"},"S2":{"sets_reps":"2×15","rir":"—","note":"Codos altos, aprieta omóplatos al final"},"S3":{"sets_reps":"2×15","rir":"—","note":"Codos altos, aprieta omóplatos al final"},"S4":{"sets_reps":"2×15","rir":"—","note":"Codos altos, aprieta omóplatos al final"}}},{"name":"Band pull-apart (retracción escapular)","warmup":true,"weeks":{"S1":{"sets_reps":"2×15","rir":"—","note":"Brazos extendidos, tirar hacia el pecho"},"S2":{"sets_reps":"2×15","rir":"—","note":"Brazos extendidos, tirar hacia el pecho"},"S3":{"sets_reps":"2×15","rir":"—","note":"Brazos extendidos, tirar hacia el pecho"},"S4":{"sets_reps":"2×15","rir":"—","note":"Brazos extendidos, tirar hacia el pecho"}}},{"name":"Circunducción de hombro","warmup":true,"weeks":{"S1":{"sets_reps":"1×10/sentido","rir":"—","note":"Amplitud cómoda, sin forzar el rango"},"S2":{"sets_reps":"1×10/sentido","rir":"—","note":"Amplitud cómoda, sin forzar el rango"},"S3":{"sets_reps":"1×10/sentido","rir":"—","note":"Amplitud cómoda, sin forzar el rango"},"S4":{"sets_reps":"1×10/sentido","rir":"—","note":"Amplitud cómoda, sin forzar el rango"}}},{"name":"Sentadilla goblet (mancuerna/kettlebell)","shoulder":false,"weeks":{"S1":{"sets_reps":"3×10","rir":"RIR 3-4 (RPE 6-7)","note":"Talones fijos, profundidad cómoda"},"S2":{"sets_reps":"4×10","rir":"RIR 3-4 (RPE 6-7)","note":"SUBE +1 serie sobre S1 (o ~5% carga) · mantén profundidad cómoda"},"S3":{"sets_reps":"4×12","rir":"RIR 3-4 (RPE 6-7)","note":"Sube reps 10→12 · mismas series que S2"},"S4":{"sets_reps":"4×12","rir":"RIR 3-4 (RPE 6-7)","note":"Consolida S3 · sube ~5% carga si la técnica es sólida"}}},{"name":"Zancada caminando","shoulder":false,"weeks":{"S1":{"sets_reps":"2×10/pierna","rir":"RIR 3-4 (RPE 6-7)","note":"Paso amplio, tronco vertical"},"S2":{"sets_reps":"3×10/pierna","rir":"RIR 3-4 (RPE 6-7)","note":"SUBE +1 serie · paso amplio, tronco vertical"},"S3":{"sets_reps":"3×12/pierna","rir":"RIR 3-4 (RPE 6-7)","note":"Sube reps a 12/pierna"},"S4":{"sets_reps":"3×12/pierna","rir":"RIR 3-4 (RPE 6-7)","note":"Consolida S3 · sube carga ligera si sin molestia"}}},{"name":"Press banca con mancuernas","shoulder":true,"weeks":{"S1":{"sets_reps":"3×10","rir":"RIR 3-4 (RPE 6-7)","note":"Rango sin dolor de hombro"},"S2":{"sets_reps":"3×10","rir":"RIR 3-4 (RPE 6-7)","note":"Sube ~5% carga solo si sigue sin dolor; si no, repite S1"},"S3":{"sets_reps":"4×10","rir":"RIR 3-4 (RPE 6-7)","note":"+1 serie sobre S2 si dos semanas sin molestia · rango sin dolor"},"S4":{"sets_reps":"4×10","rir":"RIR 3-4 (RPE 6-7)","note":"Consolida S3 · rango sin dolor, técnica antes que carga"}}},{"name":"Remo con mancuerna a una mano","shoulder":false,"weeks":{"S1":{"sets_reps":"3×10/lado","rir":"RIR 3-4 (RPE 6-7)","note":"Aprieta el omóplato en la parte final"},"S2":{"sets_reps":"4×10/lado","rir":"RIR 3-4 (RPE 6-7)","note":"SUBE +1 serie · aprieta el omóplato en la parte final"},"S3":{"sets_reps":"4×12/lado","rir":"RIR 3-4 (RPE 6-7)","note":"Sube reps a 12/lado"},"S4":{"sets_reps":"4×12/lado","rir":"RIR 3-4 (RPE 6-7)","note":"Consolida S3 · sube carga ligera"}}},{"name":"Press militar sentado con mancuernas","shoulder":true,"weeks":{"S1":{"sets_reps":"2×10","rir":"RIR 4","note":"Carga ligera, parar si molesta"},"S2":{"sets_reps":"2×10","rir":"RIR 4","note":"Repite carga de S1 si hubo molestia; si no, sube ~5% · sigue en RIR 4"},"S3":{"sets_reps":"3×10","rir":"RIR 3-4 (RPE 6-7)","note":"+1 serie sobre S2 solo si dos semanas seguidas sin dolor"},"S4":{"sets_reps":"3×10","rir":"RIR 3-4 (RPE 6-7)","note":"Consolida S3 · rango sin dolor, técnica antes que carga"}}},{"name":"Plancha frontal","shoulder":false,"weeks":{"S1":{"sets_reps":"3×20-30 seg","rir":"—","note":"Cadera neutra"},"S2":{"sets_reps":"3×30 seg","rir":"—","note":"Sube a 30 seg fijo · cadera neutra"},"S3":{"sets_reps":"3×35-40 seg","rir":"—","note":"Sube a 35-40 seg"},"S4":{"sets_reps":"3×40-45 seg","rir":"—","note":"Sube a 40-45 seg · cierre del bloque"}}}]},"B":{"label":"Sesión B","sub":"Full Body B","unit":"series×reps","icon":"2️⃣","rows":[{"name":"Rotación externa con goma","warmup":true,"weeks":{"S1":{"sets_reps":"2×15","rir":"—","note":"Carga muy ligera, movimiento lento y controlado"},"S2":{"sets_reps":"2×15","rir":"—","note":"Carga muy ligera, movimiento lento y controlado"},"S3":{"sets_reps":"2×15","rir":"—","note":"Carga muy ligera, movimiento lento y controlado"},"S4":{"sets_reps":"2×15","rir":"—","note":"Carga muy ligera, movimiento lento y controlado"}}},{"name":"Rotación interna con goma","warmup":true,"weeks":{"S1":{"sets_reps":"2×15","rir":"—","note":"Misma goma, sentido contrario"},"S2":{"sets_reps":"2×15","rir":"—","note":"Misma goma, sentido contrario"},"S3":{"sets_reps":"2×15","rir":"—","note":"Misma goma, sentido contrario"},"S4":{"sets_reps":"2×15","rir":"—","note":"Misma goma, sentido contrario"}}},{"name":"Face pull con goma/polea","warmup":true,"weeks":{"S1":{"sets_reps":"2×15","rir":"—","note":"Codos altos, aprieta omóplatos al final"},"S2":{"sets_reps":"2×15","rir":"—","note":"Codos altos, aprieta omóplatos al final"},"S3":{"sets_reps":"2×15","rir":"—","note":"Codos altos, aprieta omóplatos al final"},"S4":{"sets_reps":"2×15","rir":"—","note":"Codos altos, aprieta omóplatos al final"}}},{"name":"Band pull-apart (retracción escapular)","warmup":true,"weeks":{"S1":{"sets_reps":"2×15","rir":"—","note":"Brazos extendidos, tirar hacia el pecho"},"S2":{"sets_reps":"2×15","rir":"—","note":"Brazos extendidos, tirar hacia el pecho"},"S3":{"sets_reps":"2×15","rir":"—","note":"Brazos extendidos, tirar hacia el pecho"},"S4":{"sets_reps":"2×15","rir":"—","note":"Brazos extendidos, tirar hacia el pecho"}}},{"name":"Circunducción de hombro","warmup":true,"weeks":{"S1":{"sets_reps":"1×10/sentido","rir":"—","note":"Amplitud cómoda, sin forzar el rango"},"S2":{"sets_reps":"1×10/sentido","rir":"—","note":"Amplitud cómoda, sin forzar el rango"},"S3":{"sets_reps":"1×10/sentido","rir":"—","note":"Amplitud cómoda, sin forzar el rango"},"S4":{"sets_reps":"1×10/sentido","rir":"—","note":"Amplitud cómoda, sin forzar el rango"}}},{"name":"Peso muerto rumano con mancuernas","shoulder":false,"weeks":{"S1":{"sets_reps":"3×10","rir":"RIR 3-4 (RPE 6-7)","note":"Espalda neutra, freno en isquios"},"S2":{"sets_reps":"4×10","rir":"RIR 3-4 (RPE 6-7)","note":"SUBE +1 serie · espalda neutra, freno en isquios"},"S3":{"sets_reps":"4×12","rir":"RIR 3-4 (RPE 6-7)","note":"Sube reps a 12"},"S4":{"sets_reps":"4×12","rir":"RIR 3-4 (RPE 6-7)","note":"Consolida S3 · sube carga ligera si técnica sólida"}}},{"name":"Step-up a banco bajo","shoulder":false,"weeks":{"S1":{"sets_reps":"2×10/pierna","rir":"RIR 3-4 (RPE 6-7)","note":"Impulso desde el talón de apoyo"},"S2":{"sets_reps":"3×10/pierna","rir":"RIR 3-4 (RPE 6-7)","note":"SUBE +1 serie · impulso desde el talón de apoyo"},"S3":{"sets_reps":"3×12/pierna","rir":"RIR 3-4 (RPE 6-7)","note":"Sube reps a 12/pierna"},"S4":{"sets_reps":"3×12/pierna","rir":"RIR 3-4 (RPE 6-7)","note":"Consolida S3 · sube altura de banco si cómodo"}}},{"name":"Jalón al pecho en polea","shoulder":false,"weeks":{"S1":{"sets_reps":"3×10","rir":"RIR 3-4 (RPE 6-7)","note":"Tirar con codos hacia abajo, no con el cuello"},"S2":{"sets_reps":"4×10","rir":"RIR 3-4 (RPE 6-7)","note":"SUBE +1 serie · codos hacia abajo, no el cuello"},"S3":{"sets_reps":"4×12","rir":"RIR 3-4 (RPE 6-7)","note":"Sube reps a 12"},"S4":{"sets_reps":"4×12","rir":"RIR 3-4 (RPE 6-7)","note":"Consolida S3 · sube carga ligera"}}},{"name":"Press inclinado con mancuernas","shoulder":true,"weeks":{"S1":{"sets_reps":"3×10","rir":"RIR 3-4 (RPE 6-7)","note":"Rango sin dolor"},"S2":{"sets_reps":"3×10","rir":"RIR 3-4 (RPE 6-7)","note":"Sube ~5% solo si sigue sin dolor; si no, repite S1"},"S3":{"sets_reps":"4×10","rir":"RIR 3-4 (RPE 6-7)","note":"+1 serie si dos semanas seguidas sin molestia"},"S4":{"sets_reps":"4×10","rir":"RIR 3-4 (RPE 6-7)","note":"Consolida S3 · rango sin dolor"}}},{"name":"Curl de bíceps con mancuernas","shoulder":false,"weeks":{"S1":{"sets_reps":"2×12","rir":"RIR 3","note":"—"},"S2":{"sets_reps":"2×12","rir":"RIR 3","note":"Sube carga ligera ~5%"},"S3":{"sets_reps":"3×12","rir":"RIR 3","note":"+1 serie sobre S2"},"S4":{"sets_reps":"3×12","rir":"RIR 3","note":"Consolida S3"}}},{"name":"Dead bug","shoulder":false,"weeks":{"S1":{"sets_reps":"3×10/lado","rir":"—","note":"Zona lumbar pegada al suelo"},"S2":{"sets_reps":"3×12/lado","rir":"—","note":"Sube a 12/lado · zona lumbar pegada al suelo"},"S3":{"sets_reps":"3×12/lado","rir":"—","note":"Mantén reps, controla más el ritmo (2-3 seg/rep)"},"S4":{"sets_reps":"4×12/lado","rir":"—","note":"+1 serie · cierre del bloque"}}}]},"C":{"label":"Sesión C","sub":"Full Body C","unit":"series×reps","icon":"3️⃣","rows":[{"name":"Rotación externa con goma","warmup":true,"weeks":{"S1":{"sets_reps":"2×15","rir":"—","note":"Carga muy ligera, movimiento lento y controlado"},"S2":{"sets_reps":"2×15","rir":"—","note":"Carga muy ligera, movimiento lento y controlado"},"S3":{"sets_reps":"2×15","rir":"—","note":"Carga muy ligera, movimiento lento y controlado"},"S4":{"sets_reps":"2×15","rir":"—","note":"Carga muy ligera, movimiento lento y controlado"}}},{"name":"Rotación interna con goma","warmup":true,"weeks":{"S1":{"sets_reps":"2×15","rir":"—","note":"Misma goma, sentido contrario"},"S2":{"sets_reps":"2×15","rir":"—","note":"Misma goma, sentido contrario"},"S3":{"sets_reps":"2×15","rir":"—","note":"Misma goma, sentido contrario"},"S4":{"sets_reps":"2×15","rir":"—","note":"Misma goma, sentido contrario"}}},{"name":"Face pull con goma/polea","warmup":true,"weeks":{"S1":{"sets_reps":"2×15","rir":"—","note":"Codos altos, aprieta omóplatos al final"},"S2":{"sets_reps":"2×15","rir":"—","note":"Codos altos, aprieta omóplatos al final"},"S3":{"sets_reps":"2×15","rir":"—","note":"Codos altos, aprieta omóplatos al final"},"S4":{"sets_reps":"2×15","rir":"—","note":"Codos altos, aprieta omóplatos al final"}}},{"name":"Band pull-apart (retracción escapular)","warmup":true,"weeks":{"S1":{"sets_reps":"2×15","rir":"—","note":"Brazos extendidos, tirar hacia el pecho"},"S2":{"sets_reps":"2×15","rir":"—","note":"Brazos extendidos, tirar hacia el pecho"},"S3":{"sets_reps":"2×15","rir":"—","note":"Brazos extendidos, tirar hacia el pecho"},"S4":{"sets_reps":"2×15","rir":"—","note":"Brazos extendidos, tirar hacia el pecho"}}},{"name":"Circunducción de hombro","warmup":true,"weeks":{"S1":{"sets_reps":"1×10/sentido","rir":"—","note":"Amplitud cómoda, sin forzar el rango"},"S2":{"sets_reps":"1×10/sentido","rir":"—","note":"Amplitud cómoda, sin forzar el rango"},"S3":{"sets_reps":"1×10/sentido","rir":"—","note":"Amplitud cómoda, sin forzar el rango"},"S4":{"sets_reps":"1×10/sentido","rir":"—","note":"Amplitud cómoda, sin forzar el rango"}}},{"name":"Sentadilla goblet (variante frontal)","shoulder":false,"weeks":{"S1":{"sets_reps":"3×10","rir":"RIR 3-4 (RPE 6-7)","note":"Progresa ligeramente sobre Sesión A si sin molestia"},"S2":{"sets_reps":"4×10","rir":"RIR 3-4 (RPE 6-7)","note":"SUBE +1 serie sobre S1 · profundidad cómoda"},"S3":{"sets_reps":"4×12","rir":"RIR 3-4 (RPE 6-7)","note":"Sube reps a 12 · mismas series que S2"},"S4":{"sets_reps":"4×12","rir":"RIR 3-4 (RPE 6-7)","note":"Consolida S3 · sube ~5% carga si técnica sólida"}}},{"name":"Hip thrust con barra/mancuerna","shoulder":false,"weeks":{"S1":{"sets_reps":"3×12","rir":"RIR 3-4 (RPE 6-7)","note":"Pausa 1-2 seg arriba"},"S2":{"sets_reps":"4×12","rir":"RIR 3-4 (RPE 6-7)","note":"SUBE +1 serie · pausa 1-2 seg arriba"},"S3":{"sets_reps":"4×14","rir":"RIR 3-4 (RPE 6-7)","note":"Sube reps a 14"},"S4":{"sets_reps":"4×14","rir":"RIR 3-4 (RPE 6-7)","note":"Consolida S3 · sube carga ligera"}}},{"name":"Remo en polea baja","shoulder":false,"weeks":{"S1":{"sets_reps":"3×10","rir":"RIR 3-4 (RPE 6-7)","note":"Espalda neutra, no balancear el tronco"},"S2":{"sets_reps":"4×10","rir":"RIR 3-4 (RPE 6-7)","note":"SUBE +1 serie · espalda neutra, no balancear el tronco"},"S3":{"sets_reps":"4×12","rir":"RIR 3-4 (RPE 6-7)","note":"Sube reps a 12"},"S4":{"sets_reps":"4×12","rir":"RIR 3-4 (RPE 6-7)","note":"Consolida S3 · sube carga ligera"}}},{"name":"Press banca con mancuernas","shoulder":true,"weeks":{"S1":{"sets_reps":"3×10","rir":"RIR 3","note":"Sube ligero sobre Sesión A si sin molestia"},"S2":{"sets_reps":"3×10","rir":"RIR 3","note":"Sube ~5% solo si sigue sin dolor; si no, repite S1"},"S3":{"sets_reps":"4×10","rir":"RIR 3","note":"+1 serie si dos semanas seguidas sin molestia"},"S4":{"sets_reps":"4×10","rir":"RIR 3","note":"Consolida S3 · rango sin dolor"}}},{"name":"Face pull con polea (refuerzo, carga mayor que en calentamiento)","shoulder":false,"weeks":{"S1":{"sets_reps":"2×15","rir":"RIR 3","note":"Refuerzo específico de rotadores, no calentamiento"},"S2":{"sets_reps":"2×15","rir":"RIR 3","note":"Sube carga ligera ~5% · refuerzo de rotadores"},"S3":{"sets_reps":"3×15","rir":"RIR 3","note":"+1 serie sobre S2"},"S4":{"sets_reps":"3×15","rir":"RIR 3","note":"Consolida S3"}}},{"name":"Plancha lateral","shoulder":false,"weeks":{"S1":{"sets_reps":"2×20-30 seg/lado","rir":"—","note":"—"},"S2":{"sets_reps":"2×30 seg/lado","rir":"—","note":"Sube a 30 seg fijo/lado"},"S3":{"sets_reps":"2×35-40 seg/lado","rir":"—","note":"Sube a 35-40 seg/lado"},"S4":{"sets_reps":"3×35-40 seg/lado","rir":"—","note":"+1 serie · cierre del bloque"}}}]},"D":{"label":"Sesión D","sub":"Full Body D","unit":"series×reps","icon":"4️⃣","rows":[{"name":"Rotación externa con goma","warmup":true,"weeks":{"S1":{"sets_reps":"2×15","rir":"—","note":"Carga muy ligera, movimiento lento y controlado"},"S2":{"sets_reps":"2×15","rir":"—","note":"Carga muy ligera, movimiento lento y controlado"},"S3":{"sets_reps":"2×15","rir":"—","note":"Carga muy ligera, movimiento lento y controlado"},"S4":{"sets_reps":"2×15","rir":"—","note":"Carga muy ligera, movimiento lento y controlado"}}},{"name":"Rotación interna con goma","warmup":true,"weeks":{"S1":{"sets_reps":"2×15","rir":"—","note":"Misma goma, sentido contrario"},"S2":{"sets_reps":"2×15","rir":"—","note":"Misma goma, sentido contrario"},"S3":{"sets_reps":"2×15","rir":"—","note":"Misma goma, sentido contrario"},"S4":{"sets_reps":"2×15","rir":"—","note":"Misma goma, sentido contrario"}}},{"name":"Face pull con goma/polea","warmup":true,"weeks":{"S1":{"sets_reps":"2×15","rir":"—","note":"Codos altos, aprieta omóplatos al final"},"S2":{"sets_reps":"2×15","rir":"—","note":"Codos altos, aprieta omóplatos al final"},"S3":{"sets_reps":"2×15","rir":"—","note":"Codos altos, aprieta omóplatos al final"},"S4":{"sets_reps":"2×15","rir":"—","note":"Codos altos, aprieta omóplatos al final"}}},{"name":"Band pull-apart (retracción escapular)","warmup":true,"weeks":{"S1":{"sets_reps":"2×15","rir":"—","note":"Brazos extendidos, tirar hacia el pecho"},"S2":{"sets_reps":"2×15","rir":"—","note":"Brazos extendidos, tirar hacia el pecho"},"S3":{"sets_reps":"2×15","rir":"—","note":"Brazos extendidos, tirar hacia el pecho"},"S4":{"sets_reps":"2×15","rir":"—","note":"Brazos extendidos, tirar hacia el pecho"}}},{"name":"Circunducción de hombro","warmup":true,"weeks":{"S1":{"sets_reps":"1×10/sentido","rir":"—","note":"Amplitud cómoda, sin forzar el rango"},"S2":{"sets_reps":"1×10/sentido","rir":"—","note":"Amplitud cómoda, sin forzar el rango"},"S3":{"sets_reps":"1×10/sentido","rir":"—","note":"Amplitud cómoda, sin forzar el rango"},"S4":{"sets_reps":"1×10/sentido","rir":"—","note":"Amplitud cómoda, sin forzar el rango"}}},{"name":"Sentadilla sumo con mancuerna","shoulder":false,"weeks":{"S1":{"sets_reps":"3×10","rir":"RIR 3-4 (RPE 6-7)","note":"Pies más anchos, rodillas siguen la punta del pie"},"S2":{"sets_reps":"4×10","rir":"RIR 3-4 (RPE 6-7)","note":"SUBE +1 serie · pies más anchos, rodillas siguen la punta del pie"},"S3":{"sets_reps":"4×12","rir":"RIR 3-4 (RPE 6-7)","note":"Sube reps a 12"},"S4":{"sets_reps":"4×12","rir":"RIR 3-4 (RPE 6-7)","note":"Consolida S3 · sube carga ligera si técnica sólida"}}},{"name":"Puente de glúteo a una pierna","shoulder":false,"weeks":{"S1":{"sets_reps":"2×12/pierna","rir":"RIR 3-4 (RPE 6-7)","note":"Control en el descenso"},"S2":{"sets_reps":"3×12/pierna","rir":"RIR 3-4 (RPE 6-7)","note":"SUBE +1 serie · control en el descenso"},"S3":{"sets_reps":"3×14/pierna","rir":"RIR 3-4 (RPE 6-7)","note":"Sube reps a 14/pierna"},"S4":{"sets_reps":"3×14/pierna","rir":"RIR 3-4 (RPE 6-7)","note":"Consolida S3 · sube carga ligera"}}},{"name":"Remo invertido (TRX/barra baja) o remo con mancuerna a dos manos","shoulder":false,"weeks":{"S1":{"sets_reps":"3×10","rir":"RIR 3-4 (RPE 6-7)","note":"Regula el ángulo del cuerpo para ajustar dificultad"},"S2":{"sets_reps":"4×10","rir":"RIR 3-4 (RPE 6-7)","note":"SUBE +1 serie · regula el ángulo para ajustar dificultad"},"S3":{"sets_reps":"4×12","rir":"RIR 3-4 (RPE 6-7)","note":"Sube reps a 12"},"S4":{"sets_reps":"4×12","rir":"RIR 3-4 (RPE 6-7)","note":"Consolida S3 · sube carga ligera"}}},{"name":"Press militar sentado con mancuernas","shoulder":true,"weeks":{"S1":{"sets_reps":"3×10","rir":"RIR 3","note":"Sube ligero sobre Sesión A solo si sin molestia"},"S2":{"sets_reps":"3×10","rir":"RIR 3","note":"Sube ~5% solo si sigue sin dolor; si no, repite S1"},"S3":{"sets_reps":"4×10","rir":"RIR 3","note":"+1 serie si dos semanas seguidas sin molestia"},"S4":{"sets_reps":"4×10","rir":"RIR 3","note":"Consolida S3 · rango sin dolor, técnica antes que carga"}}},{"name":"Curl martillo","shoulder":false,"weeks":{"S1":{"sets_reps":"2×12","rir":"RIR 3","note":"—"},"S2":{"sets_reps":"2×12","rir":"RIR 3","note":"Sube carga ligera ~5%"},"S3":{"sets_reps":"3×12","rir":"RIR 3","note":"+1 serie sobre S2"},"S4":{"sets_reps":"3×12","rir":"RIR 3","note":"Consolida S3"}}},{"name":"Plancha frontal","shoulder":false,"weeks":{"S1":{"sets_reps":"3×30 seg","rir":"—","note":"Cierre de la semana 1"},"S2":{"sets_reps":"3×35 seg","rir":"—","note":"Cierre de la semana 2"},"S3":{"sets_reps":"3×40 seg","rir":"—","note":"Cierre de la semana 3"},"S4":{"sets_reps":"3×45 seg","rir":"—","note":"Cierre del bloque de reactivación"}}}]}},"weekMeta":{"S1":{"rpe":"RIR 3-4 (RPE 6-7)","label":"Reactivación sin fallo · calibra cargas · ⚠️ rotadores y presses sin dolor de hombro","kind":"normal"},"S2":{"rpe":"RIR 3-4 (RPE 6-7)","label":"Sube +1 serie o ~5% carga si S1 fue sin dolor; si molestó, repite cargas de S1","kind":"normal"},"S3":{"rpe":"RIR 3-4 (RPE 6-7)","label":"Consolida S2 · sube reps en pierna/tracción · presses solo si 2 semanas sin dolor","kind":"normal"},"S4":{"rpe":"RIR 3-4 (RPE 6-7)","label":"Cierre del bloque · mismo RIR 3-4 · prioriza técnica sobre carga","kind":"normal"}}};
+
+const state = {
+  session: 'A',
+  week: 'S1',
+};
+
+// Storage seguro: en contexto file:// (abierto desde Files/WhatsApp) Safari bloquea
+// localStorage y lanza una excepción. Si eso pasa, seguimos funcionando con memoria
+// (sin persistencia entre sesiones, pero la app no se rompe).
+const _mem = {};
+const storage = {
+  getItem(k){ try{ return localStorage.getItem(k); }catch(e){ return (k in _mem) ? _mem[k] : null; } },
+  setItem(k,v){ try{ localStorage.setItem(k,v); }catch(e){ _mem[k] = v; } },
+  removeItem(k){ try{ localStorage.removeItem(k); }catch(e){ delete _mem[k]; } },
+};
+
+function isNightNow(){
+  const h = new Date().getHours();
+  return h >= 21 || h < 5;
+}
+
+function applyTheme(){
+  const saved = storage.getItem('bs_theme');
+  const dark = saved ? saved === 'dark' : isNightNow();
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  document.getElementById('themeToggle').textContent = dark ? '☀️' : '🌙';
+}
+
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  storage.setItem('bs_theme', next);
+  document.getElementById('themeToggle').textContent = next === 'dark' ? '☀️' : '🌙';
+});
+
+function googleSearchUrl(name){
+  const clean = name.replace(/\[contraste\]\s*/i, '').replace(/\(ancla[^)]*\)/i, '').trim();
+  const q = clean.trim().split(/\s+/).join('+');
+  return `https://www.google.com/search?q=${q}`;
+}
+
+function storageKey(session, week){ return `bs_hm_${session}_${week}`; }
+
+function getChecked(session, week){
+  try{
+    return JSON.parse(storage.getItem(storageKey(session, week)) || '{}');
+  }catch(e){ return {}; }
+}
+function setChecked(session, week, obj){
+  storage.setItem(storageKey(session, week), JSON.stringify(obj));
+}
+
+function renderSessions(){
+  const row = document.getElementById('dayRow');
+  row.innerHTML = '';
+  Object.keys(DATA.sessions).forEach(code => {
+    const s = DATA.sessions[code];
+    const btn = document.createElement('button');
+    btn.className = 'day-pill' + (code === state.session ? ' active' : '');
+    btn.innerHTML = `<span class="d-label">${s.icon} ${s.label}</span><span class="d-sub">${s.sub}</span>`;
+    btn.addEventListener('click', () => { state.session = code; render(); });
+    row.appendChild(btn);
+  });
+}
+
+function renderWeeks(){
+  const row = document.getElementById('weekRow');
+  row.innerHTML = '';
+  Object.keys(DATA.weekMeta).forEach(w => {
+    const meta = DATA.weekMeta[w];
+    const btn = document.createElement('button');
+    const isPeak = meta.kind === 'peak';
+    btn.className = 'week-pill' + (isPeak ? ' deload' : '') + (w === state.week ? ' active' : '');
+    btn.textContent = w;
+    btn.addEventListener('click', () => { state.week = w; render(); });
+    row.appendChild(btn);
+  });
+}
+
+function renderBanner(){
+  const meta = DATA.weekMeta[state.week];
+  const el = document.getElementById('weekBanner');
+  el.className = 'week-banner' + (meta.kind === 'peak' ? ' deload' : '');
+  el.innerHTML = `<span class="rpe-badge">RPE ${meta.rpe}</span><span class="wb-text">${meta.label}</span>`;
+}
+
+function renderExercises(){
+  const sessionData = DATA.sessions[state.session];
+  const rows = sessionData.rows.filter(r => r.weeks[state.week]);
+  const list = document.getElementById('exList');
+  list.innerHTML = '';
+
+  const checked = getChecked(state.session, state.week);
+  let totalSets = 0, doneSets = 0;
+
+  document.getElementById('sessionTitle').textContent = `${sessionData.label} — ${sessionData.sub}`;
+
+  if(rows.length === 0){
+    list.innerHTML = `<div class="empty-state">
+      <div class="es-icon">🧘</div>
+      <div class="es-title">Sin contenido esta semana</div>
+      <div class="es-sub">No hay ejercicios programados en esta semana para esta sesión.</div>
+    </div>`;
+    document.getElementById('sessionCount').textContent = '0/0 series';
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('bbCount').textContent = '0/0';
+    return;
+  }
+
+  rows.forEach((r, idx) => {
+    const wd = r.weeks[state.week];
+    const m = wd.sets_reps.match(/^(\d+)/);
+    const nSets = m ? parseInt(m[1], 10) : 1;
+    totalSets += nSets;
+    const rowChecked = checked[idx] || [];
+    doneSets += rowChecked.filter(Boolean).length;
+
+    const card = document.createElement('div');
+    const allDone = rowChecked.filter(Boolean).length === nSets;
+    card.className = 'ex-card' + (allDone ? ' done' : '');
+
+    let tags = '';
+    if(r.warmup) tags += `<span class="tag safe">Activación rotadores</span>`;
+    if(r.shoulder) tags += `<span class="tag vieB">⚠️ Sin dolor de hombro</span>`;
+
+    let dots = '';
+    for(let i=0;i<nSets;i++){
+      const isOn = !!rowChecked[i];
+      dots += `<button class="set-dot${isOn?' checked':''}" data-idx="${idx}" data-set="${i}">${isOn?'✓':(i+1)}</button>`;
+    }
+
+    card.innerHTML = `
+      <div class="ex-top">
+        <div>
+          <div class="ex-name"><a href="${googleSearchUrl(r.name)}" target="_blank" rel="noopener">${r.name}</a></div>
+          <div class="ex-tags">${tags}</div>
+        </div>
+        <div style="text-align:right">
+          <div class="reps-big">${wd.sets_reps}</div>
+          <div class="reps-unit">${sessionData.unit}</div>
+        </div>
+      </div>
+      <div class="rir-line">${wd.rir}</div>
+      <div class="note-line">${wd.note}</div>
+      <div class="set-row">${dots}<span class="set-label">series</span></div>
+    `;
+    list.appendChild(card);
+  });
+
+  list.querySelectorAll('.set-dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = +dot.dataset.idx;
+      const setI = +dot.dataset.set;
+      const ch = getChecked(state.session, state.week);
+      if(!ch[idx]) ch[idx] = [];
+      ch[idx][setI] = !ch[idx][setI];
+      setChecked(state.session, state.week, ch);
+      renderExercises();
+    });
+  });
+
+  document.getElementById('sessionCount').textContent = `${doneSets}/${totalSets} series`;
+  document.getElementById('bbCount').textContent = `${doneSets}/${totalSets}`;
+  const pct = totalSets ? Math.round(doneSets/totalSets*100) : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  if(confirm('¿Reiniciar el progreso de esta sesión?')){
+    storage.removeItem(storageKey(state.session, state.week));
+    renderExercises();
+  }
+});
+
+function render(){
+  renderSessions();
+  renderWeeks();
+  renderBanner();
+  renderExercises();
+}
+
+applyTheme();
+render();
+</script>
+</body>
+</html>
