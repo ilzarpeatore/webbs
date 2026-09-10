@@ -66,6 +66,13 @@ const nextConfig: NextConfig = {
         source: "/toni-m1-sep",
         destination: "/toni-m1-sep.html",
       },
+      // Sirve el HTML autocontenido del plan nutricional de Alberto
+      // (mismo sistema de diseño que /alberto-m1-sep, acordeones por día)
+      // en /nutricion-alberto-marin sin exponer la extensión .html.
+      {
+        source: "/nutricion-alberto-marin",
+        destination: "/nutricion-alberto-marin.html",
+      },
     ];
   },
   redirects: async () => {

@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+    <title>Be Stronger — Plan Nutricional Alberto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      /* ===== Be Stronger design tokens (mismo sistema que /alberto-m1-sep) ===== */
+      :root{
+        --teal:#49C5B6; --teal-dark:#14766A; --on-teal:#12312C;
+        --bg:#F4F4F7; --surface:#FFFFFF; --border:#E5E5EA;
+        --text:#262729; --text2:#8B8C8E; --text3:#8E8E93;
+        --success:#34C759; --warning:#FF9500; --destructive:#FF3B30; --blue:#007AFF;
+        --success10:rgba(52,199,89,.12); --warning10:rgba(255,149,0,.12);
+        --destructive10:rgba(255,59,48,.10); --teal10:rgba(73,197,182,.12);
+        --radius-md:20px; --radius-sm:12px; --radius-xs:8px; --radius-pill:9999px;
+        --shadow-card:0 2px 8px rgba(0,0,0,.04);
+        --shadow-cta:0 4px 10px rgba(0,0,0,.12);
+        --sp-xs:4px; --sp-sm:8px; --sp-md:12px; --sp-lg:16px; --sp-xl:20px; --sp-xxl:24px;
+      }
+      [data-theme="dark"]{
+        --bg:#242529; --surface:#2E3037; --surface-light:#363840; --border:#3A3A3C;
+        --text:#FAFAFA; --text2:#818287; --text3:#818287;
+        --warning:#FF9F0A; --destructive:#FF453A; --blue:#0A84FF;
+        --shadow-card:0 2px 8px rgba(0,0,0,.24);
+      }
+      *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+      html,body{margin:0;padding:0;}
+      body{
+        background:var(--bg); color:var(--text);
+        font-family:'Gilroy','Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+        font-size:15px; line-height:1.45;
+        padding-bottom:32px;
+        -webkit-font-smoothing:antialiased;
+      }
+      h1,h2,h3{margin:0; font-weight:700;}
+      p{margin:0;}
+      button{font-family:inherit; border:none; background:none; cursor:pointer;}
+      a{color:inherit;}
+
+      /* ===== Header ===== */
+      .topbar{
+        position:sticky; top:0; z-index:20;
+        background:var(--bg);
+        padding:var(--sp-lg) var(--sp-xl) var(--sp-sm);
+      }
+      .brand{display:flex; align-items:center; justify-content:space-between; margin-bottom:var(--sp-md);}
+      .brand-name{font-size:22px; font-weight:800; letter-spacing:-0.02em;}
+      .brand-name span{
+        background:linear-gradient(135deg,var(--teal),var(--teal-dark));
+        -webkit-background-clip:text; background-clip:text; color:transparent;
+      }
+      .meso-tag{font-size:13px; font-weight:500; color:var(--text2);}
+      .theme-toggle{
+        width:34px; height:34px; border-radius:var(--radius-pill);
+        background:var(--surface); box-shadow:var(--shadow-card);
+        display:flex; align-items:center; justify-content:center; font-size:16px;
+        flex:0 0 auto;
+      }
+
+      /* ===== Day pills ===== */
+      .day-row{
+        display:flex; gap:var(--sp-sm); overflow-x:auto; padding-bottom:var(--sp-sm);
+        scrollbar-width:none;
+      }
+      .day-row::-webkit-scrollbar{display:none;}
+      .day-pill{
+        flex:0 0 auto;
+        padding:10px 16px;
+        border-radius:var(--radius-pill);
+        background:var(--surface);
+        box-shadow:var(--shadow-card);
+        text-align:left;
+        min-width:76px;
+      }
+      .day-pill .d-label{font-size:13px; font-weight:700; display:block; color:var(--text);}
+      .day-pill .d-sub{font-size:11px; color:var(--text2); display:block; margin-top:1px;}
+      .day-pill.active{background:var(--teal);}
+      .day-pill.active .d-label, .day-pill.active .d-sub{color:var(--on-teal);}
+      .day-pill.rest{opacity:.7;}
+
+      /* ===== Week banner ===== */
+      .week-banner{
+        margin:var(--sp-md) var(--sp-xl) 0;
+        background:var(--teal10);
+        border-radius:var(--radius-sm);
+        padding:var(--sp-md) var(--sp-lg);
+        display:flex; flex-wrap:wrap; align-items:center; gap:var(--sp-md);
+      }
+      .week-banner .rpe-badge{
+        font-size:13px; font-weight:700; color:var(--teal-dark);
+        background:var(--surface); padding:4px 10px; border-radius:var(--radius-pill);
+        white-space:nowrap;
+      }
+      [data-theme="dark"] .week-banner .rpe-badge{color:var(--teal);}
+      .week-banner .wb-text{font-size:13px; color:var(--text); font-weight:500;}
+
+      /* ===== Sections ===== */
+      .section{padding:var(--sp-lg) var(--sp-xl) 0;}
+      .section-title{font-size:19px; font-weight:800; margin-bottom:var(--sp-md);}
+
+      /* ===== Accordions ===== */
+      .acc-list{display:flex; flex-direction:column; gap:var(--sp-md);}
+      details.day-acc{
+        background:var(--surface);
+        border-radius:var(--radius-md);
+        box-shadow:var(--shadow-card);
+        overflow:hidden;
+        scroll-margin-top:180px;
+      }
+      details.day-acc summary{
+        list-style:none; cursor:pointer;
+        padding:var(--sp-lg);
+        display:flex; justify-content:space-between; align-items:center; gap:var(--sp-sm);
+      }
+      details.day-acc summary::-webkit-details-marker{display:none;}
+      .day-acc-title{font-size:17px; font-weight:700; color:var(--text);}
+      .day-acc-sub{font-size:12px; color:var(--text2); margin-top:2px;}
+      .day-acc-stats{text-align:right; white-space:nowrap; flex:0 0 auto;}
+      .day-acc-stats .reps-big{font-size:19px;}
+      .day-acc-head{display:flex; align-items:center; gap:var(--sp-md); flex:1 1 auto; min-width:0;}
+      .chevron{width:18px; height:18px; flex:0 0 auto; color:var(--text2); transition:transform .2s ease;}
+      details[open] .chevron{transform:rotate(180deg);}
+      .day-acc-body{padding:0 var(--sp-lg) var(--sp-lg); display:flex; flex-direction:column; gap:var(--sp-md);}
+
+      /* ===== Meal cards (dentro de cada acordeón) ===== */
+      .meal-eyebrow{font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--teal-dark); margin-bottom:6px;}
+      [data-theme="dark"] .meal-eyebrow{color:var(--teal);}
+      .meal-card{border:1px solid var(--border); border-radius:var(--radius-sm); padding:var(--sp-md) var(--sp-lg);}
+      .meal-top{display:flex; justify-content:space-between; align-items:flex-start; gap:var(--sp-sm);}
+      .meal-name{font-size:15px; font-weight:600; line-height:1.3;}
+      .meal-name a{color:var(--text); text-decoration:none; border-bottom:1.5px dotted var(--text2);}
+      .meal-name a:active{color:var(--teal-dark);}
+      .meal-tags{display:flex; gap:6px; margin-top:6px; flex-wrap:wrap;}
+      .tag{font-size:11px; font-weight:700; padding:3px 8px; border-radius:var(--radius-pill); white-space:nowrap;}
+      .tag.safe{background:var(--success10); color:#1e8e3e;}
+      [data-theme="dark"] .tag.safe{color:var(--success);}
+      .tag.vieB{background:var(--warning10); color:#b06a00;}
+      [data-theme="dark"] .tag.vieB{color:var(--warning);}
+      .tag.vieA{background:var(--teal10); color:var(--teal-dark);}
+      [data-theme="dark"] .tag.vieA{color:var(--teal);}
+      .reps-big{font-size:20px; font-weight:800; white-space:nowrap; color:var(--text);}
+      .reps-unit{font-size:11px; font-weight:500; color:var(--text2);}
+      .note-line{font-size:13px; color:var(--text3); margin-top:8px; line-height:1.5;}
+
+      /* ===== Info cards (hidratación / resumen / flexibilidad) ===== */
+      .info-card{background:var(--surface); border-radius:var(--radius-md); box-shadow:var(--shadow-card); padding:var(--sp-lg); margin-bottom:var(--sp-md);}
+      .info-card-title{font-weight:700; color:var(--text); margin-bottom:8px; font-size:15px;}
+      .info-card-text{font-size:13px; color:var(--text2); line-height:1.7;}
+      .info-card-text strong{color:var(--text);}
+
+      /* ===== Restricciones ===== */
+      .restr-row{display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px var(--sp-md); padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;}
+      .restr-row:last-child{border-bottom:none;}
+      .restr-food{font-weight:700; color:var(--text); flex:1 1 140px;}
+      .restr-reason{color:var(--text2); flex:1 1 160px;}
+      .restr-sub{color:var(--teal-dark); font-weight:600; flex:1 1 180px; text-align:right;}
+      [data-theme="dark"] .restr-sub{color:var(--teal);}
+    </style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <div>
+      <div class="brand-name">Be <span>Stronger</span></div>
+      <div class="meso-tag">Plan Nutricional · Alberto Marín Girón · Mesociclo 1</div>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button>
+  </div>
+  <div class="day-row" id="dayRow">
+    <button class="day-pill" data-day="lun"><span class="d-label">Lun</span><span class="d-sub">Tracción</span></button>
+    <button class="day-pill" data-day="mar"><span class="d-label">Mar</span><span class="d-sub">Pierna</span></button>
+    <button class="day-pill" data-day="mie"><span class="d-label">Mié</span><span class="d-sub">Empuje</span></button>
+    <button class="day-pill" data-day="jue"><span class="d-label">Jue</span><span class="d-sub">Accesorios</span></button>
+    <button class="day-pill" data-day="vie"><span class="d-label">Vie</span><span class="d-sub">Full Body</span></button>
+    <button class="day-pill rest" data-day="sab"><span class="d-label">Sáb</span><span class="d-sub">Descanso</span></button>
+    <button class="day-pill rest" data-day="dom"><span class="d-label">Dom</span><span class="d-sub">Descanso</span></button>
+  </div>
+</div>
+
+<div class="week-banner">
+  <span class="rpe-badge">2.110 kcal</span>
+  <span class="wb-text">5 días de gimnasio (lun-vie): 149-155g proteína según la receta del día · 2 días de descanso: ~1.910 kcal / ~125g proteína</span>
+</div>
+
+<div class="section">
+  <div class="info-card" style="margin-top:var(--sp-md);">
+    <div class="info-card-title">🍽️ Tu Plan Nutricional Personalizado</div>
+    <div class="info-card-text">
+      Este plan está adaptado a tu Mesociclo 1 de gimnasio: Lunes Tracción, Martes Pierna, Miércoles Empuje, Jueves Accesorios y Viernes Full Body. Cada día usa recetas de tu recetario actualizado, respetando siempre tu alergia (cacahuetes y melocotón) y lo que no te gusta. La consistencia en la nutrición es tan importante como el entrenamiento. Toca cualquier día para ver el detalle, o el título de una receta para buscarla en Google.
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">📅 Tu semana</div>
+  <div class="acc-list" id="accList">
+
+    <!-- LUNES -->
+    <details class="day-acc" id="day-lun">
+      <summary>
+        <div class="day-acc-head">
+          <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <div class="day-acc-title">Lunes — Tracción</div>
+            <div class="day-acc-sub">Remo, jalón, dominada — prioriza proteína post-entreno</div>
+          </div>
+        </div>
+        <div class="day-acc-stats">
+          <div class="reps-big">2.110</div>
+          <div class="reps-unit">kcal · 155g prot</div>
+        </div>
+      </summary>
+      <div class="day-acc-body">
+        <div>
+          <div class="meal-eyebrow">Desayuno · 08:00</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Wrap de Pavo, Queso Fresco y Manzana" href="#" target="_blank" rel="noopener">Wrap de Pavo, Queso Fresco y Manzana</a></div>
+                <div class="meal-tags"><span class="tag safe">26g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">520</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">1 tortilla integral grande + 4 lonchas pavo + 30g queso fresco batido + canónigos + 1 manzana</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Comida · 13:30</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Merluza en Salsa Verde con Patata" href="#" target="_blank" rel="noopener">Merluza en Salsa Verde con Patata</a></div>
+                <div class="meal-tags"><span class="tag safe">48g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">620</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">150g merluza + ajo y perejil + un chorrito de vino blanco + 150g patata cocida + guisantes</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Merienda Pre-Gym · 16:30-17:00</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name">Yogur, avena y fruta</div>
+                <div class="meal-tags"><span class="tag safe">15g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">250</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">125g yogur griego 0% + 30g copos avena crudos + 1 kiwi o fresas</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Post-Gym · 19:00-19:30</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name">Batido de proteína + fruta</div>
+                <div class="meal-tags"><span class="tag safe">25g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">230</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">Batido proteína 30g + 1 fruta (manzana, naranja o mandarina)</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Cena · 21:00</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Ensalada Templada de Pollo y Queso Fresco" href="#" target="_blank" rel="noopener">Ensalada Templada de Pollo y Queso Fresco</a></div>
+                <div class="meal-tags"><span class="tag safe">41g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">490</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">150g pechuga pollo + canónigos + 30g queso fresco + nueces + vinagreta de miel y mostaza</div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- MARTES -->
+    <details class="day-acc" id="day-mar">
+      <summary>
+        <div class="day-acc-head">
+          <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <div class="day-acc-title">Martes — Pierna</div>
+            <div class="day-acc-sub">Sentadilla, RDL, leg curl — el día de mayor carbohidrato</div>
+          </div>
+        </div>
+        <div class="day-acc-stats">
+          <div class="reps-big">2.110</div>
+          <div class="reps-unit">kcal · 149g prot</div>
+        </div>
+      </summary>
+      <div class="day-acc-body">
+        <div>
+          <div class="meal-eyebrow">Desayuno · 08:00</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Porridge de Avena, Cacao y Fresas" href="#" target="_blank" rel="noopener">Porridge de Avena, Cacao y Fresas</a></div>
+                <div class="meal-tags"><span class="tag safe">24g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">520</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">60g copos avena + 200ml leche semidesnatada + 10g cacao puro sin azúcar + fresas + 10g almendra picada + 1 cda miel</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Comida · 13:30</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Muslos de Pollo al Horno con Arroz Integral" href="#" target="_blank" rel="noopener">Muslos de Pollo al Horno con Arroz Integral</a></div>
+                <div class="meal-tags"><span class="tag safe">44g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">620</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">2 muslos de pollo deshuesados + pimentón, ajo y romero + 120g arroz integral + zanahoria asada</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Merienda Pre-Gym · 16:30-17:00</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name">Yogur, avena y fruta</div>
+                <div class="meal-tags"><span class="tag safe">15g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">250</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">125g yogur griego 0% + 30g copos avena crudos + 1 kiwi o fresas</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Post-Gym · 19:00-19:30</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name">Batido de proteína + fruta</div>
+                <div class="meal-tags"><span class="tag safe">25g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">230</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">Batido proteína 30g + 1 fruta (manzana, naranja o mandarina)</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Cena · 21:00</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Ternera Magra con Espinacas y Patata" href="#" target="_blank" rel="noopener">Ternera Magra con Espinacas y Patata</a></div>
+                <div class="meal-tags"><span class="tag safe">41g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">490</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">150g ternera magra + 150g patata cocida + espinacas salteadas + 1 cda aceite oliva</div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- MIÉRCOLES -->
+    <details class="day-acc" id="day-mie">
+      <summary>
+        <div class="day-acc-head">
+          <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <div class="day-acc-title">Miércoles — Empuje</div>
+            <div class="day-acc-sub">Press inclinado, press hombros — pecho, hombro y tríceps</div>
+          </div>
+        </div>
+        <div class="day-acc-stats">
+          <div class="reps-big">2.110</div>
+          <div class="reps-unit">kcal · 149g prot</div>
+        </div>
+      </summary>
+      <div class="day-acc-body">
+        <div>
+          <div class="meal-eyebrow">Desayuno · 08:00</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Tostada de Aguacate y Huevo Revuelto" href="#" target="_blank" rel="noopener">Tostada de Aguacate y Huevo Revuelto</a></div>
+                <div class="meal-tags"><span class="tag safe">23g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">520</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">2 tostadas pan integral + 1/2 aguacate + 2 huevos + 1 cda aceite oliva + 1 naranja</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Comida · 13:30</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Pechuga Rellena de Queso y Champiñones" href="#" target="_blank" rel="noopener">Pechuga Rellena de Queso y Champiñones</a></div>
+                <div class="meal-tags"><span class="tag safe">48g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">620</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">150g pechuga pollo + 30g queso bajo en grasa + 120g arroz + champiñones + 1 cda aceite</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Merienda Pre-Gym · 16:30-17:00</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name">Yogur, avena y fruta</div>
+                <div class="meal-tags"><span class="tag safe">15g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">250</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">125g yogur griego 0% + 30g copos avena crudos + 1 kiwi o fresas</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Post-Gym · 19:00-19:30</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name">Batido de proteína + fruta</div>
+                <div class="meal-tags"><span class="tag safe">25g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">230</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">Batido proteína 30g + 1 fruta (manzana, naranja o mandarina)</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Cena · 21:00</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Tortilla de Calabacín con Queso" href="#" target="_blank" rel="noopener">Tortilla de Calabacín con Queso</a></div>
+                <div class="meal-tags"><span class="tag safe">38g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">490</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">3 huevos + calabacín + 30g queso bajo en grasa + canónigos + 1 cda aceite oliva</div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- JUEVES -->
+    <details class="day-acc" id="day-jue">
+      <summary>
+        <div class="day-acc-head">
+          <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <div class="day-acc-title">Jueves — Accesorios</div>
+            <div class="day-acc-sub">Brazos, gemelo, core — más ejercicios, menor carga cada uno</div>
+          </div>
+        </div>
+        <div class="day-acc-stats">
+          <div class="reps-big">2.110</div>
+          <div class="reps-unit">kcal · 150g prot</div>
+        </div>
+      </summary>
+      <div class="day-acc-body">
+        <div>
+          <div class="meal-eyebrow">Desayuno · 08:00</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Bowl de Yogur con Granola y Uva" href="#" target="_blank" rel="noopener">Bowl de Yogur con Granola y Uva</a></div>
+                <div class="meal-tags"><span class="tag safe">23g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">520</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">200g yogur griego 0% + 40g granola casera (sin cacahuete) + uva y arándanos + 1 cda miel</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Comida · 13:30</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Pasta Integral con Lomo y Champiñones" href="#" target="_blank" rel="noopener">Pasta Integral con Lomo y Champiñones</a></div>
+                <div class="meal-tags"><span class="tag safe">46g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">620</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">150g lomo de cerdo + 100g pasta integral + champiñones + un toque de nata ligera</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Merienda Pre-Gym · 16:30-17:00</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name">Yogur, avena y fruta</div>
+                <div class="meal-tags"><span class="tag safe">15g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">250</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">125g yogur griego 0% + 30g copos avena crudos + 1 kiwi o fresas</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Post-Gym · 19:00-19:30</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name">Batido de proteína + fruta</div>
+                <div class="meal-tags"><span class="tag safe">25g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">230</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">Batido proteína 30g + 1 fruta (manzana, naranja o mandarina)</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Cena · 21:00</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Wrap de Pollo y Hummus" href="#" target="_blank" rel="noopener">Wrap de Pollo y Hummus</a></div>
+                <div class="meal-tags"><span class="tag safe">41g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">490</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">1 tortilla integral + 130g pechuga pollo a la plancha + 2 cdas hummus + pepino + lechuga</div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- VIERNES -->
+    <details class="day-acc" id="day-vie">
+      <summary>
+        <div class="day-acc-head">
+          <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <div class="day-acc-title">Viernes — Full Body</div>
+            <div class="day-acc-sub">Dominada lastre, sentadilla frontal — mayor volumen de la semana</div>
+          </div>
+        </div>
+        <div class="day-acc-stats">
+          <div class="reps-big">2.110</div>
+          <div class="reps-unit">kcal · 153g prot</div>
+        </div>
+      </summary>
+      <div class="day-acc-body">
+        <div>
+          <div class="meal-eyebrow">Desayuno · 08:00</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Batido Verde Proteico" href="#" target="_blank" rel="noopener">Batido Verde Proteico</a></div>
+                <div class="meal-tags"><span class="tag safe">28g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">520</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">30g proteína en polvo + 200ml leche semidesnatada + un puñado de espinacas + 1 kiwi + 20g copos avena</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Comida · 13:30</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Pollo al Curry Suave con Arroz Basmati" href="#" target="_blank" rel="noopener">Pollo al Curry Suave con Arroz Basmati</a></div>
+                <div class="meal-tags"><span class="tag safe">45g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">620</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">150g pechuga pollo + 1 cdta curry suave + 80ml leche de coco light + pimiento + 120g arroz basmati cocido</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Merienda Pre-Gym · 16:30-17:00</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name">Yogur, avena y fruta</div>
+                <div class="meal-tags"><span class="tag safe">15g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">250</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">125g yogur griego 0% + 30g copos avena crudos + 1 kiwi o fresas</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Post-Gym · 19:00-19:30</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name">Batido de proteína + fruta</div>
+                <div class="meal-tags"><span class="tag safe">25g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">230</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">Batido proteína 30g + 1 fruta (manzana, naranja o mandarina)</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Cena · 21:00</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Revuelto de Champiñones y Jamón Serrano" href="#" target="_blank" rel="noopener">Revuelto de Champiñones y Jamón Serrano</a></div>
+                <div class="meal-tags"><span class="tag safe">40g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">490</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">3 huevos + champiñones + 3 lonchas jamón serrano + 1 rebanada pan integral + 1 cda aceite oliva</div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- SÁBADO -->
+    <details class="day-acc" id="day-sab">
+      <summary>
+        <div class="day-acc-head">
+          <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <div class="day-acc-title">Sábado — Descanso</div>
+            <div class="day-acc-sub">Sin sesión: fuera merienda pre-gym y batido post-entreno</div>
+          </div>
+        </div>
+        <div class="day-acc-stats">
+          <div class="reps-big">1.910</div>
+          <div class="reps-unit">kcal · 125g prot</div>
+        </div>
+      </summary>
+      <div class="day-acc-body">
+        <div>
+          <div class="meal-eyebrow">Desayuno · 09:00 (a elegir del recetario)</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Tostada de Aguacate y Huevo Revuelto" href="#" target="_blank" rel="noopener">Tostada de Aguacate y Huevo Revuelto</a></div>
+                <div class="meal-tags"><span class="tag vieA">Ejemplo</span><span class="tag safe">23g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">520</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">Cualquier desayuno del recetario (520 kcal, 22-28g) sirve igual — este es solo un ejemplo</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Comida · 14:00 (a elegir del recetario)</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Albóndigas de Ternera con Puré de Boniato" href="#" target="_blank" rel="noopener">Albóndigas de Ternera con Puré de Boniato</a></div>
+                <div class="meal-tags"><span class="tag vieA">Ejemplo</span><span class="tag safe">47g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">620</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">150g carne picada de ternera magra + 1 huevo + pan rallado + 200g boniato cocido + espinacas salteadas</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Merienda · 17:30</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name">Yogur con Manzana y Almendras</div>
+                <div class="meal-tags"><span class="tag safe">13g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">280</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">125g yogur griego 0% + 1 manzana + 25g almendras</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Cena · 21:00 (a elegir del recetario)</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Merluza al Papillote con Verduras" href="#" target="_blank" rel="noopener">Merluza al Papillote con Verduras</a></div>
+                <div class="meal-tags"><span class="tag vieA">Ejemplo</span><span class="tag safe">42g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">490</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">180g merluza + calabacín, zanahoria y puerro en juliana + 1 cda aceite oliva + limón</div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- DOMINGO -->
+    <details class="day-acc" id="day-dom">
+      <summary>
+        <div class="day-acc-head">
+          <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <div class="day-acc-title">Domingo — Descanso</div>
+            <div class="day-acc-sub">Mismo esquema que el sábado, recetas intercambiables</div>
+          </div>
+        </div>
+        <div class="day-acc-stats">
+          <div class="reps-big">1.910</div>
+          <div class="reps-unit">kcal · 125g prot</div>
+        </div>
+      </summary>
+      <div class="day-acc-body">
+        <div>
+          <div class="meal-eyebrow">Desayuno · 09:00 (a elegir del recetario)</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Bowl de Yogur con Granola y Uva" href="#" target="_blank" rel="noopener">Bowl de Yogur con Granola y Uva</a></div>
+                <div class="meal-tags"><span class="tag vieA">Ejemplo</span><span class="tag safe">23g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">520</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">Cualquier desayuno del recetario (520 kcal, 22-28g) sirve igual — este es solo un ejemplo</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Comida · 14:00 (a elegir del recetario)</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Pasta Integral con Lomo y Champiñones" href="#" target="_blank" rel="noopener">Pasta Integral con Lomo y Champiñones</a></div>
+                <div class="meal-tags"><span class="tag vieA">Ejemplo</span><span class="tag safe">46g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">620</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">150g lomo de cerdo + 100g pasta integral + champiñones + un toque de nata ligera</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Merienda · 17:30</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name">Tostada con Queso Fresco y Miel</div>
+                <div class="meal-tags"><span class="tag safe">11g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">280</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">1 tostada pan integral + 40g queso fresco batido + 1 cdta miel + 1 naranja</div>
+          </div>
+        </div>
+        <div>
+          <div class="meal-eyebrow">Cena · 21:00 (a elegir del recetario)</div>
+          <div class="meal-card">
+            <div class="meal-top">
+              <div>
+                <div class="meal-name"><a class="recipe-link" data-recipe="Revuelto de Champiñones y Jamón Serrano" href="#" target="_blank" rel="noopener">Revuelto de Champiñones y Jamón Serrano</a></div>
+                <div class="meal-tags"><span class="tag vieA">Ejemplo</span><span class="tag safe">40g proteína</span></div>
+              </div>
+              <div style="text-align:right"><div class="reps-big">490</div><div class="reps-unit">kcal</div></div>
+            </div>
+            <div class="note-line">3 huevos + champiñones + 3 lonchas jamón serrano + 1 rebanada pan integral + 1 cda aceite oliva</div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+  </div>
+</div>
+
+<div class="section">
+  <div class="info-card">
+    <div class="info-card-title">⚠️ Sobre el fin de semana</div>
+    <div class="info-card-text">
+      Tu mesociclo de gimnasio solo define entrenamientos de lunes a viernes, así que he puesto sábado y domingo como descanso. Tu recetario todavía conserva el protocolo completo de día de partido de fútbol (desayuno, snack pre-partido, comida de recuperación, merienda y cena) — si sigues jugando los domingos, dímelo y te lo añado tal cual está en el recetario en vez del descanso genérico.
+    </div>
+  </div>
+  <div class="info-card">
+    <div class="info-card-title">✅ Variación y flexibilidad</div>
+    <div class="info-card-text">
+      Las recetas asignadas a cada día son una sugerencia — todas las opciones dentro de un mismo bloque (desayunos, comidas o cenas) cumplen el mismo objetivo de kcal y proteína, así que puedes intercambiarlas libremente según lo que tengas en la nevera. Única excepción: "Tortitas de Avena y Plátano", reservada solo para cuando toque post-fútbol.
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">⚠️ Restricciones y exclusiones</div>
+  <details class="day-acc">
+    <summary>
+      <div class="day-acc-head">
+        <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>
+          <div class="day-acc-title">Ver alergias, gustos y sustitutos</div>
+          <div class="day-acc-sub">6 exclusiones activas en todas las recetas</div>
+        </div>
+      </div>
+    </summary>
+    <div class="day-acc-body">
+      <div class="meal-card">
+        <div class="restr-row"><span class="restr-food">Huevo Cocido</span><span class="restr-reason">No le gusta</span><span class="restr-sub">→ Huevo frito / revuelto / tortilla</span></div>
+        <div class="restr-row"><span class="restr-food">Tomate en Rodaja</span><span class="restr-reason">No le gusta</span><span class="restr-sub">→ Canónigos, lechuga, espinacas</span></div>
+        <div class="restr-row"><span class="restr-food">Atún / Salmón</span><span class="restr-reason">No le gusta</span><span class="restr-sub">→ Merluza, dorada, pechuga</span></div>
+        <div class="restr-row"><span class="restr-food">Brócoli</span><span class="restr-reason">No le gusta</span><span class="restr-sub">→ Champiñones, calabacín, espárragos, zanahoria</span></div>
+        <div class="restr-row"><span class="restr-food">Plátano (Limitado)</span><span class="restr-reason">Solo permitido post-fútbol</span><span class="restr-sub">→ Manzana, naranja, kiwi, fresas, uva</span></div>
+        <div class="restr-row"><span class="restr-food">Melocotón / Cacahuetes</span><span class="restr-reason">ALERGIA — EXCLUIDOS</span><span class="restr-sub">→ Almendras, avellanas (sin cacahuete)</span></div>
+      </div>
+    </div>
+  </details>
+</div>
+
+<div class="section">
+  <div class="section-title">📌 Claves del éxito</div>
+  <div class="info-card">
+    <div class="info-card-title">💧 Hidratación: 2-2.5L diarios</div>
+    <div class="info-card-text">
+      Lleva siempre una botella de 750ml. Bebe una antes de cada comida principal (desayuno, comida, cena). En los 5 días de gimnasio, añade 500ml extra repartidos entre la merienda pre-gym y el post-gym. No esperes a tener sed.
+    </div>
+  </div>
+  <div class="info-card">
+    <div class="info-card-title">🎯 Resumen ejecutivo</div>
+    <div class="info-card-text">
+      <strong>1. Consistencia:</strong> sigue el plan 80-90% del tiempo, las pequeñas desviaciones no arruinan el progreso.<br>
+      <strong>2. Proteína:</strong> 149-155g en los 5 días de gimnasio según la receta del día, ~125g en descanso. No negociable.<br>
+      <strong>3. Timing:</strong> merienda pre-gym 60-90 min antes de entrenar, batido dentro de los 30-45 min post-entreno.<br>
+      <strong>4. Flexibilidad:</strong> rota libremente las recetas dentro de cada bloque siguiendo el recetario.
+    </div>
+  </div>
+</div>
+
+<script>
+function isNightNow(){
+  const h = new Date().getHours();
+  return h >= 21 || h < 5;
+}
+
+function applyTheme(){
+  const saved = localStorage.getItem('bs_theme');
+  const dark = saved ? saved === 'dark' : isNightNow();
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  document.getElementById('themeToggle').textContent = dark ? '☀️' : '🌙';
+}
+
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('bs_theme', next);
+  document.getElementById('themeToggle').textContent = next === 'dark' ? '☀️' : '🌙';
+});
+
+// Enlaza cada receta a una búsqueda de Google (sin repetir URLs a mano)
+document.querySelectorAll('.recipe-link').forEach(a => {
+  a.href = 'https://www.google.com/search?q=' + encodeURIComponent(a.dataset.recipe + ' receta');
+});
+
+// Pills de día: abren y hacen scroll al acordeón correspondiente
+const dayPills = document.querySelectorAll('.day-pill');
+function selectDay(code, scroll){
+  dayPills.forEach(p => p.classList.toggle('active', p.dataset.day === code));
+  const el = document.getElementById('day-' + code);
+  if(el){
+    el.open = true;
+    if(scroll) el.scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+}
+dayPills.forEach(p => {
+  p.addEventListener('click', () => selectDay(p.dataset.day, true));
+});
+
+// Abre el día de hoy por defecto
+const todayMap = {0:'dom',1:'lun',2:'mar',3:'mie',4:'jue',5:'vie',6:'sab'};
+selectDay(todayMap[new Date().getDay()], false);
+
+applyTheme();
+</script>
+</body>
+</html>
