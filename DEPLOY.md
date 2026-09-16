@@ -105,7 +105,7 @@ ya está en `.gitignore`):
 cat > /srv/webbs/.env.production <<'EOF'
 SITE_URL=https://bestronger.es
 API_BASE_URL=https://testapp.bestronger.es/api
-GA_MEASUREMENT_ID=
+GA_MEASUREMENT_ID=G-43QFE1KCWG
 EOF
 ```
 

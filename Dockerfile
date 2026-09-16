@@ -18,9 +18,9 @@ COPY . .
 # docker-compose (ver .env.production en el VPS).
 ARG SITE_URL=https://bestronger.es
 ARG API_BASE_URL=https://testapp.bestronger.es/api
-# Measurement ID de GA4 (G-XXXXXXXXXX). Vacío por defecto: sin valor, el
-# layout no renderiza <GoogleAnalytics> y no se carga ningún script.
-ARG GA_MEASUREMENT_ID=
+# Measurement ID de GA4. Vacío -> el layout no renderiza <GoogleAnalytics>
+# y no se carga ningún script.
+ARG GA_MEASUREMENT_ID=G-43QFE1KCWG
 ENV SITE_URL=$SITE_URL
 ENV API_BASE_URL=$API_BASE_URL
 ENV GA_MEASUREMENT_ID=$GA_MEASUREMENT_ID
