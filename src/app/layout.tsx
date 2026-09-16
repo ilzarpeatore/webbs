@@ -2,7 +2,8 @@ import '@/assets/css/style.css'
 import favicon from '@/assets/images/favicon.png'
 import logoIcon from '@/assets/images/logo-icon.png'
 import AppProvidersWrapper from '@/components/wrappers/AppProvidersWrapper'
-import { DEFAULT_PAGE_TITLE, SITE_URL } from '@/config/constants'
+import { DEFAULT_PAGE_TITLE, GA_MEASUREMENT_ID, SITE_URL } from '@/config/constants'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata } from 'next'
 import { Google_Sans_Flex, Stack_Sans_Headline } from 'next/font/google'
 import 'swiper/css'
@@ -67,6 +68,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
         <AppProvidersWrapper>{children}</AppProvidersWrapper>
       </body>
+      {GA_MEASUREMENT_ID && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
     </html>
   )
 }
