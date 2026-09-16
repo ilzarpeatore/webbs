@@ -1,8 +1,10 @@
 import '@/assets/css/style.css'
 import favicon from '@/assets/images/favicon.png'
 import logoIcon from '@/assets/images/logo-icon.png'
+import CookieConsentBanner from '@/components/shared/CookieConsentBanner'
 import AppProvidersWrapper from '@/components/wrappers/AppProvidersWrapper'
-import { DEFAULT_PAGE_TITLE, SITE_URL } from '@/config/constants'
+import { DEFAULT_PAGE_TITLE, GA_MEASUREMENT_ID, SITE_URL } from '@/config/constants'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata } from 'next'
 import { Google_Sans_Flex, Stack_Sans_Headline } from 'next/font/google'
 import 'swiper/css'
@@ -18,6 +20,24 @@ const organizationJsonLd = {
 }
 
 const DEFAULT_DESCRIPTION = 'BeStronger es un servicio de entrenamiento y nutrición online con un coach real detrás: registra cada serie, cada comida y cada hábito, y tu coach ajusta tu plan con datos objetivos.'
+
+// Google Consent Mode v2: todo denegado por defecto hasta que el visitante
+// elija en CookieConsentBanner. Debe ejecutarse antes de que cargue gtag.js
+// (<GoogleAnalytics>), por eso va como <script> normal al principio del
+// <body> -- se ejecuta en orden de documento, antes que los scripts
+// `afterInteractive` de Next.js.
+const consentDefaultScript = `
+window.dataLayer = window.dataLayer || [];
+function gtag(){ window.dataLayer.push(arguments); }
+window.gtag = gtag;
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+  wait_for_update: 500
+});
+`
 
 const googleSansFlex = Google_Sans_Flex({
   variable: '--font-body',
@@ -64,9 +84,12 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="es">
       <body className={`bg-body-bg ${googleSansFlex.variable} ${stackSansHeadline.variable}`} suppressHydrationWarning>
+        <script dangerouslySetInnerHTML={{ __html: consentDefaultScript }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
         <AppProvidersWrapper>{children}</AppProvidersWrapper>
+        <CookieConsentBanner />
       </body>
+      {GA_MEASUREMENT_ID && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
     </html>
   )
 }

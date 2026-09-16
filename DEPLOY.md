@@ -105,8 +105,15 @@ ya está en `.gitignore`):
 cat > /srv/webbs/.env.production <<'EOF'
 SITE_URL=https://bestronger.es
 API_BASE_URL=https://testapp.bestronger.es/api
+GA_MEASUREMENT_ID=G-43QFE1KCWG
 EOF
 ```
+
+`GA_MEASUREMENT_ID` (Google Analytics 4, formato `G-XXXXXXXXXX`) es
+opcional y se lee en **build time**, no en runtime: si lo rellenas o
+cambias aquí, hace falta `docker compose build` (no solo `up -d`) para que
+se aplique. Alternativa sin tocar `.env.production`: pasarlo como build arg
+puntual con `docker compose build --build-arg GA_MEASUREMENT_ID=G-XXXXXXXXXX`.
 
 Primer build y arranque manual (para verificar que todo funciona antes de
 automatizar):
