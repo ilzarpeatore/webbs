@@ -5,8 +5,8 @@ import Hero from './components/Hero'
 import Proceso from './components/Proceso'
 
 export const metadata: Metadata = {
-  title: 'Coaching 1:1 de powerlifting',
-  description: 'Asesoría personalizada de powerlifting: programación semanal, corrección técnica por vídeo y seguimiento continuo. Plazas limitadas.',
+  title: 'Coaching 1:1 personalizado',
+  description: 'Asesoría personalizada de entrenamiento: programación semanal, corrección técnica por vídeo y seguimiento continuo. Plazas limitadas.',
   alternates: { canonical: '/imready' },
 }
 

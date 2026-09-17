@@ -50,7 +50,7 @@ const Hero = () => {
           <div>
             <span className="text-primary-9 mb-3.5 flex items-center gap-3 text-[0.68rem] font-semibold tracking-[0.28em] uppercase">
               <span className="bg-primary-9 block h-px w-7" />
-              Coaching 1:1 · Powerlifting
+              Coaching 1:1 personalizado
             </span>
             <h1 className="text-default-900 mb-3.5 text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-[64px]">
               Entrena mejor. <br className="hidden lg:block" />
