@@ -33,7 +33,7 @@ const steps: StepDef[] = [
   { key: 'redes', question: '¿Tienes Instagram u otra red?', subtitle: 'Así puedo conocer un poco más tu contexto.', type: 'text', placeholder: '@tu_usuario', optional: true },
   { key: 'experiencia', question: '¿Cuánto tiempo llevas entrenando?', subtitle: 'Así ajusto el punto de partida de tu plan.', type: 'select', options: ['Menos de 1 año', '1–2 años', '2–4 años', '+4 años'] },
   { key: 'nacimiento', question: '¿En qué año naciste?', subtitle: 'Solo para ajustar el plan a tu edad.', type: 'number', placeholder: 'Ej: 1998' },
-  { key: 'objetivo', question: '¿Cuál es tu objetivo principal?', subtitle: 'Cuéntamelo con tus propias palabras.', type: 'textarea', placeholder: 'Descríbeme qué quieres conseguir en powerlifting...', rows: 4 },
+  { key: 'objetivo', question: '¿Cuál es tu objetivo principal?', subtitle: 'Cuéntamelo con tus propias palabras.', type: 'textarea', placeholder: 'Descríbeme qué quieres conseguir con tu entrenamiento...', rows: 4 },
   { key: 'porque', question: '¿Por qué has decidido trabajar conmigo?', subtitle: 'Ayúdame a entender qué buscas en este proceso.', type: 'textarea', placeholder: '¿Qué te ha llevado a solicitar una plaza?', rows: 4 },
 ]
 
