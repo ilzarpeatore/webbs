@@ -72,6 +72,7 @@ export async function getPostList({ page = 1, category, search }: GetPostListPar
 
   const url = new URL(`${API_BASE_URL}/post-list`)
   url.searchParams.set('page', String(page))
+  url.searchParams.set('channel', 'web')
   if (blogCategoryId) url.searchParams.set('blog_category_id', String(blogCategoryId))
   if (search) url.searchParams.set('search', search)
 
