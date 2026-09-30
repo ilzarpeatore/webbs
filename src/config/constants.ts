@@ -17,3 +17,8 @@ export const GA_MEASUREMENT_ID = process.env.GA_MEASUREMENT_ID || ''
 // términos y condiciones. Usado para el schema.org Person en /about y como
 // autor de los artículos del blog.
 export const COACH_NAME = 'Hamza Elouafa Lafjare'
+
+// Enlaces a las tiendas (página de gracias de los packs). Vacíos hasta que la
+// app esté publicada: sin URL, el botón no se muestra.
+export const APP_STORE_URL = process.env.APP_STORE_URL || ''
+export const PLAY_STORE_URL = process.env.PLAY_STORE_URL || ''
