@@ -42,6 +42,7 @@ const dropdownGroups: NavGroup[] = [
     items: [
       { label: 'Blog', href: '/blog' },
       { label: 'Planes', href: '/pricing' },
+      { label: 'Packs', href: '/packs' },
       { label: 'La app', href: '/download' },
       { label: 'Preguntas frecuentes', href: '/faqs' },
     ],

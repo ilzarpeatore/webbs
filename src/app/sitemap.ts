@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { SITE_URL } from '@/config/constants'
 import { getPostList } from '@/utils/blogApi'
+import { getPackCatalog } from '@/utils/packsApi'
 
 export const revalidate = 3600
 
@@ -18,6 +19,7 @@ const staticRoutes: { path: string; priority: number; changeFrequency: MetadataR
   { path: '/recomposicion', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/mantenimiento', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/pricing', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/packs', priority: 0.8, changeFrequency: 'weekly' },
   { path: '/about', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/contacto', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/faqs', priority: 0.6, changeFrequency: 'monthly' },
@@ -58,6 +60,19 @@ async function getBlogEntries(): Promise<MetadataRoute.Sitemap> {
   }
 }
 
+// Igual que el blog: si el backend no responde, sin packs en vez de romper.
+async function getPackEntries(): Promise<MetadataRoute.Sitemap> {
+  try {
+    return (await getPackCatalog()).map((pack) => ({
+      url: `${SITE_URL}/packs/${pack.slug}`,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    }))
+  } catch {
+    return []
+  }
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${SITE_URL}${route.path}`,
@@ -65,7 +80,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route.priority,
   }))
 
-  const blogEntries = await getBlogEntries()
+  const [blogEntries, packEntries] = await Promise.all([getBlogEntries(), getPackEntries()])
 
-  return [...staticEntries, ...blogEntries]
+  return [...staticEntries, ...packEntries, ...blogEntries]
 }
