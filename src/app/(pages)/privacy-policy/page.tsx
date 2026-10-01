@@ -59,6 +59,24 @@ const Page = () => {
                   </p>
                 </div>
 
+                <div>
+                  <h2 className="text-default-900 mb-2.5 text-xl font-medium md:text-2xl lg:text-4xl">Datos que recogemos en la web</h2>
+                  <ul className="text-default-600 marker:text-default-600 list-disc space-y-2.5 ps-6 lg:space-y-4">
+                    <li>
+                      <strong>Newsletter y lista de espera:</strong> tu email, la fecha y desde qué página te apuntaste. Solo te enviamos emails si confirmas la suscripción desde el enlace que te mandamos (doble confirmación), y puedes darte de baja en cualquier momento con el enlace de cada email. Base legal: tu consentimiento.
+                    </li>
+                    <li>
+                      <strong>Formulario de contacto:</strong> nombre, email, asunto y mensaje, para responderte. Base legal: tu solicitud.
+                    </li>
+                    <li>
+                      <strong>Compra de programas:</strong> el pago lo gestiona Stripe; nosotros guardamos tu email, el programa y el importe para darte acceso en la app. Si empiezas un pago y no lo terminas, guardamos el intento y, solo si aceptaste recibir comunicaciones en la página de pago, te enviamos un único recordatorio.
+                    </li>
+                    <li>
+                      <strong>Estadísticas de visitas sin cookies:</strong> contamos qué páginas se visitan, desde qué web o campaña publicitaria se llega (parámetros UTM o de anuncios) y el tipo de dispositivo. No usamos cookies para ello ni guardamos tu dirección IP: cada visitante se cuenta con un identificador anónimo que cambia cada día, así que no podemos identificarte ni seguirte entre días. Estos registros se borran a los 25 meses. Respetamos la señal «Do Not Track» / «Global Privacy Control» de tu navegador.
+                    </li>
+                  </ul>
+                </div>
+
                 <div className="border-default-800/30 bg-default-800/5 rounded-2xl border p-5 md:p-7.5">
                   <h2 className="text-default-900 mb-2.5 text-xl font-medium md:text-2xl">Datos de Apple Health/HealthKit y Health Connect</h2>
                   <p className="text-default-600 text-base leading-normal md:text-lg md:leading-relaxed">
