@@ -1,6 +1,7 @@
 'use client'
 
 import { useActionState } from 'react'
+import AttributionFields from '@/components/shared/AttributionFields'
 import { startPackCheckout } from '../actions'
 
 type BuyPackFormProps = {
@@ -24,6 +25,7 @@ const BuyPackForm = ({ slug, priceLabel, idPrefix = 'pack', accent, tone = 'ligh
   return (
     <form action={action} className="flex flex-col gap-3">
       <input type="hidden" name="slug" value={slug} />
+      <AttributionFields />
       <label htmlFor={emailId} className={`text-sm font-medium ${dark ? 'text-white/80' : 'text-default-700'}`}>
         Tu email
       </label>

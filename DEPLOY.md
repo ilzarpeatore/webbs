@@ -106,8 +106,15 @@ cat > /srv/webbs/.env.production <<'EOF'
 SITE_URL=https://bestronger.es
 API_BASE_URL=https://testapp.bestronger.es/api
 GA_MEASUREMENT_ID=G-43QFE1KCWG
+WEB_SERVER_KEY=<mismo valor que en el .env del backend>
+ANALYTICS_SALT=<openssl rand -hex 32>
 EOF
 ```
+
+`WEB_SERVER_KEY` y `ANALYTICS_SALT` se leen en runtime (basta `docker compose up -d`
+tras cambiarlas). Sin ellas los formularios siguen funcionando, pero la analítica
+propia no registra visitas y los límites de peticiones se aplican a toda la web
+como si fuera un único visitante. Detalle en `Bckbs/docs/MARKETING_WEB.md`.
 
 `GA_MEASUREMENT_ID` (Google Analytics 4, formato `G-XXXXXXXXXX`) es
 opcional y se lee en **build time**, no en runtime: si lo rellenas o

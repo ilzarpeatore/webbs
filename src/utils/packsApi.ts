@@ -1,4 +1,5 @@
 import { API_BASE_URL } from '@/config/constants'
+import { backendPost, type Attribution } from '@/utils/webServer'
 
 // Packs vendidos en la web (bckbs/docs/PACKS_WEB.md). Todo server-side: el
 // navegador nunca llama al backend directamente, así que no hace falta CORS.
@@ -43,14 +44,13 @@ export async function getPackBySlug(slug: string): Promise<Pack | null> {
   return (await res.json()).data ?? null
 }
 
-/** URL de Stripe Checkout para pagar un pack, o null si el backend lo rechaza. */
-export async function createPackCheckout(slug: string, email?: string): Promise<string | null> {
-  const res = await fetch(`${API_BASE_URL}/pack-checkout`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify({ slug, email: email || undefined }),
-    cache: 'no-store',
-  })
+/**
+ * URL de Stripe Checkout para pagar un pack, o null si el backend lo rechaza.
+ * Va con la IP real del visitante y su campaña de origen (embudo y cestas
+ * abandonadas, bckbs/docs/MARKETING_WEB.md). Solo desde el servidor.
+ */
+export async function createPackCheckout(slug: string, email?: string, attribution?: Attribution): Promise<string | null> {
+  const res = await backendPost('pack-checkout', { slug, email: email || undefined, attribution })
   if (!res.ok) return null
   return (await res.json()).data?.url ?? null
 }

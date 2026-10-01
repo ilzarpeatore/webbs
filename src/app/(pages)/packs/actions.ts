@@ -2,6 +2,7 @@
 
 import { redirect } from 'next/navigation'
 import { createPackCheckout } from '@/utils/packsApi'
+import { attributionFromForm } from '@/utils/webServer'
 
 export type CheckoutState = { error?: string } | undefined
 
@@ -20,7 +21,7 @@ export async function startPackCheckout(_prev: CheckoutState, formData: FormData
 
   let url: string | null = null
   try {
-    url = await createPackCheckout(slug, email)
+    url = await createPackCheckout(slug, email, await attributionFromForm(formData))
   } catch {
     url = null
   }
