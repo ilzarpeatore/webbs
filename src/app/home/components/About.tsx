@@ -5,14 +5,9 @@ import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import { Fragment } from 'react'
 
-import about01 from '@/assets/images/about/about-01.webp'
-import about02 from '@/assets/images/about/about-02.webp'
-import about03 from '@/assets/images/about/about-03.webp'
-import about04 from '@/assets/images/about/about-04.webp'
 import phoneImage from '@/assets/images/event/phone-image.png'
 import marquee01 from '@/assets/images/gallery/marquee-image-01.webp'
 import marquee02 from '@/assets/images/gallery/marquee-image-02.webp'
-import marquee03 from '@/assets/images/gallery/marquee-image-03.webp'
 import marquee04 from '@/assets/images/gallery/marquee-image-04.webp'
 import marquee05 from '@/assets/images/gallery/marquee-image-05.webp'
 import marquee06 from '@/assets/images/gallery/marquee-image-06.webp'
@@ -33,8 +28,10 @@ import cloud01 from '@/assets/images/locations/cloud-01.webp'
 import cloud02 from '@/assets/images/locations/cloud-02.webp'
 import cloud04 from '@/assets/images/locations/cloud-04.webp'
 
+import { homeImages } from '../images'
+
 export type AboutImage = {
-  image: StaticImageData
+  image: string
   animationClass: string
 }
 
@@ -43,14 +40,14 @@ export type MarqueeItem = {
   icon: StaticImageData
   iconInvert: boolean
   label: string
-  image: StaticImageData
+  image: StaticImageData | string
 }
 
 const aboutImages: AboutImage[] = [
-  { image: about01, animationClass: 'animate-imageSwap' },
-  { image: about02, animationClass: 'animate-imageSwap2' },
-  { image: about03, animationClass: 'animate-imageSwap3' },
-  { image: about04, animationClass: 'animate-imageSwap4' },
+  { image: homeImages.aboutBenchPress, animationClass: 'animate-imageSwap' },
+  { image: homeImages.aboutSquat, animationClass: 'animate-imageSwap2' },
+  { image: homeImages.aboutMeal, animationClass: 'animate-imageSwap3' },
+  { image: homeImages.aboutPhone, animationClass: 'animate-imageSwap4' },
 ]
 
 const hashtags: string[] = ['#EntrenamientoPersonalizado', '#NutriciónReal', '#CoachHumano', '#DatosObjetivos']
@@ -58,7 +55,7 @@ const hashtags: string[] = ['#EntrenamientoPersonalizado', '#NutriciónReal', '#
 const marqueeItems: MarqueeItem[] = [
   { bgColorClass: 'bg-primary-8', icon: icon11, iconInvert: false, label: 'Entrena 4 días/semana', image: marquee01 },
   { bgColorClass: 'bg-primary-1', icon: icon12, iconInvert: true, label: 'Registra cada serie', image: marquee02 },
-  { bgColorClass: 'bg-primary-2', icon: icon13, iconInvert: true, label: 'Chequeo diario', image: marquee03 },
+  { bgColorClass: 'bg-primary-2', icon: icon13, iconInvert: true, label: 'Chequeo diario', image: homeImages.dailyCheckin },
   { bgColorClass: 'bg-primary-3', icon: icon14, iconInvert: true, label: 'Comidas asignadas', image: marquee04 },
   { bgColorClass: 'bg-primary-7', icon: icon15, iconInvert: true, label: 'Bebe agua', image: marquee05 },
   { bgColorClass: 'bg-primary-6', icon: icon16, iconInvert: true, label: 'Duerme mejor', image: marquee06 },
@@ -75,7 +72,7 @@ const About = () => {
             Entrenar sin{' '}
             <span className="relative inline-flex h-6.5 w-12.5 overflow-hidden rounded-full align-middle md:h-11 md:w-22.5">
               {aboutImages.map((img, idx) => (
-                <Image key={idx} src={img.image} className={`absolute inset-0 h-full w-full object-cover ${img.animationClass}`} alt="" />
+                <Image key={idx} src={img.image} width={180} height={88} className={`absolute inset-0 h-full w-full object-cover ${img.animationClass}`} alt="" />
               ))}
             </span>{' '}
             seguimiento real{' '}
@@ -113,7 +110,7 @@ const About = () => {
                       </div>
                       <span className="text-default-800 text-center text-sm font-medium md:text-base">{item.label}</span>
                     </div>
-                    <Image src={item.image} className="size-32.5 rounded-3xl object-cover shadow-lg md:size-37.5" alt="" />
+                    <Image src={item.image} width={150} height={150} className="size-32.5 rounded-3xl object-cover shadow-lg md:size-37.5" alt="" />
                   </Fragment>
                 ))}
               </div>
@@ -127,7 +124,7 @@ const About = () => {
                       </div>
                       <span className="text-default-800 text-center text-sm font-medium md:text-base">{item.label}</span>
                     </div>
-                    <Image src={item.image} className="size-32.5 rounded-3xl object-cover shadow-lg md:size-37.5" alt="" />
+                    <Image src={item.image} width={150} height={150} className="size-32.5 rounded-3xl object-cover shadow-lg md:size-37.5" alt="" />
                   </Fragment>
                 ))}
               </div>
@@ -145,7 +142,7 @@ const About = () => {
                       </div>
                       <span className="text-default-800 text-center text-sm font-medium md:text-base">{item.label}</span>
                     </div>
-                    <Image src={item.image} className="size-32.5 rounded-3xl object-cover shadow-lg md:size-37.5" alt="" />
+                    <Image src={item.image} width={150} height={150} className="size-32.5 rounded-3xl object-cover shadow-lg md:size-37.5" alt="" />
                   </Fragment>
                 ))}
               </div>
@@ -159,7 +156,7 @@ const About = () => {
                       </div>
                       <span className="text-default-800 text-center text-sm font-medium md:text-base">{item.label}</span>
                     </div>
-                    <Image src={item.image} className="size-32.5 rounded-3xl object-cover shadow-lg md:size-37.5" alt="" />
+                    <Image src={item.image} width={150} height={150} className="size-32.5 rounded-3xl object-cover shadow-lg md:size-37.5" alt="" />
                   </Fragment>
                 ))}
               </div>

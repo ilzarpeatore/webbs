@@ -8,7 +8,8 @@ import dashboard04 from '@/assets/images/workspace/dashboard-04.svg'
 import dashboard05 from '@/assets/images/workspace/dashboard-05.svg'
 import dashboard06 from '@/assets/images/workspace/dashboard-06.svg'
 import dashboard07 from '@/assets/images/workspace/dashboard-07.png'
-import suggestionImage from '@/assets/images/workspace/suggestion-image.webp'
+
+import { homeImages, optimizedBg } from '../images'
 
 const SmartAssist = () => {
   return (
@@ -37,7 +38,7 @@ const SmartAssist = () => {
             </div>
           </div>
 
-          <div className="group relative mx-auto flex h-100 w-full items-center justify-center overflow-hidden rounded-2xl shadow-2xl md:aspect-video lg:aspect-[4/3] lg:h-142 lg:max-w-4xl" style={{ backgroundImage: `url(${suggestionImage.src})` }}>
+          <div className="group relative mx-auto flex h-100 w-full items-center justify-center overflow-hidden rounded-2xl shadow-2xl md:aspect-video lg:aspect-[4/3] lg:h-142 lg:max-w-4xl bg-cover bg-center" style={{ backgroundImage: optimizedBg(homeImages.smartAssistBg, 1920) }}>
             <div className="absolute top-10 -right-16 transition-transform duration-700 ease-out md:top-20">
               <Image src={dashboard07} alt="Smartphone Mockup" className="h-auto -rotate-20 lg:w-xs" />
             </div>

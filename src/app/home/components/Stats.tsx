@@ -1,20 +1,11 @@
-'use client'
-
 import Image from 'next/image'
-import { useEffect, useRef } from 'react'
 
 import cloud01 from '@/assets/images/locations/cloud-01.webp'
 import cloud06 from '@/assets/images/locations/cloud-06.webp'
-import glob from '@/assets/images/workspace/glob-image.png'
-import heroGlobJpg from '@/assets/images/workspace/hero-glob.jpg'
+
+import { homeImages } from '../images'
 
 const Stats = () => {
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  useEffect(() => {
-    videoRef.current?.play().catch(() => {})
-  }, [])
-
   return (
     <section className="relative overflow-hidden pb-20 md:pb-25 lg:pb-46">
       <div className="container">
@@ -41,13 +32,9 @@ const Stats = () => {
         </div>
 
         <div className="relative mx-auto flex h-100 flex-col items-center justify-start md:h-138">
-          <Image src={glob} alt="Glob" className="hidden w-full object-cover" />
-
           <div className="bg-body-bg h-full w-full overflow-hidden">
             <div className="mix-blinset-e-darken bg-body-bg relative z-20 h-75 overflow-hidden md:h-125 lg:h-200">
-              <video ref={videoRef} autoPlay loop muted playsInline preload="auto" poster={heroGlobJpg.src} className="absolute inset-0 h-full w-full object-cover">
-                <source src="/assets/videos/hero-glob.mp4" type="video/mp4" />
-              </video>
+              <Image src={homeImages.travelWorkout} alt="Hombre entrenando con mancuernas en la habitación de un hotel, con el móvil en el suelo" fill sizes="(min-width: 1280px) 1280px, 100vw" className="object-cover" />
             </div>
             <Image src={cloud06} alt="Decoration" className="absolute -inset-s-20 inset-e-0 top-auto bottom-40 z-20 h-40 w-full md:bottom-30 md:h-62.5 lg:bottom-2" />
             <Image src={cloud01} alt="Decoration Image" className="absolute -inset-s-7.5 inset-e-0 top-auto bottom-20 z-20 w-full md:-bottom-25 md:h-112 lg:-bottom-50" />
