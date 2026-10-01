@@ -6,6 +6,12 @@ const landing: PackLanding = {
   slug: 'programa-ganar-musculo-poco-tiempo',
   updatedAt: '2026-10-01',
   accent: '#4f46e5',
+  // Imágenes generadas con IA (Higgsfield, 2026-10-01). Ilustran el programa;
+  // no son clientes reales ni resultados: no usarlas como «antes/después».
+  images: {
+    hero: { src: 'https://d8j0ntlcm91z4.cloudfront.net/user_3JH4TAguJBLQPhgV9NBqgsV07mA/hf_20261001_114346_119e6335-505d-4426-b93e-ba9885b48871.png', alt: 'Hombre de unos 35 años haciendo remo con barra en el gimnasio para ganar masa muscular' },
+    scene: { src: 'https://d8j0ntlcm91z4.cloudfront.net/user_3JH4TAguJBLQPhgV9NBqgsV07mA/hf_20261001_114454_7cc4a22c-a628-4fc8-bc26-84daa4a5b548.png', alt: 'Profesional entrenando en el gimnasio a la hora de comer y revisando su rutina en el móvil' },
+  },
   audience: 'personas de 30 a 45 años que quieren ganar masa muscular y solo pueden entrenar 2 o 3 días por semana',
 
   seo: {

@@ -6,6 +6,12 @@ const landing: PackLanding = {
   slug: 'programa-gluteos-mujer-12-semanas',
   updatedAt: '2026-10-01',
   accent: '#d6336c',
+  // Imágenes generadas con IA (Higgsfield, 2026-10-01). Ilustran el programa;
+  // no son clientes reales ni resultados: no usarlas como «antes/después».
+  images: {
+    hero: { src: 'https://d8j0ntlcm91z4.cloudfront.net/user_3JH4TAguJBLQPhgV9NBqgsV07mA/hf_20261001_114346_1cb614bb-cf03-419b-991d-15b2616b8f43.png', alt: 'Mujer haciendo hip thrust con barra en un gimnasio luminoso, trabajando el glúteo' },
+    scene: { src: 'https://d8j0ntlcm91z4.cloudfront.net/user_3JH4TAguJBLQPhgV9NBqgsV07mA/hf_20261001_114346_f8d94776-a1bc-4466-b298-bf32d41d5e57.png', alt: 'Mujer entrenando glúteo en casa con banda elástica y mancuernas, siguiendo el programa en el móvil' },
+  },
   audience: 'mujeres que quieren desarrollar y dar forma al glúteo, en casa o en el gimnasio',
 
   seo: {

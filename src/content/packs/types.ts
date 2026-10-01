@@ -24,6 +24,17 @@ export type PackLanding = {
   /** Color de acento de la landing (hex). El resto usa la paleta del sitio. */
   accent: string
 
+  /**
+   * Imágenes propias de la landing (ruta de /public o URL de un dominio permitido
+   * en next.config.ts → images.remotePatterns). Si el pack tiene
+   * imagen en el panel, el hero usa esa; si no, `hero`. `scene` es la foto
+   * panorámica entre la sección de dolor y la de mitos.
+   */
+  images?: {
+    hero?: { src: string; alt: string }
+    scene?: { src: string; alt: string }
+  }
+
   /** A quién va dirigido, en una frase corta (se usa en el schema y en el resumen). */
   audience: string
 

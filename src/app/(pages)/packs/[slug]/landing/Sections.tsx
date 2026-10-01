@@ -112,6 +112,12 @@ const SampleDayCard = ({ landing }: { landing: PackLanding }) => {
 
 export const Hero = ({ landing, pack }: Props) => {
   const perDay = pricePerDay(pack)
+  // La imagen subida en el panel manda; si no hay, la propia de la landing.
+  const heroImage = pack.image_url
+    ? { src: pack.image_url, alt: `${pack.name}: ${landing.audience}`, remote: true }
+    : landing.images?.hero
+      ? { ...landing.images.hero, remote: false }
+      : null
   return (
     <section className="relative overflow-hidden bg-white">
       <div
@@ -148,12 +154,20 @@ export const Hero = ({ landing, pack }: Props) => {
         </div>
 
         <div className="relative flex justify-center lg:justify-end">
-          {pack.image_url ? (
+          {heroImage ? (
             <div className="relative w-full max-w-lg">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-2xl">
-                <Image src={pack.image_url} alt={`${pack.name}: ${landing.audience}`} fill unoptimized priority className="object-cover" />
+                <Image
+                  src={heroImage.src}
+                  alt={heroImage.alt}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 512px, 100vw"
+                  unoptimized={heroImage.remote}
+                  className="object-cover"
+                />
               </div>
-              <div className="absolute -bottom-8 -left-4 hidden w-72 sm:block md:-left-10">
+              <div className="absolute -bottom-10 -left-4 hidden w-72 sm:block md:-left-12">
                 <SampleDayCard landing={landing} />
               </div>
             </div>
@@ -252,6 +266,26 @@ export const Pain = ({ landing }: { landing: PackLanding }) => {
         >
           {landing.pain.turn}
         </p>
+      </div>
+    </section>
+  )
+}
+
+// ─── Imagen panorámica (transición entre el dolor y la solución) ────
+
+export const Scene = ({ landing }: { landing: PackLanding }) => {
+  const scene = landing.images?.scene
+  if (!scene) return null
+  return (
+    <section className="bg-white pb-4">
+      <div className="container">
+        <figure className="relative aspect-[16/9] overflow-hidden rounded-[2rem] shadow-xl md:aspect-[21/9]">
+          <Image src={scene.src} alt={scene.alt} fill sizes="(min-width: 1280px) 1200px, 100vw" className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/55" aria-hidden />
+          <figcaption className="absolute inset-y-0 right-0 hidden w-2/5 items-center p-10 md:flex">
+            <p className="font-heading text-2xl leading-snug font-semibold text-balance text-white lg:text-3xl">{landing.method.intro || landing.finalCta.text}</p>
+          </figcaption>
+        </figure>
       </div>
     </section>
   )

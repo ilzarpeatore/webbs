@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getPackLanding } from '@/content/packs'
 import { formatDuration, formatPrice, getPackBySlug } from '@/utils/packsApi'
-import { genericLanding, landingJsonLd } from './landing/landing-data'
+import { genericLanding, landingJsonLd, packImageUrl } from './landing/landing-data'
 import {
   Coach,
   Evidence,
@@ -18,6 +18,7 @@ import {
   Method,
   Offer,
   Pain,
+  Scene,
   Phases,
   Summary,
   Testimonials,
@@ -41,7 +42,8 @@ export async function generateMetadata({ params }: PackPageProps): Promise<Metad
   if (!pack) return { title: 'Pack no encontrado', robots: { index: false } }
 
   const landing = getPackLanding(slug) ?? genericLanding(pack)
-  const images = pack.image_url ? [{ url: pack.image_url, alt: pack.name }] : undefined
+  const imageUrl = packImageUrl(landing, pack)
+  const images = imageUrl ? [{ url: imageUrl, alt: landing.images?.hero?.alt ?? pack.name }] : undefined
 
   return {
     title: { absolute: `${landing.seo.title} | BeStronger` },
@@ -55,7 +57,7 @@ export async function generateMetadata({ params }: PackPageProps): Promise<Metad
       url: `/packs/${pack.slug}`,
       images,
     },
-    twitter: { card: 'summary_large_image', title: landing.seo.title, description: landing.seo.description, images: pack.image_url ? [pack.image_url] : undefined },
+    twitter: { card: 'summary_large_image', title: landing.seo.title, description: landing.seo.description, images: imageUrl ? [imageUrl] : undefined },
   }
 }
 
@@ -77,6 +79,7 @@ const Page = async ({ params }: PackPageProps) => {
         <Hero {...props} />
         <FactsBar landing={landing} />
         <Pain landing={landing} />
+        <Scene landing={landing} />
         <WhyFailed landing={landing} />
         <Method landing={landing} />
         <Phases landing={landing} />

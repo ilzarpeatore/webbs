@@ -15,6 +15,13 @@ const nextConfig: NextConfig = {
         hostname: "testapp.bestronger.es",
         pathname: "/storage/**",
       },
+      // Imágenes de las landings de packs generadas con Higgsfield (ver
+      // src/content/packs/*.ts). Next las optimiza y cachea en el servidor.
+      {
+        protocol: "https",
+        hostname: "d8j0ntlcm91z4.cloudfront.net",
+        pathname: "/user_3JH4TAguJBLQPhgV9NBqgsV07mA/**",
+      },
     ],
   },
   // Sirve el contenido de /home en la raíz sin cambiar la URL del navegador

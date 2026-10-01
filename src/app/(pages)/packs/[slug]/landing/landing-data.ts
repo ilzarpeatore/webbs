@@ -83,9 +83,18 @@ export function genericLanding(pack: Pack): PackLanding {
   }
 }
 
+/** Imagen principal del pack con URL absoluta: la del panel o, si no hay, la de la landing. */
+export function packImageUrl(landing: PackLanding, pack: Pack): string | null {
+  if (pack.image_url) return pack.image_url
+  const local = landing.images?.hero?.src
+  if (!local) return null
+  return /^https?:\/\//.test(local) ? local : `${SITE_URL}${local}`
+}
+
 /** JSON-LD: Product + Offer, FAQPage y BreadcrumbList (sin valoraciones: solo con reseñas reales). */
 export function landingJsonLd(landing: PackLanding, pack: Pack) {
   const url = `${SITE_URL}/packs/${pack.slug}`
+  const image = packImageUrl(landing, pack)
   const product = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -93,7 +102,7 @@ export function landingJsonLd(landing: PackLanding, pack: Pack) {
     name: pack.name,
     description: landing.seo.description,
     url,
-    ...(pack.image_url ? { image: [pack.image_url] } : {}),
+    ...(image ? { image: [image] } : {}),
     category: 'Programa de entrenamiento online',
     audience: { '@type': 'PeopleAudience', audienceType: landing.audience },
     brand: { '@type': 'Brand', name: 'BeStronger' },

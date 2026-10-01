@@ -6,6 +6,12 @@ const landing: PackLanding = {
   slug: 'programa-perder-grasa-hombres-30-45',
   updatedAt: '2026-10-01',
   accent: '#ea580c',
+  // Imágenes generadas con IA (Higgsfield, 2026-10-01). Ilustran el programa;
+  // no son clientes reales ni resultados: no usarlas como «antes/después».
+  images: {
+    hero: { src: 'https://d8j0ntlcm91z4.cloudfront.net/user_3JH4TAguJBLQPhgV9NBqgsV07mA/hf_20261001_114346_36301754-33f9-401d-a9f7-29c65f9acb15.png', alt: 'Hombre de unos 40 años haciendo sentadilla goblet con mancuerna en el gimnasio' },
+    scene: { src: 'https://d8j0ntlcm91z4.cloudfront.net/user_3JH4TAguJBLQPhgV9NBqgsV07mA/hf_20261001_114346_56cbcea4-d85b-41a0-81aa-03cb6f853c9f.png', alt: 'Hombre de unos 40 años preparando una cena saludable en casa con sus hijos' },
+  },
   audience: 'hombres de 30 a 45 años con poco tiempo que quieren perder grasa sin dietas extremas',
 
   seo: {
