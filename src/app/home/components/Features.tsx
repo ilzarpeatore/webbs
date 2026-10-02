@@ -14,13 +14,12 @@ import icon44 from '@/assets/images/icons/icon-44.svg'
 import icon46 from '@/assets/images/icons/icon-46.svg'
 import icon47 from '@/assets/images/icons/icon-47.svg'
 import icon48 from '@/assets/images/icons/icon-48.svg'
-import featureBg1 from '@/assets/images/locations/feature-01.webp'
-import featureBg2 from '@/assets/images/locations/feature-02.webp'
-import featureBg3 from '@/assets/images/locations/feature-03.webp'
 import dashboard09 from '@/assets/images/workspace/dashboard-09.png'
 import dashboard11 from '@/assets/images/workspace/dashboard-11.svg'
 import dashboard12 from '@/assets/images/workspace/dashboard-12.svg'
 import dashboard13 from '@/assets/images/workspace/dashboard-13.svg'
+
+import { homeImages, optimizedBg } from '../images'
 
 export type StreakRule = {
   bgColorClass: string
@@ -192,7 +191,7 @@ const Features = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-y-5 rounded-3xl p-3.5 md:p-5 lg:gap-y-12.5 lg:p-10" style={{ backgroundImage: `url(${featureBg1.src})` }}>
+          <div className="flex flex-col gap-y-5 rounded-3xl bg-black bg-cover bg-center p-3.5 md:p-5 lg:gap-y-12.5 lg:p-10" style={{ backgroundImage: optimizedBg(homeImages.featureToday, 1200) }}>
             <div>
               <h3 className="mb-2.5 text-xl font-semibold text-white md:text-2xl">Tu plan de hoy, en un vistazo</h3>
               <p className="text-lg text-gray-400 lg:w-md">Entrenamiento, comidas asignadas por tu coach y hábitos, resumidos en una sola pantalla.</p>
@@ -242,7 +241,7 @@ const Features = () => {
           </div>
 
           <div className="lg:col-span-2">
-            <div className="relative overflow-hidden rounded-2xl bg-black p-3.5 md:p-5 lg:p-10" style={{ backgroundImage: `url(${featureBg2.src})` }}>
+            <div className="relative overflow-hidden rounded-2xl bg-black bg-cover bg-center p-3.5 md:p-5 lg:p-10" style={{ backgroundImage: optimizedBg(homeImages.featureAutoregulation, 2048) }}>
               <div className="absolute inset-0 bg-black/40"></div>
               <div className="relative z-10 grid grid-cols-1 items-center md:gap-10 gap-6 md:grid-cols-2">
                 <div className="flex h-full flex-col justify-between">
@@ -268,7 +267,7 @@ const Features = () => {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl p-3.5 md:p-5 lg:p-10" style={{ backgroundImage: `url(${featureBg3.src})` }}>
+          <div className="relative overflow-hidden rounded-3xl bg-black bg-cover bg-center p-3.5 md:p-5 lg:p-10" style={{ backgroundImage: optimizedBg(homeImages.featureMonthly, 1200) }}>
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/80"></div>
             <div className="relative z-10">
               <div className="mb-6 max-w-2xl md:mb-12.5">

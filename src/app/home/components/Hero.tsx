@@ -1,6 +1,5 @@
 'use client'
 
-import heroImage from '@/assets/images/hero-image.jpg'
 import vector01 from '@/assets/images/vector-01.webp'
 import dashboard01 from '@/assets/images/workspace/dashboard-01.svg'
 import dashboard02 from '@/assets/images/workspace/dashboard-02.svg'
@@ -11,6 +10,8 @@ import lgVideo from 'lightgallery/plugins/video'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
+
+import { homeImages } from '../images'
 
 const Hero = () => {
   const videoRef = useRef<HTMLDivElement>(null)
@@ -38,7 +39,9 @@ const Hero = () => {
 
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-black pt-34 md:pt-40 lg:pt-52">
-      <Image src={heroImage} alt="Hero Background" className="absolute inset-0 h-full w-full object-cover object-center" />
+      <Image src={homeImages.hero} alt="" fill priority sizes="100vw" className="object-cover object-[8%_center] md:object-center" />
+      {/* En móvil el recorte deja a la deportista detrás del titular; en escritorio el centro de la foto ya es oscuro. */}
+      <div className="absolute inset-0 bg-black/45 md:hidden"></div>
 
       <div className="relative z-10 container mx-auto px-4" ref={videoRef}>
         <div className="flex flex-col items-center text-center">
